@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-  <!ENTITY tpm_manager "<application>TPM_Manager 0.1</application>">
-  <!ENTITY kappname "&tpm_manager;"><!-- Do *not* replace kappname-->
+  <!ENTITY tpmmanager "<application>tpmmanager 0.3</application>">
+  <!ENTITY kappname "&tpmmanager;"><!-- Do *not* replace kappname-->
   <!ENTITY package "kde-module"><!-- kdebase, kdeadmin, etc -->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
@@ -44,7 +44,7 @@ thanks ;-).
 as Authors, publish date, the abstract, and Keywords -->
 
 <bookinfo>
-<title>The &tpm_manager; Handbook</title>
+<title>The &tpmmanager; Handbook</title>
 
 <authorgroup>
 <author>
@@ -52,7 +52,7 @@ as Authors, publish date, the abstract, and Keywords -->
 <othername></othername>
 <surname>Anoosheh Zaerin</surname>
 <affiliation>
-<address><email>anoosheh.zaerin@rub.de</email></address>
+<address><email>zaerin@sirrix.com</email></address>
 </affiliation>
 </author>
 </authorgroup>
@@ -61,7 +61,7 @@ as Authors, publish date, the abstract, and Keywords -->
 
 <copyright>
 <year>1999</year>
-<year>2006</year>
+<year>2007</year>
 <holder>Anoosheh Zaerin</holder>
 </copyright>
 <!-- Translators: put here the copyright notice of the translation -->
@@ -77,13 +77,13 @@ Please respect the format of the date (YYYY-MM-DD) and of the version
 Do NOT change these in the translation. -->
 
 <date>2001-10-18</date>
-<releaseinfo>0.1</releaseinfo>
+<releaseinfo>0.3</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
 <abstract>
 <para>
-&tpm_manager; is an application specially designed to do nothing you would
+&tpmmanager; is an application specially designed to do nothing you would
 ever want.
 </para>
 </abstract>
@@ -94,7 +94,7 @@ Please at least include KDE, the KDE package it is in, the name
 
 <keywordset>
 <keyword>KDE</keyword>
-<keyword>TPM_Manager</keyword>
+<keyword>tpmmanager</keyword>
 <keyword>nothing</keyword>
 <keyword>nothing else</keyword>
 </keywordset>
@@ -119,13 +119,13 @@ problems. Basically a long version of the abstract.  Don't include a
 revision history. (see installation appendix comment) -->
 
 <para>
-&tpm_manager; is a program that lets you do absolutely nothing. Please report
+&tpmmanager; is a program that lets you do absolutely nothing. Please report
 any problems or feature requests to the &kde; mailing lists.
 </para>
 </chapter>
 
-<chapter id="using-tpm_manager">
-<title>Using &tpm_manager;</title>
+<chapter id="using-tpmmanager">
+<title>Using &tpmmanager;</title>
 
 <!-- This chapter should tell the user how to use your app. You should use as
 many sections (Chapter, Sect1, Sect3, etc...) as is necessary to fully document
@@ -137,7 +137,7 @@ your application. -->
 patent issues. -->
 
 <screenshot>
-<screeninfo>Here's a screenshot of &tpm_manager;</screeninfo>
+<screeninfo>Here's a screenshot of &tpmmanager;</screeninfo>
 	<mediaobject>
 	  <imageobject>
 	    <imagedata fileref="screenshot.png" format="PNG"/>
@@ -153,8 +153,8 @@ patent issues. -->
 </para>
 
 
-<sect1 id="tpm_manager-features">
-<title>More &tpm_manager; features</title>
+<sect1 id="tpmmanager-features">
+<title>More &tpmmanager; features</title>
 
 <para>It slices! It dices! and it comes with a free toaster!</para>
 <para>
@@ -169,7 +169,7 @@ The Squiggle Tool <guiicon><inlinemediaobject>
 	    <phrase>Squiggle</phrase>
 	  </textobject>
 </inlinemediaobject></guiicon> is used to draw squiggly lines all over
-the &tpm_manager; main window. It's not a bug, it's a feature!
+the &tpmmanager; main window. It's not a bug, it's a feature!
 </para>
 
 </sect1>
@@ -184,8 +184,8 @@ Also include any keys that have a special function but have no equivalent in the
 menus or toolbars. This may not be necessary for small apps or apps with no tool
 or menu bars. -->
 
-<sect1 id="tpm_manager-mainwindow">
-<title>The main &tpm_manager; window</title>
+<sect1 id="tpmmanager-mainwindow">
+<title>The main &tpmmanager; window</title>
 
 <sect2>
 <title>The File Menu</title>
@@ -219,7 +219,7 @@ or menu bars. -->
 <guimenu>File</guimenu>
 <guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
-<listitem><para><action>Quits</action> &tpm_manager;</para></listitem>
+<listitem><para><action>Quits</action> &tpmmanager;</para></listitem>
 </varlistentry>
 </variablelist>
 </para>
@@ -230,7 +230,7 @@ or menu bars. -->
 <title>The <guimenu>Help</guimenu> Menu</title>
 
 <!-- Assuming you have a standard help menu (help, what's this, about -->
-<!-- &tpm_manager;, about KDE) then the documentation is already written. -->
+<!-- &tpmmanager;, about KDE) then the documentation is already written. -->
 <!-- The following entity is valid anywhere that a variablelist is -->
 <!-- valid.  -->
 
@@ -242,14 +242,14 @@ or menu bars. -->
 </chapter>
 
 <chapter id="developers">
-<title>Developer's Guide to &tpm_manager;</title>
+<title>Developer's Guide to &tpmmanager;</title>
 
 <!-- (OPTIONAL) A Programming/Scripting reference chapter should be
 used for apps that use plugins or that provide their own scripting hooks
 and/or development libraries. -->
 
 <para>
-Programming &tpm_manager; plugins is a joy to behold. Just read through the next
+Programming &tpmmanager; plugins is a joy to behold. Just read through the next
 66 pages of API's to learn how!
 </para>
 
@@ -404,7 +404,7 @@ application work. -->
 <qandaset id="faqlist">
 <qandaentry>
 <question>
-<para>My Mouse doesn't work. How do I quit &tpm_manager;?</para>
+<para>My Mouse doesn't work. How do I quit &tpmmanager;?</para>
 </question>
 <answer>
 <para>You silly goose! Check out the <link linkend="commands">Commands
@@ -433,10 +433,10 @@ distribution. -->
 <title>Credits and License</title>
 
 <para>
-&tpm_manager;
+&tpmmanager;
 </para>
 <para>
-Program copyright 2006 Anoosheh Zaerin <email>anoosheh.zaerin@rub.de</email>
+Program copyright 2007 Anoosheh Zaerin <email>zaerin@sirrix.com</email>
 </para>
 <para>
 Contributors:
@@ -449,7 +449,7 @@ Contributors:
 </para>
 
 <para>
-Documentation copyright 2006 Anoosheh Zaerin <email>anoosheh.zaerin@rub.de</email>
+Documentation copyright 2007 Anoosheh Zaerin <email>zaerin@sirrix.com</email>
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
@@ -472,8 +472,8 @@ Documentation copyright 2006 Anoosheh Zaerin <email>anoosheh.zaerin@rub.de</emai
 <appendix id="installation">
 <title>Installation</title>
 
-<sect1 id="getting-tpm_manager">
-<title>How to obtain &tpm_manager;</title>
+<sect1 id="getting-tpmmanager">
+<title>How to obtain &tpmmanager;</title>
 
 <!-- This first entity contains boiler plate for applications that are
 part of KDE CVS.  You should remove it if you are releasing your
@@ -498,22 +498,22 @@ information here.
 -->
 
 <para>
-In order to successfully use &tpm_manager;, you need &kde; 1.1. Foobar.lib is
-required in order to support the advanced &tpm_manager; features. &tpm_manager; uses
+In order to successfully use &tpmmanager;, you need &kde; 1.1. Foobar.lib is
+required in order to support the advanced &tpmmanager; features. &tpmmanager; uses
 about 5 megs of memory to run, but this may vary depending on your
 platform and configuration.
 </para>
 
 <para>
-All required libraries as well as &tpm_manager; itself can be found
-on <ulink url="ftp://ftp.tpm_manager.org">The &tpm_manager; home page</ulink>.
+All required libraries as well as &tpmmanager; itself can be found
+on <ulink url="ftp://ftp.tpmmanager.org">The &tpmmanager; home page</ulink>.
 </para>
 
 <!-- For a list of updates, you may refer to the application web site
 or the ChangeLog file, or ... -->
 <para>
 You can find a list of changes at <ulink
-url="http://apps.kde.org/tpm_manager">http://apps.kde.org/tpm_manager</ulink>.
+url="http://apps.kde.org/tpmmanager">http://apps.kde.org/tpmmanager</ulink>.
 </para>
 </sect1>
 
@@ -532,7 +532,7 @@ url="http://apps.kde.org/tpm_manager">http://apps.kde.org/tpm_manager</ulink>.
 <title>Configuration</title>
 
 <para>Don't forget to tell your system to start the <filename>dtd</filename>
-dicer-toaster daemon first, or &tpm_manager; won't work !</para>
+dicer-toaster daemon first, or &tpmmanager; won't work !</para>
 
 </sect1>
 

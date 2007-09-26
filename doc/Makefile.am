@@ -2,5 +2,5 @@
 # in this directory they are installed into the english dir
 
 KDE_LANG = en
-KDE_DOCS = tpm_manager
+KDE_DOCS = tpmmanager
 SUBDIRS = $(AUTODIRS)  

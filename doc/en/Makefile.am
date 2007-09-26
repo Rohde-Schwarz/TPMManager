@@ -1,2 +1,2 @@
-KDE_DOCS = tpm_manager
+KDE_DOCS = tpmmanager
 KDE_LANG = en

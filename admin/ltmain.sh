@@ -17,7 +17,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #
 # As a special exception to the GNU General Public License, if you
 # distribute this file as part of a program that contains a
@@ -37,6 +37,13 @@ elif test "X`($echo '\t') 2>/dev/null`" = 'X\t'; then
 else
   # Restart under the correct shell, and then maybe $echo will work.
   exec $SHELL "$0" --no-reexec ${1+"$@"}
+fi
+# Same for EGREP, and just to be sure, do LTCC as well
+if test "x$EGREP" = x ; then
+    EGREP=egrep
+fi
+if test "x$LTCC" = x ; then
+    LTCC=${CC-gcc}
 fi
 
 if test "X$1" = X--fallback-echo; then
@@ -113,6 +120,30 @@ show_help=
 execute_dlfiles=
 lo2o="s/\\.lo\$/.${objext}/"
 o2lo="s/\\.${objext}\$/.lo/"
+
+if test -z "$max_cmd_len"; then
+  i=0
+  testring="ABCD"
+  new_result=
+  
+  # If test is not a shell built-in, we'll probably end up computing a
+  # maximum length that is only half of the actual maximum length, but
+  # we can't tell.
+  while (test "X"`$SHELL $0 --fallback-echo "X$testring" 2>/dev/null` \
+             = "XX$testring") >/dev/null 2>&1 &&
+          new_result=`expr "X$testring" : ".*" 2>&1` &&
+          max_cmd_len="$new_result" &&
+          test "$i" != 17 # 1/2 MB should be enough
+  do
+    i=`expr $i + 1`
+    testring="$testring$testring"
+  done
+  testring=
+  # Add a significant safety factor because C++ compilers can tack on massive
+  # amounts of additional arguments before passing them to the linker.
+  # It appears as though 1/2 is a usable value.
+  max_cmd_len=`expr $max_cmd_len \/ 2`
+fi
 
 #####################################
 # Shell function definitions:
@@ -1276,9 +1307,6 @@ EOF
 	    # These systems don't actually have a C or math library (as such)
 	    continue
 	    ;;
-	  *-*-freebsd*-gnu*)
-	    # prevent being parsed by the freebsd regexp below
-	    ;;
 	  *-*-mingw* | *-*-os2*)
 	    # These systems don't actually have a C library (as such)
 	    test "X$arg" = "X-lc" && continue
@@ -1294,9 +1322,6 @@ EOF
 	  esac
 	elif test "X$arg" = "X-lc_r"; then
 	 case $host in
-	 *-*-freebsd*-gnu*)
-	   # prevent being parsed by the freebsd regexp below
-	   ;;
 	 *-*-openbsd*)
 	   # Do not include libc_r directly, use -pthread flag.
 	   continue
@@ -3104,7 +3129,7 @@ EOF
 	tempremovelist=`$echo "$output_objdir/*"`
 	for p in $tempremovelist; do
 	  case $p in
-	    *.$objext)
+	    *.$objext | *$exeext)
 	       ;;
 	    $output_objdir/$outputname | $output_objdir/$libname.* | $output_objdir/${libname}${release}.*)
 	       removelist="$removelist $p"
@@ -3180,12 +3205,6 @@ EOF
 	    ;;
 	  *-*-netbsd*)
 	    # Don't link with libc until the a.out ld.so is fixed.
-	    ;;
-	  *-*-freebsd*-gnu*)
-	    # Prevent $arg from being parsed by the freebsd regexp below.
-	    if test "$build_libtool_need_lc" = "yes"; then
-	      deplibs="$deplibs -lc"
-	    fi
 	    ;;
 	  *-*-openbsd* | *-*-freebsd*)
 	    # Do not include libc due to us having libc/libc_r.
@@ -4585,8 +4604,8 @@ static const void *lt_preloaded_setup() {
 	  *) exeext= ;;
 	esac
 	case $host in
-	  *cygwin* | *mingw* )
-	    cwrappersource=`$echo ${objdir}/lt-${output}.c`
+	  *mingw* )
+	    cwrappersource=`$echo ${output_objdir}/lt-${outputname}.c`
 	    cwrapper=`$echo ${output}.exe`
 	    $rm $cwrappersource $cwrapper
 	    trap "$rm $cwrappersource $cwrapper; exit 1" 1 2 15
@@ -5182,9 +5201,53 @@ fi\
 		  $echo "$modename: \`$deplib' is not a valid libtool archive" 1>&2
 		  exit 1
 		fi
-		newdependency_libs="$newdependency_libs $libdir/$name"
+		if test "x$EGREP" = x ; then
+			EGREP=egrep
+		fi
+		# We do not want portage's install root ($D) present.  Check only for
+		# this if the .la is being installed.
+		if test "$installed" = yes && test "$D"; then
+		  eval mynewdependency_lib=`echo "$libdir/$name" |sed -e "s:$D:/:g" -e 's:/\+:/:g'`
+		else
+		  mynewdependency_lib="$libdir/$name"
+		fi
+		# Do not add duplicates
+		if test "$mynewdependency_lib"; then
+		  my_little_ninja_foo_1=`echo $newdependency_libs |$EGREP -e "$mynewdependency_lib"`
+		  if test -z "$my_little_ninja_foo_1"; then
+		    newdependency_libs="$newdependency_libs $mynewdependency_lib"
+		  fi
+		fi
 		;;
-	      *) newdependency_libs="$newdependency_libs $deplib" ;;
+		  *)
+		if test "$installed" = yes; then
+		  # Rather use S=WORKDIR if our version of portage supports it.
+		  # This is because some ebuild (gcc) do not use $S as buildroot.
+		  if test "$PWORKDIR"; then
+		    S="$PWORKDIR"
+		  fi
+		  # We do not want portage's build root ($S) present.
+		  my_little_ninja_foo_2=`echo $deplib |$EGREP -e "$S"`
+		  # We do not want portage's install root ($D) present.
+		  my_little_ninja_foo_3=`echo $deplib |$EGREP -e "$D"`
+		  if test -n "$my_little_ninja_foo_2" && test "$S"; then
+		    mynewdependency_lib=""
+		  elif test -n "$my_little_ninja_foo_3" && test "$D"; then
+		    eval mynewdependency_lib=`echo "$deplib" |sed -e "s:$D:/:g" -e 's:/\+:/:g'`
+		  else
+		    mynewdependency_lib="$deplib"
+		  fi
+		else
+		  mynewdependency_lib="$deplib"
+		fi
+		# Do not add duplicates
+		if test "$mynewdependency_lib"; then
+		  my_little_ninja_foo_4=`echo $newdependency_libs |$EGREP -e "$mynewdependency_lib"`
+		  if test -z "$my_little_ninja_foo_4"; then
+			newdependency_libs="$newdependency_libs $mynewdependency_lib"
+		  fi
+		fi
+		;;
 	      esac
 	    done
 	    dependency_libs="$newdependency_libs"
@@ -5217,6 +5280,10 @@ fi\
 	  case $host,$output,$installed,$module,$dlname in
 	    *cygwin*,*lai,yes,no,*.dll | *mingw*,*lai,yes,no,*.dll) tdlname=../bin/$dlname ;;
 	  esac
+	  # Do not add duplicates
+	  if test "$installed" = yes && test "$D"; then
+	    install_libdir=`echo "$install_libdir" |sed -e "s:$D:/:g" -e 's:/\+:/:g'`
+	  fi
 	  $echo > $output "\
 # $outputname - a libtool library file
 # Generated by $PROGRAM - GNU $PACKAGE $VERSION$TIMESTAMP
