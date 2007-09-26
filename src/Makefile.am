@@ -21,8 +21,12 @@ KDE_ICON = AUTO
 bin_PROGRAMS = tpmmanager
 
 # the application source, library search path, and link libraries
-tpmmanager_SOURCES = tpmmanagerwidgetbase.ui publickeyview.ui main.cpp tpmmanagerwidget.cpp 	 \
-		PublicKeyView.cpp
+tpmmanager_SOURCES = 	tpmmanagerwidgetbase.ui \
+			publickeyview.ui \
+			main.cpp \
+			tpmmanagerwidget.cpp 	 \
+			PublicKeyView.cpp
+
 tpmmanager_LDFLAGS = $(KDE_RPATH) $(all_libraries) -L$(top_builddir)/src/lib
 tpmmanager_LDADD = $(LIB_KDEUI) -lTPMmanager -ltspi
 
@@ -36,4 +40,4 @@ shellrc_DATA = tpmmanagerui.rc
 
 SUBDIRS = lib
 
-AM_CXXFLAGS = -I$(top_builddir)/src/lib
+AM_CXXFLAGS = -I$(top_builddir)/src/lib/

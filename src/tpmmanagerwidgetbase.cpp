@@ -3,7 +3,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file './tpmmanagerwidgetbase.ui'
 **
-** Created: Wed Sep 27 23:55:46 2006
+** Created: Do Okt 5 01:31:50 2006
 **      by: The User Interface Compiler ($Id: qt/main.cpp   3.3.6   edited Aug 31 2005 $)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -13,14 +13,14 @@
 
 #include <qvariant.h>
 #include <qpushbutton.h>
+#include <qlistbox.h>
+#include <qbuttongroup.h>
+#include <qlabel.h>
 #include <qwidgetstack.h>
 #include <qwidget.h>
 #include <qtabwidget.h>
-#include <qlabel.h>
 #include <qlineedit.h>
 #include <qtable.h>
-#include <qlistbox.h>
-#include <qbuttongroup.h>
 #include <qlayout.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
@@ -28,6 +28,173 @@
 #include <qpixmap.h>
 
 static const unsigned char img0_tpmmanagerwidgetbase[] = { 
+    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d,
+    0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10,
+    0x08, 0x06, 0x00, 0x00, 0x00, 0x1f, 0xf3, 0xff, 0x61, 0x00, 0x00, 0x01,
+    0xac, 0x49, 0x44, 0x41, 0x54, 0x38, 0x8d, 0xc5, 0xd3, 0x3f, 0x48, 0x55,
+    0x01, 0x14, 0xc7, 0xf1, 0xcf, 0xbd, 0xef, 0xbe, 0xe7, 0x43, 0x09, 0x85,
+    0x47, 0x86, 0xa9, 0x39, 0xbc, 0x41, 0x08, 0x6a, 0x10, 0xca, 0x6a, 0x08,
+    0x6c, 0x6f, 0xb3, 0xda, 0x42, 0x4a, 0xa4, 0x29, 0x82, 0xa0, 0x90, 0x96,
+    0xa0, 0xa5, 0xcd, 0x96, 0x96, 0x1a, 0x84, 0xa2, 0xa5, 0x16, 0x03, 0xe1,
+    0x35, 0x84, 0x5b, 0x42, 0xba, 0x54, 0xd0, 0x1f, 0xb0, 0xa0, 0x4c, 0x30,
+    0x5e, 0x68, 0x2f, 0xcb, 0x7c, 0xff, 0xae, 0xb7, 0xa1, 0x40, 0x93, 0xb4,
+    0xc1, 0xa1, 0xb3, 0x9c, 0xdf, 0x19, 0xbe, 0x1c, 0xf8, 0x9d, 0xdf, 0x09,
+    0x92, 0x24, 0xb1, 0x9d, 0x0a, 0xb7, 0x45, 0x23, 0x30, 0xa2, 0x53, 0xdd,
+    0x47, 0xcb, 0xf8, 0x81, 0x15, 0xd4, 0x11, 0x21, 0x83, 0xf4, 0x3a, 0x1d,
+    0xfd, 0x9e, 0x33, 0xf2, 0x99, 0x06, 0x67, 0x53, 0x29, 0xfb, 0x22, 0xb1,
+    0x87, 0xea, 0xae, 0xa0, 0xb0, 0xe5, 0xaa, 0x04, 0xab, 0x76, 0xe3, 0x8c,
+    0xba, 0xa1, 0x6a, 0x5d, 0x39, 0x88, 0x9c, 0x08, 0xc3, 0x38, 0xac, 0xa5,
+    0xb3, 0xe9, 0xbb, 0x6a, 0xfa, 0x36, 0x05, 0xab, 0x72, 0xb8, 0xdc, 0xd2,
+    0xd1, 0x32, 0xd1, 0xd6, 0xd1, 0x76, 0xcd, 0x8a, 0x59, 0x15, 0xc7, 0xf0,
+    0x3c, 0x4c, 0x96, 0x92, 0xfb, 0xb9, 0xbd, 0xb9, 0x5c, 0x76, 0x4f, 0xf6,
+    0x8e, 0xb2, 0xc3, 0x82, 0x75, 0x70, 0xcd, 0x2e, 0xb1, 0x73, 0x51, 0x7b,
+    0xf4, 0xa4, 0xfd, 0x78, 0xfb, 0xf5, 0xe6, 0xce, 0xe6, 0xee, 0xe2, 0x4c,
+    0xb1, 0xa0, 0xe2, 0xa4, 0xc0, 0x1c, 0x44, 0x49, 0x29, 0x99, 0x5e, 0x2c,
+    0x2f, 0x56, 0xc3, 0xfe, 0xb0, 0xc3, 0xa2, 0x7b, 0xde, 0xeb, 0xc7, 0x2b,
+    0x55, 0x03, 0xba, 0x0c, 0x04, 0x47, 0x82, 0xde, 0xcc, 0x81, 0x8c, 0xd2,
+    0xd3, 0x92, 0xe5, 0xc2, 0xf2, 0x03, 0x29, 0x43, 0xb2, 0x4a, 0x6b, 0x26,
+    0x0e, 0x6a, 0xd5, 0xa5, 0xe0, 0x82, 0x1e, 0x45, 0x8c, 0x7a, 0x67, 0xc5,
+    0x82, 0xa3, 0x0e, 0x3a, 0x84, 0x9d, 0x18, 0xc3, 0xb8, 0x1b, 0x1a, 0x5d,
+    0xb5, 0xc3, 0x57, 0x19, 0x64, 0x09, 0x1a, 0x89, 0xac, 0x2a, 0x7a, 0x6b,
+    0xca, 0x6b, 0x3d, 0xba, 0x71, 0x4a, 0x5e, 0x28, 0xaf, 0x0d, 0x35, 0xdc,
+    0x54, 0x37, 0x65, 0x44, 0x83, 0x61, 0x29, 0xf1, 0x46, 0x8b, 0x42, 0x15,
+    0x7c, 0x37, 0xed, 0x85, 0x58, 0x11, 0x0d, 0x68, 0xc2, 0x07, 0xdc, 0xc2,
+    0x84, 0x61, 0x89, 0x4b, 0x7f, 0x83, 0x21, 0xf2, 0x0d, 0xb1, 0x49, 0xcf,
+    0x2c, 0xd8, 0xaf, 0x55, 0x1a, 0x73, 0x18, 0x53, 0x36, 0xe3, 0xbc, 0x26,
+    0xb7, 0xb7, 0x8a, 0x5b, 0x24, 0x46, 0xec, 0x8d, 0x39, 0x2f, 0x7d, 0xd2,
+    0xaa, 0x8a, 0x71, 0x5f, 0xcc, 0xba, 0xa8, 0xd1, 0xe8, 0xbf, 0xb2, 0x1a,
+    0xa9, 0x61, 0x15, 0x15, 0x13, 0x26, 0xf5, 0x99, 0xf7, 0xd9, 0xac, 0xd3,
+    0x22, 0x8f, 0xfe, 0x38, 0xe9, 0x26, 0x95, 0x92, 0x47, 0x80, 0x44, 0xd9,
+    0xbc, 0x5e, 0x4b, 0x06, 0x45, 0x1e, 0x0b, 0xac, 0x45, 0x77, 0x63, 0x4f,
+    0xfd, 0xd2, 0x41, 0x9a, 0xe0, 0xbf, 0x7f, 0xe3, 0x4f, 0xae, 0x03, 0x8b,
+    0xee, 0x04, 0xa5, 0xca, 0xcf, 0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4e,
+    0x44, 0xae, 0x42, 0x60, 0x82
+};
+
+static const unsigned char img1_tpmmanagerwidgetbase[] = { 
+    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d,
+    0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10,
+    0x08, 0x06, 0x00, 0x00, 0x00, 0x1f, 0xf3, 0xff, 0x61, 0x00, 0x00, 0x03,
+    0x07, 0x49, 0x44, 0x41, 0x54, 0x38, 0x8d, 0x6d, 0x93, 0x5b, 0x68, 0x1c,
+    0x75, 0x18, 0xc5, 0x7f, 0xdf, 0x7f, 0x66, 0x67, 0x2f, 0xce, 0xee, 0x26,
+    0xbb, 0xd9, 0x4b, 0x2e, 0xb2, 0x68, 0x52, 0x1a, 0x29, 0xc6, 0x6d, 0x6a,
+    0x9a, 0xd2, 0xd4, 0x82, 0xa6, 0x2d, 0xa8, 0x08, 0xfa, 0x20, 0x48, 0x40,
+    0x45, 0x30, 0x54, 0x10, 0xab, 0xe8, 0xab, 0x0f, 0x0a, 0x2a, 0x82, 0x14,
+    0x15, 0x8b, 0x28, 0xa3, 0x15, 0x5f, 0x04, 0x8b, 0x3e, 0x68, 0x05, 0x6d,
+    0x50, 0x5a, 0x4a, 0x4b, 0x2f, 0x69, 0x93, 0xd4, 0x16, 0x9b, 0x2c, 0x36,
+    0xb2, 0x66, 0xa9, 0xb9, 0x6c, 0xd8, 0x4b, 0x36, 0x1b, 0x77, 0xb3, 0x33,
+    0xe3, 0x43, 0x6c, 0x34, 0x6d, 0x3f, 0xf8, 0xde, 0xce, 0x39, 0x70, 0xbe,
+    0x73, 0x3e, 0xe1, 0x36, 0x73, 0x69, 0x5b, 0xbf, 0xcf, 0x71, 0xdd, 0x3e,
+    0x07, 0xba, 0x5c, 0x5c, 0x71, 0x91, 0x6b, 0x65, 0x5d, 0x1b, 0x1d, 0x3c,
+    0x7f, 0xa6, 0x7a, 0x33, 0x56, 0x6e, 0x22, 0x9a, 0x02, 0xaf, 0x7b, 0x5c,
+    0xf7, 0x85, 0xa0, 0x52, 0xe1, 0xc6, 0x9d, 0x1d, 0x34, 0x02, 0x01, 0x7c,
+    0x99, 0x0c, 0x45, 0xdb, 0x29, 0x55, 0x85, 0xaf, 0x8b, 0xba, 0xe7, 0xed,
+    0x7d, 0xe7, 0x4e, 0xff, 0x79, 0x8b, 0xc0, 0xa5, 0x6d, 0xfd, 0x49, 0x05,
+    0x27, 0xa2, 0x89, 0xf8, 0xe6, 0xf0, 0x33, 0x4f, 0xa3, 0xed, 0x1a, 0x40,
+    0x0b, 0x05, 0x01, 0x70, 0x6b, 0x75, 0xaa, 0x63, 0xe3, 0x54, 0xbe, 0xf8,
+    0x92, 0xf9, 0xcc, 0x54, 0x7e, 0xd6, 0xef, 0x7f, 0xf2, 0x91, 0xd3, 0x27,
+    0x4f, 0xac, 0x0b, 0x4c, 0xf4, 0x6e, 0x37, 0x95, 0xc8, 0x85, 0xb6, 0xde,
+    0xad, 0x9b, 0x7d, 0xaf, 0x1c, 0x40, 0x0f, 0x9a, 0xb7, 0x73, 0x86, 0xb3,
+    0xda, 0xa0, 0xf0, 0xf9, 0x61, 0xe6, 0x7e, 0x3a, 0xb6, 0x38, 0x69, 0x9a,
+    0xf7, 0x0e, 0x9d, 0x3c, 0xfe, 0x97, 0x06, 0xb0, 0xbf, 0xb5, 0xfd, 0x9d,
+    0x58, 0x32, 0xf9, 0x98, 0xff, 0xa5, 0x17, 0xd1, 0x43, 0x26, 0x9e, 0x96,
+    0x16, 0xea, 0xb9, 0x1c, 0x4e, 0xb5, 0xba, 0xbe, 0x28, 0x85, 0x91, 0x88,
+    0xa3, 0xc5, 0x63, 0x68, 0xbf, 0x4f, 0x07, 0x64, 0x76, 0x2e, 0xa8, 0x3d,
+    0xfa, 0xf0, 0x88, 0xba, 0xd0, 0xdb, 0xe7, 0xf3, 0xc0, 0xf3, 0xde, 0x7d,
+    0x7b, 0xb1, 0x2b, 0x15, 0xf4, 0x68, 0x14, 0x2d, 0x18, 0xc4, 0x48, 0xa5,
+    0xa8, 0xcf, 0xe7, 0xa9, 0xcf, 0xe7, 0x71, 0x56, 0x6d, 0xfc, 0x9b, 0x36,
+    0xa1, 0x05, 0x83, 0xb8, 0xb6, 0x83, 0x3c, 0xb0, 0x8b, 0x90, 0xe3, 0x0c,
+    0x6d, 0x99, 0xc9, 0xb5, 0xe9, 0x40, 0x9f, 0x69, 0x18, 0x61, 0xbb, 0xb9,
+    0x09, 0x27, 0x9f, 0xa7, 0xf8, 0xe3, 0x31, 0xc2, 0x7b, 0x1e, 0xc2, 0x48,
+    0x24, 0xb8, 0x23, 0xdd, 0x43, 0xf5, 0xd7, 0x2b, 0x04, 0xb7, 0xdf, 0x0f,
+    0xc0, 0xe2, 0x77, 0xdf, 0x63, 0x7e, 0xfa, 0x19, 0xed, 0xe5, 0x25, 0x5c,
+    0xa5, 0xcc, 0xce, 0x72, 0x65, 0xa7, 0x0e, 0x74, 0xa9, 0x48, 0x84, 0x46,
+    0x3e, 0x8f, 0x68, 0x1a, 0x28, 0xc5, 0xe2, 0x91, 0x6f, 0x88, 0x3c, 0xf1,
+    0x38, 0xde, 0x8e, 0x76, 0x8c, 0xbd, 0x09, 0x00, 0x96, 0x0e, 0x7d, 0x4c,
+    0xe0, 0x97, 0xe3, 0x78, 0x97, 0x96, 0x41, 0xc0, 0xa7, 0x69, 0x78, 0x44,
+    0xba, 0x74, 0x40, 0xb4, 0x7a, 0x1d, 0x2d, 0x3b, 0x83, 0x18, 0x06, 0x62,
+    0x18, 0xf8, 0xf2, 0x0b, 0x30, 0x37, 0x0f, 0x6f, 0xbd, 0xb9, 0x76, 0xbd,
+    0xf1, 0x09, 0x82, 0x47, 0xbe, 0xfd, 0x2f, 0x37, 0x57, 0x01, 0x82, 0x23,
+    0xa2, 0x94, 0x8b, 0x5c, 0x73, 0x4a, 0x25, 0xa2, 0x53, 0x19, 0x22, 0x97,
+    0xaf, 0xd0, 0x7c, 0x71, 0x8c, 0x40, 0x28, 0x84, 0xf7, 0x7f, 0x64, 0xb6,
+    0xa6, 0xe1, 0xc3, 0x83, 0xff, 0x0a, 0x08, 0xe8, 0x1a, 0x35, 0xa7, 0xc1,
+    0x8a, 0x48, 0x4e, 0x95, 0x75, 0x6d, 0xb4, 0x64, 0xdb, 0x25, 0x11, 0x41,
+    0x34, 0x85, 0xa4, 0x7b, 0xd0, 0xde, 0x7b, 0x77, 0x0d, 0x7c, 0xe0, 0x55,
+    0x78, 0xf9, 0xb5, 0x75, 0x11, 0xf7, 0xa3, 0xf7, 0xb1, 0x03, 0x7e, 0x6c,
+    0x9f, 0x8f, 0x82, 0xed, 0x2c, 0x5f, 0x8d, 0x34, 0x8d, 0xab, 0xc1, 0xf3,
+    0x67, 0xaa, 0x55, 0xe1, 0xf0, 0xac, 0x12, 0xca, 0x1d, 0x1d, 0x38, 0xcf,
+    0x3d, 0xbb, 0xe6, 0xf9, 0xe0, 0x07, 0x14, 0x6a, 0x35, 0x0a, 0xf7, 0x74,
+    0x53, 0xf8, 0xc4, 0x62, 0x75, 0x2a, 0x83, 0xdc, 0xd7, 0x43, 0x75, 0xcf,
+    0x20, 0xb3, 0x4a, 0x58, 0xf0, 0xe8, 0x47, 0xb3, 0xf1, 0xd8, 0x75, 0x01,
+    0x18, 0xe9, 0x1f, 0x68, 0x8e, 0xd8, 0x8d, 0xd1, 0x96, 0x1d, 0x3b, 0x3a,
+    0x8d, 0x96, 0xe8, 0x5a, 0x84, 0xd9, 0xec, 0x2d, 0x45, 0x32, 0x52, 0x29,
+    0x2a, 0x17, 0xc7, 0x58, 0x38, 0x7b, 0x36, 0xf7, 0x73, 0x5b, 0xeb, 0x53,
+    0xd3, 0x89, 0xd8, 0xe8, 0x7a, 0x95, 0x7f, 0x18, 0xd8, 0xdd, 0x99, 0xac,
+    0xd7, 0x47, 0xc2, 0xe9, 0xf4, 0xdd, 0x66, 0x77, 0x37, 0x22, 0x1b, 0xc9,
+    0xae, 0x0b, 0x95, 0xc9, 0x49, 0x8a, 0x13, 0x13, 0xb9, 0x53, 0xc9, 0xc4,
+    0xfe, 0xdf, 0x92, 0xf1, 0x53, 0x96, 0x65, 0x95, 0x37, 0xc0, 0xbe, 0xda,
+    0xfd, 0x60, 0x6b, 0xaa, 0xba, 0xf2, 0x46, 0x20, 0x10, 0x18, 0x32, 0xee,
+    0x4a, 0x99, 0xde, 0xa6, 0x66, 0x00, 0x6a, 0xc5, 0x02, 0xf5, 0x3f, 0xb2,
+    0xcb, 0x85, 0xda, 0xdf, 0x47, 0xcf, 0x25, 0xe2, 0x87, 0xa6, 0x13, 0xb1,
+    0xcb, 0x96, 0x65, 0x95, 0x37, 0x3c, 0xd3, 0x8d, 0x19, 0x1e, 0x1e, 0x36,
+    0xb6, 0xcc, 0xe4, 0xda, 0x3a, 0xcb, 0x95, 0x9d, 0x1e, 0x91, 0x2e, 0x47,
+    0x44, 0xad, 0x88, 0xe4, 0xae, 0x46, 0x9a, 0xc6, 0xb3, 0xf1, 0xd8, 0x75,
+    0x60, 0xd1, 0xb2, 0xac, 0xfa, 0x0d, 0xfc, 0x3f, 0xf6, 0x5f, 0x26, 0x12,
+    0xa2, 0x88, 0xfa, 0x15, 0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4e, 0x44,
+    0xae, 0x42, 0x60, 0x82
+};
+
+static const unsigned char img2_tpmmanagerwidgetbase[] = { 
+    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d,
+    0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x0f,
+    0x08, 0x06, 0x00, 0x00, 0x00, 0xed, 0x73, 0x4f, 0x2f, 0x00, 0x00, 0x01,
+    0xf8, 0x49, 0x44, 0x41, 0x54, 0x28, 0x91, 0x95, 0x92, 0xbf, 0x6b, 0x53,
+    0x51, 0x14, 0xc7, 0x3f, 0xf7, 0xa5, 0xc9, 0x4b, 0x7c, 0xd8, 0x3e, 0x6c,
+    0x1c, 0x4a, 0x41, 0x5f, 0x91, 0x50, 0x90, 0x5a, 0x9b, 0x41, 0xf0, 0x07,
+    0xda, 0xd0, 0xc5, 0xc5, 0x45, 0x70, 0x70, 0x6b, 0xf2, 0x1f, 0xc4, 0xc5,
+    0x5f, 0x8b, 0xad, 0x9b, 0x2e, 0xad, 0x08, 0x22, 0x2e, 0x29, 0x4e, 0x2e,
+    0x82, 0xe8, 0xa2, 0x06, 0xa4, 0xab, 0x1d, 0xa4, 0x83, 0xa0, 0x34, 0xd0,
+    0x14, 0xdb, 0x67, 0x9a, 0x9a, 0x34, 0x2f, 0x91, 0x58, 0x9a, 0x77, 0xef,
+    0x7d, 0x0e, 0xda, 0x6a, 0x6a, 0x52, 0xf0, 0x4c, 0x87, 0x73, 0xbf, 0xe7,
+    0xc3, 0x3d, 0xe7, 0x7c, 0x61, 0x9f, 0x68, 0xdc, 0x26, 0x57, 0xbb, 0x41,
+    0x6e, 0x3f, 0x8d, 0xe8, 0xf6, 0xe0, 0xdd, 0xc2, 0x36, 0xfa, 0xcc, 0xa2,
+    0xef, 0x43, 0xab, 0xb2, 0x3d, 0x34, 0xf0, 0x00, 0xaf, 0x93, 0xce, 0xe8,
+    0x06, 0x08, 0x02, 0xb2, 0xe1, 0x13, 0x47, 0xed, 0xc8, 0xe8, 0x71, 0x5b,
+    0x49, 0xb2, 0xdd, 0x74, 0x5d, 0x01, 0x44, 0x8c, 0xc9, 0x48, 0x6a, 0x94,
+    0x03, 0x13, 0xc7, 0xd0, 0x61, 0x63, 0xf2, 0xbf, 0x00, 0xd5, 0xeb, 0xa4,
+    0x43, 0x89, 0x41, 0x47, 0xc4, 0x56, 0x11, 0xd6, 0x2a, 0xd1, 0x61, 0xc7,
+    0x59, 0xbb, 0x7b, 0x78, 0x4a, 0xeb, 0xbc, 0xbd, 0x57, 0x2b, 0xf4, 0x7d,
+    0x72, 0x4a, 0xe3, 0x28, 0x1f, 0x54, 0x2c, 0x92, 0xd2, 0x56, 0x1f, 0xca,
+    0x07, 0xeb, 0xea, 0x19, 0x42, 0xf1, 0x32, 0x00, 0xb2, 0x7c, 0x84, 0xd2,
+    0xe3, 0x79, 0x94, 0x82, 0xad, 0xf5, 0x3a, 0x98, 0x51, 0xaf, 0x5e, 0x6c,
+    0x2c, 0x2a, 0xc9, 0x8a, 0x50, 0xf7, 0xc8, 0xe9, 0xc4, 0x70, 0x3a, 0x34,
+    0x71, 0x1a, 0xcc, 0xcd, 0xdf, 0x5c, 0xb7, 0xcb, 0x87, 0xe3, 0x80, 0x89,
+    0x72, 0x25, 0xcb, 0x4f, 0xde, 0x53, 0xfe, 0xb0, 0x39, 0x27, 0x00, 0xb6,
+    0xa6, 0xc8, 0xea, 0xde, 0xd0, 0x4c, 0xf4, 0xca, 0x49, 0x44, 0xe8, 0x47,
+    0xd7, 0xb5, 0x20, 0x05, 0xca, 0x85, 0x8f, 0x8f, 0x96, 0xf8, 0x5e, 0x56,
+    0xd7, 0x2e, 0xe4, 0x99, 0xdd, 0x3d, 0x63, 0xed, 0x26, 0x69, 0xec, 0x68,
+    0xce, 0x3a, 0xdb, 0x4b, 0x4f, 0x3c, 0xfa, 0x6f, 0xf3, 0xb6, 0x41, 0x73,
+    0x49, 0xb2, 0xfc, 0xea, 0x2b, 0x8d, 0x6f, 0x3a, 0x73, 0xfe, 0x0d, 0x73,
+    0xb0, 0xc7, 0x07, 0xb5, 0x87, 0x03, 0x59, 0xbf, 0x52, 0x9e, 0x89, 0x5f,
+    0xec, 0xef, 0x08, 0xf8, 0xf4, 0xb4, 0x82, 0x57, 0x52, 0x97, 0xcf, 0xbd,
+    0xe6, 0xc5, 0x4e, 0xb9, 0xa7, 0x6d, 0xa3, 0x83, 0x09, 0x3b, 0xdc, 0xdc,
+    0x80, 0xfa, 0xf6, 0xaf, 0x82, 0xe6, 0xcf, 0x9d, 0x14, 0x98, 0x31, 0x81,
+    0xd6, 0xed, 0x86, 0x6a, 0x03, 0xb4, 0xdc, 0x2f, 0xe3, 0xb1, 0x30, 0xe0,
+    0xb5, 0xc0, 0x13, 0xb4, 0xea, 0x01, 0x58, 0x01, 0x91, 0x7e, 0x01, 0x02,
+    0x2c, 0x13, 0xa4, 0x24, 0x05, 0xcc, 0x77, 0x04, 0xa8, 0x46, 0x33, 0x65,
+    0xc6, 0x02, 0x54, 0xc1, 0xa7, 0xb4, 0xa6, 0xa9, 0x56, 0x83, 0x45, 0xe9,
+    0x83, 0x7d, 0x48, 0x8c, 0x39, 0x23, 0x06, 0xf6, 0x41, 0x50, 0x92, 0xf1,
+    0xbf, 0x7b, 0x76, 0x8d, 0xa4, 0x75, 0xde, 0x6e, 0xb9, 0x55, 0xbc, 0x82,
+    0xa6, 0xf0, 0x59, 0x79, 0x5e, 0x2d, 0xc8, 0x24, 0x9f, 0x93, 0x3c, 0xf5,
+    0x92, 0xe4, 0xc6, 0x7a, 0x90, 0x59, 0x78, 0xab, 0x3c, 0xb7, 0xa0, 0x30,
+    0x60, 0xac, 0x6d, 0xec, 0x9d, 0xa4, 0x90, 0xc1, 0xd1, 0x9a, 0xa2, 0xf2,
+    0x99, 0xd6, 0x9a, 0xd9, 0x91, 0x67, 0xed, 0xb3, 0xbe, 0x4b, 0x61, 0x2b,
+    0x49, 0x56, 0x4a, 0xee, 0x28, 0xcd, 0xd0, 0xa5, 0x05, 0x56, 0x00, 0x7e,
+    0x02, 0x9b, 0xd1, 0xcd, 0x74, 0x9c, 0xe3, 0xc3, 0x84, 0x00, 0x00, 0x00,
+    0x00, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82
+};
+
+static const unsigned char img3_tpmmanagerwidgetbase[] = { 
     0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d,
     0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x2f,
     0x08, 0x06, 0x00, 0x00, 0x00, 0xa5, 0x82, 0x49, 0xc9, 0x00, 0x00, 0x0c,
@@ -298,7 +465,7 @@ static const unsigned char img0_tpmmanagerwidgetbase[] = {
     0x00, 0x00, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82
 };
 
-static const unsigned char img1_tpmmanagerwidgetbase[] = { 
+static const unsigned char img4_tpmmanagerwidgetbase[] = { 
     0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d,
     0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x2d,
     0x08, 0x06, 0x00, 0x00, 0x00, 0xe8, 0x4a, 0xe8, 0xc2, 0x00, 0x00, 0x0d,
@@ -586,123 +753,6 @@ static const unsigned char img1_tpmmanagerwidgetbase[] = {
     0x4e, 0x44, 0xae, 0x42, 0x60, 0x82
 };
 
-static const unsigned char img2_tpmmanagerwidgetbase[] = { 
-    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d,
-    0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10,
-    0x08, 0x06, 0x00, 0x00, 0x00, 0x1f, 0xf3, 0xff, 0x61, 0x00, 0x00, 0x01,
-    0xac, 0x49, 0x44, 0x41, 0x54, 0x38, 0x8d, 0xc5, 0xd3, 0x3f, 0x48, 0x55,
-    0x01, 0x14, 0xc7, 0xf1, 0xcf, 0xbd, 0xef, 0xbe, 0xe7, 0x43, 0x09, 0x85,
-    0x47, 0x86, 0xa9, 0x39, 0xbc, 0x41, 0x08, 0x6a, 0x10, 0xca, 0x6a, 0x08,
-    0x6c, 0x6f, 0xb3, 0xda, 0x42, 0x4a, 0xa4, 0x29, 0x82, 0xa0, 0x90, 0x96,
-    0xa0, 0xa5, 0xcd, 0x96, 0x96, 0x1a, 0x84, 0xa2, 0xa5, 0x16, 0x03, 0xe1,
-    0x35, 0x84, 0x5b, 0x42, 0xba, 0x54, 0xd0, 0x1f, 0xb0, 0xa0, 0x4c, 0x30,
-    0x5e, 0x68, 0x2f, 0xcb, 0x7c, 0xff, 0xae, 0xb7, 0xa1, 0x40, 0x93, 0xb4,
-    0xc1, 0xa1, 0xb3, 0x9c, 0xdf, 0x19, 0xbe, 0x1c, 0xf8, 0x9d, 0xdf, 0x09,
-    0x92, 0x24, 0xb1, 0x9d, 0x0a, 0xb7, 0x45, 0x23, 0x30, 0xa2, 0x53, 0xdd,
-    0x47, 0xcb, 0xf8, 0x81, 0x15, 0xd4, 0x11, 0x21, 0x83, 0xf4, 0x3a, 0x1d,
-    0xfd, 0x9e, 0x33, 0xf2, 0x99, 0x06, 0x67, 0x53, 0x29, 0xfb, 0x22, 0xb1,
-    0x87, 0xea, 0xae, 0xa0, 0xb0, 0xe5, 0xaa, 0x04, 0xab, 0x76, 0xe3, 0x8c,
-    0xba, 0xa1, 0x6a, 0x5d, 0x39, 0x88, 0x9c, 0x08, 0xc3, 0x38, 0xac, 0xa5,
-    0xb3, 0xe9, 0xbb, 0x6a, 0xfa, 0x36, 0x05, 0xab, 0x72, 0xb8, 0xdc, 0xd2,
-    0xd1, 0x32, 0xd1, 0xd6, 0xd1, 0x76, 0xcd, 0x8a, 0x59, 0x15, 0xc7, 0xf0,
-    0x3c, 0x4c, 0x96, 0x92, 0xfb, 0xb9, 0xbd, 0xb9, 0x5c, 0x76, 0x4f, 0xf6,
-    0x8e, 0xb2, 0xc3, 0x82, 0x75, 0x70, 0xcd, 0x2e, 0xb1, 0x73, 0x51, 0x7b,
-    0xf4, 0xa4, 0xfd, 0x78, 0xfb, 0xf5, 0xe6, 0xce, 0xe6, 0xee, 0xe2, 0x4c,
-    0xb1, 0xa0, 0xe2, 0xa4, 0xc0, 0x1c, 0x44, 0x49, 0x29, 0x99, 0x5e, 0x2c,
-    0x2f, 0x56, 0xc3, 0xfe, 0xb0, 0xc3, 0xa2, 0x7b, 0xde, 0xeb, 0xc7, 0x2b,
-    0x55, 0x03, 0xba, 0x0c, 0x04, 0x47, 0x82, 0xde, 0xcc, 0x81, 0x8c, 0xd2,
-    0xd3, 0x92, 0xe5, 0xc2, 0xf2, 0x03, 0x29, 0x43, 0xb2, 0x4a, 0x6b, 0x26,
-    0x0e, 0x6a, 0xd5, 0xa5, 0xe0, 0x82, 0x1e, 0x45, 0x8c, 0x7a, 0x67, 0xc5,
-    0x82, 0xa3, 0x0e, 0x3a, 0x84, 0x9d, 0x18, 0xc3, 0xb8, 0x1b, 0x1a, 0x5d,
-    0xb5, 0xc3, 0x57, 0x19, 0x64, 0x09, 0x1a, 0x89, 0xac, 0x2a, 0x7a, 0x6b,
-    0xca, 0x6b, 0x3d, 0xba, 0x71, 0x4a, 0x5e, 0x28, 0xaf, 0x0d, 0x35, 0xdc,
-    0x54, 0x37, 0x65, 0x44, 0x83, 0x61, 0x29, 0xf1, 0x46, 0x8b, 0x42, 0x15,
-    0x7c, 0x37, 0xed, 0x85, 0x58, 0x11, 0x0d, 0x68, 0xc2, 0x07, 0xdc, 0xc2,
-    0x84, 0x61, 0x89, 0x4b, 0x7f, 0x83, 0x21, 0xf2, 0x0d, 0xb1, 0x49, 0xcf,
-    0x2c, 0xd8, 0xaf, 0x55, 0x1a, 0x73, 0x18, 0x53, 0x36, 0xe3, 0xbc, 0x26,
-    0xb7, 0xb7, 0x8a, 0x5b, 0x24, 0x46, 0xec, 0x8d, 0x39, 0x2f, 0x7d, 0xd2,
-    0xaa, 0x8a, 0x71, 0x5f, 0xcc, 0xba, 0xa8, 0xd1, 0xe8, 0xbf, 0xb2, 0x1a,
-    0xa9, 0x61, 0x15, 0x15, 0x13, 0x26, 0xf5, 0x99, 0xf7, 0xd9, 0xac, 0xd3,
-    0x22, 0x8f, 0xfe, 0x38, 0xe9, 0x26, 0x95, 0x92, 0x47, 0x80, 0x44, 0xd9,
-    0xbc, 0x5e, 0x4b, 0x06, 0x45, 0x1e, 0x0b, 0xac, 0x45, 0x77, 0x63, 0x4f,
-    0xfd, 0xd2, 0x41, 0x9a, 0xe0, 0xbf, 0x7f, 0xe3, 0x4f, 0xae, 0x03, 0x8b,
-    0xee, 0x04, 0xa5, 0xca, 0xcf, 0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4e,
-    0x44, 0xae, 0x42, 0x60, 0x82
-};
-
-static const unsigned char img3_tpmmanagerwidgetbase[] = { 
-    0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d,
-    0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10,
-    0x08, 0x06, 0x00, 0x00, 0x00, 0x1f, 0xf3, 0xff, 0x61, 0x00, 0x00, 0x03,
-    0x07, 0x49, 0x44, 0x41, 0x54, 0x38, 0x8d, 0x6d, 0x93, 0x5b, 0x68, 0x1c,
-    0x75, 0x18, 0xc5, 0x7f, 0xdf, 0x7f, 0x66, 0x67, 0x2f, 0xce, 0xee, 0x26,
-    0xbb, 0xd9, 0x4b, 0x2e, 0xb2, 0x68, 0x52, 0x1a, 0x29, 0xc6, 0x6d, 0x6a,
-    0x9a, 0xd2, 0xd4, 0x82, 0xa6, 0x2d, 0xa8, 0x08, 0xfa, 0x20, 0x48, 0x40,
-    0x45, 0x30, 0x54, 0x10, 0xab, 0xe8, 0xab, 0x0f, 0x0a, 0x2a, 0x82, 0x14,
-    0x15, 0x8b, 0x28, 0xa3, 0x15, 0x5f, 0x04, 0x8b, 0x3e, 0x68, 0x05, 0x6d,
-    0x50, 0x5a, 0x4a, 0x4b, 0x2f, 0x69, 0x93, 0xd4, 0x16, 0x9b, 0x2c, 0x36,
-    0xb2, 0x66, 0xa9, 0xb9, 0x6c, 0xd8, 0x4b, 0x36, 0x1b, 0x77, 0xb3, 0x33,
-    0xe3, 0x43, 0x6c, 0x34, 0x6d, 0x3f, 0xf8, 0xde, 0xce, 0x39, 0x70, 0xbe,
-    0x73, 0x3e, 0xe1, 0x36, 0x73, 0x69, 0x5b, 0xbf, 0xcf, 0x71, 0xdd, 0x3e,
-    0x07, 0xba, 0x5c, 0x5c, 0x71, 0x91, 0x6b, 0x65, 0x5d, 0x1b, 0x1d, 0x3c,
-    0x7f, 0xa6, 0x7a, 0x33, 0x56, 0x6e, 0x22, 0x9a, 0x02, 0xaf, 0x7b, 0x5c,
-    0xf7, 0x85, 0xa0, 0x52, 0xe1, 0xc6, 0x9d, 0x1d, 0x34, 0x02, 0x01, 0x7c,
-    0x99, 0x0c, 0x45, 0xdb, 0x29, 0x55, 0x85, 0xaf, 0x8b, 0xba, 0xe7, 0xed,
-    0x7d, 0xe7, 0x4e, 0xff, 0x79, 0x8b, 0xc0, 0xa5, 0x6d, 0xfd, 0x49, 0x05,
-    0x27, 0xa2, 0x89, 0xf8, 0xe6, 0xf0, 0x33, 0x4f, 0xa3, 0xed, 0x1a, 0x40,
-    0x0b, 0x05, 0x01, 0x70, 0x6b, 0x75, 0xaa, 0x63, 0xe3, 0x54, 0xbe, 0xf8,
-    0x92, 0xf9, 0xcc, 0x54, 0x7e, 0xd6, 0xef, 0x7f, 0xf2, 0x91, 0xd3, 0x27,
-    0x4f, 0xac, 0x0b, 0x4c, 0xf4, 0x6e, 0x37, 0x95, 0xc8, 0x85, 0xb6, 0xde,
-    0xad, 0x9b, 0x7d, 0xaf, 0x1c, 0x40, 0x0f, 0x9a, 0xb7, 0x73, 0x86, 0xb3,
-    0xda, 0xa0, 0xf0, 0xf9, 0x61, 0xe6, 0x7e, 0x3a, 0xb6, 0x38, 0x69, 0x9a,
-    0xf7, 0x0e, 0x9d, 0x3c, 0xfe, 0x97, 0x06, 0xb0, 0xbf, 0xb5, 0xfd, 0x9d,
-    0x58, 0x32, 0xf9, 0x98, 0xff, 0xa5, 0x17, 0xd1, 0x43, 0x26, 0x9e, 0x96,
-    0x16, 0xea, 0xb9, 0x1c, 0x4e, 0xb5, 0xba, 0xbe, 0x28, 0x85, 0x91, 0x88,
-    0xa3, 0xc5, 0x63, 0x68, 0xbf, 0x4f, 0x07, 0x64, 0x76, 0x2e, 0xa8, 0x3d,
-    0xfa, 0xf0, 0x88, 0xba, 0xd0, 0xdb, 0xe7, 0xf3, 0xc0, 0xf3, 0xde, 0x7d,
-    0x7b, 0xb1, 0x2b, 0x15, 0xf4, 0x68, 0x14, 0x2d, 0x18, 0xc4, 0x48, 0xa5,
-    0xa8, 0xcf, 0xe7, 0xa9, 0xcf, 0xe7, 0x71, 0x56, 0x6d, 0xfc, 0x9b, 0x36,
-    0xa1, 0x05, 0x83, 0xb8, 0xb6, 0x83, 0x3c, 0xb0, 0x8b, 0x90, 0xe3, 0x0c,
-    0x6d, 0x99, 0xc9, 0xb5, 0xe9, 0x40, 0x9f, 0x69, 0x18, 0x61, 0xbb, 0xb9,
-    0x09, 0x27, 0x9f, 0xa7, 0xf8, 0xe3, 0x31, 0xc2, 0x7b, 0x1e, 0xc2, 0x48,
-    0x24, 0xb8, 0x23, 0xdd, 0x43, 0xf5, 0xd7, 0x2b, 0x04, 0xb7, 0xdf, 0x0f,
-    0xc0, 0xe2, 0x77, 0xdf, 0x63, 0x7e, 0xfa, 0x19, 0xed, 0xe5, 0x25, 0x5c,
-    0xa5, 0xcc, 0xce, 0x72, 0x65, 0xa7, 0x0e, 0x74, 0xa9, 0x48, 0x84, 0x46,
-    0x3e, 0x8f, 0x68, 0x1a, 0x28, 0xc5, 0xe2, 0x91, 0x6f, 0x88, 0x3c, 0xf1,
-    0x38, 0xde, 0x8e, 0x76, 0x8c, 0xbd, 0x09, 0x00, 0x96, 0x0e, 0x7d, 0x4c,
-    0xe0, 0x97, 0xe3, 0x78, 0x97, 0x96, 0x41, 0xc0, 0xa7, 0x69, 0x78, 0x44,
-    0xba, 0x74, 0x40, 0xb4, 0x7a, 0x1d, 0x2d, 0x3b, 0x83, 0x18, 0x06, 0x62,
-    0x18, 0xf8, 0xf2, 0x0b, 0x30, 0x37, 0x0f, 0x6f, 0xbd, 0xb9, 0x76, 0xbd,
-    0xf1, 0x09, 0x82, 0x47, 0xbe, 0xfd, 0x2f, 0x37, 0x57, 0x01, 0x82, 0x23,
-    0xa2, 0x94, 0x8b, 0x5c, 0x73, 0x4a, 0x25, 0xa2, 0x53, 0x19, 0x22, 0x97,
-    0xaf, 0xd0, 0x7c, 0x71, 0x8c, 0x40, 0x28, 0x84, 0xf7, 0x7f, 0x64, 0xb6,
-    0xa6, 0xe1, 0xc3, 0x83, 0xff, 0x0a, 0x08, 0xe8, 0x1a, 0x35, 0xa7, 0xc1,
-    0x8a, 0x48, 0x4e, 0x95, 0x75, 0x6d, 0xb4, 0x64, 0xdb, 0x25, 0x11, 0x41,
-    0x34, 0x85, 0xa4, 0x7b, 0xd0, 0xde, 0x7b, 0x77, 0x0d, 0x7c, 0xe0, 0x55,
-    0x78, 0xf9, 0xb5, 0x75, 0x11, 0xf7, 0xa3, 0xf7, 0xb1, 0x03, 0x7e, 0x6c,
-    0x9f, 0x8f, 0x82, 0xed, 0x2c, 0x5f, 0x8d, 0x34, 0x8d, 0xab, 0xc1, 0xf3,
-    0x67, 0xaa, 0x55, 0xe1, 0xf0, 0xac, 0x12, 0xca, 0x1d, 0x1d, 0x38, 0xcf,
-    0x3d, 0xbb, 0xe6, 0xf9, 0xe0, 0x07, 0x14, 0x6a, 0x35, 0x0a, 0xf7, 0x74,
-    0x53, 0xf8, 0xc4, 0x62, 0x75, 0x2a, 0x83, 0xdc, 0xd7, 0x43, 0x75, 0xcf,
-    0x20, 0xb3, 0x4a, 0x58, 0xf0, 0xe8, 0x47, 0xb3, 0xf1, 0xd8, 0x75, 0x01,
-    0x18, 0xe9, 0x1f, 0x68, 0x8e, 0xd8, 0x8d, 0xd1, 0x96, 0x1d, 0x3b, 0x3a,
-    0x8d, 0x96, 0xe8, 0x5a, 0x84, 0xd9, 0xec, 0x2d, 0x45, 0x32, 0x52, 0x29,
-    0x2a, 0x17, 0xc7, 0x58, 0x38, 0x7b, 0x36, 0xf7, 0x73, 0x5b, 0xeb, 0x53,
-    0xd3, 0x89, 0xd8, 0xe8, 0x7a, 0x95, 0x7f, 0x18, 0xd8, 0xdd, 0x99, 0xac,
-    0xd7, 0x47, 0xc2, 0xe9, 0xf4, 0xdd, 0x66, 0x77, 0x37, 0x22, 0x1b, 0xc9,
-    0xae, 0x0b, 0x95, 0xc9, 0x49, 0x8a, 0x13, 0x13, 0xb9, 0x53, 0xc9, 0xc4,
-    0xfe, 0xdf, 0x92, 0xf1, 0x53, 0x96, 0x65, 0x95, 0x37, 0xc0, 0xbe, 0xda,
-    0xfd, 0x60, 0x6b, 0xaa, 0xba, 0xf2, 0x46, 0x20, 0x10, 0x18, 0x32, 0xee,
-    0x4a, 0x99, 0xde, 0xa6, 0x66, 0x00, 0x6a, 0xc5, 0x02, 0xf5, 0x3f, 0xb2,
-    0xcb, 0x85, 0xda, 0xdf, 0x47, 0xcf, 0x25, 0xe2, 0x87, 0xa6, 0x13, 0xb1,
-    0xcb, 0x96, 0x65, 0x95, 0x37, 0x3c, 0xd3, 0x8d, 0x19, 0x1e, 0x1e, 0x36,
-    0xb6, 0xcc, 0xe4, 0xda, 0x3a, 0xcb, 0x95, 0x9d, 0x1e, 0x91, 0x2e, 0x47,
-    0x44, 0xad, 0x88, 0xe4, 0xae, 0x46, 0x9a, 0xc6, 0xb3, 0xf1, 0xd8, 0x75,
-    0x60, 0xd1, 0xb2, 0xac, 0xfa, 0x0d, 0xfc, 0x3f, 0xf6, 0x5f, 0x26, 0x12,
-    0xa2, 0x88, 0xfa, 0x15, 0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4e, 0x44,
-    0xae, 0x42, 0x60, 0x82
-};
-
 
 /*
  *  Constructs a TPM_ManagerWidgetBase as a child of 'parent', with the
@@ -723,141 +773,236 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     image2 = img;
     img.loadFromData( img3_tpmmanagerwidgetbase, sizeof( img3_tpmmanagerwidgetbase ), "PNG" );
     image3 = img;
+    img.loadFromData( img4_tpmmanagerwidgetbase, sizeof( img4_tpmmanagerwidgetbase ), "PNG" );
+    image4 = img;
     if ( !name )
 	setName( "TPM_ManagerWidgetBase" );
     setPaletteForegroundColor( QColor( 0, 85, 127 ) );
     setSizeGripEnabled( TRUE );
+    TPM_ManagerWidgetBaseLayout = new QVBoxLayout( this, 11, 6, "TPM_ManagerWidgetBaseLayout"); 
+
+    layout87 = new QVBoxLayout( 0, 0, 6, "layout87"); 
+
+    layout86 = new QHBoxLayout( 0, 0, 6, "layout86"); 
+
+    layout57 = new QVBoxLayout( 0, 0, 6, "layout57"); 
+
+    listBox = new QListBox( this, "listBox" );
+    listBox->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 1, listBox->sizePolicy().hasHeightForWidth() ) );
+    listBox->setPaletteForegroundColor( QColor( 0, 85, 127 ) );
+    listBox->setPaletteBackgroundColor( QColor( 239, 239, 239 ) );
+    listBox->setFocusPolicy( QListBox::StrongFocus );
+    listBox->setFrameShape( QListBox::StyledPanel );
+    listBox->setFrameShadow( QListBox::Raised );
+    listBox->setLineWidth( 1 );
+    layout57->addWidget( listBox );
+
+    buttonGroup1 = new QButtonGroup( this, "buttonGroup1" );
+    buttonGroup1->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)1, 0, 0, buttonGroup1->sizePolicy().hasHeightForWidth() ) );
+    buttonGroup1->setFrameShape( QButtonGroup::GroupBoxPanel );
+    buttonGroup1->setFrameShadow( QButtonGroup::Raised );
+    buttonGroup1->setLineWidth( 1 );
+    buttonGroup1->setColumnLayout(0, Qt::Vertical );
+    buttonGroup1->layout()->setSpacing( 6 );
+    buttonGroup1->layout()->setMargin( 11 );
+    buttonGroup1Layout = new QVBoxLayout( buttonGroup1->layout() );
+    buttonGroup1Layout->setAlignment( Qt::AlignTop );
+
+    layout56 = new QGridLayout( 0, 1, 1, 5, 6, "layout56"); 
+
+    myEnabledLabel = new QLabel( buttonGroup1, "myEnabledLabel" );
+    myEnabledLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 0, myEnabledLabel->sizePolicy().hasHeightForWidth() ) );
+    myEnabledLabel->setPixmap( image0 );
+
+    layout56->addWidget( myEnabledLabel, 0, 0 );
+
+    textLabel3_4_2 = new QLabel( buttonGroup1, "textLabel3_4_2" );
+    textLabel3_4_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 0, 0, textLabel3_4_2->sizePolicy().hasHeightForWidth() ) );
+
+    layout56->addWidget( textLabel3_4_2, 1, 1 );
+
+    myOwnerLabel = new QLabel( buttonGroup1, "myOwnerLabel" );
+    myOwnerLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 0, myOwnerLabel->sizePolicy().hasHeightForWidth() ) );
+    myOwnerLabel->setPixmap( image1 );
+
+    layout56->addWidget( myOwnerLabel, 2, 0 );
+    spacer48 = new QSpacerItem( 2, 20, QSizePolicy::Minimum, QSizePolicy::Minimum );
+    layout56->addItem( spacer48, 2, 3 );
+    spacer47 = new QSpacerItem( 2, 20, QSizePolicy::Minimum, QSizePolicy::Minimum );
+    layout56->addMultiCell( spacer47, 1, 1, 2, 3 );
+    spacer45 = new QSpacerItem( 2, 20, QSizePolicy::Minimum, QSizePolicy::Minimum );
+    layout56->addMultiCell( spacer45, 0, 0, 2, 3 );
+
+    textLabel3_4 = new QLabel( buttonGroup1, "textLabel3_4" );
+    textLabel3_4->setEnabled( TRUE );
+    textLabel3_4->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 0, 0, textLabel3_4->sizePolicy().hasHeightForWidth() ) );
+
+    layout56->addWidget( textLabel3_4, 0, 1 );
+
+    textLabel3_4_3 = new QLabel( buttonGroup1, "textLabel3_4_3" );
+    textLabel3_4_3->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 0, 0, textLabel3_4_3->sizePolicy().hasHeightForWidth() ) );
+
+    layout56->addMultiCellWidget( textLabel3_4_3, 2, 2, 1, 2 );
+
+    myActivatedLabel = new QLabel( buttonGroup1, "myActivatedLabel" );
+    myActivatedLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 0, myActivatedLabel->sizePolicy().hasHeightForWidth() ) );
+    myActivatedLabel->setPixmap( image2 );
+
+    layout56->addWidget( myActivatedLabel, 1, 0 );
+    buttonGroup1Layout->addLayout( layout56 );
+    layout57->addWidget( buttonGroup1 );
+    spacer49 = new QSpacerItem( 20, 12, QSizePolicy::Minimum, QSizePolicy::Fixed );
+    layout57->addItem( spacer49 );
+    layout86->addLayout( layout57 );
 
     widgetStack1 = new QWidgetStack( this, "widgetStack1" );
-    widgetStack1->setGeometry( QRect( 130, 10, 460, 310 ) );
+    widgetStack1->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 2, 0, widgetStack1->sizePolicy().hasHeightForWidth() ) );
 
     WStackPage = new QWidget( widgetStack1, "WStackPage" );
+    WStackPageLayout = new QVBoxLayout( WStackPage, 11, 6, "WStackPageLayout"); 
 
     tabInfo = new QTabWidget( WStackPage, "tabInfo" );
-    tabInfo->setGeometry( QRect( 0, 0, 460, 310 ) );
+    tabInfo->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, 1, 1, tabInfo->sizePolicy().hasHeightForWidth() ) );
 
     tabStatus = new QWidget( tabInfo, "tabStatus" );
+    tabStatusLayout = new QVBoxLayout( tabStatus, 11, 6, "tabStatusLayout"); 
 
-    QWidget* privateLayoutWidget = new QWidget( tabStatus, "layout40" );
-    privateLayoutWidget->setGeometry( QRect( 21, 11, 410, 173 ) );
-    layout40 = new QVBoxLayout( privateLayoutWidget, 11, 6, "layout40"); 
+    layout87_2 = new QVBoxLayout( 0, 15, 6, "layout87_2"); 
 
-    textLabel1_2 = new QLabel( privateLayoutWidget, "textLabel1_2" );
-    textLabel1_2->setBackgroundMode( QLabel::PaletteText );
-    textLabel1_2->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    textLabel1_2->setBackgroundOrigin( QLabel::WidgetOrigin );
-    layout40->addWidget( textLabel1_2 );
+    textLabel1_2 = new QLabel( tabStatus, "textLabel1_2" );
+    textLabel1_2->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout87_2->addWidget( textLabel1_2 );
 
-    layout38 = new QHBoxLayout( 0, 0, 6, "layout38"); 
-    spacer16 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
-    layout38->addItem( spacer16 );
+    layout86_2 = new QHBoxLayout( 0, 0, 6, "layout86_2"); 
+    spacer16 = new QSpacerItem( 20, 20, QSizePolicy::Minimum, QSizePolicy::Minimum );
+    layout86_2->addItem( spacer16 );
 
-    layout36 = new QVBoxLayout( 0, 0, 2, "layout36"); 
+    layout85 = new QGridLayout( 0, 1, 1, 0, 6, "layout85"); 
 
-    layout7 = new QHBoxLayout( 0, 0, 6, "layout7"); 
-
-    foundLabel = new QLabel( privateLayoutWidget, "foundLabel" );
-    layout7->addWidget( foundLabel );
-    spacer7 = new QSpacerItem( 40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout7->addItem( spacer7 );
-
-    driverFound = new QLabel( privateLayoutWidget, "driverFound" );
-    driverFound->setMinimumSize( QSize( 20, 0 ) );
-    layout7->addWidget( driverFound );
-    layout36->addLayout( layout7 );
-
-    layout6 = new QHBoxLayout( 0, 0, 6, "layout6"); 
-
-    textLabel1 = new QLabel( privateLayoutWidget, "textLabel1" );
-    layout6->addWidget( textLabel1 );
-    spacer7_2 = new QSpacerItem( 40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout6->addItem( spacer7_2 );
-
-    tssFound = new QLabel( privateLayoutWidget, "tssFound" );
-    tssFound->setMinimumSize( QSize( 20, 0 ) );
-    layout6->addWidget( tssFound );
-    layout36->addLayout( layout6 );
-
-    layout5 = new QHBoxLayout( 0, 0, 6, "layout5"); 
-
-    textLabel2 = new QLabel( privateLayoutWidget, "textLabel2" );
-    layout5->addWidget( textLabel2 );
-    spacer7_3 = new QSpacerItem( 40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout5->addItem( spacer7_3 );
-
-    tpmEnabled = new QLabel( privateLayoutWidget, "tpmEnabled" );
-    tpmEnabled->setMinimumSize( QSize( 20, 0 ) );
-    layout5->addWidget( tpmEnabled );
-    layout36->addLayout( layout5 );
-
-    layout4 = new QHBoxLayout( 0, 0, 6, "layout4"); 
-
-    TPM_ACtive_Status = new QLabel( privateLayoutWidget, "TPM_ACtive_Status" );
-    layout4->addWidget( TPM_ACtive_Status );
-    spacer7_4 = new QSpacerItem( 40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout4->addItem( spacer7_4 );
-
-    tpmActivated = new QLabel( privateLayoutWidget, "tpmActivated" );
+    tpmActivated = new QLabel( tabStatus, "tpmActivated" );
     tpmActivated->setMinimumSize( QSize( 20, 0 ) );
-    layout4->addWidget( tpmActivated );
-    layout36->addLayout( layout4 );
+    tpmActivated->setAlignment( int( QLabel::AlignVCenter | QLabel::AlignLeft ) );
 
-    layout3 = new QHBoxLayout( 0, 0, 6, "layout3"); 
+    layout85->addWidget( tpmActivated, 4, 2 );
 
-    textLabel3 = new QLabel( privateLayoutWidget, "textLabel3" );
-    layout3->addWidget( textLabel3 );
-    spacer7_5 = new QSpacerItem( 40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout3->addItem( spacer7_5 );
+    tssFound = new QLabel( tabStatus, "tssFound" );
+    tssFound->setMinimumSize( QSize( 20, 0 ) );
+    tssFound->setAlignment( int( QLabel::AlignVCenter | QLabel::AlignLeft ) );
 
-    ownerSet = new QLabel( privateLayoutWidget, "ownerSet" );
-    ownerSet->setMinimumSize( QSize( 20, 0 ) );
-    layout3->addWidget( ownerSet );
-    layout36->addLayout( layout3 );
+    layout85->addWidget( tssFound, 1, 2 );
+    spacer7_4 = new QSpacerItem( 24, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout85->addItem( spacer7_4, 4, 1 );
 
-    layout12 = new QHBoxLayout( 0, 0, 6, "layout12"); 
+    textLabel2_2 = new QLabel( tabStatus, "textLabel2_2" );
+    textLabel2_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 1, 0, textLabel2_2->sizePolicy().hasHeightForWidth() ) );
+    textLabel2_2->setAlignment( int( QLabel::AlignVCenter ) );
 
-    textLabel2_2 = new QLabel( privateLayoutWidget, "textLabel2_2" );
-    layout12->addWidget( textLabel2_2 );
-    spacer12 = new QSpacerItem( 40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout12->addItem( spacer12 );
+    layout85->addWidget( textLabel2_2, 2, 0 );
+    spacer7_5 = new QSpacerItem( 24, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout85->addItem( spacer7_5, 5, 1 );
 
-    myEndorsementAvailable = new QLabel( privateLayoutWidget, "myEndorsementAvailable" );
+    TPM_ACtive_Status = new QLabel( tabStatus, "TPM_ACtive_Status" );
+    TPM_ACtive_Status->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 0, 0, TPM_ACtive_Status->sizePolicy().hasHeightForWidth() ) );
+    TPM_ACtive_Status->setAlignment( int( QLabel::AlignVCenter ) );
+
+    layout85->addWidget( TPM_ACtive_Status, 4, 0 );
+
+    driverFound = new QLabel( tabStatus, "driverFound" );
+    driverFound->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 1, 0, driverFound->sizePolicy().hasHeightForWidth() ) );
+    driverFound->setMinimumSize( QSize( 20, 0 ) );
+    driverFound->setAlignment( int( QLabel::AlignVCenter | QLabel::AlignLeft ) );
+
+    layout85->addWidget( driverFound, 0, 2 );
+
+    textLabel3 = new QLabel( tabStatus, "textLabel3" );
+    textLabel3->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 2, 0, textLabel3->sizePolicy().hasHeightForWidth() ) );
+    textLabel3->setAlignment( int( QLabel::AlignVCenter ) );
+
+    layout85->addWidget( textLabel3, 5, 0 );
+    spacer7_3 = new QSpacerItem( 24, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout85->addItem( spacer7_3, 3, 1 );
+
+    foundLabel = new QLabel( tabStatus, "foundLabel" );
+    foundLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 2, 0, foundLabel->sizePolicy().hasHeightForWidth() ) );
+    foundLabel->setAlignment( int( QLabel::AlignVCenter ) );
+
+    layout85->addWidget( foundLabel, 0, 0 );
+    spacer7_3_4 = new QSpacerItem( 24, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout85->addItem( spacer7_3_4, 0, 1 );
+
+    textLabel2 = new QLabel( tabStatus, "textLabel2" );
+    textLabel2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 0, 0, textLabel2->sizePolicy().hasHeightForWidth() ) );
+    textLabel2->setAlignment( int( QLabel::AlignVCenter ) );
+
+    layout85->addWidget( textLabel2, 3, 0 );
+
+    myEndorsementAvailable = new QLabel( tabStatus, "myEndorsementAvailable" );
     myEndorsementAvailable->setMinimumSize( QSize( 20, 0 ) );
-    layout12->addWidget( myEndorsementAvailable );
-    layout36->addLayout( layout12 );
-    layout38->addLayout( layout36 );
-    spacer17 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
-    layout38->addItem( spacer17 );
-    layout40->addLayout( layout38 );
+    myEndorsementAvailable->setAlignment( int( QLabel::AlignVCenter | QLabel::AlignLeft ) );
+
+    layout85->addWidget( myEndorsementAvailable, 2, 2 );
+    spacer7_3_3 = new QSpacerItem( 24, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout85->addItem( spacer7_3_3, 1, 1 );
+
+    ownerSet = new QLabel( tabStatus, "ownerSet" );
+    ownerSet->setMinimumSize( QSize( 20, 0 ) );
+    ownerSet->setAlignment( int( QLabel::AlignVCenter | QLabel::AlignLeft ) );
+
+    layout85->addWidget( ownerSet, 5, 2 );
+    spacer7_3_2 = new QSpacerItem( 24, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout85->addItem( spacer7_3_2, 2, 1 );
+
+    textLabel1 = new QLabel( tabStatus, "textLabel1" );
+    textLabel1->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 0, 0, textLabel1->sizePolicy().hasHeightForWidth() ) );
+    textLabel1->setAlignment( int( QLabel::AlignVCenter ) );
+
+    layout85->addWidget( textLabel1, 1, 0 );
+
+    tpmEnabled = new QLabel( tabStatus, "tpmEnabled" );
+    tpmEnabled->setMinimumSize( QSize( 20, 0 ) );
+    tpmEnabled->setAlignment( int( QLabel::AlignVCenter | QLabel::AlignLeft ) );
+
+    layout85->addWidget( tpmEnabled, 3, 2 );
+    layout86_2->addLayout( layout85 );
+    spacer17 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout86_2->addItem( spacer17 );
+    layout87_2->addLayout( layout86_2 );
+    spacer76 = new QSpacerItem( 100, 22, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout87_2->addItem( spacer76 );
+    tabStatusLayout->addLayout( layout87_2 );
     tabInfo->insertTab( tabStatus, QString::fromLatin1("") );
 
     tabDetails = new QWidget( tabInfo, "tabDetails" );
+    tabDetailsLayout = new QVBoxLayout( tabDetails, 11, 6, "tabDetailsLayout"); 
 
-    QWidget* privateLayoutWidget_2 = new QWidget( tabDetails, "layout46" );
-    privateLayoutWidget_2->setGeometry( QRect( 20, 10, 410, 241 ) );
-    layout46 = new QVBoxLayout( privateLayoutWidget_2, 11, 6, "layout46"); 
+    layout33 = new QVBoxLayout( 0, 15, 6, "layout33"); 
 
-    textLabel1_2_3 = new QLabel( privateLayoutWidget_2, "textLabel1_2_3" );
-    textLabel1_2_3->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    layout46->addWidget( textLabel1_2_3 );
+    textLabel1_2_2 = new QLabel( tabDetails, "textLabel1_2_2" );
+    textLabel1_2_2->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_2->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_2->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout33->addWidget( textLabel1_2_2 );
 
-    layout44 = new QHBoxLayout( 0, 0, 6, "layout44"); 
-    spacer26 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
-    layout44->addItem( spacer26 );
+    layout73 = new QHBoxLayout( 0, 0, 6, "layout73"); 
+    spacer26_2_2 = new QSpacerItem( 20, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum );
+    layout73->addItem( spacer26_2_2 );
 
-    layout40_2 = new QVBoxLayout( 0, 0, 6, "layout40_2"); 
+    layout72 = new QVBoxLayout( 0, 0, 6, "layout72"); 
 
-    layout37 = new QHBoxLayout( 0, 0, 6, "layout37"); 
+    layout69 = new QHBoxLayout( 0, 0, 6, "layout69"); 
+    spacer6 = new QSpacerItem( 5, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
+    layout69->addItem( spacer6 );
 
-    Vendor = new QLabel( privateLayoutWidget_2, "Vendor" );
-    layout37->addWidget( Vendor );
-    spacer6 = new QSpacerItem( 117, 21, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout37->addItem( spacer6 );
+    Vendor = new QLabel( tabDetails, "Vendor" );
+    layout69->addWidget( Vendor );
+    spacer54 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout69->addItem( spacer54 );
 
-    tpmVendor = new QLineEdit( privateLayoutWidget_2, "tpmVendor" );
+    tpmVendor = new QLineEdit( tabDetails, "tpmVendor" );
     tpmVendor->setEnabled( FALSE );
-    tpmVendor->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)0, 0, 0, tpmVendor->sizePolicy().hasHeightForWidth() ) );
-    tpmVendor->setMinimumSize( QSize( 180, 0 ) );
+    tpmVendor->setMinimumSize( QSize( 220, 0 ) );
     tpmVendor->setPaletteForegroundColor( QColor( 33, 33, 33 ) );
     QPalette pal;
     QColorGroup cg;
@@ -915,20 +1060,22 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     tpmVendor->setPalette( pal );
     tpmVendor->setFrameShape( QLineEdit::LineEditPanel );
     tpmVendor->setFrameShadow( QLineEdit::Sunken );
-    tpmVendor->setLineWidth( 1 );
-    layout37->addWidget( tpmVendor );
-    layout40_2->addLayout( layout37 );
+    tpmVendor->setLineWidth( 2 );
+    layout69->addWidget( tpmVendor );
+    layout72->addLayout( layout69 );
 
-    layout38_2 = new QHBoxLayout( 0, 0, 6, "layout38_2"); 
+    layout70 = new QHBoxLayout( 0, 0, 6, "layout70"); 
+    spacer5 = new QSpacerItem( 5, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
+    layout70->addItem( spacer5 );
 
-    TPM_Version = new QLabel( privateLayoutWidget_2, "TPM_Version" );
-    layout38_2->addWidget( TPM_Version );
-    spacer5 = new QSpacerItem( 115, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout38_2->addItem( spacer5 );
+    TPM_Version = new QLabel( tabDetails, "TPM_Version" );
+    layout70->addWidget( TPM_Version );
+    spacer54_2 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout70->addItem( spacer54_2 );
 
-    tpmVersion = new QLineEdit( privateLayoutWidget_2, "tpmVersion" );
+    tpmVersion = new QLineEdit( tabDetails, "tpmVersion" );
     tpmVersion->setEnabled( FALSE );
-    tpmVersion->setMinimumSize( QSize( 180, 0 ) );
+    tpmVersion->setMinimumSize( QSize( 220, 0 ) );
     tpmVersion->setPaletteForegroundColor( QColor( 33, 33, 33 ) );
     cg.setColor( QColorGroup::Foreground, black );
     cg.setColor( QColorGroup::Button, QColor( 221, 223, 228) );
@@ -982,21 +1129,22 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     cg.setColor( QColorGroup::LinkVisited, QColor( 82, 24, 139) );
     pal.setDisabled( cg );
     tpmVersion->setPalette( pal );
-    tpmVersion->setLineWidth( 1 );
-    layout38_2->addWidget( tpmVersion );
-    layout40_2->addLayout( layout38_2 );
+    tpmVersion->setLineWidth( 2 );
+    layout70->addWidget( tpmVersion );
+    layout72->addLayout( layout70 );
 
-    layout39 = new QHBoxLayout( 0, 0, 6, "layout39"); 
+    layout71 = new QHBoxLayout( 0, 0, 6, "layout71"); 
+    spacer4 = new QSpacerItem( 19, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
+    layout71->addItem( spacer4 );
 
-    TPM_Distribution = new QLabel( privateLayoutWidget_2, "TPM_Distribution" );
-    layout39->addWidget( TPM_Distribution );
-    spacer4 = new QSpacerItem( 106, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout39->addItem( spacer4 );
+    TPM_Distribution = new QLabel( tabDetails, "TPM_Distribution" );
+    layout71->addWidget( TPM_Distribution );
+    spacer54_3 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout71->addItem( spacer54_3 );
 
-    tpmFirmware = new QLineEdit( privateLayoutWidget_2, "tpmFirmware" );
+    tpmFirmware = new QLineEdit( tabDetails, "tpmFirmware" );
     tpmFirmware->setEnabled( FALSE );
-    tpmFirmware->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)0, 0, 0, tpmFirmware->sizePolicy().hasHeightForWidth() ) );
-    tpmFirmware->setMinimumSize( QSize( 180, 0 ) );
+    tpmFirmware->setMinimumSize( QSize( 220, 0 ) );
     tpmFirmware->setPaletteForegroundColor( QColor( 33, 33, 33 ) );
     cg.setColor( QColorGroup::Foreground, black );
     cg.setColor( QColorGroup::Button, QColor( 221, 223, 228) );
@@ -1050,36 +1198,38 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     cg.setColor( QColorGroup::LinkVisited, QColor( 82, 24, 139) );
     pal.setDisabled( cg );
     tpmFirmware->setPalette( pal );
-    tpmFirmware->setLineWidth( 1 );
-    layout39->addWidget( tpmFirmware );
-    layout40_2->addLayout( layout39 );
-    layout44->addLayout( layout40_2 );
-    spacer26_3 = new QSpacerItem( 15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
-    layout44->addItem( spacer26_3 );
-    layout46->addLayout( layout44 );
-    spacer30 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
-    layout46->addItem( spacer30 );
+    tpmFirmware->setLineWidth( 2 );
+    layout71->addWidget( tpmFirmware );
+    layout72->addLayout( layout71 );
+    layout73->addLayout( layout72 );
+    spacer26_3 = new QSpacerItem( 20, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum );
+    layout73->addItem( spacer26_3 );
+    layout33->addLayout( layout73 );
 
-    textLabel1_2_3_2 = new QLabel( privateLayoutWidget_2, "textLabel1_2_3_2" );
-    textLabel1_2_3_2->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    layout46->addWidget( textLabel1_2_3_2 );
+    textLabel1_2_3 = new QLabel( tabDetails, "textLabel1_2_3" );
+    textLabel1_2_3->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_3->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_3->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout33->addWidget( textLabel1_2_3 );
 
-    layout45 = new QHBoxLayout( 0, 0, 6, "layout45"); 
-    spacer26_2 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
-    layout45->addItem( spacer26_2 );
+    layout32 = new QHBoxLayout( 0, 0, 6, "layout32"); 
+    spacer26_2 = new QSpacerItem( 20, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum );
+    layout32->addItem( spacer26_2 );
 
-    layout43 = new QVBoxLayout( 0, 0, 6, "layout43"); 
+    layout31 = new QVBoxLayout( 0, 0, 6, "layout31"); 
 
-    layout41 = new QHBoxLayout( 0, 0, 6, "layout41"); 
+    layout29 = new QHBoxLayout( 0, 0, 6, "layout29"); 
+    spacer37_3 = new QSpacerItem( 0, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
+    layout29->addItem( spacer37_3 );
 
-    TSS_Version = new QLabel( privateLayoutWidget_2, "TSS_Version" );
-    layout41->addWidget( TSS_Version );
-    spacer3 = new QSpacerItem( 120, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout41->addItem( spacer3 );
+    TSS_Version = new QLabel( tabDetails, "TSS_Version" );
+    layout29->addWidget( TSS_Version );
+    spacer3 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout29->addItem( spacer3 );
 
-    tssVendor = new QLineEdit( privateLayoutWidget_2, "tssVendor" );
+    tssVendor = new QLineEdit( tabDetails, "tssVendor" );
     tssVendor->setEnabled( FALSE );
-    tssVendor->setMinimumSize( QSize( 180, 0 ) );
+    tssVendor->setMinimumSize( QSize( 220, 0 ) );
     tssVendor->setPaletteForegroundColor( QColor( 33, 33, 33 ) );
     cg.setColor( QColorGroup::Foreground, black );
     cg.setColor( QColorGroup::Button, QColor( 221, 223, 228) );
@@ -1133,20 +1283,22 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     cg.setColor( QColorGroup::LinkVisited, QColor( 82, 24, 139) );
     pal.setDisabled( cg );
     tssVendor->setPalette( pal );
-    tssVendor->setLineWidth( 1 );
-    layout41->addWidget( tssVendor );
-    layout43->addLayout( layout41 );
+    tssVendor->setLineWidth( 2 );
+    layout29->addWidget( tssVendor );
+    layout31->addLayout( layout29 );
 
-    layout42 = new QHBoxLayout( 0, 0, 6, "layout42"); 
+    layout30 = new QHBoxLayout( 0, 0, 6, "layout30"); 
+    spacer38_3 = new QSpacerItem( 0, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
+    layout30->addItem( spacer38_3 );
 
-    TSS_Version_2 = new QLabel( privateLayoutWidget_2, "TSS_Version_2" );
-    layout42->addWidget( TSS_Version_2 );
-    spacer3_2 = new QSpacerItem( 110, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    layout42->addItem( spacer3_2 );
+    TSS_Version_2 = new QLabel( tabDetails, "TSS_Version_2" );
+    layout30->addWidget( TSS_Version_2 );
+    spacer3_2 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout30->addItem( spacer3_2 );
 
-    tssVersion = new QLineEdit( privateLayoutWidget_2, "tssVersion" );
+    tssVersion = new QLineEdit( tabDetails, "tssVersion" );
     tssVersion->setEnabled( FALSE );
-    tssVersion->setMinimumSize( QSize( 180, 0 ) );
+    tssVersion->setMinimumSize( QSize( 220, 0 ) );
     tssVersion->setPaletteForegroundColor( QColor( 33, 33, 33 ) );
     cg.setColor( QColorGroup::Foreground, black );
     cg.setColor( QColorGroup::Button, QColor( 221, 223, 228) );
@@ -1200,113 +1352,123 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     cg.setColor( QColorGroup::LinkVisited, QColor( 82, 24, 139) );
     pal.setDisabled( cg );
     tssVersion->setPalette( pal );
-    tssVersion->setLineWidth( 1 );
-    layout42->addWidget( tssVersion );
-    layout43->addLayout( layout42 );
-    layout45->addLayout( layout43 );
-    spacer26_4 = new QSpacerItem( 15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
-    layout45->addItem( spacer26_4 );
-    layout46->addLayout( layout45 );
+    tssVersion->setLineWidth( 2 );
+    layout30->addWidget( tssVersion );
+    layout31->addLayout( layout30 );
+    layout32->addLayout( layout31 );
+    spacer26_4 = new QSpacerItem( 20, 20, QSizePolicy::MinimumExpanding, QSizePolicy::Minimum );
+    layout32->addItem( spacer26_4 );
+    layout33->addLayout( layout32 );
+    spacer58_2 = new QSpacerItem( 106, 89, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout33->addItem( spacer58_2 );
+    tabDetailsLayout->addLayout( layout33 );
     tabInfo->insertTab( tabDetails, QString::fromLatin1("") );
 
     tabCapabilities = new QWidget( tabInfo, "tabCapabilities" );
+    tabCapabilitiesLayout = new QVBoxLayout( tabCapabilities, 11, 6, "tabCapabilitiesLayout"); 
 
     myCapabilities = new QTable( tabCapabilities, "myCapabilities" );
     myCapabilities->setNumCols( myCapabilities->numCols() + 1 );
     myCapabilities->horizontalHeader()->setLabel( myCapabilities->numCols() - 1, tr2i18n( "Description" ) );
     myCapabilities->setNumCols( myCapabilities->numCols() + 1 );
     myCapabilities->horizontalHeader()->setLabel( myCapabilities->numCols() - 1, tr2i18n( "Value" ) );
-    myCapabilities->setGeometry( QRect( 21, 10, 410, 260 ) );
-    myCapabilities->setNumRows( 0 );
+    myCapabilities->setNumRows( 3 );
     myCapabilities->setNumCols( 2 );
+    tabCapabilitiesLayout->addWidget( myCapabilities );
     tabInfo->insertTab( tabCapabilities, QString::fromLatin1("") );
 
     tabPCRs = new QWidget( tabInfo, "tabPCRs" );
+    tabPCRsLayout = new QVBoxLayout( tabPCRs, 11, 6, "tabPCRsLayout"); 
 
     myPCRs = new QListBox( tabPCRs, "myPCRs" );
-    myPCRs->setGeometry( QRect( 10, 10, 430, 260 ) );
+    tabPCRsLayout->addWidget( myPCRs );
     tabInfo->insertTab( tabPCRs, QString::fromLatin1("") );
+    WStackPageLayout->addWidget( tabInfo );
     widgetStack1->addWidget( WStackPage, 0 );
 
     WStackPage_2 = new QWidget( widgetStack1, "WStackPage_2" );
+    WStackPageLayout_2 = new QVBoxLayout( WStackPage_2, 11, 6, "WStackPageLayout_2"); 
 
     tabOwner = new QTabWidget( WStackPage_2, "tabOwner" );
-    tabOwner->setGeometry( QRect( 0, 0, 460, 310 ) );
 
     tabOwnership = new QWidget( tabOwner, "tabOwnership" );
+    tabOwnershipLayout = new QVBoxLayout( tabOwnership, 11, 6, "tabOwnershipLayout"); 
 
-    QWidget* privateLayoutWidget_3 = new QWidget( tabOwnership, "layout60" );
-    privateLayoutWidget_3->setGeometry( QRect( 20, 10, 420, 170 ) );
-    layout60 = new QVBoxLayout( privateLayoutWidget_3, 11, 6, "layout60"); 
+    layout38 = new QVBoxLayout( 0, 15, 6, "layout38"); 
 
-    textLabel1_2_4 = new QLabel( privateLayoutWidget_3, "textLabel1_2_4" );
-    textLabel1_2_4->setBackgroundMode( QLabel::PaletteText );
-    textLabel1_2_4->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    textLabel1_2_4->setBackgroundOrigin( QLabel::WidgetOrigin );
-    layout60->addWidget( textLabel1_2_4 );
+    textLabel1_2_4 = new QLabel( tabOwnership, "textLabel1_2_4" );
+    textLabel1_2_4->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_4->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_4->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout38->addWidget( textLabel1_2_4 );
 
-    layout59 = new QHBoxLayout( 0, 0, 6, "layout59"); 
+    layout37 = new QHBoxLayout( 0, 0, 6, "layout37"); 
     spacer36 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
-    layout59->addItem( spacer36 );
+    layout37->addItem( spacer36 );
 
-    layout58 = new QVBoxLayout( 0, 0, 6, "layout58"); 
+    layout36 = new QVBoxLayout( 0, 0, 6, "layout36"); 
 
-    textLabel5_2 = new QLabel( privateLayoutWidget_3, "textLabel5_2" );
+    textLabel5_2 = new QLabel( tabOwnership, "textLabel5_2" );
     textLabel5_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
-    layout58->addWidget( textLabel5_2 );
-    spacer34 = new QSpacerItem( 20, 5, QSizePolicy::Minimum, QSizePolicy::Expanding );
-    layout58->addItem( spacer34 );
+    layout36->addWidget( textLabel5_2 );
+    spacer34 = new QSpacerItem( 20, 47, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding );
+    layout36->addItem( spacer34 );
 
-    layout56 = new QGridLayout( 0, 1, 1, 0, 6, "layout56"); 
+    layout56_2 = new QGridLayout( 0, 1, 1, 0, 6, "layout56_2"); 
 
-    myTakeOwnerText = new QLabel( privateLayoutWidget_3, "myTakeOwnerText" );
+    myTakeOwnerText = new QLabel( tabOwnership, "myTakeOwnerText" );
     myTakeOwnerText->setTextFormat( QLabel::AutoText );
     myTakeOwnerText->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
 
-    layout56->addWidget( myTakeOwnerText, 0, 0 );
+    layout56_2->addWidget( myTakeOwnerText, 0, 0 );
 
-    myChangePassText = new QLabel( privateLayoutWidget_3, "myChangePassText" );
+    myChangePassText = new QLabel( tabOwnership, "myChangePassText" );
     myChangePassText->setTextFormat( QLabel::AutoText );
 
-    layout56->addWidget( myChangePassText, 1, 0 );
+    layout56_2->addWidget( myChangePassText, 1, 0 );
 
-    myClearOwnerText = new QLabel( privateLayoutWidget_3, "myClearOwnerText" );
+    myClearOwnerText = new QLabel( tabOwnership, "myClearOwnerText" );
     myClearOwnerText->setTextFormat( QLabel::AutoText );
     myClearOwnerText->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
 
-    layout56->addWidget( myClearOwnerText, 2, 0 );
+    layout56_2->addWidget( myClearOwnerText, 2, 0 );
 
-    myTakeOwnership = new QPushButton( privateLayoutWidget_3, "myTakeOwnership" );
+    myTakeOwnership = new QPushButton( tabOwnership, "myTakeOwnership" );
+    myTakeOwnership->setEnabled( FALSE );
     myTakeOwnership->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)0, 0, 0, myTakeOwnership->sizePolicy().hasHeightForWidth() ) );
 
-    layout56->addWidget( myTakeOwnership, 0, 1 );
+    layout56_2->addWidget( myTakeOwnership, 0, 1 );
 
-    myChangePassword = new QPushButton( privateLayoutWidget_3, "myChangePassword" );
+    myChangePassword = new QPushButton( tabOwnership, "myChangePassword" );
+    myChangePassword->setEnabled( FALSE );
     myChangePassword->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)0, (QSizePolicy::SizeType)0, 0, 0, myChangePassword->sizePolicy().hasHeightForWidth() ) );
 
-    layout56->addWidget( myChangePassword, 1, 1 );
+    layout56_2->addWidget( myChangePassword, 1, 1 );
 
-    myClearOwnership = new QPushButton( privateLayoutWidget_3, "myClearOwnership" );
+    myClearOwnership = new QPushButton( tabOwnership, "myClearOwnership" );
+    myClearOwnership->setEnabled( FALSE );
     myClearOwnership->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)0, 0, 0, myClearOwnership->sizePolicy().hasHeightForWidth() ) );
 
-    layout56->addWidget( myClearOwnership, 2, 1 );
-    layout58->addLayout( layout56 );
-    layout59->addLayout( layout58 );
-    spacer37 = new QSpacerItem( 15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
-    layout59->addItem( spacer37 );
-    layout60->addLayout( layout59 );
+    layout56_2->addWidget( myClearOwnership, 2, 1 );
+    layout36->addLayout( layout56_2 );
+    spacer34_2 = new QSpacerItem( 20, 47, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding );
+    layout36->addItem( spacer34_2 );
+    layout37->addLayout( layout36 );
+    spacer37 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout37->addItem( spacer37 );
+    layout38->addLayout( layout37 );
+    tabOwnershipLayout->addLayout( layout38 );
     tabOwner->insertTab( tabOwnership, QString::fromLatin1("") );
 
     tabBackup = new QWidget( tabOwner, "tabBackup" );
+    tabBackupLayout = new QVBoxLayout( tabBackup, 11, 6, "tabBackupLayout"); 
 
-    QWidget* privateLayoutWidget_4 = new QWidget( tabBackup, "layout66" );
-    privateLayoutWidget_4->setGeometry( QRect( 10, 10, 420, 240 ) );
-    layout66 = new QVBoxLayout( privateLayoutWidget_4, 11, 6, "layout66"); 
+    layout66 = new QVBoxLayout( 0, 15, 6, "layout66"); 
 
-    textLabel1_2_4_6 = new QLabel( privateLayoutWidget_4, "textLabel1_2_4_6" );
-    textLabel1_2_4_6->setBackgroundMode( QLabel::PaletteText );
-    textLabel1_2_4_6->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    textLabel1_2_4_6->setBackgroundOrigin( QLabel::WidgetOrigin );
+    textLabel1_2_4_6 = new QLabel( tabBackup, "textLabel1_2_4_6" );
+    textLabel1_2_4_6->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_4_6->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_4_6->setBackgroundOrigin( QLabel::WindowOrigin );
     layout66->addWidget( textLabel1_2_4_6 );
 
     layout64 = new QHBoxLayout( 0, 0, 6, "layout64"); 
@@ -1315,7 +1477,7 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
 
     layout63 = new QVBoxLayout( 0, 0, 6, "layout63"); 
 
-    textLabel5_2_5 = new QLabel( privateLayoutWidget_4, "textLabel5_2_5" );
+    textLabel5_2_5 = new QLabel( tabBackup, "textLabel5_2_5" );
     textLabel5_2_5->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
     layout63->addWidget( textLabel5_2_5 );
     spacer38 = new QSpacerItem( 20, 5, QSizePolicy::Minimum, QSizePolicy::Expanding );
@@ -1323,22 +1485,24 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
 
     layout61 = new QGridLayout( 0, 1, 1, 0, 6, "layout61"); 
 
-    myLoadMaintenance = new QPushButton( privateLayoutWidget_4, "myLoadMaintenance" );
+    myLoadMaintenance = new QPushButton( tabBackup, "myLoadMaintenance" );
+    myLoadMaintenance->setEnabled( FALSE );
 
     layout61->addWidget( myLoadMaintenance, 1, 1 );
 
-    myLoadMaintenanceText = new QLabel( privateLayoutWidget_4, "myLoadMaintenanceText" );
+    myLoadMaintenanceText = new QLabel( tabBackup, "myLoadMaintenanceText" );
     myLoadMaintenanceText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 0, myLoadMaintenanceText->sizePolicy().hasHeightForWidth() ) );
     myLoadMaintenanceText->setTextFormat( QLabel::AutoText );
 
     layout61->addWidget( myLoadMaintenanceText, 1, 0 );
 
-    myCreateMaintenance = new QPushButton( privateLayoutWidget_4, "myCreateMaintenance" );
+    myCreateMaintenance = new QPushButton( tabBackup, "myCreateMaintenance" );
+    myCreateMaintenance->setEnabled( FALSE );
     myCreateMaintenance->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)0, (QSizePolicy::SizeType)0, 0, 0, myCreateMaintenance->sizePolicy().hasHeightForWidth() ) );
 
     layout61->addWidget( myCreateMaintenance, 0, 1 );
 
-    myCreateMaintenanceText = new QLabel( privateLayoutWidget_4, "myCreateMaintenanceText" );
+    myCreateMaintenanceText = new QLabel( tabBackup, "myCreateMaintenanceText" );
     myCreateMaintenanceText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 0, myCreateMaintenanceText->sizePolicy().hasHeightForWidth() ) );
     myCreateMaintenanceText->setTextFormat( QLabel::AutoText );
     myCreateMaintenanceText->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
@@ -1350,14 +1514,14 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
 
     layout62 = new QHBoxLayout( 0, 0, 6, "layout62"); 
 
-    myMaintenanceInfoIcon = new QLabel( privateLayoutWidget_4, "myMaintenanceInfoIcon" );
+    myMaintenanceInfoIcon = new QLabel( tabBackup, "myMaintenanceInfoIcon" );
     myMaintenanceInfoIcon->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)4, (QSizePolicy::SizeType)5, 0, 0, myMaintenanceInfoIcon->sizePolicy().hasHeightForWidth() ) );
     myMaintenanceInfoIcon->setMinimumSize( QSize( 10, 0 ) );
-    myMaintenanceInfoIcon->setPixmap( image0 );
+    myMaintenanceInfoIcon->setPixmap( image3 );
     myMaintenanceInfoIcon->setScaledContents( TRUE );
     layout62->addWidget( myMaintenanceInfoIcon );
 
-    myMaintenanceInfoText = new QLabel( privateLayoutWidget_4, "myMaintenanceInfoText" );
+    myMaintenanceInfoText = new QLabel( tabBackup, "myMaintenanceInfoText" );
     myMaintenanceInfoText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 0, myMaintenanceInfoText->sizePolicy().hasHeightForWidth() ) );
     myMaintenanceInfoText->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
     layout62->addWidget( myMaintenanceInfoText );
@@ -1366,372 +1530,574 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     spacer37_2 = new QSpacerItem( 15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
     layout64->addItem( spacer37_2 );
     layout66->addLayout( layout64 );
+    tabBackupLayout->addLayout( layout66 );
     tabOwner->insertTab( tabBackup, QString::fromLatin1("") );
+    WStackPageLayout_2->addWidget( tabOwner );
     widgetStack1->addWidget( WStackPage_2, 1 );
 
     WStackPage_3 = new QWidget( widgetStack1, "WStackPage_3" );
+    WStackPageLayout_3 = new QVBoxLayout( WStackPage_3, 11, 6, "WStackPageLayout_3"); 
 
     tabSetting = new QTabWidget( WStackPage_3, "tabSetting" );
-    tabSetting->setGeometry( QRect( 0, 0, 460, 310 ) );
 
     tabOperationalModes = new QWidget( tabSetting, "tabOperationalModes" );
+    tabOperationalModesLayout = new QVBoxLayout( tabOperationalModes, 11, 6, "tabOperationalModesLayout"); 
 
-    textLabel3_3 = new QLabel( tabOperationalModes, "textLabel3_3" );
-    textLabel3_3->setGeometry( QRect( 36, 240, 220, 20 ) );
+    layout45 = new QVBoxLayout( 0, 15, 6, "layout45"); 
 
     textLabel1_2_4_2_3 = new QLabel( tabOperationalModes, "textLabel1_2_4_2_3" );
-    textLabel1_2_4_2_3->setGeometry( QRect( 20, 10, 410, 20 ) );
-    textLabel1_2_4_2_3->setBackgroundMode( QLabel::PaletteText );
-    textLabel1_2_4_2_3->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    textLabel1_2_4_2_3->setBackgroundOrigin( QLabel::WidgetOrigin );
+    textLabel1_2_4_2_3->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_4_2_3->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_4_2_3->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout45->addWidget( textLabel1_2_4_2_3 );
 
-    textLabel1_2_4_2_3_2 = new QLabel( tabOperationalModes, "textLabel1_2_4_2_3_2" );
-    textLabel1_2_4_2_3_2->setGeometry( QRect( 20, 147, 410, 20 ) );
-    textLabel1_2_4_2_3_2->setBackgroundMode( QLabel::PaletteText );
-    textLabel1_2_4_2_3_2->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    textLabel1_2_4_2_3_2->setBackgroundOrigin( QLabel::WidgetOrigin );
+    layout43 = new QHBoxLayout( 0, 0, 6, "layout43"); 
+    spacer42_3 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout43->addItem( spacer42_3 );
 
-    myTakeOwnerText_2_2_2 = new QLabel( tabOperationalModes, "myTakeOwnerText_2_2_2" );
-    myTakeOwnerText_2_2_2->setGeometry( QRect( 36, 177, 380, 50 ) );
-    myTakeOwnerText_2_2_2->setTextFormat( QLabel::AutoText );
-    myTakeOwnerText_2_2_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout42 = new QVBoxLayout( 0, 0, 6, "layout42"); 
 
     textLabel2_4 = new QLabel( tabOperationalModes, "textLabel2_4" );
-    textLabel2_4->setGeometry( QRect( 36, 40, 380, 50 ) );
     textLabel2_4->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout42->addWidget( textLabel2_4 );
+
+    layout40 = new QHBoxLayout( 0, 0, 6, "layout40"); 
 
     myTakeOwnerText_2_2 = new QLabel( tabOperationalModes, "myTakeOwnerText_2_2" );
-    myTakeOwnerText_2_2->setGeometry( QRect( 36, 100, 290, 20 ) );
+    myTakeOwnerText_2_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 1, 0, myTakeOwnerText_2_2->sizePolicy().hasHeightForWidth() ) );
     myTakeOwnerText_2_2->setTextFormat( QLabel::AutoText );
     myTakeOwnerText_2_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
-
-    myDisable = new QPushButton( tabOperationalModes, "myDisable" );
-    myDisable->setGeometry( QRect( 340, 240, 80, 24 ) );
+    layout40->addWidget( myTakeOwnerText_2_2 );
 
     myDeactivate = new QPushButton( tabOperationalModes, "myDeactivate" );
-    myDeactivate->setGeometry( QRect( 340, 100, 80, 24 ) );
+    myDeactivate->setEnabled( FALSE );
+    myDeactivate->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)0, 0, 0, myDeactivate->sizePolicy().hasHeightForWidth() ) );
+    myDeactivate->setMinimumSize( QSize( 0, 0 ) );
+    layout40->addWidget( myDeactivate );
+    layout42->addLayout( layout40 );
+    layout43->addLayout( layout42 );
+    spacer42_4 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout43->addItem( spacer42_4 );
+    layout45->addLayout( layout43 );
+    spacer40 = new QSpacerItem( 170, 5, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding );
+    layout45->addItem( spacer40 );
+
+    textLabel1_2_4_2_3_2 = new QLabel( tabOperationalModes, "textLabel1_2_4_2_3_2" );
+    textLabel1_2_4_2_3_2->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_4_2_3_2->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_4_2_3_2->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout45->addWidget( textLabel1_2_4_2_3_2 );
+
+    layout44 = new QHBoxLayout( 0, 0, 6, "layout44"); 
+    spacer42 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout44->addItem( spacer42 );
+
+    layout41 = new QVBoxLayout( 0, 0, 6, "layout41"); 
+
+    myTakeOwnerText_2_2_2 = new QLabel( tabOperationalModes, "myTakeOwnerText_2_2_2" );
+    myTakeOwnerText_2_2_2->setTextFormat( QLabel::AutoText );
+    myTakeOwnerText_2_2_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout41->addWidget( myTakeOwnerText_2_2_2 );
+
+    layout39 = new QHBoxLayout( 0, 0, 6, "layout39"); 
+
+    myDisableLabel = new QLabel( tabOperationalModes, "myDisableLabel" );
+    myDisableLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 1, 0, myDisableLabel->sizePolicy().hasHeightForWidth() ) );
+    layout39->addWidget( myDisableLabel );
+
+    myDisable = new QPushButton( tabOperationalModes, "myDisable" );
+    myDisable->setEnabled( FALSE );
+    layout39->addWidget( myDisable );
+    layout41->addLayout( layout39 );
+    layout44->addLayout( layout41 );
+    spacer42_2 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout44->addItem( spacer42_2 );
+    layout45->addLayout( layout44 );
+    spacer40_2 = new QSpacerItem( 170, 5, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding );
+    layout45->addItem( spacer40_2 );
+    tabOperationalModesLayout->addLayout( layout45 );
     tabSetting->insertTab( tabOperationalModes, QString::fromLatin1("") );
 
     tabIdentity = new QWidget( tabSetting, "tabIdentity" );
+    tabIdentityLayout = new QVBoxLayout( tabIdentity, 11, 6, "tabIdentityLayout"); 
+
+    layout49 = new QVBoxLayout( 0, 15, 6, "layout49"); 
 
     textLabel1_2_4_2_7 = new QLabel( tabIdentity, "textLabel1_2_4_2_7" );
-    textLabel1_2_4_2_7->setGeometry( QRect( 20, 10, 410, 20 ) );
-    textLabel1_2_4_2_7->setBackgroundMode( QLabel::PaletteText );
-    textLabel1_2_4_2_7->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    textLabel1_2_4_2_7->setBackgroundOrigin( QLabel::WidgetOrigin );
+    textLabel1_2_4_2_7->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_4_2_7->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_4_2_7->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout49->addWidget( textLabel1_2_4_2_7 );
+
+    layout48 = new QHBoxLayout( 0, 0, 6, "layout48"); 
+    spacer46 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout48->addItem( spacer46 );
+
+    layout47 = new QVBoxLayout( 0, 0, 6, "layout47"); 
 
     myTakeOwnerText_2_6 = new QLabel( tabIdentity, "myTakeOwnerText_2_6" );
-    myTakeOwnerText_2_6->setGeometry( QRect( 36, 40, 380, 30 ) );
     myTakeOwnerText_2_6->setTextFormat( QLabel::AutoText );
     myTakeOwnerText_2_6->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout47->addWidget( myTakeOwnerText_2_6 );
 
-    textLabel4_5 = new QLabel( tabIdentity, "textLabel4_5" );
-    textLabel4_5->setGeometry( QRect( 36, 81, 67, 20 ) );
+    layout46 = new QGridLayout( 0, 1, 1, 0, 6, "layout46"); 
 
     myCreatEndorsement = new QPushButton( tabIdentity, "myCreatEndorsement" );
-    myCreatEndorsement->setGeometry( QRect( 350, 80, 70, 24 ) );
+    myCreatEndorsement->setEnabled( FALSE );
+
+    layout46->addWidget( myCreatEndorsement, 0, 1 );
+
+    myRestrictEndorsement = new QPushButton( tabIdentity, "myRestrictEndorsement" );
+    myRestrictEndorsement->setEnabled( FALSE );
+
+    layout46->addWidget( myRestrictEndorsement, 3, 1 );
 
     myClearOwnerText_2_5 = new QLabel( tabIdentity, "myClearOwnerText_2_5" );
-    myClearOwnerText_2_5->setGeometry( QRect( 36, 200, 300, 30 ) );
+    myClearOwnerText_2_5->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 1, 0, myClearOwnerText_2_5->sizePolicy().hasHeightForWidth() ) );
     myClearOwnerText_2_5->setTextFormat( QLabel::AutoText );
     myClearOwnerText_2_5->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
 
+    layout46->addWidget( myClearOwnerText_2_5, 3, 0 );
+
     myChangePassText_2_6_2 = new QLabel( tabIdentity, "myChangePassText_2_6_2" );
-    myChangePassText_2_6_2->setGeometry( QRect( 36, 158, 290, 20 ) );
+    myChangePassText_2_6_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 1, 0, myChangePassText_2_6_2->sizePolicy().hasHeightForWidth() ) );
     myChangePassText_2_6_2->setTextFormat( QLabel::AutoText );
 
-    myShowEndorsement = new QPushButton( tabIdentity, "myShowEndorsement" );
-    myShowEndorsement->setGeometry( QRect( 350, 120, 70, 24 ) );
+    layout46->addWidget( myChangePassText_2_6_2, 2, 0 );
 
     mySaveEndorsement = new QPushButton( tabIdentity, "mySaveEndorsement" );
-    mySaveEndorsement->setGeometry( QRect( 350, 160, 70, 24 ) );
+    mySaveEndorsement->setEnabled( FALSE );
 
-    myRestrictEndorsement = new QPushButton( tabIdentity, "myRestrictEndorsement" );
-    myRestrictEndorsement->setGeometry( QRect( 350, 200, 70, 24 ) );
+    layout46->addWidget( mySaveEndorsement, 2, 1 );
 
     myChangePassText_2_6 = new QLabel( tabIdentity, "myChangePassText_2_6" );
-    myChangePassText_2_6->setGeometry( QRect( 36, 118, 290, 20 ) );
+    myChangePassText_2_6->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 1, 0, myChangePassText_2_6->sizePolicy().hasHeightForWidth() ) );
     myChangePassText_2_6->setTextFormat( QLabel::AutoText );
+
+    layout46->addWidget( myChangePassText_2_6, 1, 0 );
+
+    myShowEndorsement = new QPushButton( tabIdentity, "myShowEndorsement" );
+    myShowEndorsement->setEnabled( FALSE );
+
+    layout46->addWidget( myShowEndorsement, 1, 1 );
+
+    textLabel4_5 = new QLabel( tabIdentity, "textLabel4_5" );
+    textLabel4_5->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 1, 0, textLabel4_5->sizePolicy().hasHeightForWidth() ) );
+
+    layout46->addWidget( textLabel4_5, 0, 0 );
+    layout47->addLayout( layout46 );
+    layout48->addLayout( layout47 );
+    spacer46_2 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout48->addItem( spacer46_2 );
+    layout49->addLayout( layout48 );
+    spacer48_2 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout49->addItem( spacer48_2 );
+    tabIdentityLayout->addLayout( layout49 );
     tabSetting->insertTab( tabIdentity, QString::fromLatin1("") );
 
-    mySelftestTab = new QWidget( tabSetting, "mySelftestTab" );
+    tabSelfTest = new QWidget( tabSetting, "tabSelfTest" );
+    tabSelfTestLayout = new QVBoxLayout( tabSelfTest, 11, 6, "tabSelfTestLayout"); 
 
-    mySelfTest = new QPushButton( mySelftestTab, "mySelfTest" );
-    mySelfTest->setGeometry( QRect( 340, 108, 80, 24 ) );
+    layout53 = new QVBoxLayout( 0, 15, 6, "layout53"); 
 
-    textLabel1_3 = new QLabel( mySelftestTab, "textLabel1_3" );
-    textLabel1_3->setGeometry( QRect( 36, 33, 380, 60 ) );
+    textLabel1_2_4_2_3_6 = new QLabel( tabSelfTest, "textLabel1_2_4_2_3_6" );
+    textLabel1_2_4_2_3_6->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_4_2_3_6->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_4_2_3_6->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout53->addWidget( textLabel1_2_4_2_3_6 );
+
+    layout52 = new QHBoxLayout( 0, 0, 6, "layout52"); 
+    spacer49_2 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout52->addItem( spacer49_2 );
+
+    layout51 = new QVBoxLayout( 0, 0, 8, "layout51"); 
+
+    textLabel1_3 = new QLabel( tabSelfTest, "textLabel1_3" );
     textLabel1_3->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout51->addWidget( textLabel1_3 );
 
-    textLabel2_3 = new QLabel( mySelftestTab, "textLabel2_3" );
-    textLabel2_3->setGeometry( QRect( 36, 110, 290, 20 ) );
+    layout50 = new QHBoxLayout( 0, 0, 6, "layout50"); 
+
+    textLabel2_3 = new QLabel( tabSelfTest, "textLabel2_3" );
+    textLabel2_3->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 1, 0, textLabel2_3->sizePolicy().hasHeightForWidth() ) );
     textLabel2_3->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout50->addWidget( textLabel2_3 );
 
-    textLabel1_2_4_2_3_6 = new QLabel( mySelftestTab, "textLabel1_2_4_2_3_6" );
-    textLabel1_2_4_2_3_6->setGeometry( QRect( 20, 10, 410, 20 ) );
-    textLabel1_2_4_2_3_6->setBackgroundMode( QLabel::PaletteText );
-    textLabel1_2_4_2_3_6->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    textLabel1_2_4_2_3_6->setBackgroundOrigin( QLabel::WidgetOrigin );
-    tabSetting->insertTab( mySelftestTab, QString::fromLatin1("") );
+    mySelfTest = new QPushButton( tabSelfTest, "mySelfTest" );
+    mySelfTest->setEnabled( FALSE );
+    layout50->addWidget( mySelfTest );
+    layout51->addLayout( layout50 );
+    layout52->addLayout( layout51 );
+    spacer49_2_2 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout52->addItem( spacer49_2_2 );
+    layout53->addLayout( layout52 );
+    spacer51 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout53->addItem( spacer51 );
+    tabSelfTestLayout->addLayout( layout53 );
+    tabSetting->insertTab( tabSelfTest, QString::fromLatin1("") );
 
     TabPage = new QWidget( tabSetting, "TabPage" );
+    TabPageLayout = new QVBoxLayout( TabPage, 11, 6, "TabPageLayout"); 
+
+    layout60 = new QVBoxLayout( 0, 15, 6, "layout60"); 
 
     textLabel1_2_4_2_2_5 = new QLabel( TabPage, "textLabel1_2_4_2_2_5" );
-    textLabel1_2_4_2_2_5->setGeometry( QRect( 20, 10, 410, 20 ) );
-    textLabel1_2_4_2_2_5->setBackgroundMode( QLabel::PaletteText );
-    textLabel1_2_4_2_2_5->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    textLabel1_2_4_2_2_5->setBackgroundOrigin( QLabel::WidgetOrigin );
+    textLabel1_2_4_2_2_5->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_4_2_2_5->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_4_2_2_5->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout60->addWidget( textLabel1_2_4_2_2_5 );
+
+    layout59 = new QHBoxLayout( 0, 0, 6, "layout59"); 
+    spacer55 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout59->addItem( spacer55 );
+
+    layout58 = new QVBoxLayout( 0, 0, 6, "layout58"); 
+
+    layout55 = new QHBoxLayout( 0, 0, 6, "layout55"); 
 
     myReadCertificateText = new QLabel( TabPage, "myReadCertificateText" );
     myReadCertificateText->setEnabled( FALSE );
-    myReadCertificateText->setGeometry( QRect( 36, 40, 300, 30 ) );
+    myReadCertificateText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, 1, 1, myReadCertificateText->sizePolicy().hasHeightForWidth() ) );
     myReadCertificateText->setTextFormat( QLabel::AutoText );
     myReadCertificateText->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout55->addWidget( myReadCertificateText );
 
     myReadCertificate = new QPushButton( TabPage, "myReadCertificate" );
     myReadCertificate->setEnabled( FALSE );
-    myReadCertificate->setGeometry( QRect( 350, 40, 70, 24 ) );
+    layout55->addWidget( myReadCertificate );
+    layout58->addLayout( layout55 );
+
+    layout57_2 = new QHBoxLayout( 0, 0, 6, "layout57_2"); 
+
+    layout56_3 = new QVBoxLayout( 0, 0, 6, "layout56_3"); 
+    spacer53 = new QSpacerItem( 52, 5, QSizePolicy::Minimum, QSizePolicy::Minimum );
+    layout56_3->addItem( spacer53 );
 
     myCertificateIcon = new QLabel( TabPage, "myCertificateIcon" );
-    myCertificateIcon->setGeometry( QRect( 31, 91, 48, 47 ) );
     myCertificateIcon->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)4, (QSizePolicy::SizeType)5, 0, 0, myCertificateIcon->sizePolicy().hasHeightForWidth() ) );
     myCertificateIcon->setMinimumSize( QSize( 10, 0 ) );
-    myCertificateIcon->setPixmap( image0 );
+    myCertificateIcon->setPixmap( image3 );
     myCertificateIcon->setScaledContents( TRUE );
+    layout56_3->addWidget( myCertificateIcon );
+    spacer53_2 = new QSpacerItem( 52, 5, QSizePolicy::Minimum, QSizePolicy::Minimum );
+    layout56_3->addItem( spacer53_2 );
+    layout57_2->addLayout( layout56_3 );
 
     myCertificateText = new QLabel( TabPage, "myCertificateText" );
-    myCertificateText->setGeometry( QRect( 90, 90, 311, 50 ) );
-    myCertificateText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 0, myCertificateText->sizePolicy().hasHeightForWidth() ) );
+    myCertificateText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 1, 0, myCertificateText->sizePolicy().hasHeightForWidth() ) );
     myCertificateText->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout57_2->addWidget( myCertificateText );
+    layout58->addLayout( layout57_2 );
+    layout59->addLayout( layout58 );
+    spacer55_2 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout59->addItem( spacer55_2 );
+    layout60->addLayout( layout59 );
+    spacer57 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout60->addItem( spacer57 );
+    TabPageLayout->addLayout( layout60 );
     tabSetting->insertTab( TabPage, QString::fromLatin1("") );
+    WStackPageLayout_3->addWidget( tabSetting );
     widgetStack1->addWidget( WStackPage_3, 2 );
 
     WStackPage_4 = new QWidget( widgetStack1, "WStackPage_4" );
+    WStackPageLayout_4 = new QVBoxLayout( WStackPage_4, 11, 6, "WStackPageLayout_4"); 
 
     tabAdvanced = new QTabWidget( WStackPage_4, "tabAdvanced" );
     tabAdvanced->setEnabled( TRUE );
-    tabAdvanced->setGeometry( QRect( 0, 0, 460, 311 ) );
 
     TabPage_2 = new QWidget( tabAdvanced, "TabPage_2" );
+    TabPageLayout_2 = new QVBoxLayout( TabPage_2, 11, 6, "TabPageLayout_2"); 
 
-    textLabel6_2_2 = new QLabel( TabPage_2, "textLabel6_2_2" );
-    textLabel6_2_2->setGeometry( QRect( 96, 43, 320, 60 ) );
-    textLabel6_2_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout64_2 = new QVBoxLayout( 0, 15, 6, "layout64_2"); 
+    spacer62 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout64_2->addItem( spacer62 );
 
-    textLabel9 = new QLabel( TabPage_2, "textLabel9" );
-    textLabel9->setGeometry( QRect( 98, 113, 320, 40 ) );
-    textLabel9->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout63_2 = new QHBoxLayout( 0, 0, 6, "layout63_2"); 
+
+    layout61_2 = new QVBoxLayout( 0, 0, 6, "layout61_2"); 
+    spacer58 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout61_2->addItem( spacer58 );
 
     pixmapLabel1_2_2 = new QLabel( TabPage_2, "pixmapLabel1_2_2" );
-    pixmapLabel1_2_2->setGeometry( QRect( 30, 80, 50, 50 ) );
-    pixmapLabel1_2_2->setPixmap( image1 );
+    pixmapLabel1_2_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, 0, 0, pixmapLabel1_2_2->sizePolicy().hasHeightForWidth() ) );
+    pixmapLabel1_2_2->setPixmap( image4 );
     pixmapLabel1_2_2->setScaledContents( TRUE );
+    layout61_2->addWidget( pixmapLabel1_2_2 );
+    spacer60 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout61_2->addItem( spacer60 );
+    layout63_2->addLayout( layout61_2 );
+
+    layout62_2 = new QVBoxLayout( 0, 0, 6, "layout62_2"); 
+
+    textLabel6_2_2 = new QLabel( TabPage_2, "textLabel6_2_2" );
+    textLabel6_2_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 1, 0, textLabel6_2_2->sizePolicy().hasHeightForWidth() ) );
+    textLabel6_2_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout62_2->addWidget( textLabel6_2_2 );
+
+    textLabel9 = new QLabel( TabPage_2, "textLabel9" );
+    textLabel9->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 1, 0, textLabel9->sizePolicy().hasHeightForWidth() ) );
+    textLabel9->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout62_2->addWidget( textLabel9 );
+    layout63_2->addLayout( layout62_2 );
+    layout64_2->addLayout( layout63_2 );
+    spacer63 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout64_2->addItem( spacer63 );
+    TabPageLayout_2->addLayout( layout64_2 );
     tabAdvanced->insertTab( TabPage_2, QString::fromLatin1("") );
 
     tabDisableMaintenance = new QWidget( tabAdvanced, "tabDisableMaintenance" );
+    tabDisableMaintenanceLayout = new QVBoxLayout( tabDisableMaintenance, 11, 6, "tabDisableMaintenanceLayout"); 
 
-    myTakeOwnerText_2_6_2_2 = new QLabel( tabDisableMaintenance, "myTakeOwnerText_2_6_2_2" );
-    myTakeOwnerText_2_6_2_2->setGeometry( QRect( 36, 40, 380, 70 ) );
-    myTakeOwnerText_2_6_2_2->setTextFormat( QLabel::AutoText );
-    myTakeOwnerText_2_6_2_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout72_2 = new QVBoxLayout( 0, 15, 6, "layout72_2"); 
 
     textLabel1_2_4_2_7_2_2 = new QLabel( tabDisableMaintenance, "textLabel1_2_4_2_7_2_2" );
-    textLabel1_2_4_2_7_2_2->setGeometry( QRect( 20, 10, 410, 20 ) );
-    textLabel1_2_4_2_7_2_2->setBackgroundMode( QLabel::PaletteText );
-    textLabel1_2_4_2_7_2_2->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    textLabel1_2_4_2_7_2_2->setBackgroundOrigin( QLabel::WidgetOrigin );
+    textLabel1_2_4_2_7_2_2->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_4_2_7_2_2->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_4_2_7_2_2->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout72_2->addWidget( textLabel1_2_4_2_7_2_2 );
 
-    myDisableMaintenanceText = new QLabel( tabDisableMaintenance, "myDisableMaintenanceText" );
-    myDisableMaintenanceText->setEnabled( FALSE );
-    myDisableMaintenanceText->setGeometry( QRect( 36, 190, 290, 24 ) );
+    layout71_2 = new QHBoxLayout( 0, 0, 6, "layout71_2"); 
+    spacer68 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout71_2->addItem( spacer68 );
 
-    myDisableMaintenance = new QPushButton( tabDisableMaintenance, "myDisableMaintenance" );
-    myDisableMaintenance->setEnabled( FALSE );
-    myDisableMaintenance->setGeometry( QRect( 350, 190, 70, 24 ) );
+    layout70_2 = new QVBoxLayout( 0, 0, 6, "layout70_2"); 
+
+    myTakeOwnerText_2_6_2_2 = new QLabel( tabDisableMaintenance, "myTakeOwnerText_2_6_2_2" );
+    myTakeOwnerText_2_6_2_2->setTextFormat( QLabel::AutoText );
+    myTakeOwnerText_2_6_2_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout70_2->addWidget( myTakeOwnerText_2_6_2_2 );
+
+    layout69_2 = new QHBoxLayout( 0, 0, 6, "layout69_2"); 
+
+    layout68 = new QVBoxLayout( 0, 0, 6, "layout68"); 
+    spacer66 = new QSpacerItem( 41, 5, QSizePolicy::Minimum, QSizePolicy::Maximum );
+    layout68->addItem( spacer66 );
 
     myDisableMaintenanceWarnIcon = new QLabel( tabDisableMaintenance, "myDisableMaintenanceWarnIcon" );
     myDisableMaintenanceWarnIcon->setEnabled( FALSE );
-    myDisableMaintenanceWarnIcon->setGeometry( QRect( 38, 120, 50, 50 ) );
-    myDisableMaintenanceWarnIcon->setPixmap( image1 );
+    myDisableMaintenanceWarnIcon->setPixmap( image4 );
     myDisableMaintenanceWarnIcon->setScaledContents( TRUE );
+    layout68->addWidget( myDisableMaintenanceWarnIcon );
+    spacer67 = new QSpacerItem( 40, 5, QSizePolicy::Minimum, QSizePolicy::Maximum );
+    layout68->addItem( spacer67 );
+    layout69_2->addLayout( layout68 );
 
     myDisableMaintenanceWarnText = new QLabel( tabDisableMaintenance, "myDisableMaintenanceWarnText" );
     myDisableMaintenanceWarnText->setEnabled( FALSE );
-    myDisableMaintenanceWarnText->setGeometry( QRect( 96, 113, 320, 60 ) );
+    myDisableMaintenanceWarnText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, 0, 0, myDisableMaintenanceWarnText->sizePolicy().hasHeightForWidth() ) );
     myDisableMaintenanceWarnText->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout69_2->addWidget( myDisableMaintenanceWarnText );
+    layout70_2->addLayout( layout69_2 );
+
+    layout67 = new QHBoxLayout( 0, 0, 6, "layout67"); 
+
+    myDisableMaintenanceText = new QLabel( tabDisableMaintenance, "myDisableMaintenanceText" );
+    myDisableMaintenanceText->setEnabled( FALSE );
+    myDisableMaintenanceText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 1, 0, myDisableMaintenanceText->sizePolicy().hasHeightForWidth() ) );
+    layout67->addWidget( myDisableMaintenanceText );
+
+    myDisableMaintenance = new QPushButton( tabDisableMaintenance, "myDisableMaintenance" );
+    myDisableMaintenance->setEnabled( FALSE );
+    layout67->addWidget( myDisableMaintenance );
+    layout70_2->addLayout( layout67 );
+
+    layout66_2 = new QHBoxLayout( 0, 0, 6, "layout66_2"); 
+
+    layout65 = new QVBoxLayout( 0, 0, 6, "layout65"); 
+    spacer64 = new QSpacerItem( 20, 5, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout65->addItem( spacer64 );
 
     myDisableMaintenanceInfoIcon = new QLabel( tabDisableMaintenance, "myDisableMaintenanceInfoIcon" );
-    myDisableMaintenanceInfoIcon->setGeometry( QRect( 41, 221, 48, 47 ) );
     myDisableMaintenanceInfoIcon->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)4, (QSizePolicy::SizeType)5, 0, 0, myDisableMaintenanceInfoIcon->sizePolicy().hasHeightForWidth() ) );
     myDisableMaintenanceInfoIcon->setMinimumSize( QSize( 10, 0 ) );
-    myDisableMaintenanceInfoIcon->setPixmap( image0 );
+    myDisableMaintenanceInfoIcon->setPixmap( image3 );
     myDisableMaintenanceInfoIcon->setScaledContents( TRUE );
+    layout65->addWidget( myDisableMaintenanceInfoIcon );
+    spacer65 = new QSpacerItem( 20, 5, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout65->addItem( spacer65 );
+    layout66_2->addLayout( layout65 );
 
     myDisableMaintenanceInfoText = new QLabel( tabDisableMaintenance, "myDisableMaintenanceInfoText" );
-    myDisableMaintenanceInfoText->setGeometry( QRect( 95, 221, 311, 50 ) );
-    myDisableMaintenanceInfoText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 0, myDisableMaintenanceInfoText->sizePolicy().hasHeightForWidth() ) );
+    myDisableMaintenanceInfoText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 1, 0, myDisableMaintenanceInfoText->sizePolicy().hasHeightForWidth() ) );
     myDisableMaintenanceInfoText->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout66_2->addWidget( myDisableMaintenanceInfoText );
+    layout70_2->addLayout( layout66_2 );
+    layout71_2->addLayout( layout70_2 );
+    spacer68_2 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout71_2->addItem( spacer68_2 );
+    layout72_2->addLayout( layout71_2 );
+    spacer70 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout72_2->addItem( spacer70 );
+    tabDisableMaintenanceLayout->addLayout( layout72_2 );
     tabAdvanced->insertTab( tabDisableMaintenance, QString::fromLatin1("") );
 
     tabRevokeTrust = new QWidget( tabAdvanced, "tabRevokeTrust" );
+    tabRevokeTrustLayout = new QVBoxLayout( tabRevokeTrust, 11, 6, "tabRevokeTrustLayout"); 
 
-    textLabel4_5_2 = new QLabel( tabRevokeTrust, "textLabel4_5_2" );
-    textLabel4_5_2->setGeometry( QRect( 36, 81, 67, 20 ) );
+    layout85_2 = new QVBoxLayout( 0, 15, 6, "layout85_2"); 
 
     textLabel1_2_4_2_7_2 = new QLabel( tabRevokeTrust, "textLabel1_2_4_2_7_2" );
-    textLabel1_2_4_2_7_2->setGeometry( QRect( 20, 10, 410, 20 ) );
-    textLabel1_2_4_2_7_2->setBackgroundMode( QLabel::PaletteText );
-    textLabel1_2_4_2_7_2->setPaletteBackgroundColor( QColor( 209, 211, 217 ) );
-    textLabel1_2_4_2_7_2->setBackgroundOrigin( QLabel::WidgetOrigin );
+    textLabel1_2_4_2_7_2->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_4_2_7_2->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_4_2_7_2->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout85_2->addWidget( textLabel1_2_4_2_7_2 );
+
+    layout84 = new QHBoxLayout( 0, 0, 6, "layout84"); 
+    spacer77 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout84->addItem( spacer77 );
+
+    layout82 = new QVBoxLayout( 0, 0, 6, "layout82"); 
 
     myTakeOwnerText_2_6_2 = new QLabel( tabRevokeTrust, "myTakeOwnerText_2_6_2" );
-    myTakeOwnerText_2_6_2->setGeometry( QRect( 36, 40, 380, 70 ) );
     myTakeOwnerText_2_6_2->setTextFormat( QLabel::AutoText );
     myTakeOwnerText_2_6_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout82->addWidget( myTakeOwnerText_2_6_2 );
 
-    myDeleteEndorsement = new QPushButton( tabRevokeTrust, "myDeleteEndorsement" );
-    myDeleteEndorsement->setEnabled( FALSE );
-    myDeleteEndorsement->setGeometry( QRect( 350, 180, 70, 24 ) );
+    layout81 = new QHBoxLayout( 0, 0, 6, "layout81"); 
 
-    textLabel7 = new QLabel( tabRevokeTrust, "textLabel7" );
-    textLabel7->setEnabled( FALSE );
-    textLabel7->setGeometry( QRect( 36, 180, 290, 20 ) );
+    layout80 = new QVBoxLayout( 0, 0, 6, "layout80"); 
+    spacer75 = new QSpacerItem( 56, 5, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding );
+    layout80->addItem( spacer75 );
 
     myRevokeWarnIcon = new QLabel( tabRevokeTrust, "myRevokeWarnIcon" );
     myRevokeWarnIcon->setEnabled( FALSE );
-    myRevokeWarnIcon->setGeometry( QRect( 40, 120, 50, 50 ) );
-    myRevokeWarnIcon->setPixmap( image1 );
+    myRevokeWarnIcon->setPixmap( image4 );
     myRevokeWarnIcon->setScaledContents( TRUE );
-
-    myRevokeInfoIcon = new QLabel( tabRevokeTrust, "myRevokeInfoIcon" );
-    myRevokeInfoIcon->setGeometry( QRect( 51, 211, 48, 47 ) );
-    myRevokeInfoIcon->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)4, (QSizePolicy::SizeType)5, 0, 0, myRevokeInfoIcon->sizePolicy().hasHeightForWidth() ) );
-    myRevokeInfoIcon->setMinimumSize( QSize( 10, 0 ) );
-    myRevokeInfoIcon->setPixmap( image0 );
-    myRevokeInfoIcon->setScaledContents( TRUE );
+    layout80->addWidget( myRevokeWarnIcon );
+    spacer76_2 = new QSpacerItem( 64, 5, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding );
+    layout80->addItem( spacer76_2 );
+    layout81->addLayout( layout80 );
 
     myRevokeWarnText = new QLabel( tabRevokeTrust, "myRevokeWarnText" );
     myRevokeWarnText->setEnabled( FALSE );
-    myRevokeWarnText->setGeometry( QRect( 96, 113, 320, 60 ) );
+    myRevokeWarnText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 1, 0, myRevokeWarnText->sizePolicy().hasHeightForWidth() ) );
     myRevokeWarnText->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout81->addWidget( myRevokeWarnText );
+    layout82->addLayout( layout81 );
+
+    layout75 = new QHBoxLayout( 0, 0, 6, "layout75"); 
+
+    textLabel7 = new QLabel( tabRevokeTrust, "textLabel7" );
+    textLabel7->setEnabled( FALSE );
+    textLabel7->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 0, 0, textLabel7->sizePolicy().hasHeightForWidth() ) );
+    layout75->addWidget( textLabel7 );
+
+    myDeleteEndorsement = new QPushButton( tabRevokeTrust, "myDeleteEndorsement" );
+    myDeleteEndorsement->setEnabled( FALSE );
+    layout75->addWidget( myDeleteEndorsement );
+    layout82->addLayout( layout75 );
+
+    layout74 = new QHBoxLayout( 0, 0, 6, "layout74"); 
+
+    layout73_2 = new QVBoxLayout( 0, 0, 6, "layout73_2"); 
+    spacer71 = new QSpacerItem( 53, 5, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout73_2->addItem( spacer71 );
+
+    myRevokeInfoIcon = new QLabel( tabRevokeTrust, "myRevokeInfoIcon" );
+    myRevokeInfoIcon->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)4, (QSizePolicy::SizeType)5, 0, 0, myRevokeInfoIcon->sizePolicy().hasHeightForWidth() ) );
+    myRevokeInfoIcon->setMinimumSize( QSize( 10, 0 ) );
+    myRevokeInfoIcon->setPixmap( image3 );
+    myRevokeInfoIcon->setScaledContents( TRUE );
+    layout73_2->addWidget( myRevokeInfoIcon );
+    spacer71_2 = new QSpacerItem( 53, 5, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout73_2->addItem( spacer71_2 );
+    layout74->addLayout( layout73_2 );
 
     myRevokeInfoText = new QLabel( tabRevokeTrust, "myRevokeInfoText" );
-    myRevokeInfoText->setGeometry( QRect( 105, 211, 311, 50 ) );
     myRevokeInfoText->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 0, myRevokeInfoText->sizePolicy().hasHeightForWidth() ) );
     myRevokeInfoText->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout74->addWidget( myRevokeInfoText );
+    layout82->addLayout( layout74 );
+    layout84->addLayout( layout82 );
+    spacer77_2 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout84->addItem( spacer77_2 );
+    layout85_2->addLayout( layout84 );
+    spacer79 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout85_2->addItem( spacer79 );
+    tabRevokeTrustLayout->addLayout( layout85_2 );
     tabAdvanced->insertTab( tabRevokeTrust, QString::fromLatin1("") );
 
     tab = new QWidget( tabAdvanced, "tab" );
     tabAdvanced->insertTab( tab, QString::fromLatin1("") );
+    WStackPageLayout_4->addWidget( tabAdvanced );
     widgetStack1->addWidget( WStackPage_4, 3 );
 
     WStackPage_5 = new QWidget( widgetStack1, "WStackPage_5" );
+    WStackPageLayout_5 = new QVBoxLayout( WStackPage_5, 11, 6, "WStackPageLayout_5"); 
 
-    tabWidget8 = new QTabWidget( WStackPage_5, "tabWidget8" );
-    tabWidget8->setGeometry( QRect( 0, 0, 460, 310 ) );
+    myVersionLabel = new QTabWidget( WStackPage_5, "myVersionLabel" );
+    myVersionLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)7, 1, 1, myVersionLabel->sizePolicy().hasHeightForWidth() ) );
 
-    tab_2 = new QWidget( tabWidget8, "tab_2" );
+    tab_2 = new QWidget( myVersionLabel, "tab_2" );
+    tabLayout = new QVBoxLayout( tab_2, 11, 6, "tabLayout"); 
+
+    layout99 = new QHBoxLayout( 0, 15, 6, "layout99"); 
+    spacer44 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout99->addItem( spacer44 );
+
+    layout97 = new QVBoxLayout( 0, 0, 8, "layout97"); 
+    spacer90 = new QSpacerItem( 39, 20, QSizePolicy::Minimum, QSizePolicy::Fixed );
+    layout97->addItem( spacer90 );
+
+    myProgramLabel = new QLabel( tab_2, "myProgramLabel" );
+    myProgramLabel->setEnabled( TRUE );
+    myProgramLabel->setAlignment( int( QLabel::WordBreak | QLabel::AlignCenter ) );
+    layout97->addWidget( myProgramLabel );
+    spacer90_2 = new QSpacerItem( 39, 16, QSizePolicy::Minimum, QSizePolicy::Fixed );
+    layout97->addItem( spacer90_2 );
 
     textLabel5 = new QLabel( tab_2, "textLabel5" );
-    textLabel5->setGeometry( QRect( 70, 40, 300, 200 ) );
-    tabWidget8->insertTab( tab_2, QString::fromLatin1("") );
+    textLabel5->setAlignment( int( QLabel::WordBreak | QLabel::AlignCenter ) );
+    layout97->addWidget( textLabel5 );
+    spacer92 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout97->addItem( spacer92 );
+    layout99->addLayout( layout97 );
+    spacer43 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout99->addItem( spacer43 );
+    tabLayout->addLayout( layout99 );
+    myVersionLabel->insertTab( tab_2, QString::fromLatin1("") );
+    WStackPageLayout_5->addWidget( myVersionLabel );
     widgetStack1->addWidget( WStackPage_5, 4 );
+    layout86->addWidget( widgetStack1 );
+    layout87->addLayout( layout86 );
 
-    QWidget* privateLayoutWidget_5 = new QWidget( this, "Layout1" );
-    privateLayoutWidget_5->setGeometry( QRect( 10, 330, 580, 26 ) );
-    Layout1 = new QHBoxLayout( privateLayoutWidget_5, 0, 6, "Layout1"); 
+    Layout1 = new QHBoxLayout( 0, 5, 6, "Layout1"); 
 
-    buttonHelp = new QPushButton( privateLayoutWidget_5, "buttonHelp" );
+    buttonHelp = new QPushButton( this, "buttonHelp" );
     buttonHelp->setPaletteForegroundColor( QColor( 0, 85, 127 ) );
     buttonHelp->setAutoDefault( TRUE );
     Layout1->addWidget( buttonHelp );
     Horizontal_Spacing2 = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
     Layout1->addItem( Horizontal_Spacing2 );
 
-    buttonOk = new QPushButton( privateLayoutWidget_5, "buttonOk" );
+    buttonOk = new QPushButton( this, "buttonOk" );
     buttonOk->setPaletteForegroundColor( QColor( 0, 85, 127 ) );
     buttonOk->setAutoDefault( TRUE );
     buttonOk->setDefault( TRUE );
     Layout1->addWidget( buttonOk );
-
-    buttonCancel = new QPushButton( privateLayoutWidget_5, "buttonCancel" );
-    buttonCancel->setPaletteForegroundColor( QColor( 0, 85, 127 ) );
-    buttonCancel->setAutoDefault( TRUE );
-    Layout1->addWidget( buttonCancel );
-
-    buttonGroup1 = new QButtonGroup( this, "buttonGroup1" );
-    buttonGroup1->setGeometry( QRect( 10, 228, 110, 90 ) );
-    buttonGroup1->setFrameShape( QButtonGroup::GroupBoxPanel );
-    buttonGroup1->setFrameShadow( QButtonGroup::Raised );
-    buttonGroup1->setLineWidth( 1 );
-
-    textLabel3_4_3 = new QLabel( buttonGroup1, "textLabel3_4_3" );
-    textLabel3_4_3->setGeometry( QRect( 30, 65, 65, 15 ) );
-
-    textLabel3_4 = new QLabel( buttonGroup1, "textLabel3_4" );
-    textLabel3_4->setGeometry( QRect( 30, 25, 53, 15 ) );
-
-    textLabel3_4_2 = new QLabel( buttonGroup1, "textLabel3_4_2" );
-    textLabel3_4_2->setGeometry( QRect( 30, 45, 60, 15 ) );
-
-    myOwnerSetOkImage = new QLabel( buttonGroup1, "myOwnerSetOkImage" );
-    myOwnerSetOkImage->setGeometry( QRect( 10, 65, 15, 15 ) );
-    myOwnerSetOkImage->setPixmap( image2 );
-
-    myActivatedOkImage = new QLabel( buttonGroup1, "myActivatedOkImage" );
-    myActivatedOkImage->setGeometry( QRect( 10, 45, 15, 15 ) );
-    myActivatedOkImage->setPixmap( image2 );
-
-    myEnabledOkImage = new QLabel( buttonGroup1, "myEnabledOkImage" );
-    myEnabledOkImage->setGeometry( QRect( 10, 25, 16, 16 ) );
-    myEnabledOkImage->setPixmap( image2 );
-
-    myEnabledNokImage = new QLabel( buttonGroup1, "myEnabledNokImage" );
-    myEnabledNokImage->setGeometry( QRect( 10, 25, 16, 16 ) );
-    myEnabledNokImage->setPixmap( image3 );
-
-    myOwnerSetNokImage = new QLabel( buttonGroup1, "myOwnerSetNokImage" );
-    myOwnerSetNokImage->setGeometry( QRect( 10, 64, 16, 16 ) );
-    myOwnerSetNokImage->setPixmap( image3 );
-
-    myActivatedUnknown = new QLabel( buttonGroup1, "myActivatedUnknown" );
-    myActivatedUnknown->setGeometry( QRect( 10, 45, 14, 15 ) );
-
-    myActivatedNokImage = new QLabel( buttonGroup1, "myActivatedNokImage" );
-    myActivatedNokImage->setGeometry( QRect( 10, 45, 16, 16 ) );
-    myActivatedNokImage->setPixmap( image3 );
-
-    listBox = new QListBox( this, "listBox" );
-    listBox->setGeometry( QRect( 10, 10, 110, 210 ) );
-    listBox->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)0, (QSizePolicy::SizeType)7, 0, 0, listBox->sizePolicy().hasHeightForWidth() ) );
-    listBox->setPaletteForegroundColor( QColor( 0, 85, 127 ) );
-    listBox->setPaletteBackgroundColor( QColor( 239, 239, 239 ) );
-    listBox->setFocusPolicy( QListBox::StrongFocus );
-    listBox->setFrameShape( QListBox::StyledPanel );
-    listBox->setFrameShadow( QListBox::Raised );
-    listBox->setLineWidth( 1 );
+    layout87->addLayout( Layout1 );
+    TPM_ManagerWidgetBaseLayout->addLayout( layout87 );
     languageChange();
-    resize( QSize(600, 368).expandedTo(minimumSizeHint()) );
+    resize( QSize(740, 487).expandedTo(minimumSizeHint()) );
     clearWState( WState_Polished );
 
     // signals and slots connections
-    connect( buttonCancel, SIGNAL( clicked() ), this, SLOT( reject() ) );
     connect( buttonOk, SIGNAL( clicked() ), this, SLOT( accept() ) );
     connect( listBox, SIGNAL( highlighted(int) ), widgetStack1, SLOT( raiseWidget(int) ) );
     connect( listBox, SIGNAL( selected(QListBoxItem*) ), this, SLOT( TPM_Manager() ) );
-    connect( myChangePassword, SIGNAL( clicked() ), this, SLOT( slotChangePassword() ) );
-    connect( myClearOwnership, SIGNAL( clicked() ), this, SLOT( slotClearOwnership() ) );
-    connect( myDeactivate, SIGNAL( clicked() ), this, SLOT( slotSetTempDeactivated() ) );
-    connect( myDisable, SIGNAL( clicked() ), this, SLOT( slotSetEnabledDisabled() ) );
-    connect( mySaveEndorsement, SIGNAL( clicked() ), this, SLOT( slotSaveEndorsement() ) );
-    connect( mySelfTest, SIGNAL( clicked() ), this, SLOT( slotSelfTestFull() ) );
-    connect( myShowEndorsement, SIGNAL( clicked() ), this, SLOT( slotShowEndorsementKey() ) );
-    connect( myTakeOwnership, SIGNAL( clicked() ), this, SLOT( slotTakeOwnership() ) );
     connect( tabAdvanced, SIGNAL( currentChanged(QWidget*) ), this, SLOT( slotAdvancedTabWidgetChanged(QWidget*) ) );
     connect( tabInfo, SIGNAL( currentChanged(QWidget*) ), this, SLOT( slotInfoTabWidgetChanged(QWidget*) ) );
     connect( tabOwner, SIGNAL( currentChanged(QWidget*) ), this, SLOT( slotOwnerTabWidgetChanged(QWidget*) ) );
     connect( tabSetting, SIGNAL( currentChanged(QWidget*) ), this, SLOT( slotTPMSettingsTabWidgetChanged(QWidget*) ) );
+    connect( myTakeOwnership, SIGNAL( clicked() ), this, SLOT( slotTakeOwnership() ) );
+    connect( myChangePassword, SIGNAL( clicked() ), this, SLOT( slotChangePassword() ) );
+    connect( myClearOwnership, SIGNAL( clicked() ), this, SLOT( slotClearOwnership() ) );
+    connect( mySelfTest, SIGNAL( clicked() ), this, SLOT( slotSelfTestFull() ) );
+    connect( myShowEndorsement, SIGNAL( clicked() ), this, SLOT( slotShowEndorsementKey() ) );
+    connect( mySaveEndorsement, SIGNAL( clicked() ), this, SLOT( slotSaveEndorsement() ) );
     connect( myRestrictEndorsement, SIGNAL( clicked() ), this, SLOT( slotRestrictEndorsement() ) );
+    connect( myDeactivate, SIGNAL( clicked() ), this, SLOT( slotSetTempDeactivated() ) );
+    connect( myDisable, SIGNAL( clicked() ), this, SLOT( slotSetEnabledDisabled() ) );
     connect( myDisableMaintenance, SIGNAL( clicked() ), this, SLOT( slotDisableMaintenance() ) );
     connect( myDeleteEndorsement, SIGNAL( clicked() ), this, SLOT( slotDeleteEndorsement() ) );
 }
@@ -1750,29 +2116,42 @@ TPM_ManagerWidgetBase::~TPM_ManagerWidgetBase()
  */
 void TPM_ManagerWidgetBase::languageChange()
 {
-    setCaption( tr2i18n( "TPM Manager V0.1" ) );
+    setCaption( tr2i18n( "TPM Manager V0.2" ) );
+    listBox->clear();
+    listBox->insertItem( tr2i18n( "Info" ) );
+    listBox->insertItem( tr2i18n( "Owner Settings" ) );
+    listBox->insertItem( tr2i18n( "TPM Settings" ) );
+    listBox->insertItem( tr2i18n( "Advanced" ) );
+    listBox->insertItem( tr2i18n( "About" ) );
+    buttonGroup1->setTitle( tr2i18n( "TPM Status" ) );
+    myEnabledLabel->setText( QString::null );
+    textLabel3_4_2->setText( tr2i18n( "activated" ) );
+    myOwnerLabel->setText( QString::null );
+    textLabel3_4->setText( tr2i18n( "enabled" ) );
+    textLabel3_4_3->setText( tr2i18n( "owner set" ) );
+    myActivatedLabel->setText( QString::null );
     textLabel1_2->setText( tr2i18n( "<font color=\"#00557f\"><b>TPM/TSS Status</b></font>" ) );
-    foundLabel->setText( tr2i18n( "TPM driver found" ) );
-    driverFound->setText( tr2i18n( "--" ) );
-    textLabel1->setText( tr2i18n( "TSS system found" ) );
-    tssFound->setText( tr2i18n( "--" ) );
-    textLabel2->setText( tr2i18n( "TPM enabled" ) );
-    tpmEnabled->setText( tr2i18n( "--" ) );
-    TPM_ACtive_Status->setText( tr2i18n( "TPM activated" ) );
     tpmActivated->setText( tr2i18n( "--" ) );
-    textLabel3->setText( tr2i18n( "TPM Owner set" ) );
-    ownerSet->setText( tr2i18n( "--" ) );
-    textLabel2_2->setText( tr2i18n( "Endorsement key available" ) );
+    tssFound->setText( tr2i18n( "--" ) );
+    textLabel2_2->setText( tr2i18n( "<p align=\"right\">Endorsement Key available</p>" ) );
+    TPM_ACtive_Status->setText( tr2i18n( "<p align=\"right\">TPM activated</p>" ) );
+    driverFound->setText( tr2i18n( "--" ) );
+    textLabel3->setText( tr2i18n( "<p align=\"right\">TPM Owner set</p>" ) );
+    foundLabel->setText( tr2i18n( "<p align=\"right\">TPM driver found</p>" ) );
+    textLabel2->setText( tr2i18n( "<p align=\"right\">TPM enabled</p>" ) );
     myEndorsementAvailable->setText( tr2i18n( "--" ) );
+    ownerSet->setText( tr2i18n( "--" ) );
+    textLabel1->setText( tr2i18n( "<p align=\"right\">TSS system found</p>" ) );
+    tpmEnabled->setText( tr2i18n( "--" ) );
     tabInfo->changeTab( tabStatus, tr2i18n( "Status" ) );
-    textLabel1_2_3->setText( tr2i18n( "<font color=\"#00557f\"><b>TPM Details</b></font>" ) );
+    textLabel1_2_2->setText( tr2i18n( "<font color=\"#00557f\"><b>TPM Details</b></font>" ) );
     Vendor->setText( tr2i18n( "Vendor" ) );
-    tpmVendor->setText( tr2i18n( "Infineon Technologies AG" ) );
+    tpmVendor->setText( QString::null );
     TPM_Version->setText( tr2i18n( "Version" ) );
     tpmVersion->setText( QString::null );
     TPM_Distribution->setText( tr2i18n( "Firmware" ) );
     tpmFirmware->setText( QString::null );
-    textLabel1_2_3_2->setText( tr2i18n( "<font color=\"#00557f\"><b>TSS Details</b></font>" ) );
+    textLabel1_2_3->setText( tr2i18n( "<font color=\"#00557f\"><b>TSS Details</b></font>" ) );
     TSS_Version->setText( tr2i18n( "TSS Vendor" ) );
     tssVendor->setText( QString::null );
     TSS_Version_2->setText( tr2i18n( "TSS Version" ) );
@@ -1799,33 +2178,32 @@ void TPM_ManagerWidgetBase::languageChange()
     myCreateMaintenanceText->setText( tr2i18n( "Create Maintenance Archive." ) );
     myMaintenanceInfoText->setText( tr2i18n( "Maintenance feature is not supported by this TPM." ) );
     tabOwner->changeTab( tabBackup, tr2i18n( "Backup" ) );
-    textLabel3_3->setText( tr2i18n( "Enable/Disable the TPM." ) );
     textLabel1_2_4_2_3->setText( tr2i18n( "<font color=\"#00557f\"><b>Temporarily Deactivation</b></font>" ) );
-    textLabel1_2_4_2_3_2->setText( tr2i18n( "<font color=\"#00557f\"><b>Permanently Enable/Disable</b></font>" ) );
-    myTakeOwnerText_2_2_2->setText( tr2i18n( "<p align=\"left\">A disabled TPM is not able to execute commands that use TPM resources until it is enabled again. Requires Owner authorization.</p>" ) );
     textLabel2_4->setText( tr2i18n( "A temporarily deactivated TPM is unable to execute com- mands that use TPM resources until the next reboot. No authorization is required." ) );
     myTakeOwnerText_2_2->setText( tr2i18n( "<p align=\"left\">Temporarily deactivate the TPM.</p>" ) );
     QToolTip::add( myTakeOwnerText_2_2, tr2i18n( "A deactivated TPM is unable to execute commands that use TPM resources until the next reboot." ) );
-    myDisable->setText( tr2i18n( "Disable" ) );
     myDeactivate->setText( tr2i18n( "Deactivate" ) );
-    QToolTip::add( myDeactivate, tr2i18n( "A deactivated TPM is unable to execute commands that use TPM resources until the next reboot." ) );
+    textLabel1_2_4_2_3_2->setText( tr2i18n( "<font color=\"#00557f\"><b>Permanently Enable/Disable</b></font>" ) );
+    myTakeOwnerText_2_2_2->setText( tr2i18n( "<p align=\"left\">A disabled TPM is not able to execute commands that use TPM resources until it is enabled again. Requires Owner authorization.</p>" ) );
+    myDisableLabel->setText( tr2i18n( "Enable/Disable the TPM." ) );
+    myDisable->setText( tr2i18n( "Disable" ) );
     tabSetting->changeTab( tabOperationalModes, tr2i18n( "Operational Modes" ) );
     textLabel1_2_4_2_7->setText( tr2i18n( "<font color=\"#00557f\"><b>Endorsement Key (EK)</b></font>" ) );
     myTakeOwnerText_2_6->setText( tr2i18n( "The EK identifies the TPM and is used to establish the TPM Owner and Attestation Identity Keys (AIK)." ) );
-    textLabel4_5->setText( tr2i18n( "Create EK." ) );
     myCreatEndorsement->setText( tr2i18n( "Create" ) );
+    myRestrictEndorsement->setText( tr2i18n( "Restrict" ) );
     myClearOwnerText_2_5->setText( tr2i18n( "Disable reading of the EK without owner authorization." ) );
     myChangePassText_2_6_2->setText( tr2i18n( "Store Endorsement Key." ) );
-    myShowEndorsement->setText( tr2i18n( "Show" ) );
     mySaveEndorsement->setText( tr2i18n( "Save" ) );
-    myRestrictEndorsement->setText( tr2i18n( "Restrict" ) );
     myChangePassText_2_6->setText( tr2i18n( "Show Endorsement Key Info." ) );
+    myShowEndorsement->setText( tr2i18n( "Show" ) );
+    textLabel4_5->setText( tr2i18n( "Create EK." ) );
     tabSetting->changeTab( tabIdentity, tr2i18n( "Identity" ) );
-    mySelfTest->setText( tr2i18n( "Run" ) );
+    textLabel1_2_4_2_3_6->setText( tr2i18n( "<font color=\"#00557f\"><b>Full Self Test</b></font>" ) );
     textLabel1_3->setText( tr2i18n( "The full selftest performs a self-test of each internal TPM function and provides an accurate assessment of the TPM’s ability to perform all operations." ) );
     textLabel2_3->setText( tr2i18n( "Execute full Selftest" ) );
-    textLabel1_2_4_2_3_6->setText( tr2i18n( "<font color=\"#00557f\"><b>Full Self Test</b></font>" ) );
-    tabSetting->changeTab( mySelftestTab, tr2i18n( "Self Test" ) );
+    mySelfTest->setText( tr2i18n( "Run" ) );
+    tabSetting->changeTab( tabSelfTest, tr2i18n( "Self Test" ) );
     textLabel1_2_4_2_2_5->setText( tr2i18n( "<font color=\"#00557f\"><b>TPM Certificate</b></font>" ) );
     myReadCertificateText->setText( tr2i18n( "Read the Endorsement Key certificate of the TPM." ) );
     myReadCertificate->setText( tr2i18n( "Read" ) );
@@ -1834,25 +2212,23 @@ void TPM_ManagerWidgetBase::languageChange()
     textLabel6_2_2->setText( tr2i18n( "This section contains critical functions that may delete critical data or permanently deactivate features of the TPM." ) );
     textLabel9->setText( tr2i18n( "Note that this functions are provided WITHOUT ANY WARRANTY; use them at your own risk." ) );
     tabAdvanced->changeTab( TabPage_2, tr2i18n( "Warning" ) );
-    myTakeOwnerText_2_6_2_2->setText( tr2i18n( "Killing the Maintencance Feature permanently prevents anyone from creating a maintenance archive. This action allows TPM owners who do not want the maintenance feature to disable it." ) );
     textLabel1_2_4_2_7_2_2->setText( tr2i18n( "<font color=\"#00557f\"><b>Permanently Disable Maintenance</b></font>" ) );
+    myTakeOwnerText_2_6_2_2->setText( tr2i18n( "Killing the Maintencance Feature permanently prevents anyone from creating a maintenance archive. This action allows TPM owners who do not want the maintenance feature to disable it." ) );
+    myDisableMaintenanceWarnText->setText( tr2i18n( "This action, once taken, is permanent until a new TPM Owner is set." ) );
     myDisableMaintenanceText->setText( tr2i18n( "Disable Maintenance Feature" ) );
     myDisableMaintenance->setText( tr2i18n( "Disable" ) );
-    myDisableMaintenanceWarnText->setText( tr2i18n( "This action, once taken, is permanent until a new TPM Owner is set." ) );
     myDisableMaintenanceInfoText->setText( tr2i18n( "Disabling the maintenance function is not supported by this TPM." ) );
     tabAdvanced->changeTab( tabDisableMaintenance, tr2i18n( "Disable Maintenance" ) );
-    textLabel4_5_2->setText( tr2i18n( "Create EK." ) );
     textLabel1_2_4_2_7_2->setText( tr2i18n( "<font color=\"#00557f\"><b>Delete Endorsement Key</b></font>" ) );
     myTakeOwnerText_2_6_2->setText( tr2i18n( "Deleting the EK invalidates both the TPM certificate and the platform certificate resulting in the revocation of the trust in the platform. From a trust perspective, the platform associated with these specific credentials no longer exists." ) );
-    myDeleteEndorsement->setText( tr2i18n( "Delete" ) );
-    textLabel7->setText( tr2i18n( "Delete Endorsement Key" ) );
     myRevokeWarnText->setText( tr2i18n( "This is a non-reversible function. Also, along with the EK, the Owner is also deleted removing all non-migratable keys and owner-specified state." ) );
+    textLabel7->setText( tr2i18n( "Delete Endorsement Key" ) );
+    myDeleteEndorsement->setText( tr2i18n( "Delete" ) );
     myRevokeInfoText->setText( tr2i18n( "Deleting the Endorsement Key is not supported by this TPM." ) );
     tabAdvanced->changeTab( tabRevokeTrust, tr2i18n( "Revoke Trust" ) );
     tabAdvanced->changeTab( tab, tr2i18n( "Update Firmware" ) );
+    myProgramLabel->setText( tr2i18n( "TPM Manager V" ) );
     textLabel5->setText( tr2i18n( "<center>\n"
-"TPM Manager V0.1<br>\n"
-"<BR>\n"
 "(c) 2006 by<BR>\n"
 "Anoosheh Zaerin (zaerin@sirrix.com)<BR>\n"
 "Christian St&uuml;ble (stueble@acm.org)\n"
@@ -1862,30 +2238,11 @@ void TPM_ManagerWidgetBase::languageChange()
 "\n"
 "<p align=\"center\">This application is part of the PERSEUS security framework,\n"
 "see <a href=\"http://www.perseus-os.org\">http://www.perseus-os.org</a></p>" ) );
-    tabWidget8->changeTab( tab_2, tr2i18n( "Cont&act" ) );
+    myVersionLabel->changeTab( tab_2, tr2i18n( "Cont&act" ) );
     buttonHelp->setText( tr2i18n( "He&lp" ) );
     buttonHelp->setAccel( QKeySequence( tr2i18n( "Alt+L" ) ) );
     buttonOk->setText( tr2i18n( "&OK" ) );
     buttonOk->setAccel( QKeySequence( QString::null ) );
-    buttonCancel->setText( tr2i18n( "Ca&ncel" ) );
-    buttonCancel->setAccel( QKeySequence( tr2i18n( "Alt+N" ) ) );
-    buttonGroup1->setTitle( tr2i18n( "TPM Status" ) );
-    textLabel3_4_3->setText( tr2i18n( "Owner set" ) );
-    textLabel3_4->setText( tr2i18n( "enabled" ) );
-    textLabel3_4_2->setText( tr2i18n( "activated" ) );
-    myOwnerSetOkImage->setText( QString::null );
-    myActivatedOkImage->setText( QString::null );
-    myEnabledOkImage->setText( QString::null );
-    myEnabledNokImage->setText( QString::null );
-    myOwnerSetNokImage->setText( QString::null );
-    myActivatedUnknown->setText( tr2i18n( "??" ) );
-    myActivatedNokImage->setText( QString::null );
-    listBox->clear();
-    listBox->insertItem( tr2i18n( "Info" ) );
-    listBox->insertItem( tr2i18n( "Owner Settings" ) );
-    listBox->insertItem( tr2i18n( "TPM Settings" ) );
-    listBox->insertItem( tr2i18n( "Advanced" ) );
-    listBox->insertItem( tr2i18n( "About" ) );
 }
 
 void TPM_ManagerWidgetBase::TPM_Manager()

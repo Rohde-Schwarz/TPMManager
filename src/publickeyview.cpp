@@ -3,7 +3,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file './publickeyview.ui'
 **
-** Created: Wed Sep 27 23:55:53 2006
+** Created: Do Okt 5 01:32:00 2006
 **      by: The User Interface Compiler ($Id: qt/main.cpp   3.3.6   edited Aug 31 2005 $)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -12,8 +12,8 @@
 #include "publickeyview.h"
 
 #include <qvariant.h>
-#include <qlabel.h>
 #include <qpushbutton.h>
+#include <qlabel.h>
 #include <qlayout.h>
 #include <qtooltip.h>
 #include <qwhatsthis.h>
@@ -30,50 +30,93 @@ PublicKeyViewWidget::PublicKeyViewWidget( QWidget* parent, const char* name, boo
 {
     if ( !name )
 	setName( "PublicKeyViewWidget" );
+    PublicKeyViewWidgetLayout = new QVBoxLayout( this, 11, 6, "PublicKeyViewWidgetLayout"); 
 
-    textLabel1_2 = new QLabel( this, "textLabel1_2" );
-    textLabel1_2->setGeometry( QRect( 80, 50, 71, 21 ) );
+    layout92 = new QVBoxLayout( 0, 16, 6, "layout92"); 
 
-    textLabel1_2_2 = new QLabel( this, "textLabel1_2_2" );
-    textLabel1_2_2->setGeometry( QRect( 80, 80, 71, 21 ) );
-
-    textLabel1 = new QLabel( this, "textLabel1" );
-    textLabel1->setGeometry( QRect( 80, 20, 71, 21 ) );
-
-    buttonOk = new QPushButton( this, "buttonOk" );
-    buttonOk->setGeometry( QRect( 142, 211, 47, 24 ) );
-    buttonOk->setPaletteForegroundColor( QColor( 0, 85, 127 ) );
-    buttonOk->setAutoDefault( TRUE );
-    buttonOk->setDefault( TRUE );
-
-    myType = new QLabel( this, "myType" );
-    myType->setGeometry( QRect( 170, 50, 140, 21 ) );
-
-    myVersion = new QLabel( this, "myVersion" );
-    myVersion->setGeometry( QRect( 170, 20, 140, 21 ) );
-
-    myAlgorithm = new QLabel( this, "myAlgorithm" );
-    myAlgorithm->setGeometry( QRect( 170, 80, 140, 21 ) );
+    layout89 = new QGridLayout( 0, 1, 1, 0, 6, "layout89"); 
+    spacer80_5 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout89->addItem( spacer80_5, 4, 1 );
+    spacer80 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout89->addItem( spacer80, 0, 1 );
 
     myKeySize = new QLabel( this, "myKeySize" );
-    myKeySize->setGeometry( QRect( 170, 110, 140, 21 ) );
+
+    layout89->addWidget( myKeySize, 3, 2 );
 
     textLabel1_2_2_2_2_2 = new QLabel( this, "textLabel1_2_2_2_2_2" );
-    textLabel1_2_2_2_2_2->setGeometry( QRect( 21, 110, 130, 21 ) );
 
-    textLabel1_2_2_2_2 = new QLabel( this, "textLabel1_2_2_2_2" );
-    textLabel1_2_2_2_2->setGeometry( QRect( 21, 170, 130, 21 ) );
+    layout89->addWidget( textLabel1_2_2_2_2_2, 3, 0 );
+
+    textLabel1_2_2 = new QLabel( this, "textLabel1_2_2" );
+
+    layout89->addWidget( textLabel1_2_2, 2, 0 );
+
+    textLabel1_2 = new QLabel( this, "textLabel1_2" );
+    textLabel1_2->setFrameShape( QLabel::NoFrame );
+    textLabel1_2->setFrameShadow( QLabel::Plain );
+
+    layout89->addWidget( textLabel1_2, 1, 0 );
 
     textLabel1_2_2_2 = new QLabel( this, "textLabel1_2_2_2" );
-    textLabel1_2_2_2->setGeometry( QRect( 21, 140, 130, 21 ) );
+    textLabel1_2_2_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 1, 0, textLabel1_2_2_2->sizePolicy().hasHeightForWidth() ) );
+    textLabel1_2_2_2->setAlignment( int( QLabel::AlignVCenter ) );
 
-    myEncScheme = new QLabel( this, "myEncScheme" );
-    myEncScheme->setGeometry( QRect( 170, 140, 140, 21 ) );
+    layout89->addWidget( textLabel1_2_2_2, 4, 0 );
 
     mySigScheme = new QLabel( this, "mySigScheme" );
-    mySigScheme->setGeometry( QRect( 170, 170, 140, 21 ) );
+
+    layout89->addWidget( mySigScheme, 5, 2 );
+    spacer80_3 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout89->addItem( spacer80_3, 2, 1 );
+
+    myEncScheme = new QLabel( this, "myEncScheme" );
+
+    layout89->addWidget( myEncScheme, 4, 2 );
+    spacer80_2 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout89->addItem( spacer80_2, 1, 1 );
+    spacer80_4 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout89->addItem( spacer80_4, 3, 1 );
+
+    myVersion = new QLabel( this, "myVersion" );
+
+    layout89->addWidget( myVersion, 0, 2 );
+
+    myType = new QLabel( this, "myType" );
+
+    layout89->addWidget( myType, 1, 2 );
+
+    textLabel1_2_2_2_2 = new QLabel( this, "textLabel1_2_2_2_2" );
+    textLabel1_2_2_2_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)5, 1, 0, textLabel1_2_2_2_2->sizePolicy().hasHeightForWidth() ) );
+
+    layout89->addWidget( textLabel1_2_2_2_2, 5, 0 );
+
+    myAlgorithm = new QLabel( this, "myAlgorithm" );
+
+    layout89->addWidget( myAlgorithm, 2, 2 );
+    spacer80_6 = new QSpacerItem( 16, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout89->addItem( spacer80_6, 5, 1 );
+
+    textLabel1 = new QLabel( this, "textLabel1" );
+    textLabel1->setEnabled( TRUE );
+
+    layout89->addWidget( textLabel1, 0, 0 );
+    layout92->addLayout( layout89 );
+    spacer89 = new QSpacerItem( 54, 16, QSizePolicy::Minimum, QSizePolicy::Fixed );
+    layout92->addItem( spacer89 );
+
+    layout90 = new QHBoxLayout( 0, 0, 6, "layout90"); 
+    spacer86 = new QSpacerItem( 40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
+    layout90->addItem( spacer86 );
+
+    buttonOk = new QPushButton( this, "buttonOk" );
+    layout90->addWidget( buttonOk );
+    spacer88 = new QSpacerItem( 40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
+    layout90->addItem( spacer88 );
+    layout92->addLayout( layout90 );
+    PublicKeyViewWidgetLayout->addLayout( layout92 );
     languageChange();
-    resize( QSize(330, 247).expandedTo(minimumSizeHint()) );
+    resize( QSize(370, 279).expandedTo(minimumSizeHint()) );
     clearWState( WState_Polished );
 
     // signals and slots connections
@@ -95,20 +138,19 @@ PublicKeyViewWidget::~PublicKeyViewWidget()
 void PublicKeyViewWidget::languageChange()
 {
     setCaption( tr2i18n( "Public Key Info" ) );
-    textLabel1_2->setText( tr2i18n( "<p align=\"right\">Type</p>" ) );
-    textLabel1_2_2->setText( tr2i18n( "<p align=\"right\">Algorithm</p>" ) );
-    textLabel1->setText( tr2i18n( "<p align=\"right\">Version</p>" ) );
-    buttonOk->setText( tr2i18n( "&OK" ) );
-    buttonOk->setAccel( QKeySequence( QString::null ) );
-    myType->setText( tr2i18n( "01010000" ) );
-    myVersion->setText( tr2i18n( "01010000" ) );
-    myAlgorithm->setText( tr2i18n( "01010000" ) );
     myKeySize->setText( tr2i18n( "01010000" ) );
     textLabel1_2_2_2_2_2->setText( tr2i18n( "<p align=\"right\">Key Size</p>" ) );
-    textLabel1_2_2_2_2->setText( tr2i18n( "<p align=\"right\">Signature Scheme</p>" ) );
+    textLabel1_2_2->setText( tr2i18n( "<p align=\"right\">Algorithm</p>" ) );
+    textLabel1_2->setText( tr2i18n( "<p align=\"right\">Type</p>" ) );
     textLabel1_2_2_2->setText( tr2i18n( "<p align=\"right\">Encryption Scheme</p>" ) );
-    myEncScheme->setText( tr2i18n( "Unknown" ) );
     mySigScheme->setText( tr2i18n( "Unknown" ) );
+    myEncScheme->setText( tr2i18n( "Unknown" ) );
+    myVersion->setText( tr2i18n( "01010000" ) );
+    myType->setText( tr2i18n( "01010000" ) );
+    textLabel1_2_2_2_2->setText( tr2i18n( "<p align=\"right\">Signature Scheme</p>" ) );
+    myAlgorithm->setText( tr2i18n( "01010000" ) );
+    textLabel1->setText( tr2i18n( "<p align=\"right\">Version</p>" ) );
+    buttonOk->setText( tr2i18n( "OK" ) );
 }
 
 #include "publickeyview.moc"

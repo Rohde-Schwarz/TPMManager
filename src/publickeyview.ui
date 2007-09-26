@@ -8,237 +8,336 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>330</width>
-            <height>247</height>
+            <width>370</width>
+            <height>279</height>
         </rect>
     </property>
     <property name="caption">
         <string>Public Key Info</string>
     </property>
-    <widget class="QLabel">
+    <vbox>
         <property name="name">
-            <cstring>textLabel1_2</cstring>
+            <cstring>unnamed</cstring>
         </property>
-        <property name="geometry">
-            <rect>
-                <x>80</x>
-                <y>50</y>
-                <width>71</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>&lt;p align="right"&gt;Type&lt;/p&gt;</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel1_2_2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>80</x>
-                <y>80</y>
-                <width>71</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>&lt;p align="right"&gt;Algorithm&lt;/p&gt;</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel1</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>80</x>
-                <y>20</y>
-                <width>71</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>&lt;p align="right"&gt;Version&lt;/p&gt;</string>
-        </property>
-    </widget>
-    <widget class="QPushButton">
-        <property name="name">
-            <cstring>buttonOk</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>142</x>
-                <y>211</y>
-                <width>47</width>
-                <height>24</height>
-            </rect>
-        </property>
-        <property name="paletteForegroundColor">
-            <color>
-                <red>0</red>
-                <green>85</green>
-                <blue>127</blue>
-            </color>
-        </property>
-        <property name="text">
-            <string>&amp;OK</string>
-        </property>
-        <property name="accel">
-            <string></string>
-        </property>
-        <property name="autoDefault">
-            <bool>true</bool>
-        </property>
-        <property name="default">
-            <bool>true</bool>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>myType</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>170</x>
-                <y>50</y>
-                <width>140</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>01010000</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>myVersion</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>170</x>
-                <y>20</y>
-                <width>140</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>01010000</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>myAlgorithm</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>170</x>
-                <y>80</y>
-                <width>140</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>01010000</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>myKeySize</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>170</x>
-                <y>110</y>
-                <width>140</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>01010000</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel1_2_2_2_2_2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>21</x>
-                <y>110</y>
-                <width>130</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>&lt;p align="right"&gt;Key Size&lt;/p&gt;</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel1_2_2_2_2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>21</x>
-                <y>170</y>
-                <width>130</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>&lt;p align="right"&gt;Signature Scheme&lt;/p&gt;</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel1_2_2_2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>21</x>
-                <y>140</y>
-                <width>130</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>&lt;p align="right"&gt;Encryption Scheme&lt;/p&gt;</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>myEncScheme</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>170</x>
-                <y>140</y>
-                <width>140</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>Unknown</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>mySigScheme</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>170</x>
-                <y>170</y>
-                <width>140</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>Unknown</string>
-        </property>
-    </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout92</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>16</number>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout89</cstring>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <spacer row="4" column="1">
+                            <property name="name">
+                                <cstring>spacer80_5</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Fixed</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>16</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer row="0" column="1">
+                            <property name="name">
+                                <cstring>spacer80</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Fixed</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>16</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QLabel" row="3" column="2">
+                            <property name="name">
+                                <cstring>myKeySize</cstring>
+                            </property>
+                            <property name="text">
+                                <string>01010000</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="3" column="0">
+                            <property name="name">
+                                <cstring>textLabel1_2_2_2_2_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Key Size&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="2" column="0">
+                            <property name="name">
+                                <cstring>textLabel1_2_2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Algorithm&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="1" column="0">
+                            <property name="name">
+                                <cstring>textLabel1_2</cstring>
+                            </property>
+                            <property name="frameShape">
+                                <enum>NoFrame</enum>
+                            </property>
+                            <property name="frameShadow">
+                                <enum>Plain</enum>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Type&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="4" column="0">
+                            <property name="name">
+                                <cstring>textLabel1_2_2_2</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>7</hsizetype>
+                                    <vsizetype>5</vsizetype>
+                                    <horstretch>1</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Encryption Scheme&lt;/p&gt;</string>
+                            </property>
+                            <property name="alignment">
+                                <set>AlignVCenter</set>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="5" column="2">
+                            <property name="name">
+                                <cstring>mySigScheme</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Unknown</string>
+                            </property>
+                        </widget>
+                        <spacer row="2" column="1">
+                            <property name="name">
+                                <cstring>spacer80_3</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Fixed</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>16</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QLabel" row="4" column="2">
+                            <property name="name">
+                                <cstring>myEncScheme</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Unknown</string>
+                            </property>
+                        </widget>
+                        <spacer row="1" column="1">
+                            <property name="name">
+                                <cstring>spacer80_2</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Fixed</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>16</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <spacer row="3" column="1">
+                            <property name="name">
+                                <cstring>spacer80_4</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Fixed</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>16</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QLabel" row="0" column="2">
+                            <property name="name">
+                                <cstring>myVersion</cstring>
+                            </property>
+                            <property name="text">
+                                <string>01010000</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="1" column="2">
+                            <property name="name">
+                                <cstring>myType</cstring>
+                            </property>
+                            <property name="text">
+                                <string>01010000</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="5" column="0">
+                            <property name="name">
+                                <cstring>textLabel1_2_2_2_2</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>5</hsizetype>
+                                    <vsizetype>5</vsizetype>
+                                    <horstretch>1</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Signature Scheme&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="2" column="2">
+                            <property name="name">
+                                <cstring>myAlgorithm</cstring>
+                            </property>
+                            <property name="text">
+                                <string>01010000</string>
+                            </property>
+                        </widget>
+                        <spacer row="5" column="1">
+                            <property name="name">
+                                <cstring>spacer80_6</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Fixed</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>16</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QLabel" row="0" column="0">
+                            <property name="name">
+                                <cstring>textLabel1</cstring>
+                            </property>
+                            <property name="enabled">
+                                <bool>true</bool>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Version&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer89</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Fixed</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>54</width>
+                            <height>16</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout90</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer86</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>40</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>buttonOk</cstring>
+                            </property>
+                            <property name="text">
+                                <string>OK</string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer88</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>40</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </hbox>
+                </widget>
+            </vbox>
+        </widget>
+    </vbox>
 </widget>
 <connections>
     <connection>

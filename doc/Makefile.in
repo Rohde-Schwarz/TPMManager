@@ -309,7 +309,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  doc/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.1/doc/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.2/doc/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 
@@ -602,6 +602,7 @@ uninstall-info: uninstall-info-recursive
 .NOEXPORT:
 
 
+
 #>+ 2
 KDE_DIST=Makefile.in 
 
@@ -632,7 +633,7 @@ distdir-nls:
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  doc/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.1/doc/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.2/doc/Makefile.in
 
 
 #>+ 21

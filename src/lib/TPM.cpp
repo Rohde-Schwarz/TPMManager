@@ -403,10 +403,8 @@ void TPM::setDisabled( const string &password )
 	if ( isDisabled() )
 		return;
 
-	cout << "setSecret" << endl;
 	setSecret( password );
 
-   cout << "setStatusFlag" << endl;
 	setStatusFlag( TSS_TPMSTATUS_OWNERSETDISABLE, true ); 
 
 	myState = (TpmState) ( myState & ~ENABLED_MASK );

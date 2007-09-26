@@ -18,6 +18,8 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <config.h>
+
 #include <TSS.hh>
 
 #include <iostream>
@@ -47,32 +49,42 @@ using namespace std;
 
 TPM_ManagerWidget::TPM_ManagerWidget(QWidget* parent, const char* name, WFlags fl) : 
   TPM_ManagerWidgetBase( parent,name,fl ),
-  myTSS(),
-  myTPM( 0 )
+  myTSS( 0 ),
+  myTPM( 0 ),
+  myOkImage( *myEnabledLabel->pixmap() ),
+  myUnknownImage( *myActivatedLabel->pixmap() ),
+  myNokImage( *myOwnerLabel->pixmap() )
 {
+	myProgramLabel->setText( QString("TPM Manager V") + QString(VERSION) );
+	setCaption( QString("TPM Manager V") + QString(VERSION) );
+
 	try {
-		// myTSS = new TSS;
-		myTPM = new TPM( myTSS.getContextHandle() );
+	        myTSS = new TSS;
+		myTPM = new TPM( myTSS->getContextHandle() );
+
+		driverFound->setPixmap( myOkImage );
+	        tssFound->setPixmap( myOkImage );
+
+		if ( myTPM->isDisabled() && !myTPM->hasOwner() )
+		KMessageBox::information( this, "The TPM is disabled and no owner is set. You have to enable the TPM in the BIOS to use the functions of the TPM, e.g., to take ownership.\n", "Information" );
 	} 
 	catch ( TPMDriverNotFound &e ) {
 		cout << e.what() << endl;
-		driverFound->setText( "no" );
+		driverFound->setPixmap( myNokImage );
+		tssFound->setPixmap( myUnknownImage );
 	}
 	catch ( TSSSystemNotFound &e ) {
-		cout << e.what() << endl;
-		tssFound->setText( "no" );
+		// cout << e.what() << endl;
+		driverFound->setPixmap( myOkImage );
 	}
 
 	listBox->setCurrentItem( 0 );
-
-	if ( myTPM->isDisabled() && !myTPM->hasOwner() )
-		KMessageBox::information( this, "The TPM is disabled and no owner is set. You have to enable the TPM in the BIOS to use the functions of the TPM, e.g., to take ownership.\n", "Information" );
 }
 
 TPM_ManagerWidget::~TPM_ManagerWidget()
 {
 	delete myTPM;  /// @todo another design without pointer to TPM/TSS
-	// delete myTSS;
+	delete myTSS;
 }
 
 /**
@@ -80,82 +92,64 @@ TPM_ManagerWidget::~TPM_ManagerWidget()
  */
 void TPM_ManagerWidget::initStatus()
 {
-	/// Status
-	driverFound->setText( "yes" );
-	tssFound->setText( "yes" );
+	if ( !hasTSS() || !hasTPM() ) {
+	  tssFound->setPixmap( myNokImage );
+	  tpmActivated->setPixmap( myUnknownImage );
+	  tpmEnabled->setPixmap( myUnknownImage );
+	  ownerSet->setPixmap( myUnknownImage );
+	  myEndorsementAvailable->setPixmap( myUnknownImage );
+	  return;
+        }
 
 	/// TPM Enable/Active/Owner state
-	/*if ( myTPM->isDisabled() )
-		tpmEnabled->setText( "no" );
-	else
-		tpmEnabled->setText( "yes" );
-	*/
 	if ( myTPM->isEnabled() ) {
-		tpmEnabled->setText( "yes" );
+		tpmEnabled->setPixmap( myOkImage );
 		if ( myTPM->isActivated() )
-			tpmActivated->setText( "yes" );
+			tpmActivated->setPixmap( myOkImage );
 		else
-			tpmActivated->setText( "no" );
+			tpmActivated->setPixmap( myNokImage );
 	}
 	else {
-		tpmEnabled->setText( "no" );
-		tpmActivated->setText( "??" );
+		tpmEnabled->setPixmap( myNokImage );
+		tpmActivated->setPixmap( myUnknownImage );
 	}
 
 	if ( myTPM->hasOwner() )
-		ownerSet->setText( "yes" );
+		ownerSet->setPixmap( myOkImage );
 	else
-		ownerSet->setText( "no" );
+		ownerSet->setPixmap( myNokImage );
 
 	if ( myTPM->hasEndorsementKey() )
-		myEndorsementAvailable->setText( "yes" );
+		myEndorsementAvailable->setPixmap( myOkImage );
 	else
-		myEndorsementAvailable->setText( "no" );
+		myEndorsementAvailable->setPixmap( myNokImage );
 }
 
 void TPM_ManagerWidget::initStatusGroup()
 {
-	if ( myTPM->isEnabled() )
- 		{
-			myEnabledOkImage->show();
-			myEnabledNokImage->hide();
-		}
-	else
-		{
-			myEnabledOkImage->hide();
-			myEnabledNokImage->show();
-		}
+	if ( !hasTPM() ) {
+		myEnabledLabel->setPixmap( myUnknownImage );
+		myActivatedLabel->setPixmap( myUnknownImage );
+		myOwnerLabel->setPixmap( myUnknownImage );	
+		return;
+        }
 
-	if ( myTPM->isActivated() )
-		{
-			myActivatedOkImage->show();
-			myActivatedNokImage->hide();
-			myActivatedUnknown->hide();
-		}
-	else 
-		if ( !myTPM->isDisabled() )
-		{
-			myActivatedOkImage->hide();
-			myActivatedNokImage->show();
-			myActivatedUnknown->hide();
-		} else
-		{
-			myActivatedOkImage->hide();
-			myActivatedNokImage->hide();
-			myActivatedUnknown->setText("??");
-		}
-		
+  	if ( myTPM->isEnabled() ) {
+		myEnabledLabel->setPixmap( myOkImage );
+		if ( myTPM->isActivated() )
+			myActivatedLabel->setPixmap( myOkImage );
+		else
+			myActivatedLabel->setPixmap( myNokImage );
+	}
+	else {
+		myEnabledLabel->setPixmap( myNokImage );
+		myActivatedLabel->setPixmap( myUnknownImage );
+	}
 
 	if ( myTPM->hasOwner() )
-		{
-			myOwnerSetOkImage->show();
-			myOwnerSetNokImage->hide();
-		}
+		myOwnerLabel->setPixmap( myOkImage );
 	else
-		{
-			myOwnerSetOkImage->hide();
-			myOwnerSetNokImage->show();
-		}
+		myOwnerLabel->setPixmap( myNokImage );
 }
 
 void TPM_ManagerWidget::initCapabilities()
@@ -165,26 +159,36 @@ void TPM_ManagerWidget::initCapabilities()
 	myCapabilities->setNumRows( 1 );
 	myCapabilities->adjustColumn( 0 );
 	myCapabilities->adjustColumn( 1 );
-	myCapabilities->setText(0, 0, "Number of PCRs");
-	myCapabilities->setText(0, 1, QString("%1").arg( myTPM->getNumberOfPCR()) );
+
+	if ( hasTPM() ) {
+		myCapabilities->setText(0, 0, "Number of PCRs");
+		myCapabilities->setText(0, 1, QString("%1").arg( myTPM->getNumberOfPCR()) );
+	}
 }
 
 void TPM_ManagerWidget::initDetails()
 {
 	/// TSS Details
-	tssVendor->setText( myTSS.getVendorName() );
-	QString version = QString( myTSS.getVersion() ) + ", rev " + QString( myTSS.getRevision() );
-	tssVersion->setText( version );
-
+	if ( hasTSS() ) {
+	  tssVendor->setText( myTSS->getVendorName() );
+	  QString version = QString( myTSS->getVersion() ) + ", rev " 
+                                       + QString( myTSS->getRevision() );
+	  tssVersion->setText( version );
+	}
 
 	/// TPM Details
-	tpmVendor->setText( myTPM->getVendorName() );
-	tpmVersion->setText( myTPM->getVersion() );
-	tpmFirmware->setText( myTPM->getRevision() );
+	if ( hasTPM() ) {
+	  tpmVendor->setText( myTPM->getVendorName() );
+	  tpmVersion->setText( myTPM->getVersion() );
+	  tpmFirmware->setText( myTPM->getRevision() );
+        }
 }
 
 void TPM_ManagerWidget::initPCRs()
 {
+	if ( !hasTPM() )
+	  return;
+
 	ostringstream pcrStr;
 	vector<ByteString> pcrValues = myTPM->getPCRValues();
 
@@ -205,6 +209,9 @@ void TPM_ManagerWidget::initPCRs()
 
 void TPM_ManagerWidget::initOwnership()
 {
+	if ( !hasTPM() )
+	  return;
+
 	myTakeOwnership->setEnabled( myTPM->isEnabled() && !myTPM->hasOwner() );
 	
 	myChangePassword->setEnabled( myTPM->isEnabled() && myTPM->isActivated() && myTPM->hasOwner() );
@@ -217,6 +224,9 @@ void TPM_ManagerWidget::initOwnership()
 
 void TPM_ManagerWidget::initBackup()
 {
+	if ( !hasTPM() )
+	  return;
+
 	myCreateMaintenance->setEnabled( myTPM->hasMaintenance() );
 	myCreateMaintenanceText->setEnabled( myTPM->hasMaintenance() );
 
@@ -235,16 +245,28 @@ void TPM_ManagerWidget::initBackup()
 
 void TPM_ManagerWidget::initOperationalModes()
 {
+	if ( !hasTPM() )
+	  return;
+
 	myDisable->setEnabled( myTPM->hasOwner() );
-	if ( myTPM->isEnabled() )
+
+	if ( myTPM->isEnabled() ) {
 		myDisable->setText( "Disable" );
-	else
+		myDisableLabel->setText( "Disable the TPM" );
+	} 
+        else {
 		myDisable->setText( "Enable" );
+		myDisableLabel->setText( "Enable the TPM" );
+        }
+
 	myDeactivate->setEnabled( myTPM->isActivated() );
 }
 
 void TPM_ManagerWidget::initIdentity()
 {
+	if ( !hasTPM() )
+	  return;
+
 	bool hasEK = myTPM->hasEndorsementKey();
 	myCreatEndorsement->setEnabled( !hasEK && !myTPM->isDisabled() );
 	myShowEndorsement->setEnabled( hasEK && !myTPM->isDisabled() && !myTPM->isDeactivated() );
@@ -255,8 +277,18 @@ void TPM_ManagerWidget::initIdentity()
 //	myReadCertificate->setEnabled( hasEK );
 }
 
+void TPM_ManagerWidget::initSelfTest() {
+	if ( !hasTPM() )
+	  return;
+
+	mySelfTest->setEnabled( true );
+}
+
 void TPM_ManagerWidget::initReadCertificate()
 {
+	if ( !hasTPM() )
+	  return;
+
 	myCertificateText->setEnabled( myTPM->hasEndorsementKey() );
 	myReadCertificate->setEnabled( myTPM->hasEndorsementKey() );
 	if ( myTPM->hasEndorsementKey() )
@@ -273,6 +305,9 @@ void TPM_ManagerWidget::initReadCertificate()
 
 void TPM_ManagerWidget::initDisableMaintenance()
 {
+	if ( !hasTPM() )
+	  return;
+
 	myDisableMaintenance->setEnabled( myTPM->hasMaintenance() );
 	myDisableMaintenanceText->setEnabled( myTPM->hasMaintenance() );
 	myDisableMaintenanceWarnIcon->setEnabled( myTPM->hasMaintenance() );
@@ -290,6 +325,9 @@ void TPM_ManagerWidget::initDisableMaintenance()
 
 void TPM_ManagerWidget::initRevokeTrust()
 {
+	if ( !hasTPM() )
+	  return;
+
 	/*myDeleteEndorsement->setEnabled( myTPM->hasEndorsementKey() );
 	myDisableMaintenanceText->setEnabled( myTPM->hasEndorsementKey() );
 	myRevokeWarnIcon->setEnabled( myTPM->hasEndorsementKey() );
@@ -450,6 +488,8 @@ void TPM_ManagerWidget::slotTPMSettingsTabWidgetChanged( QWidget* widget )
 		initOperationalModes();
 	else if ( widget == tabIdentity )
 		initIdentity();
+	else if ( widget == tabSelfTest )
+		initSelfTest();
 
 	initStatusGroup();
 }

@@ -3,8 +3,8 @@
 #---------------------------------------------------------------------------
 # Project related configuration options
 #---------------------------------------------------------------------------
-PROJECT_NAME           = tpm_manager.kdevelop
-PROJECT_NUMBER         = 0.1
+PROJECT_NAME           = tpmmanager.kdevelop
+PROJECT_NUMBER         = 0.2
 OUTPUT_DIRECTORY       = 
 CREATE_SUBDIRS         = NO
 OUTPUT_LANGUAGE        = English
@@ -80,7 +80,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = /home/anoosheh/TPM/tpm_manager
+INPUT                  = /home/anoosheh/TPM/tpmmanager
 FILE_PATTERNS          = *.c \
                          *.cc \
                          *.cxx \
@@ -239,7 +239,7 @@ SKIP_FUNCTION_MACROS   = YES
 # Configuration::additions related to external references   
 #---------------------------------------------------------------------------
 TAGFILES               = 
-GENERATE_TAGFILE       = tpm_manager.tag
+GENERATE_TAGFILE       = tpmmanager.tag
 ALLEXTERNALS           = NO
 EXTERNAL_GROUPS        = YES
 PERL_PATH              = /usr/bin/perl

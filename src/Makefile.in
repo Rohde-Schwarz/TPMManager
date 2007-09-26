@@ -289,11 +289,18 @@ KDE_ICON = AUTO
 bin_PROGRAMS = tpmmanager
 
 # the application source, library search path, and link libraries
-#>- tpmmanager_SOURCES = tpmmanagerwidgetbase.ui publickeyview.ui main.cpp tpmmanagerwidget.cpp 	 \
-#>- 		PublicKeyView.cpp
-#>+ 2
-tpmmanager_SOURCES=  main.cpp tpmmanagerwidget.cpp 	 \
-		PublicKeyView.cpp tpmmanagerwidgetbase.cpp publickeyview.cpp
+#>- tpmmanager_SOURCES = tpmmanagerwidgetbase.ui \
+#>- 			publickeyview.ui \
+#>- 			main.cpp \
+#>- 			tpmmanagerwidget.cpp 	 \
+#>- 			PublicKeyView.cpp
+#>+ 5
+tpmmanager_SOURCES= \
+			 \
+			main.cpp \
+			tpmmanagerwidget.cpp 	 \
+			PublicKeyView.cpp tpmmanagerwidgetbase.cpp publickeyview.cpp
+
 
 tpmmanager_LDFLAGS = $(KDE_RPATH) $(all_libraries) -L$(top_builddir)/src/lib
 tpmmanager_LDADD = $(LIB_KDEUI) -lTPMmanager -ltspi
@@ -308,7 +315,7 @@ shellrc_DATA = tpmmanagerui.rc
 
 SUBDIRS = lib
 
-AM_CXXFLAGS = -I$(top_builddir)/src/lib
+AM_CXXFLAGS = -I$(top_builddir)/src/lib/
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/admin/mkinstalldirs
@@ -389,7 +396,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  src/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.1/src/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.2/src/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
@@ -804,6 +811,7 @@ messages: rc.cpp
 .NOEXPORT:
 
 
+
 #>+ 3
 tpmmanagerwidget.moc: $(srcdir)/tpmmanagerwidget.h
 	$(MOC) $(srcdir)/tpmmanagerwidget.h -o tpmmanagerwidget.moc
@@ -816,7 +824,7 @@ clean-metasources:
 	-rm -f  tpmmanagerwidget.moc
 
 #>+ 2
-KDE_DIST=Makefile.in tpmmanagerui.rc tpmmanager.lsm hi16-app-tpm_manager.png tpmmanagerwidget.h hi32-app-tpm_manager.png tpmmanager.desktop tpmmanagerwidgetbase.ui publickeyview.ui 
+KDE_DIST=publickeyview.h tpmmanager Makefile.in tpmmanagerui.rc hi16-app-tpm_manager.png tpmmanager.lsm tpmmanagerwidget.ui tpmmanagerwidget.h tpmmanager.desktop hi32-app-tpm_manager.png tpmmanagerwidgetbase.ui publickeyview.ui tpmmanagerwidgetbase.h 
 
 #>+ 5
 clean-ui:
@@ -829,20 +837,20 @@ docs-am:
 
 #>+ 10
 install-kde-icons:
-	$(mkinstalldirs) $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps
-	$(INSTALL_DATA) $(srcdir)/hi32-app-tpm_manager.png $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps/tpm_manager.png
 	$(mkinstalldirs) $(DESTDIR)$(kde_icondir)/hicolor/16x16/apps
 	$(INSTALL_DATA) $(srcdir)/hi16-app-tpm_manager.png $(DESTDIR)$(kde_icondir)/hicolor/16x16/apps/tpm_manager.png
+	$(mkinstalldirs) $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps
+	$(INSTALL_DATA) $(srcdir)/hi32-app-tpm_manager.png $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps/tpm_manager.png
 
 uninstall-kde-icons:
-	-rm -f $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps/tpm_manager.png
 	-rm -f $(DESTDIR)$(kde_icondir)/hicolor/16x16/apps/tpm_manager.png
+	-rm -f $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps/tpm_manager.png
 
 #>+ 6
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  src/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.1/src/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.2/src/Makefile.in
 
 
 #>+ 21

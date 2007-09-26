@@ -58,6 +58,8 @@ protected:
 	void initOperationalModes();
 	/// Initializes the Identity tab
 	void initIdentity();
+	/// Initializes the Self test tab
+	void initSelfTest();
 	/// Initializes the TPM Certificate tab
 	void initReadCertificate();
 	/// Initializes the Delete Maintenance tab
@@ -99,9 +101,27 @@ protected slots:
 	void slotDisableMaintenance();
 	/// Delete Endorsement Key
 	void slotDeleteEndorsement();
+
+	/// @return TRUE is TSS was found.
+	inline bool hasTSS() const;
+	/// @return TRUE if TPM was found.
+	inline bool hasTPM() const;
+
 private:
-	TPM  *myTPM;
-	TSS  myTSS;
+	TPM    *myTPM;
+	TSS    *myTSS;
+	QPixmap myOkImage;
+	QPixmap myUnknownImage;
+	QPixmap myNokImage;
 };
+
+
+bool TPM_ManagerWidget::hasTSS() const {
+	return myTSS != 0;
+}
+
+bool TPM_ManagerWidget::hasTPM() const {
+	return myTPM != 0;
+}
 
 #endif

@@ -18,6 +18,8 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <config.h>
+ 
 #include <kapplication.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
@@ -27,7 +29,7 @@
 static const char description[] =
     I18N_NOOP("A KDE KPart Application");
 
-static const char version[] = "0.1";
+static const char version[] = VERSION;
 
 static KCmdLineOptions options[] =
 {

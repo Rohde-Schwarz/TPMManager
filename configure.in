@@ -40,7 +40,7 @@ dnl Perform program name transformation
 AC_ARG_PROGRAM
 
 dnl Automake doc recommends to do this only here. (Janos)
-AM_INIT_AUTOMAKE(tpmmanager, 0.1) dnl searches for some needed programs
+AM_INIT_AUTOMAKE(tpmmanager, 0.2) dnl searches for some needed programs
 
 KDE_SET_PREFIX
 
@@ -49,8 +49,6 @@ AM_CONFIG_HEADER(config.h) dnl at the distribution this done
 
 dnl Checks for programs.
 AC_CHECK_COMPILERS
-CXXFLAGS="$CXXFLAGS $USE_EXCEPTIONS"
-
 AC_ENABLE_SHARED(yes)
 AC_ENABLE_STATIC(no)
 KDE_PROG_LIBTOOL
@@ -68,6 +66,7 @@ dnl =======================================================
 #MIN_CONFIG(3.2.0)
 
 dnl PACKAGE set before
+CXXFLAGS="$CXXFLAGS $USE_EXCEPTIONS"
 AC_C_BIGENDIAN
 AC_CHECK_KDEMAXPATHLEN
 
