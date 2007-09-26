@@ -1,8 +1,0 @@
-bei Info ein Tab: PCR .... aktulelle Werte von allen PCRs ausgeben
-Capabilities: eine Liste von allen Caps.
-SelfTest: Ein Tab in User mit nur ein Button
-
-
-29-07-06
-1- Email an TSS: warum reboot nach dem clear ownership?
-2- wenn es kein Owner gibt die PCRs nicht auslesen.
