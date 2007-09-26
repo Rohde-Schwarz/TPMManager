@@ -17,16 +17,16 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-
 #include <config.h>
 
-#include <TSS.hh>
-
+#include <microtss/TSS.hh>
+#include <SetSrkView.hh>
 #include <iostream>
 #include <sstream>
 #include <fstream>
 #include <iomanip>
 #include <vector>
+#include <stdlib.h>
 
 #include <qlineedit.h>
 #include <qlistbox.h>
@@ -36,37 +36,48 @@
 #include <qmessagebox.h>
 #include <qfiledialog.h>
 #include <qpixmap.h>
-
+#include <qtabwidget.h>
+#include <qstring.h>
+// 
 #include <kpassdlg.h>
 #include <kmessagebox.h>
+#include <kaboutdata.h>
+#include <kprocess.h>
+#include <kurllabel.h>
+#include <kdialog.h>
+#include <kapplication.h>
 
-#include <PublicKey.hh>
+#include <microtss/PublicKey.hh>
 #include <PublicKeyView.hh>
 
 #include "tpmmanagerwidget.h"
 
 using namespace std;
+using namespace microtss;
 
-TPM_ManagerWidget::TPM_ManagerWidget(QWidget* parent, const char* name, WFlags fl) : 
-  TPM_ManagerWidgetBase( parent,name,fl ),
+TPM_ManagerWidget::TPM_ManagerWidget(QWidget* parent, const char* name, WFlags fl) :
+TPM_ManagerWidgetBase( parent,name,fl ),
   myTSS( 0 ),
   myTPM( 0 ),
   myOkImage( *myEnabledLabel->pixmap() ),
   myUnknownImage( *myActivatedLabel->pixmap() ),
   myNokImage( *myOwnerLabel->pixmap() )
 {
-	myProgramLabel->setText( QString("TPM Manager V") + QString(VERSION) );
-	setCaption( QString("TPM Manager V") + QString(VERSION) );
+   myProgramLabel->setText( QString("TPM Manager V") + QString(VERSION) );
+	// setCaption( QString("TPM Manager V") + QString(VERSION) );
+   connect( buttonOk, SIGNAL( clicked() ), parent, SLOT( close() ) );
 
 	try {
-	        myTSS = new TSS;
+      myTSS = new TSS;
 		myTPM = new TPM( myTSS->getContextHandle() );
 
-		driverFound->setPixmap( myOkImage );
-	        tssFound->setPixmap( myOkImage );
+		if ( myTPM->driverAvailable() )
+			driverFound->setPixmap( myOkImage );
+
+      tssFound->setPixmap( myOkImage );
 
 		if ( myTPM->isDisabled() && !myTPM->hasOwner() )
-		KMessageBox::information( this, "The TPM is disabled and no owner is set. You have to enable the TPM in the BIOS to use the functions of the TPM, e.g., to take ownership.\n", "Information" );
+		  KMessageBox::information( this, "The TPM is disabled and no owner is set. You have to enable the TPM in the BIOS to use the functions of the TPM, e.g., to take ownership.\n", "Information" );
 	} 
 	catch ( TPMDriverNotFound &e ) {
 		cout << e.what() << endl;
@@ -77,6 +88,9 @@ TPM_ManagerWidget::TPM_ManagerWidget(QWidget* parent, const char* name, WFlags f
 		// cout << e.what() << endl;
 		driverFound->setPixmap( myOkImage );
 	}
+
+   downloadLink->setURL("http://sourceforge.net/projects/tpmmanager");
+   perseusLink->setURL("http://www.perseus-os.org");
 
 	listBox->setCurrentItem( 0 );
 }
@@ -99,7 +113,7 @@ void TPM_ManagerWidget::initStatus()
 	  ownerSet->setPixmap( myUnknownImage );
 	  myEndorsementAvailable->setPixmap( myUnknownImage );
 	  return;
-        }
+   }
 
 	/// TPM Enable/Active/Owner state
 	if ( myTPM->isEnabled() ) {
@@ -125,6 +139,11 @@ void TPM_ManagerWidget::initStatus()
 		myEndorsementAvailable->setPixmap( myNokImage );
 }
 
+void TPM_ManagerWidget::showHelp()
+{
+	KApplication::kApplication()->invokeHelp();
+}
+
 void TPM_ManagerWidget::initStatusGroup()
 {
 	if ( !hasTPM() ) {
@@ -132,7 +151,7 @@ void TPM_ManagerWidget::initStatusGroup()
 		myActivatedLabel->setPixmap( myUnknownImage );
 		myOwnerLabel->setPixmap( myUnknownImage );	
 		return;
-        }
+   }
 
   	if ( myTPM->isEnabled() ) {
 		myEnabledLabel->setPixmap( myOkImage );
@@ -156,13 +175,16 @@ void TPM_ManagerWidget::initCapabilities()
 {
 	/// set Capabilities
 	myCapabilities->setColumnStretchable( 0, true );
-	myCapabilities->setNumRows( 1 );
+	myCapabilities->setNumRows( 2 );
 	myCapabilities->adjustColumn( 0 );
 	myCapabilities->adjustColumn( 1 );
 
 	if ( hasTPM() ) {
 		myCapabilities->setText(0, 0, "Number of PCRs");
 		myCapabilities->setText(0, 1, QString("%1").arg( myTPM->getNumberOfPCR()) );
+
+		myCapabilities->setText(1, 0, "Number of 2048-bit RSA keys that can be loaded");
+		//myCapabilities->setText(1, 1, QString("%1").arg( myTPM->getKeyLoadCount()) );
 	}
 }
 
@@ -181,7 +203,7 @@ void TPM_ManagerWidget::initDetails()
 	  tpmVendor->setText( myTPM->getVendorName() );
 	  tpmVersion->setText( myTPM->getVersion() );
 	  tpmFirmware->setText( myTPM->getRevision() );
-        }
+   }
 }
 
 void TPM_ManagerWidget::initPCRs()
@@ -256,10 +278,10 @@ void TPM_ManagerWidget::initOperationalModes()
 		myDisable->setText( "Disable" );
 		myDisableLabel->setText( "Disable the TPM" );
 	} 
-        else {
+   else {
 		myDisable->setText( "Enable" );
 		myDisableLabel->setText( "Enable the TPM" );
-        }
+   }
 
 	myDeactivate->setEnabled( myTPM->isActivated() );
 }
@@ -345,33 +367,51 @@ void TPM_ManagerWidget::initRevokeTrust()
 	}*/
 }
 
+void TPM_ManagerWidget::slotProcessUrl( const QString& url )
+{
+	KProcess proc;
+   proc << "konqueror" << url;
+   proc.start(KProcess::DontCare);
+}
+
 /**
  * Slots implementations
  */
 void TPM_ManagerWidget::slotTakeOwnership()
 {
-	KPasswordDialog ownerDlg( KPasswordDialog::NewPassword, false, 0 );
+	bool wellKnownSecret = false;
+	string srkPassword;
+	SetSRKView srkradiodialog;
+	srkradiodialog.exec();
+
+	KPasswordDialog ownerDlg( KPasswordDialog::NewPassword, false, 1 );
 
 	// Read the TPM owner password
 	ownerDlg.setCaption( "Take Ownership: Set Owner Password" );
 	ownerDlg.setPrompt( "Enter the TPM owner password. The owner has the right to perform special operations on the TPM." );
 	ownerDlg.exec();
-
+	
 	if ( ownerDlg.result() != KPasswordDialog::Accepted )
 		return;
-
-	// Read the SRK password
-	KPasswordDialog srkDlg( KPasswordDialog::NewPassword, false, 0 );
 	
-   srkDlg.setCaption( "Take Ownership: Set SRK Password" );
-	srkDlg.setPrompt( "Enter the SRK password. It is used to authenticate the usage of the Storage Root Key (SRK)." );
-	srkDlg.exec();
-
-	if ( srkDlg.result() != KPasswordDialog::Accepted )
-		return;
+	if ( srkradiodialog.setManually() )
+	{
+		// Read the SRK password
+		KPasswordDialog srkDlg( KPasswordDialog::NewPassword, false, 0 );
+		
+		srkDlg.setCaption( "Take Ownership: Set SRK Password" );
+		srkDlg.setPrompt( "Enter the SRK password. It is used to authenticate the usage of the Storage Root Key (SRK)." );
+		srkDlg.exec();
+	
+		if ( srkDlg.result() != KPasswordDialog::Accepted )
+			return;
+		srkPassword = srkDlg.password();
+	}		
+	else
+		wellKnownSecret = true;
 
 	try {
-		myTPM->takeOwnership( ownerDlg.password(), srkDlg.password() );
+		myTPM->takeOwnership( ownerDlg.password(),  srkPassword, wellKnownSecret );
 	
 		KMessageBox::information( this, "TPM owner is successfully created. ", "Information: Taking Ownership" );
 	
@@ -380,6 +420,7 @@ void TPM_ManagerWidget::slotTakeOwnership()
 	{
 		KMessageBox::error( this, "Sorry. Could not Take Ownership in deactivated mode due to TSS bug. ", "Error: Taking Ownership" );
 	}
+
 }
 
 void TPM_ManagerWidget::slotChangePassword()
@@ -394,7 +435,7 @@ void TPM_ManagerWidget::slotChangePassword()
 		return;
 
 	KPasswordDialog newPassDlg( KPasswordDialog::NewPassword, false, 0 );
-	newPassDlg.setCaption( "Change Ownership passwsord" );
+	newPassDlg.setCaption( "Change Ownership password" );
 	newPassDlg.setPrompt( "Enter new password and retype it to confirm." );
 	newPassDlg.exec();
 
@@ -446,8 +487,7 @@ void TPM_ManagerWidget::slotSelfTestFull()
 	if ( result = "0xffff" )
 		KMessageBox::information( this, "TPM full selftest is successfully done!", "TPM selftest result" );
 	else
-		KMessageBox::error( this, "Error ocuured at TPM full Selftest. \nResult of the test: " + result,
-									"TPM Selftest Result");
+		KMessageBox::error( this, "Error occured at TPM full Selftest. \nResult of the test: " + result, "TPM Selftest Result");
 }
 
 void TPM_ManagerWidget::slotSetTempDeactivated()
@@ -600,10 +640,10 @@ void TPM_ManagerWidget::slotSaveEndorsement()
 	
 		QFileDialog filedlg;
 		string filename = filedlg.getSaveFileName(
-							"/home",
+							getenv ("HOME"),
 							"Key (*.key);;All Files (*.*)" ,
 							this,
-							"save file dialog"
+							"Save file dialog"
 							"Choose a filename to save under" );
 		ofstream fs( filename.c_str(), ios::trunc );
 		fs << pk;
@@ -621,7 +661,7 @@ void TPM_ManagerWidget::slotRestrictEndorsement()
 	KPasswordDialog passDlg( KPasswordDialog::Password, false, 0 );
 
 	passDlg.setCaption( "Restrict Endorsement Key" );
-	passDlg.setPrompt( "Enter owner password to restrict viewing public endorsement key information without owner autorization. " );
+	passDlg.setPrompt( "Enter owner password to restrict viewing public endorsement key information without owner authorization. " );
 	passDlg.exec();
 
 	if ( passDlg.result() != KPasswordDialog::Accepted )
@@ -645,7 +685,7 @@ void TPM_ManagerWidget::slotDisableMaintenance()
 	KPasswordDialog passDlg( KPasswordDialog::Password, false, 0 );
 
 	passDlg.setCaption( "Kill Maintenance" );
-	passDlg.setPrompt( "Enter owner password to disable Meintanence archive." );
+	passDlg.setPrompt( "Enter owner password to disable Meintenance archive." );
 	passDlg.exec();
 
 	if ( passDlg.result() != KPasswordDialog::Accepted )

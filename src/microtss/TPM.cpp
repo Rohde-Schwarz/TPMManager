@@ -1,20 +1,22 @@
-// #include "tpm_exist.hh"
 #include "TPM.hh"
 
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 #include <tss/tss_error_basics.h>
+#include <sys/stat.h>
 
 using namespace std;
+using namespace microtss;
 
 TPM::TPM( const TSS_HCONTEXT &contextHandle ) :
   myState( DisabledDeactivatedNoOwner ),
+  myCountersCount( 0 ),
   myContextHandle( contextHandle ),
   myHasMaintenance( false ),
   myHasEndorsementKey( true ),
   myUserCreatedEndorsement( false ),
-  myEKRestricted( false )	
+  myEKRestricted( false )
 {
 	/**
 	 * @brief					retrieves the TPM object of a context. Only one instance of this object exists 
@@ -24,6 +26,7 @@ TPM::TPM( const TSS_HCONTEXT &contextHandle ) :
 	 * @return					TSS_SUCCESS, TSS_E_INVALID_HANDLE, 
 	 * 							TSS_E_BAD_PARAMETER, TSS_E_INTERNAL_ERROR
 	 */
+
 	tssResultHandler( Tspi_Context_GetTpmObject( myContextHandle, &myTpmHandle ),
 		 					"Error at get TPM object" );
  
@@ -31,10 +34,13 @@ TPM::TPM( const TSS_HCONTEXT &contextHandle ) :
 	readVendorName();
 	readState();
 	readNumberOfPCR();
+	readKeyLoadCount();
+	readCountersCount();
 	readPCRValues();
 	checkEndorsementKey();
 	userCreatedEndorsement();
 	readMaintenanceState();
+	driverAvailable();
 };
 
 TPM::~TPM()
@@ -66,6 +72,7 @@ UINT32 TPM::readCapabilities( TSS_FLAG capArea, UINT32 subCap, BYTE *& data )
 										(BYTE*) &subCap,
 										&len,
 										&data ), "Error at get capabilities!" );
+
 
    return len;
 }
@@ -220,6 +227,32 @@ void TPM::readNumberOfPCR()
 	myNumberOfPCR = (UINT32)*count;
 }
 
+void TPM::readKeyLoadCount()
+{
+	UINT32 len;
+	BYTE *count;
+
+	len = readCapabilities( TSS_TPMCAP_PROPERTY, TSS_TPMCAP_PROP_SLOTS, count );
+	
+	if (len == 0)
+		std::cerr << "Error at read Capabilities" << std::endl; 
+
+	myKeyLoadCount = (UINT32)*count;
+}
+
+void TPM::readCountersCount()
+{
+//	UINT32 len;
+//	BYTE *count=0;
+
+	//len = readCapabilities( TSS_TPMCAP_PROPERTY, TSS_TPMCAP_PROP_COUNTERS, count );
+	
+	//if (len == 0)
+		//std::cerr << "Error at read Capabilities" << std::endl; 
+
+	// myCountersCount = (UINT32)*count;
+}
+
 const string TPM::getVersion() const
 {
 	return myVersion;
@@ -253,6 +286,16 @@ const bool TPM::getVolatileDeactivated() const
 UINT32 TPM::getNumberOfPCR() const
 {
 	return myNumberOfPCR;
+}
+
+UINT32 TPM::getKeyLoadCount() const
+{
+	return myKeyLoadCount;
+}
+
+UINT32 TPM::getCountersCount() const
+{
+	return myCountersCount;
 }
 
 const vector<ByteString> TPM::getPCRValues() const
@@ -306,8 +349,10 @@ void TPM::userCreatedEndorsement()
 	myUserCreatedEndorsement = true;*/
 }
 
-void TPM::takeOwnership( const std::string &ownerPwd, const std::string &srkPwd )
+void TPM::takeOwnership( const std::string &ownerPwd, const std::string &srkPwd, bool wellknownsecret )
 {
+	BYTE wellKnownSecretValue[] = TSS_WELL_KNOWN_SECRET;
+
 	if ( hasOwner() )
 		return; // throw...
 
@@ -334,9 +379,10 @@ void TPM::takeOwnership( const std::string &ownerPwd, const std::string &srkPwd 
 	tssResultHandler( Tspi_GetPolicyObject( srkHandle, TSS_POLICY_USAGE, &srkPolicy ),
 						"Getting SRK policy handle failed" );
 
-	tssResultHandler( Tspi_Policy_SetSecret( srkPolicy, TSS_SECRET_MODE_PLAIN, srkPwd.length(), 
-										(BYTE *)srkPwd.c_str() ),
-							"Setting SRK policy failed!" );
+	if ( wellknownsecret )
+		tssResultHandler( Tspi_Policy_SetSecret( srkPolicy, TSS_SECRET_MODE_SHA1, 20, wellKnownSecretValue ), "Setting SRK policy failed!" );
+	else
+		tssResultHandler( Tspi_Policy_SetSecret( srkPolicy, TSS_SECRET_MODE_PLAIN, srkPwd.length(), (BYTE *)srkPwd.c_str() ), "Setting SRK policy failed!" );
 
 	tssResultHandler( Tspi_TPM_TakeOwnership( myTpmHandle, srkHandle, 0 ), 
 							"Taking ownership failed!" );
@@ -451,7 +497,7 @@ void TPM::setTempDeactivated()
 	myState = (TpmState) (myState & ~ACTIVATED_MASK);
 }
 
-PublicKey TPM::getEndorsementPublicKey( const std::string &password )
+microtss::PublicKey TPM::getEndorsementPublicKey( const std::string &password )
 {
 	TSS_HKEY		 myEndorsementPublicKeyHandle; 
 	ostringstream  attributes;
@@ -463,7 +509,7 @@ PublicKey TPM::getEndorsementPublicKey( const std::string &password )
 	if ( result != TSS_SUCCESS && result != TCPA_E_DISABLED_CMD )
 		tssResultHandler( result, "Get public Endorsement Key failed!" );
 	
-	return PublicKey( myEndorsementPublicKeyHandle );
+	return microtss::PublicKey( myEndorsementPublicKeyHandle );
 }
 
 void TPM::restrictEK( string password )
@@ -483,6 +529,22 @@ void TPM::killMaintenance( string password )
 	if ( TSS_SUCCESS != result )
 		tssResultHandler( result, "Kill Maintenance Archive failed!" );
 	
+}
+
+bool TPM::driverAvailable()
+{
+	struct stat Status;
+	/*
+	*retrun 0 if the file is found.
+	*return -1 if the file is not found.
+	*/
+	int tpmdriver = stat( "/dev/tpm", &Status);
+	int tpm0driver = stat( "/dev/tpm0", &Status);
+
+	if (tpmdriver == 0 || tpm0driver == 0)
+		return true;
+
+	return false;
 }
 
 void TPM::tssResultHandler( TSS_RESULT result, const string &str ) const
@@ -507,7 +569,7 @@ void TPM::tssResultHandler( TSS_RESULT result, const string &str ) const
 			throw IsDisabledError( str );
 			break;
       default:
-			cerr << "TPM::throwException: Unknown Exception(" << Trspi_Error_Code( result ) << ") in " + str << endl;
+			cerr << "TPM::throwException: Unknown Exception(Error Code: " << Trspi_Error_Code( result ) << "- " << Trspi_Error_String( result ) << ") : " + str << endl;
          break;
 	}
 }

@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2006 by Anoosheh Zaerin   *
- *   anoosheh.zaerin@rub.de   *
+ *   Copyright (C) 2007 by Anoosheh Zaerin   *
+ *   zaerin@sirrix.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,23 +17,35 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "PublicKeyView.hh"
-#include <qlabel.h>
 
-#include <string>
 
-using namespace std;
-using namespace microtss;
+#ifndef _TPMMANAGER_H_
+#define _TPMMANAGER_H_
 
-PublicKeyView::PublicKeyView( PublicKey &pk )
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+#include <kmainwindow.h>
+
+/**
+ * @short Application Main Window
+ * @author Anoosheh Zaerin <zaerin@sirrix.com>
+ * @version 0.3
+ */
+class tpmmanager : public KMainWindow
 {
-	myVersion->setText( pk.getVersion() );
-	myType->setText( pk.getType() );
+    Q_OBJECT
+public:
+    /**
+     * Default Constructor
+     */
+    tpmmanager();
 
-	string algo = pk.getAlgorithm();
+    /**
+     * Default Destructor
+     */
+    virtual ~tpmmanager();
+};
 
-	myAlgorithm->setText( algo );
-	myKeySize->setText( pk.getKeySize( algo ) );
-	myEncScheme->setText( pk.getEncryptionScheme() );
-	mySigScheme->setText( pk.getSignatureScheme() );
-}
+#endif // _TPMMANAGER_H_

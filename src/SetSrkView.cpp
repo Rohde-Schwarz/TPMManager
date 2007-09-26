@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2006 by Anoosheh Zaerin   *
- *   anoosheh.zaerin@rub.de   *
+ *   Copyright (C) 2007 by Anoosheh Zaerin   *
+ *   zaerin@sirrix.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,23 +17,28 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "PublicKeyView.hh"
-#include <qlabel.h>
-
-#include <string>
+#include "SetSrkView.hh"
+#include <iostream>
 
 using namespace std;
-using namespace microtss;
-
-PublicKeyView::PublicKeyView( PublicKey &pk )
+SetSRKView::SetSRKView() :
+myManuallySRKRadioButton(false),
+myDefaultSRKRadioButton(false)
 {
-	myVersion->setText( pk.getVersion() );
-	myType->setText( pk.getType() );
-
-	string algo = pk.getAlgorithm();
-
-	myAlgorithm->setText( algo );
-	myKeySize->setText( pk.getKeySize( algo ) );
-	myEncScheme->setText( pk.getEncryptionScheme() );
-	mySigScheme->setText( pk.getSignatureScheme() );
 }
+
+void SetSRKView::slotSetSrk()
+{
+	if ( radioButtonSrkManually->isChecked() )
+		myManuallySRKRadioButton = true;
+	if ( radioButtonSrkDefault->isChecked() )
+		myDefaultSRKRadioButton = true;
+	if ( !myDefaultSRKRadioButton && !myManuallySRKRadioButton )
+		 KMessageBox::error( this, "You have to choose any choice to set SRK. ", "Error: No radio button choosed! ");
+}
+
+SetSRKView::~SetSRKView()
+{
+}
+
+

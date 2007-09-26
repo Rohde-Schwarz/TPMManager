@@ -1,5 +1,5 @@
-#ifndef TPM_HH_
-#define TPM_HH_
+#ifndef MICROTPM_HH_
+#define MICROTPM_HH_
 
 #include <stdexcept>
 #include <string>
@@ -10,11 +10,12 @@
 #include <tss/tspi.h>
 #include <tss/tcpa_error.h>
 
-#include <PublicKey.hh>
+#include <microtss/PublicKey.hh>
 
-#define TSS_ERROR_LAYER(x)        (x & 0x3000)
+#define TSS_ERROR_LAYER(x)      (x & 0x3000)
 #define TSS_ERROR_CODE(x)       (x & 0xFFF)
 
+namespace microtss {
 /// ...
 typedef std::vector<BYTE> ByteString ;
 
@@ -121,10 +122,17 @@ class TPM
 		const bool getVolatileDeactivated() const;*/
 		/// @return the number of PCRs supported by TPM
 		UINT32 getNumberOfPCR() const;
+		/// @return the number of 2048-bit RSA keys that can be loaded. This MAY vary with time and circumstances.
+		UINT32 getKeyLoadCount() const;
+		/// @return the number of available monotonic counters
+		UINT32 getCountersCount() const;
 		/// @return a vector of PCR values 
 		const std::vector<ByteString> getPCRValues() const;
 		/// Taking ownership of the TPM.
-		void takeOwnership( const std::string &ownerPwd, const std::string &srkPwd );
+		/// @param ownerPwd			The Owner password
+		/// @param srkPwd				The SRK password
+		/// @param wellKnownSecret true if the SRK password is to set to WELL_KNOWN_SECRET
+		void takeOwnership( const std::string &ownerPwd, const std::string &srkPwd, bool wellKnownSecret );
 		/// Change owner password.
 		void changeOwnerPassword( const std::string &oldOwnerPwd, const std::string &newOwnerPwd );
 		
@@ -148,12 +156,14 @@ class TPM
 		/// set TPM tepmorarily deactivated
 		void setTempDeactivated();
 		/// Get the Endorsement Public Infos
-		PublicKey getEndorsementPublicKey( const std::string &password );
+		microtss::PublicKey getEndorsementPublicKey( const std::string &password );
 		/// Will Permanently disable the ability to read the endorsement public key without 
 		/// required TPM owner authorization
 		void restrictEK( std::string password );
 		/// Disable  the functionality of creating a maintenance archive until a new owner is set.
 		void killMaintenance( std::string password );
+		/// Checks if the files /dev/tpm or /dev/tpm0 exist.
+		bool driverAvailable();
 
 	protected:
 		/// Get the owner Password and set Secret
@@ -187,6 +197,10 @@ class TPM
 		void readNumberOfPCR();
 		/// Read Values of PCRs
 		void readPCRValues();
+		/// Read the number of 2048-bit RSA keys that can be loaded.
+		void readKeyLoadCount();
+		/// Read the number of available monotonic counters.
+		void readCountersCount();
 		/// Check if Endorsement Key extist and if that if restricted.
 		void checkEndorsementKey();
 		/// Check if Endorsement key is by user created
@@ -202,6 +216,8 @@ class TPM
 		std::string myVendor;
 		TpmState		myState;
 		UINT32		myNumberOfPCR;			/// Number of PCR registers
+		UINT32		myKeyLoadCount;		/// Number of 2048-bit RSA keys that can be loaded
+		UINT32		myCountersCount;		/// Number of available monotonic counters
 		std::vector<ByteString>  myPCRValues;
 
 		TSS_HCONTEXT myContextHandle;			/// Handle to TSS Context
@@ -261,4 +277,5 @@ bool TPM::isUserCreatedEndorsement()
 {
 	return myUserCreatedEndorsement;
 }
+} // namespace microtss
 #endif /*TPM_HH_*/

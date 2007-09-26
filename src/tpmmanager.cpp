@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2006 by Anoosheh Zaerin   *
- *   anoosheh.zaerin@rub.de   *
+ *   Copyright (C) 2007 by Anoosheh Zaerin   *
+ *   zaerin@sirrix.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,23 +17,26 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "PublicKeyView.hh"
-#include <qlabel.h>
 
-#include <string>
+#include <config.h>
 
-using namespace std;
-using namespace microtss;
+#include <kmainwindow.h>
+#include <klocale.h>
 
-PublicKeyView::PublicKeyView( PublicKey &pk )
+#include "tpmmanager.h"
+#include "tpmmanagerwidget.h"
+
+tpmmanager::tpmmanager()
+    : KMainWindow( 0, "tpmmanager" )
 {
-	myVersion->setText( pk.getVersion() );
-	myType->setText( pk.getType() );
-
-	string algo = pk.getAlgorithm();
-
-	myAlgorithm->setText( algo );
-	myKeySize->setText( pk.getKeySize( algo ) );
-	myEncScheme->setText( pk.getEncryptionScheme() );
-	mySigScheme->setText( pk.getSignatureScheme() );
+   QWidget *widget = new TPM_ManagerWidget( this );
+   setCentralWidget( widget );
+   // CONNECT( widget, buttonOK, SIGNAL( clicked() ), this, SLOT( close() ) );
+	resize( sizeForCentralWidgetSize( widget->size() ) );
 }
+
+tpmmanager::~tpmmanager()
+{
+}
+
+#include "tpmmanager.moc"

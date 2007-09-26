@@ -7,6 +7,7 @@
 #include <iomanip>
 
 using namespace std;
+using namespace microtss;
 
 
 TSSSystemNotFound::TSSSystemNotFound() :
@@ -25,7 +26,7 @@ TSS::TSS()
 	* @param  hContext  Receives the handle to the created context object.
 	* @return			TSS_SUCCESS or TSS_E_INTERNAL_ERROR
 	*/
-	if (Tspi_Context_Create(&myContextHandle) != TSS_SUCCESS) {
+	if ( Tspi_Context_Create( &myContextHandle ) != TSS_SUCCESS ) {
 		cerr << "TSS.cpp: Error at create context object " << endl;
 	}
 	
@@ -70,7 +71,7 @@ UINT32 TSS::readCapabilities( TCPA_CAPABILITY_AREA capArea, UINT32 subCap, BYTE 
 											&data ) != TSS_SUCCESS )
 		// throw exception
    		cerr << "TSS.cpp: Error at get capabilities!" << endl;
-   
+
    return len;
 }
 

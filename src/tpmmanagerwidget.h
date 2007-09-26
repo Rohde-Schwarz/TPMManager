@@ -23,8 +23,9 @@
 #define _TPM_MANAGERWIDGET_H_
 
 #include "tpmmanagerwidgetbase.h"
-#include <TPM.hh>
-#include <TSS.hh>
+
+#include <microtss/TPM.hh>
+#include <microtss/TSS.hh>
 
 class TPM_ManagerWidget : public TPM_ManagerWidgetBase
 {
@@ -36,6 +37,7 @@ public:
     /*$PUBLIC_FUNCTIONS$*/
 
 public slots:
+		void showHelp();
     /*$PUBLIC_SLOTS$*/
     // virtual void button_clicked();
 
@@ -101,6 +103,8 @@ protected slots:
 	void slotDisableMaintenance();
 	/// Delete Endorsement Key
 	void slotDeleteEndorsement();
+	/// Process the Url and open the Konqueror Browser
+	void slotProcessUrl( const QString& url );
 
 	/// @return TRUE is TSS was found.
 	inline bool hasTSS() const;
@@ -108,11 +112,11 @@ protected slots:
 	inline bool hasTPM() const;
 
 private:
-	TSS    *myTSS;
-	TPM    *myTPM;
-	QPixmap myOkImage;
-	QPixmap myUnknownImage;
-	QPixmap myNokImage;
+	microtss::TSS    *myTSS;
+	microtss::TPM    *myTPM;
+	QPixmap          myOkImage;
+	QPixmap          myUnknownImage;
+	QPixmap          myNokImage;
 };
 
 

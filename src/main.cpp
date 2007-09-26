@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2006 by Anoosheh Zaerin   *
- *   anoosheh.zaerin@rub.de   *
+ *   Copyright (C) 2007 by Anoosheh Zaerin   *
+ *   zaerin@sirrix.com   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,18 +18,20 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <config.h>
- 
+#include "tpmmanager.h"
 #include <kapplication.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
-#include <tpmmanagerwidget.h>
+
+#include <kmainwindow.h>
+
+#define MYBASEWIDGET tpmmanager
 
 static const char description[] =
     I18N_NOOP("A KDE KPart Application");
 
-static const char version[] = VERSION;
+static const char version[] = "0.3";
 
 static KCmdLineOptions options[] =
 {
@@ -39,17 +41,17 @@ static KCmdLineOptions options[] =
 
 int main(int argc, char **argv)
 {
-    KAboutData about("tpm_manager", I18N_NOOP("TPM_Manager"), version, description,
-                     KAboutData::License_GPL, "(C) 2006 Anoosheh Zaerin", 0, 0, "anoosheh.zaerin@rub.de");
-    about.addAuthor( "Anoosheh Zaerin", 0, "anoosheh.zaerin@rub.de" );
+    KAboutData about("tpmmanager", I18N_NOOP( "TPM Manager" ), version, description,
+                     KAboutData::License_GPL, "(C) 2007 Anoosheh Zaerin", 0, 0, "zaerin@sirrix.com");
+    about.addAuthor( "Anoosheh Zaerin", 0, "zaerin@sirrix.com" );
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;
-    TPM_ManagerWidget *mainWin = 0;
+    MYBASEWIDGET *mainWin = 0;
 
     if (app.isRestored())
     {
-        // RESTORE(TPM_Manager);
+       RESTORE( MYBASEWIDGET );
     }
     else
     {
@@ -58,7 +60,7 @@ int main(int argc, char **argv)
 
         /// @todo do something with the command line args here
 
-        mainWin = new TPM_ManagerWidget();
+        mainWin = new MYBASEWIDGET();
         app.setMainWidget( mainWin );
         mainWin->show();
 

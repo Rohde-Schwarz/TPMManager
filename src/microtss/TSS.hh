@@ -1,5 +1,5 @@
-#ifndef TSS_HH_
-#define TSS_HH_
+#ifndef MICROTSS_HH_
+#define MICROTSS_HH_
 
 #include <stdexcept>
 #include <vector>
@@ -9,6 +9,7 @@
 #include <tss/tspi.h>
 #include <tss/tcpa_error.h>
 
+namespace microtss {
 /**
  * 
  */
@@ -77,5 +78,5 @@ TSS_HCONTEXT TSS::getContextHandle() const
 {
 	return myContextHandle;
 }
-
+} // namespace microtss
 #endif /*TSS_HH_*/

@@ -23,6 +23,7 @@
 #include <sstream>
 
 using namespace std;
+using namespace microtss;
 
 PublicKey::PublicKey( const TSS_HKEY	&endorsementKeyHandle ) :
   keyHandle( endorsementKeyHandle )
@@ -223,7 +224,7 @@ const string PublicKey::getKeySize( string algorithm )
 	else return "Unknown key Size";
 }
 
-ostream&  operator << ( ostream &ostr, const PublicKey &pk )
+ostream&  microtss::operator << ( ostream &ostr, const microtss::PublicKey &pk )
 {
 	TSS_RESULT result;
 	UINT32		 attributeSize;

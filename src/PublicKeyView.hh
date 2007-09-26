@@ -2,13 +2,13 @@
 #define PUBLICKEYVIEW_HH
 
 #include <publickeyview.h>
-#include <PublicKey.hh>
+#include <microtss/PublicKey.hh>
 
 /**
 */
 class PublicKeyView : public PublicKeyViewWidget {
 public:
-    PublicKeyView( PublicKey &pk );
+    PublicKeyView( microtss::PublicKey &pk );
 
 };
 

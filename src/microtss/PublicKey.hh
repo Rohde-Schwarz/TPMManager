@@ -1,5 +1,5 @@
-#ifndef PUBLICKEY_HH
-#define PUBLICKEY_HH
+#ifndef MICROPUBLICKEY_HH
+#define MICROPUBLICKEY_HH
 
 #include <string>
 #include <iostream>
@@ -7,7 +7,7 @@
 
 /**
 */
-
+namespace microtss {
 class PublicKey{
     friend std::ostream& operator<<( std::ostream &, const PublicKey & );
 
@@ -29,4 +29,5 @@ protected:
 };
 
 std::ostream& operator<<( std::ostream &ostr, const PublicKey &pk );
+} // namespace microtss
 #endif
