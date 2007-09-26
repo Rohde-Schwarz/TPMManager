@@ -3,7 +3,7 @@
   <general>
     <author>Anoosheh Zaerin</author>
     <email>zaerin@sirrix.com</email>
-    <version>0.3</version>
+    <version>0.4</version>
     <projectmanagement>KDevKDEAutoProject</projectmanagement>
     <primarylanguage>C++</primarylanguage>
     <keywords>
@@ -229,7 +229,7 @@
     <EMAIL>zaerin@sirrix.com</EMAIL>
     <LICENSE>GPL</LICENSE>
     <LICENSEFILE>COPYING</LICENSEFILE>
-    <VERSION>0.3</VERSION>
+    <VERSION>0.4</VERSION>
     <YEAR>2007</YEAR>
     <dest>/home/anoosheh/tpmmanager</dest>
   </substmap>
