@@ -2,7 +2,7 @@
 INCLUDES = $(all_includes)
 
 # these are the headers for your project
-noinst_HEADERS = PublicKeyView.hh SetSrkView.hh testappwidget.hh \
+noinst_HEADERS = PublicKeyView.hh SetSrkView.hh \
 	tpmmanager.h
 
 # let automoc handle all of the meta source files (moc)
@@ -23,8 +23,8 @@ bin_PROGRAMS = tpmmanager
 
 # the application source, library search path, and link libraries
 tpmmanager_SOURCES = PublicKeyView.cpp SetSrkView.cpp \
-	main.cpp publickeyview.ui setsrkdialog.ui testappwidget.cpp \
-	testappwidgetbase.ui tpmmanager.cpp tpmmanagerwidget.cpp tpmmanagerwidgetbase.ui
+	main.cpp publickeyview.ui setsrkdialog.ui \
+	tpmmanager.cpp tpmmanagerwidget.cpp tpmmanagerwidgetbase.ui
 tpmmanager_LDFLAGS = $(KDE_RPATH) $(all_libraries)
 tpmmanager_LDADD = $(top_builddir)/src/microtss/libmicrotss.a -ltspi \
 	$(LIB_KDEUI)

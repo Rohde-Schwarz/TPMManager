@@ -658,28 +658,28 @@ uninstall-info: uninstall-info-recursive
 .NOEXPORT:
 
 #>+ 2
-KDE_DIST=Makefile.in index.html Makefile.am 
+KDE_DIST=Makefile.in Makefile.am 
 
 #>+ 2
-docs-am: TPM_Manager.odt index.html 
+docs-am: TPM_Manager.odt 
 
 #>+ 13
 install-nls:
 	$(mkinstalldirs) $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/tpmmanager
-	@for base in TPM_Manager.odt index.html ; do \
+	@for base in TPM_Manager.odt ; do \
 	  echo $(INSTALL_DATA) $$base $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/tpmmanager/$$base ;\
 	  $(INSTALL_DATA) $(srcdir)/$$base $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/tpmmanager/$$base ;\
 	done
 
 uninstall-nls:
-	for base in TPM_Manager.odt index.html ; do \
+	for base in TPM_Manager.odt ; do \
 	  rm -f $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/tpmmanager/$$base ;\
 	done
 
 
 #>+ 5
 distdir-nls:
-	for file in TPM_Manager.odt index.html ; do \
+	for file in TPM_Manager.odt ; do \
 	  cp $(srcdir)/$$file $(distdir); \
 	done
 

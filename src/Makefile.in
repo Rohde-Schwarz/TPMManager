@@ -57,14 +57,12 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(shelldesktopdir)" \
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_tpmmanager_OBJECTS = PublicKeyView.$(OBJEXT) SetSrkView.$(OBJEXT) \
-	main.$(OBJEXT) testappwidget.$(OBJEXT) tpmmanager.$(OBJEXT) \
-	tpmmanagerwidget.$(OBJEXT)
+	main.$(OBJEXT) tpmmanager.$(OBJEXT) tpmmanagerwidget.$(OBJEXT)
 #>- tpmmanager_OBJECTS = $(am_tpmmanager_OBJECTS)
-#>+ 6
+#>+ 5
 tpmmanager_final_OBJECTS = tpmmanager.all_cpp.o 
 tpmmanager_nofinal_OBJECTS = PublicKeyView.$(OBJEXT) SetSrkView.$(OBJEXT) \
-	main.$(OBJEXT) testappwidget.$(OBJEXT) tpmmanager.$(OBJEXT) \
-	tpmmanagerwidget.$(OBJEXT) publickeyview.$(OBJEXT) setsrkdialog.$(OBJEXT) testappwidgetbase.$(OBJEXT) tpmmanagerwidgetbase.$(OBJEXT)
+	main.$(OBJEXT) tpmmanager.$(OBJEXT) tpmmanagerwidget.$(OBJEXT) publickeyview.$(OBJEXT) setsrkdialog.$(OBJEXT) tpmmanagerwidgetbase.$(OBJEXT)
 @KDE_USE_FINAL_FALSE@tpmmanager_OBJECTS = $(tpmmanager_nofinal_OBJECTS)
 @KDE_USE_FINAL_TRUE@tpmmanager_OBJECTS = $(tpmmanager_final_OBJECTS)
 am__DEPENDENCIES_1 =
@@ -372,7 +370,7 @@ xdg_menudir = @xdg_menudir@
 INCLUDES = $(all_includes)
 
 # these are the headers for your project
-noinst_HEADERS = PublicKeyView.hh SetSrkView.hh testappwidget.hh \
+noinst_HEADERS = PublicKeyView.hh SetSrkView.hh \
 	tpmmanager.h
 
 
@@ -384,12 +382,12 @@ KDE_ICON = AUTO
 
 # the application source, library search path, and link libraries
 #>- tpmmanager_SOURCES = PublicKeyView.cpp SetSrkView.cpp \
-#>- 	main.cpp publickeyview.ui setsrkdialog.ui testappwidget.cpp \
-#>- 	testappwidgetbase.ui tpmmanager.cpp tpmmanagerwidget.cpp tpmmanagerwidgetbase.ui
+#>- 	main.cpp publickeyview.ui setsrkdialog.ui \
+#>- 	tpmmanager.cpp tpmmanagerwidget.cpp tpmmanagerwidgetbase.ui
 #>+ 3
 tpmmanager_SOURCES=PublicKeyView.cpp SetSrkView.cpp \
-	main.cpp   testappwidget.cpp \
-	 tpmmanager.cpp tpmmanagerwidget.cpp  publickeyview.cpp setsrkdialog.cpp testappwidgetbase.cpp tpmmanagerwidgetbase.cpp
+	main.cpp   \
+	tpmmanager.cpp tpmmanagerwidget.cpp  publickeyview.cpp setsrkdialog.cpp tpmmanagerwidgetbase.cpp
 
 
 # the application source, library search path, and link libraries
@@ -493,7 +491,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PublicKeyView.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/SetSrkView.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/testappwidget.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tpmmanager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tpmmanagerwidget.Po@am__quote@
 
@@ -874,25 +871,17 @@ tpmmanager.moc: $(srcdir)/tpmmanager.h
 mocs: tpmmanager.moc
 
 #>+ 3
-testappwidget.moc: $(srcdir)/testappwidget.hh
-	$(MOC) $(srcdir)/testappwidget.hh -o testappwidget.moc
-
-#>+ 2
-mocs: testappwidget.moc
-
-#>+ 3
 clean-metasources:
-	-rm -f  tpmmanagerwidget.moc tpmmanager.moc testappwidget.moc
+	-rm -f  tpmmanagerwidget.moc tpmmanager.moc
 
 #>+ 2
-KDE_DIST=testappwidgetbase.ui Makefile.in tpmmanagerui.rc hi16-app-tpm_manager.png hi32-app-tpmmanager.png hi16-app-tpmmanager.png tpmmanagerwidget.h question.png tpmmanager.desktop hi32-app-tpm_manager.png tpmmanagerwidgetbase.ui publickeyview.ui Makefile.am setsrkdialog.ui 
+KDE_DIST=Makefile.in tpmmanagerui.rc hi16-app-tpm_manager.png hi32-app-tpmmanager.png hi16-app-tpmmanager.png tpmmanagerwidget.h question.png tpmmanager.desktop hi32-app-tpm_manager.png tpmmanagerwidgetbase.ui publickeyview.ui Makefile.am setsrkdialog.ui 
 
-#>+ 7
+#>+ 6
 clean-ui:
 	-rm -f \
 	publickeyview.cpp publickeyview.h publickeyview.moc \
 	setsrkdialog.cpp setsrkdialog.h setsrkdialog.moc \
-	testappwidgetbase.cpp testappwidgetbase.h testappwidgetbase.moc \
 	tpmmanagerwidgetbase.cpp tpmmanagerwidgetbase.h tpmmanagerwidgetbase.moc 
 
 #>+ 2
@@ -952,11 +941,11 @@ bcheck-am:
 
 
 #>+ 11
-tpmmanager.all_cpp.cpp: $(srcdir)/Makefile.in $(srcdir)/PublicKeyView.cpp $(srcdir)/SetSrkView.cpp $(srcdir)/main.cpp $(srcdir)/testappwidget.cpp $(srcdir)/tpmmanager.cpp $(srcdir)/tpmmanagerwidget.cpp publickeyview.cpp setsrkdialog.cpp testappwidgetbase.cpp tpmmanagerwidgetbase.cpp  tpmmanagerwidget.moc tpmmanager.moc testappwidget.moc testappwidgetbase.moc setsrkdialog.moc tpmmanagerwidgetbase.moc publickeyview.moc
+tpmmanager.all_cpp.cpp: $(srcdir)/Makefile.in $(srcdir)/PublicKeyView.cpp $(srcdir)/SetSrkView.cpp $(srcdir)/main.cpp $(srcdir)/tpmmanager.cpp $(srcdir)/tpmmanagerwidget.cpp publickeyview.cpp setsrkdialog.cpp tpmmanagerwidgetbase.cpp  tpmmanagerwidget.moc tpmmanager.moc setsrkdialog.moc tpmmanagerwidgetbase.moc publickeyview.moc
 	@echo 'creating tpmmanager.all_cpp.cpp ...'; \
 	rm -f tpmmanager.all_cpp.files tpmmanager.all_cpp.final; \
 	echo "#define KDE_USE_FINAL 1" >> tpmmanager.all_cpp.final; \
-	for file in PublicKeyView.cpp SetSrkView.cpp main.cpp testappwidget.cpp tpmmanager.cpp tpmmanagerwidget.cpp publickeyview.cpp setsrkdialog.cpp testappwidgetbase.cpp tpmmanagerwidgetbase.cpp ; do \
+	for file in PublicKeyView.cpp SetSrkView.cpp main.cpp tpmmanager.cpp tpmmanagerwidget.cpp publickeyview.cpp setsrkdialog.cpp tpmmanagerwidgetbase.cpp ; do \
 	  echo "#include \"$$file\"" >> tpmmanager.all_cpp.files; \
 	  test ! -f $(srcdir)/$$file || egrep '^#pragma +implementation' $(srcdir)/$$file >> tpmmanager.all_cpp.final; \
 	done; \
@@ -987,23 +976,20 @@ no-final-install:
 kde-rpo-clean:
 	-rm -f *.rpo
 
-#>+ 15
-testappwidget.lo: testappwidget.moc 
-$(srcdir)/main.cpp: publickeyview.h setsrkdialog.h testappwidgetbase.h tpmmanagerwidgetbase.h 
+#>+ 12
+$(srcdir)/main.cpp: publickeyview.h setsrkdialog.h tpmmanagerwidgetbase.h 
 tpmmanager.lo: tpmmanager.moc 
 nmcheck: 
-$(srcdir)/testappwidget.cpp: publickeyview.h setsrkdialog.h testappwidgetbase.h tpmmanagerwidgetbase.h 
+$(srcdir)/PublicKeyView.cpp: publickeyview.h setsrkdialog.h tpmmanagerwidgetbase.h 
 nmcheck-am: nmcheck
-$(srcdir)/PublicKeyView.cpp: publickeyview.h setsrkdialog.h testappwidgetbase.h tpmmanagerwidgetbase.h 
 tpmmanagerwidget.o: tpmmanagerwidget.moc 
-testappwidget.o: testappwidget.moc 
 tpmmanager.o: tpmmanager.moc 
-$(srcdir)/tpmmanagerwidget.cpp: publickeyview.h setsrkdialog.h testappwidgetbase.h tpmmanagerwidgetbase.h 
-$(srcdir)/tpmmanager.cpp: publickeyview.h setsrkdialog.h testappwidgetbase.h tpmmanagerwidgetbase.h 
+$(srcdir)/tpmmanagerwidget.cpp: publickeyview.h setsrkdialog.h tpmmanagerwidgetbase.h 
+$(srcdir)/tpmmanager.cpp: publickeyview.h setsrkdialog.h tpmmanagerwidgetbase.h 
 tpmmanagerwidget.lo: tpmmanagerwidget.moc 
-$(srcdir)/SetSrkView.cpp: publickeyview.h setsrkdialog.h testappwidgetbase.h tpmmanagerwidgetbase.h 
+$(srcdir)/SetSrkView.cpp: publickeyview.h setsrkdialog.h tpmmanagerwidgetbase.h 
 
-#>+ 60
+#>+ 45
 tpmmanagerwidgetbase.cpp: $(srcdir)/tpmmanagerwidgetbase.ui tpmmanagerwidgetbase.h tpmmanagerwidgetbase.moc
 	rm -f tpmmanagerwidgetbase.cpp
 	echo '#include <kdialog.h>' > tpmmanagerwidgetbase.cpp
@@ -1048,18 +1034,3 @@ publickeyview.h: $(srcdir)/publickeyview.ui
 	$(UIC) $(srcdir)/publickeyview.ui | $(PERL) -pi -e "s,public QWizard,public KWizard,g; s,#include <qwizard.h>,#include <kwizard.h>,g" >> publickeyview.h ;
 publickeyview.moc: publickeyview.h
 	$(MOC) publickeyview.h -o publickeyview.moc
-
-testappwidgetbase.cpp: $(srcdir)/testappwidgetbase.ui testappwidgetbase.h testappwidgetbase.moc
-	rm -f testappwidgetbase.cpp
-	echo '#include <kdialog.h>' > testappwidgetbase.cpp
-	echo '#include <klocale.h>' >> testappwidgetbase.cpp
-	$(UIC) -tr ${UIC_TR} -i testappwidgetbase.h $(srcdir)/testappwidgetbase.ui > testappwidgetbase.cpp.temp ; ret=$$?; \
-	$(PERL) -pe "s,${UIC_TR}( \"\" ),QString::null,g" testappwidgetbase.cpp.temp | $(PERL) -pe "s,${UIC_TR}( \"\"\, \"\" ),QString::null,g" | $(PERL) -pe "s,image([0-9][0-9]*)_data,img\$$1_testappwidgetbase,g" | $(PERL) -pe "s,: QWizard\(,: KWizard(,g" >> testappwidgetbase.cpp ;\
-	rm -f testappwidgetbase.cpp.temp ;\
-	if test "$$ret" = 0; then echo '#include "testappwidgetbase.moc"' >> testappwidgetbase.cpp; else rm -f testappwidgetbase.cpp ; exit $$ret ; fi
-
-testappwidgetbase.h: $(srcdir)/testappwidgetbase.ui
-	rm -rf testappwidgetbase.h;
-	$(UIC) $(srcdir)/testappwidgetbase.ui | $(PERL) -pi -e "s,public QWizard,public KWizard,g; s,#include <qwizard.h>,#include <kwizard.h>,g" >> testappwidgetbase.h ;
-testappwidgetbase.moc: testappwidgetbase.h
-	$(MOC) testappwidgetbase.h -o testappwidgetbase.moc

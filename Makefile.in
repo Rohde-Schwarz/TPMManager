@@ -40,9 +40,9 @@ target_triplet = @target@
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
 	$(top_srcdir)/configure AUTHORS COPYING ChangeLog INSTALL NEWS \
-	TODO admin/compile admin/config.guess admin/config.sub \
-	admin/depcomp admin/install-sh admin/ltmain.sh admin/missing \
-	admin/mkinstalldirs admin/ylwrap
+	TODO admin/ChangeLog admin/compile admin/config.guess \
+	admin/config.sub admin/depcomp admin/install-sh \
+	admin/ltmain.sh admin/missing admin/mkinstalldirs admin/ylwrap
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
@@ -817,7 +817,7 @@ dist-hook:
 .NOEXPORT:
 
 #>+ 2
-KDE_DIST=stamp-h.in subdirs Makefile.in configure.files config.h.in configure.in Makefile.cvs aclocal.m4 Doxyfile tpmmanager.kdevelop configure Makefile.am acinclude.m4 
+KDE_DIST=stamp-h.in tpmmanager.kdevelop.pcs subdirs Makefile.in tpmmanager.kdevses configure.files config.h.in configure.in Makefile.cvs aclocal.m4 Doxyfile tpmmanager.kdevelop configure Makefile.am acinclude.m4 
 
 #>+ 2
 docs-am:
