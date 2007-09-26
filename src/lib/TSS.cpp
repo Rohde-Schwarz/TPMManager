@@ -32,7 +32,7 @@ TSS::TSS()
 	/*
 	 * @brief			     	establishes a connection to a local or remote TSS system
 	 * @param myContextHandle   Handle of the context object
-	 * @param wszDestination 	Pointer to a null terminated UNICODE string specifying the remote 
+	 * @param wszDestinaion 	Pointer to a null terminated UNICODE string specifying the remote 
 	 * 						 	system which is to be connected.
 	 * 						 	If NULL, the context object is bound to the local system.
 	 * @return				 	TSS_SUCCESS, TSS_E_INVALID_HANDLE, 
@@ -76,7 +76,7 @@ UINT32 TSS::readCapabilities( TCPA_CAPABILITY_AREA capArea, UINT32 subCap, BYTE 
 
 void TSS::readVersion()
 {
-	TSS_VERSION   *version;
+	TSS_VERSION   *version; 
 	ostringstream sVersion;
 
 	readCapabilities( TSS_TCSCAP_VERSION, (BYTE*&) version );

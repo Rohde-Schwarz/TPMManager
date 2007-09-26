@@ -50,7 +50,7 @@ const string PublicKey::getVersion()
 		}
 
 	ostringstream  attributes;
-	for ( int i=0; i<attributeSize; ++i )
+	for ( UINT32 i=0; i<attributeSize; ++i )
 		attributes << hex << setfill( '0' ) << setw(2) << (unsigned int) pAttribute[i];
 	return attributes.str();
 }
@@ -59,7 +59,6 @@ const string PublicKey::getType()
 {
 	TSS_RESULT result;
 	UINT32		 attributeType;
-	BYTE 			 *pAttribute;
 
 	result = Tspi_GetAttribUint32( keyHandle, 
 										TSS_TSPATTRIB_KEY_INFO,

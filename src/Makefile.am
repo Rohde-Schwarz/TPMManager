@@ -2,7 +2,8 @@
 INCLUDES = $(all_includes)
 
 # these are the headers for your project
-noinst_HEADERS = PublicKeyView.hh
+noinst_HEADERS = PublicKeyView.hh \
+		tpmmanagerwidget.h
 
 # let automoc handle all of the meta source files (moc)
 METASOURCES = AUTO

@@ -90,7 +90,7 @@ protected slots:
 	/// A Tab of the Advanced tabwidget is selected.
 	void slotAdvancedTabWidgetChanged( QWidget* widget );
 	/// If setTabsEnable = true then activate the tab dialogs in advanced area.
-	void slotEnableAdvancedTabs( bool setTabsEnable );
+	void slotEnableAdvancedTabs();
 	/// Will be read the Endorsement key(EK) if there exist an EK and that is not restricted.
 	void slotShowEndorsementKey();
 	/// Save Endorsement key and Key Info in File
@@ -108,8 +108,8 @@ protected slots:
 	inline bool hasTPM() const;
 
 private:
-	TPM    *myTPM;
 	TSS    *myTSS;
+	TPM    *myTPM;
 	QPixmap myOkImage;
 	QPixmap myUnknownImage;
 	QPixmap myNokImage;

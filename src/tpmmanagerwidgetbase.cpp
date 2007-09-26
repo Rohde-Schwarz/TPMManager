@@ -3,7 +3,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file './tpmmanagerwidgetbase.ui'
 **
-** Created: Do Okt 5 01:31:50 2006
+** Created: Thu Dec 21 16:07:48 2006
 **      by: The User Interface Compiler ($Id: qt/main.cpp   3.3.6   edited Aug 31 2005 $)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -146,52 +146,31 @@ static const unsigned char img1_tpmmanagerwidgetbase[] = {
 
 static const unsigned char img2_tpmmanagerwidgetbase[] = { 
     0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x00, 0x00, 0x00, 0x0d,
-    0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x0f,
-    0x08, 0x06, 0x00, 0x00, 0x00, 0xed, 0x73, 0x4f, 0x2f, 0x00, 0x00, 0x01,
-    0xf8, 0x49, 0x44, 0x41, 0x54, 0x28, 0x91, 0x95, 0x92, 0xbf, 0x6b, 0x53,
-    0x51, 0x14, 0xc7, 0x3f, 0xf7, 0xa5, 0xc9, 0x4b, 0x7c, 0xd8, 0x3e, 0x6c,
-    0x1c, 0x4a, 0x41, 0x5f, 0x91, 0x50, 0x90, 0x5a, 0x9b, 0x41, 0xf0, 0x07,
-    0xda, 0xd0, 0xc5, 0xc5, 0x45, 0x70, 0x70, 0x6b, 0xf2, 0x1f, 0xc4, 0xc5,
-    0x5f, 0x8b, 0xad, 0x9b, 0x2e, 0xad, 0x08, 0x22, 0x2e, 0x29, 0x4e, 0x2e,
-    0x82, 0xe8, 0xa2, 0x06, 0xa4, 0xab, 0x1d, 0xa4, 0x83, 0xa0, 0x34, 0xd0,
-    0x14, 0xdb, 0x67, 0x9a, 0x9a, 0x34, 0x2f, 0x91, 0x58, 0x9a, 0x77, 0xef,
-    0x7d, 0x0e, 0xda, 0x6a, 0x6a, 0x52, 0xf0, 0x4c, 0x87, 0x73, 0xbf, 0xe7,
-    0xc3, 0x3d, 0xe7, 0x7c, 0x61, 0x9f, 0x68, 0xdc, 0x26, 0x57, 0xbb, 0x41,
-    0x6e, 0x3f, 0x8d, 0xe8, 0xf6, 0xe0, 0xdd, 0xc2, 0x36, 0xfa, 0xcc, 0xa2,
-    0xef, 0x43, 0xab, 0xb2, 0x3d, 0x34, 0xf0, 0x00, 0xaf, 0x93, 0xce, 0xe8,
-    0x06, 0x08, 0x02, 0xb2, 0xe1, 0x13, 0x47, 0xed, 0xc8, 0xe8, 0x71, 0x5b,
-    0x49, 0xb2, 0xdd, 0x74, 0x5d, 0x01, 0x44, 0x8c, 0xc9, 0x48, 0x6a, 0x94,
-    0x03, 0x13, 0xc7, 0xd0, 0x61, 0x63, 0xf2, 0xbf, 0x00, 0xd5, 0xeb, 0xa4,
-    0x43, 0x89, 0x41, 0x47, 0xc4, 0x56, 0x11, 0xd6, 0x2a, 0xd1, 0x61, 0xc7,
-    0x59, 0xbb, 0x7b, 0x78, 0x4a, 0xeb, 0xbc, 0xbd, 0x57, 0x2b, 0xf4, 0x7d,
-    0x72, 0x4a, 0xe3, 0x28, 0x1f, 0x54, 0x2c, 0x92, 0xd2, 0x56, 0x1f, 0xca,
-    0x07, 0xeb, 0xea, 0x19, 0x42, 0xf1, 0x32, 0x00, 0xb2, 0x7c, 0x84, 0xd2,
-    0xe3, 0x79, 0x94, 0x82, 0xad, 0xf5, 0x3a, 0x98, 0x51, 0xaf, 0x5e, 0x6c,
-    0x2c, 0x2a, 0xc9, 0x8a, 0x50, 0xf7, 0xc8, 0xe9, 0xc4, 0x70, 0x3a, 0x34,
-    0x71, 0x1a, 0xcc, 0xcd, 0xdf, 0x5c, 0xb7, 0xcb, 0x87, 0xe3, 0x80, 0x89,
-    0x72, 0x25, 0xcb, 0x4f, 0xde, 0x53, 0xfe, 0xb0, 0x39, 0x27, 0x00, 0xb6,
-    0xa6, 0xc8, 0xea, 0xde, 0xd0, 0x4c, 0xf4, 0xca, 0x49, 0x44, 0xe8, 0x47,
-    0xd7, 0xb5, 0x20, 0x05, 0xca, 0x85, 0x8f, 0x8f, 0x96, 0xf8, 0x5e, 0x56,
-    0xd7, 0x2e, 0xe4, 0x99, 0xdd, 0x3d, 0x63, 0xed, 0x26, 0x69, 0xec, 0x68,
-    0xce, 0x3a, 0xdb, 0x4b, 0x4f, 0x3c, 0xfa, 0x6f, 0xf3, 0xb6, 0x41, 0x73,
-    0x49, 0xb2, 0xfc, 0xea, 0x2b, 0x8d, 0x6f, 0x3a, 0x73, 0xfe, 0x0d, 0x73,
-    0xb0, 0xc7, 0x07, 0xb5, 0x87, 0x03, 0x59, 0xbf, 0x52, 0x9e, 0x89, 0x5f,
-    0xec, 0xef, 0x08, 0xf8, 0xf4, 0xb4, 0x82, 0x57, 0x52, 0x97, 0xcf, 0xbd,
-    0xe6, 0xc5, 0x4e, 0xb9, 0xa7, 0x6d, 0xa3, 0x83, 0x09, 0x3b, 0xdc, 0xdc,
-    0x80, 0xfa, 0xf6, 0xaf, 0x82, 0xe6, 0xcf, 0x9d, 0x14, 0x98, 0x31, 0x81,
-    0xd6, 0xed, 0x86, 0x6a, 0x03, 0xb4, 0xdc, 0x2f, 0xe3, 0xb1, 0x30, 0xe0,
-    0xb5, 0xc0, 0x13, 0xb4, 0xea, 0x01, 0x58, 0x01, 0x91, 0x7e, 0x01, 0x02,
-    0x2c, 0x13, 0xa4, 0x24, 0x05, 0xcc, 0x77, 0x04, 0xa8, 0x46, 0x33, 0x65,
-    0xc6, 0x02, 0x54, 0xc1, 0xa7, 0xb4, 0xa6, 0xa9, 0x56, 0x83, 0x45, 0xe9,
-    0x83, 0x7d, 0x48, 0x8c, 0x39, 0x23, 0x06, 0xf6, 0x41, 0x50, 0x92, 0xf1,
-    0xbf, 0x7b, 0x76, 0x8d, 0xa4, 0x75, 0xde, 0x6e, 0xb9, 0x55, 0xbc, 0x82,
-    0xa6, 0xf0, 0x59, 0x79, 0x5e, 0x2d, 0xc8, 0x24, 0x9f, 0x93, 0x3c, 0xf5,
-    0x92, 0xe4, 0xc6, 0x7a, 0x90, 0x59, 0x78, 0xab, 0x3c, 0xb7, 0xa0, 0x30,
-    0x60, 0xac, 0x6d, 0xec, 0x9d, 0xa4, 0x90, 0xc1, 0xd1, 0x9a, 0xa2, 0xf2,
-    0x99, 0xd6, 0x9a, 0xd9, 0x91, 0x67, 0xed, 0xb3, 0xbe, 0x4b, 0x61, 0x2b,
-    0x49, 0x56, 0x4a, 0xee, 0x28, 0xcd, 0xd0, 0xa5, 0x05, 0x56, 0x00, 0x7e,
-    0x02, 0x9b, 0xd1, 0xcd, 0x74, 0x9c, 0xe3, 0xc3, 0x84, 0x00, 0x00, 0x00,
-    0x00, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82
+    0x49, 0x48, 0x44, 0x52, 0x00, 0x00, 0x00, 0x0f, 0x00, 0x00, 0x00, 0x0f,
+    0x08, 0x06, 0x00, 0x00, 0x00, 0x3b, 0xd6, 0x95, 0x4a, 0x00, 0x00, 0x00,
+    0xfd, 0x49, 0x44, 0x41, 0x54, 0x28, 0x91, 0x8d, 0x93, 0x3d, 0x4e, 0x03,
+    0x31, 0x10, 0x85, 0x3f, 0xa3, 0x28, 0x47, 0xa0, 0xa7, 0xe2, 0x0c, 0xf6,
+    0x0d, 0x72, 0x11, 0x2a, 0x1a, 0x38, 0x09, 0x6d, 0x68, 0x72, 0x03, 0x6a,
+    0x4a, 0x24, 0x24, 0x8f, 0x28, 0xb6, 0x27, 0x15, 0x25, 0x52, 0x8a, 0x48,
+    0x14, 0x69, 0x22, 0xd0, 0xa4, 0x18, 0x3b, 0xfe, 0xd9, 0xcd, 0x8a, 0x27,
+    0x8d, 0xac, 0xf5, 0xec, 0x9b, 0xf7, 0xec, 0x19, 0x3b, 0x26, 0xe0, 0xbd,
+    0xd7, 0x7e, 0x4f, 0x44, 0x5c, 0xbf, 0xb7, 0x98, 0x22, 0xc5, 0xf8, 0x0a,
+    0x7f, 0x9f, 0x70, 0x88, 0x96, 0x78, 0x79, 0x20, 0x60, 0xb9, 0xa9, 0x22,
+    0x78, 0xef, 0x55, 0xf5, 0x47, 0xf5, 0xf7, 0x43, 0xf5, 0xcb, 0x59, 0x44,
+    0x4a, 0x6c, 0x50, 0xbd, 0x47, 0x6b, 0x57, 0x2e, 0x13, 0xe3, 0xfb, 0x93,
+    0x29, 0xed, 0x1f, 0xe1, 0x7b, 0xe4, 0xda, 0xb0, 0x05, 0x06, 0x08, 0x83,
+    0x47, 0x44, 0x5c, 0xb1, 0x5d, 0x11, 0x5d, 0x68, 0x39, 0x9a, 0xdc, 0x73,
+    0x9b, 0xd6, 0xa1, 0xb6, 0x9b, 0xad, 0x46, 0x14, 0x2c, 0xb2, 0xdd, 0xfe,
+    0x5b, 0xd7, 0xc5, 0xfe, 0xe2, 0xac, 0xda, 0xab, 0xcc, 0xe1, 0xda, 0x96,
+    0x62, 0xbb, 0x3b, 0x67, 0x6d, 0xfd, 0x52, 0xc1, 0x2b, 0xc0, 0xce, 0x7a,
+    0x01, 0x73, 0x4e, 0x4c, 0xf9, 0x4d, 0xcb, 0x65, 0xcc, 0x91, 0x8e, 0x69,
+    0xdd, 0x25, 0x65, 0x11, 0x71, 0xe1, 0xd9, 0x5b, 0x1b, 0x2a, 0xb8, 0xc0,
+    0xe8, 0xd6, 0xd9, 0x02, 0xcb, 0xa9, 0x56, 0xe5, 0xe4, 0x8d, 0xfd, 0xd0,
+    0x28, 0x1f, 0x0b, 0xf1, 0xdc, 0x26, 0xd2, 0x90, 0x40, 0x1a, 0x94, 0x3b,
+    0x69, 0xed, 0xd5, 0x48, 0xc4, 0xac, 0xda, 0x90, 0x73, 0x01, 0x80, 0xb8,
+    0x92, 0x96, 0xb8, 0x33, 0x12, 0xb4, 0xb3, 0x3d, 0x1e, 0x72, 0xfe, 0xff,
+    0xaa, 0x4e, 0x1d, 0x56, 0x99, 0x18, 0x09, 0xab, 0xa4, 0x16, 0x00, 0x00,
+    0x00, 0x00, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82
 };
 
 static const unsigned char img3_tpmmanagerwidgetbase[] = { 
@@ -1374,6 +1353,7 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     myCapabilities->horizontalHeader()->setLabel( myCapabilities->numCols() - 1, tr2i18n( "Value" ) );
     myCapabilities->setNumRows( 3 );
     myCapabilities->setNumCols( 2 );
+    myCapabilities->setReadOnly( TRUE );
     tabCapabilitiesLayout->addWidget( myCapabilities );
     tabInfo->insertTab( tabCapabilities, QString::fromLatin1("") );
 
@@ -1381,6 +1361,9 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     tabPCRsLayout = new QVBoxLayout( tabPCRs, 11, 6, "tabPCRsLayout"); 
 
     myPCRs = new QListBox( tabPCRs, "myPCRs" );
+    QFont myPCRs_font(  myPCRs->font() );
+    myPCRs_font.setFamily( "Monospace" );
+    myPCRs->setFont( myPCRs_font ); 
     tabPCRsLayout->addWidget( myPCRs );
     tabInfo->insertTab( tabPCRs, QString::fromLatin1("") );
     WStackPageLayout->addWidget( tabInfo );
@@ -2018,6 +2001,89 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     tabAdvanced->insertTab( tabRevokeTrust, QString::fromLatin1("") );
 
     tab = new QWidget( tabAdvanced, "tab" );
+
+    QWidget* privateLayoutWidget = new QWidget( tab, "layout85_2" );
+    privateLayoutWidget->setGeometry( QRect( 21, 0, 458, 372 ) );
+    layout85_2_2 = new QVBoxLayout( privateLayoutWidget, 15, 6, "layout85_2_2"); 
+
+    textLabel1_2_4_2_7_2_3 = new QLabel( privateLayoutWidget, "textLabel1_2_4_2_7_2_3" );
+    textLabel1_2_4_2_7_2_3->setBackgroundMode( QLabel::PaletteBackground );
+    textLabel1_2_4_2_7_2_3->setPaletteBackgroundColor( QColor( 180, 180, 180 ) );
+    textLabel1_2_4_2_7_2_3->setBackgroundOrigin( QLabel::WindowOrigin );
+    layout85_2_2->addWidget( textLabel1_2_4_2_7_2_3 );
+
+    layout84_2 = new QHBoxLayout( 0, 0, 6, "layout84_2"); 
+    spacer77_3 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout84_2->addItem( spacer77_3 );
+
+    layout82_2 = new QVBoxLayout( 0, 0, 6, "layout82_2"); 
+
+    myTakeOwnerText_2_6_2_3 = new QLabel( privateLayoutWidget, "myTakeOwnerText_2_6_2_3" );
+    myTakeOwnerText_2_6_2_3->setTextFormat( QLabel::AutoText );
+    myTakeOwnerText_2_6_2_3->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout82_2->addWidget( myTakeOwnerText_2_6_2_3 );
+
+    layout81_2 = new QHBoxLayout( 0, 0, 6, "layout81_2"); 
+
+    layout80_2 = new QVBoxLayout( 0, 0, 6, "layout80_2"); 
+    spacer75_2 = new QSpacerItem( 56, 5, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding );
+    layout80_2->addItem( spacer75_2 );
+
+    myRevokeWarnIcon_2 = new QLabel( privateLayoutWidget, "myRevokeWarnIcon_2" );
+    myRevokeWarnIcon_2->setEnabled( FALSE );
+    myRevokeWarnIcon_2->setPixmap( image4 );
+    myRevokeWarnIcon_2->setScaledContents( TRUE );
+    layout80_2->addWidget( myRevokeWarnIcon_2 );
+    spacer76_2_2 = new QSpacerItem( 64, 5, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding );
+    layout80_2->addItem( spacer76_2_2 );
+    layout81_2->addLayout( layout80_2 );
+
+    myRevokeWarnText_2 = new QLabel( privateLayoutWidget, "myRevokeWarnText_2" );
+    myRevokeWarnText_2->setEnabled( FALSE );
+    myRevokeWarnText_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 1, 0, myRevokeWarnText_2->sizePolicy().hasHeightForWidth() ) );
+    myRevokeWarnText_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout81_2->addWidget( myRevokeWarnText_2 );
+    layout82_2->addLayout( layout81_2 );
+
+    layout75_2 = new QHBoxLayout( 0, 0, 6, "layout75_2"); 
+
+    textLabel7_2 = new QLabel( privateLayoutWidget, "textLabel7_2" );
+    textLabel7_2->setEnabled( FALSE );
+    textLabel7_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7, (QSizePolicy::SizeType)5, 0, 0, textLabel7_2->sizePolicy().hasHeightForWidth() ) );
+    layout75_2->addWidget( textLabel7_2 );
+
+    myDeleteEndorsement_2 = new QPushButton( privateLayoutWidget, "myDeleteEndorsement_2" );
+    myDeleteEndorsement_2->setEnabled( FALSE );
+    layout75_2->addWidget( myDeleteEndorsement_2 );
+    layout82_2->addLayout( layout75_2 );
+
+    layout74_2 = new QHBoxLayout( 0, 0, 6, "layout74_2"); 
+
+    layout73_2_2 = new QVBoxLayout( 0, 0, 6, "layout73_2_2"); 
+    spacer71_3 = new QSpacerItem( 53, 5, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout73_2_2->addItem( spacer71_3 );
+
+    myRevokeInfoIcon_2 = new QLabel( privateLayoutWidget, "myRevokeInfoIcon_2" );
+    myRevokeInfoIcon_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)4, (QSizePolicy::SizeType)5, 0, 0, myRevokeInfoIcon_2->sizePolicy().hasHeightForWidth() ) );
+    myRevokeInfoIcon_2->setMinimumSize( QSize( 10, 0 ) );
+    myRevokeInfoIcon_2->setPixmap( image3 );
+    myRevokeInfoIcon_2->setScaledContents( TRUE );
+    layout73_2_2->addWidget( myRevokeInfoIcon_2 );
+    spacer71_2_2 = new QSpacerItem( 53, 5, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout73_2_2->addItem( spacer71_2_2 );
+    layout74_2->addLayout( layout73_2_2 );
+
+    myRevokeInfoText_2 = new QLabel( privateLayoutWidget, "myRevokeInfoText_2" );
+    myRevokeInfoText_2->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)5, 0, 0, myRevokeInfoText_2->sizePolicy().hasHeightForWidth() ) );
+    myRevokeInfoText_2->setAlignment( int( QLabel::WordBreak | QLabel::AlignVCenter ) );
+    layout74_2->addWidget( myRevokeInfoText_2 );
+    layout82_2->addLayout( layout74_2 );
+    layout84_2->addLayout( layout82_2 );
+    spacer77_2_2 = new QSpacerItem( 20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum );
+    layout84_2->addItem( spacer77_2_2 );
+    layout85_2_2->addLayout( layout84_2 );
+    spacer79_2 = new QSpacerItem( 20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    layout85_2_2->addItem( spacer79_2 );
     tabAdvanced->insertTab( tab, QString::fromLatin1("") );
     WStackPageLayout_4->addWidget( tabAdvanced );
     widgetStack1->addWidget( WStackPage_4, 3 );
@@ -2064,6 +2130,7 @@ TPM_ManagerWidgetBase::TPM_ManagerWidgetBase( QWidget* parent, const char* name,
     Layout1 = new QHBoxLayout( 0, 5, 6, "Layout1"); 
 
     buttonHelp = new QPushButton( this, "buttonHelp" );
+    buttonHelp->setEnabled( FALSE );
     buttonHelp->setPaletteForegroundColor( QColor( 0, 85, 127 ) );
     buttonHelp->setAutoDefault( TRUE );
     Layout1->addWidget( buttonHelp );
@@ -2116,7 +2183,7 @@ TPM_ManagerWidgetBase::~TPM_ManagerWidgetBase()
  */
 void TPM_ManagerWidgetBase::languageChange()
 {
-    setCaption( tr2i18n( "TPM Manager V0.2" ) );
+    setCaption( tr2i18n( "TPM Manager V0.3" ) );
     listBox->clear();
     listBox->insertItem( tr2i18n( "Info" ) );
     listBox->insertItem( tr2i18n( "Owner Settings" ) );
@@ -2136,7 +2203,7 @@ void TPM_ManagerWidgetBase::languageChange()
     textLabel2_2->setText( tr2i18n( "<p align=\"right\">Endorsement Key available</p>" ) );
     TPM_ACtive_Status->setText( tr2i18n( "<p align=\"right\">TPM activated</p>" ) );
     driverFound->setText( tr2i18n( "--" ) );
-    textLabel3->setText( tr2i18n( "<p align=\"right\">TPM Owner set</p>" ) );
+    textLabel3->setText( tr2i18n( "<p align=\"right\">TPM owner set</p>" ) );
     foundLabel->setText( tr2i18n( "<p align=\"right\">TPM driver found</p>" ) );
     textLabel2->setText( tr2i18n( "<p align=\"right\">TPM enabled</p>" ) );
     myEndorsementAvailable->setText( tr2i18n( "--" ) );
@@ -2159,90 +2226,97 @@ void TPM_ManagerWidgetBase::languageChange()
     tabInfo->changeTab( tabDetails, tr2i18n( "Details" ) );
     myCapabilities->horizontalHeader()->setLabel( 0, tr2i18n( "Description" ) );
     myCapabilities->horizontalHeader()->setLabel( 1, tr2i18n( "Value" ) );
-    tabInfo->changeTab( tabCapabilities, tr2i18n( "Capa&bilities" ) );
+    tabInfo->changeTab( tabCapabilities, tr2i18n( "C&apabilities" ) );
     tabInfo->changeTab( tabPCRs, tr2i18n( "PCRs" ) );
     textLabel1_2_4->setText( tr2i18n( "<font color=\"#00557f\"><b>Owner Management</b></font>" ) );
     textLabel5_2->setText( tr2i18n( "A TPM Owner is required to manage the TPM. Allowed operations depend on the TPM status." ) );
-    myTakeOwnerText->setText( tr2i18n( "Take Ownership." ) );
-    myChangePassText->setText( tr2i18n( "Change Owner Password." ) );
-    myClearOwnerText->setText( tr2i18n( "Clear Ownership and return the TPM to factory defaults." ) );
-    myTakeOwnership->setText( tr2i18n( "Take" ) );
+    myTakeOwnerText->setText( tr2i18n( "Take Ownership" ) );
+    myChangePassText->setText( tr2i18n( "Change Owner Password" ) );
+    myClearOwnerText->setText( tr2i18n( "Clear Ownership and return the TPM to factory defaults" ) );
+    myTakeOwnership->setText( tr2i18n( "T&ake" ) );
     myChangePassword->setText( tr2i18n( "Change" ) );
     myClearOwnership->setText( tr2i18n( "Clear" ) );
-    tabOwner->changeTab( tabOwnership, tr2i18n( "Ownership" ) );
+    tabOwner->changeTab( tabOwnership, tr2i18n( "Ow&nership" ) );
     textLabel1_2_4_6->setText( tr2i18n( "<font color=\"#00557f\"><b>Maintenance</b></font>" ) );
     textLabel5_2_5->setText( tr2i18n( "Creating a maintenance archive enables the migration of all data held in the protected storage of the TPM. In case of a TPM failure, the archive can be loaded into another TPM with support of the TPM manufacturer." ) );
-    myLoadMaintenance->setText( tr2i18n( "Load" ) );
-    myLoadMaintenanceText->setText( tr2i18n( "Load Maintenance Archive." ) );
+    myLoadMaintenance->setText( tr2i18n( "Lo&ad" ) );
+    myLoadMaintenanceText->setText( tr2i18n( "Load Maintenance Archive" ) );
     myCreateMaintenance->setText( tr2i18n( "Create" ) );
-    myCreateMaintenanceText->setText( tr2i18n( "Create Maintenance Archive." ) );
+    myCreateMaintenanceText->setText( tr2i18n( "Create Maintenance Archive" ) );
     myMaintenanceInfoText->setText( tr2i18n( "Maintenance feature is not supported by this TPM." ) );
-    tabOwner->changeTab( tabBackup, tr2i18n( "Backup" ) );
+    tabOwner->changeTab( tabBackup, tr2i18n( "Bac&kup" ) );
     textLabel1_2_4_2_3->setText( tr2i18n( "<font color=\"#00557f\"><b>Temporarily Deactivation</b></font>" ) );
     textLabel2_4->setText( tr2i18n( "A temporarily deactivated TPM is unable to execute com- mands that use TPM resources until the next reboot. No authorization is required." ) );
-    myTakeOwnerText_2_2->setText( tr2i18n( "<p align=\"left\">Temporarily deactivate the TPM.</p>" ) );
+    myTakeOwnerText_2_2->setText( tr2i18n( "<p align=\"left\">Temporarily deactivate the TPM</p>" ) );
     QToolTip::add( myTakeOwnerText_2_2, tr2i18n( "A deactivated TPM is unable to execute commands that use TPM resources until the next reboot." ) );
-    myDeactivate->setText( tr2i18n( "Deactivate" ) );
+    myDeactivate->setText( tr2i18n( "De&activate" ) );
     textLabel1_2_4_2_3_2->setText( tr2i18n( "<font color=\"#00557f\"><b>Permanently Enable/Disable</b></font>" ) );
     myTakeOwnerText_2_2_2->setText( tr2i18n( "<p align=\"left\">A disabled TPM is not able to execute commands that use TPM resources until it is enabled again. Requires Owner authorization.</p>" ) );
-    myDisableLabel->setText( tr2i18n( "Enable/Disable the TPM." ) );
-    myDisable->setText( tr2i18n( "Disable" ) );
-    tabSetting->changeTab( tabOperationalModes, tr2i18n( "Operational Modes" ) );
+    myDisableLabel->setText( tr2i18n( "Enable/Disable the TPM" ) );
+    myDisable->setText( tr2i18n( "Disa&ble" ) );
+    tabSetting->changeTab( tabOperationalModes, tr2i18n( "Operatio&nal Modes" ) );
     textLabel1_2_4_2_7->setText( tr2i18n( "<font color=\"#00557f\"><b>Endorsement Key (EK)</b></font>" ) );
     myTakeOwnerText_2_6->setText( tr2i18n( "The EK identifies the TPM and is used to establish the TPM Owner and Attestation Identity Keys (AIK)." ) );
     myCreatEndorsement->setText( tr2i18n( "Create" ) );
     myRestrictEndorsement->setText( tr2i18n( "Restrict" ) );
-    myClearOwnerText_2_5->setText( tr2i18n( "Disable reading of the EK without owner authorization." ) );
-    myChangePassText_2_6_2->setText( tr2i18n( "Store Endorsement Key." ) );
-    mySaveEndorsement->setText( tr2i18n( "Save" ) );
-    myChangePassText_2_6->setText( tr2i18n( "Show Endorsement Key Info." ) );
+    myClearOwnerText_2_5->setText( tr2i18n( "Disable reading of the EK without owner authorization" ) );
+    myChangePassText_2_6_2->setText( tr2i18n( "Store Endorsement Key" ) );
+    mySaveEndorsement->setText( tr2i18n( "S&ave" ) );
+    myChangePassText_2_6->setText( tr2i18n( "Show Endorsement Key Info" ) );
     myShowEndorsement->setText( tr2i18n( "Show" ) );
-    textLabel4_5->setText( tr2i18n( "Create EK." ) );
-    tabSetting->changeTab( tabIdentity, tr2i18n( "Identity" ) );
-    textLabel1_2_4_2_3_6->setText( tr2i18n( "<font color=\"#00557f\"><b>Full Self Test</b></font>" ) );
-    textLabel1_3->setText( tr2i18n( "The full selftest performs a self-test of each internal TPM function and provides an accurate assessment of the TPM’s ability to perform all operations." ) );
-    textLabel2_3->setText( tr2i18n( "Execute full Selftest" ) );
+    textLabel4_5->setText( tr2i18n( "Create EK" ) );
+    tabSetting->changeTab( tabIdentity, tr2i18n( "Identit&y" ) );
+    textLabel1_2_4_2_3_6->setText( tr2i18n( "<font color=\"#00557f\"><b>Full Selftest</b></font>" ) );
+    textLabel1_3->setText( tr2i18n( "The full selftest performs a selftest of each internal TPM function and provides an accurate assessment of the TPM’s ability to perform all operations." ) );
+    textLabel2_3->setText( tr2i18n( "Execute full selftest" ) );
     mySelfTest->setText( tr2i18n( "Run" ) );
-    tabSetting->changeTab( tabSelfTest, tr2i18n( "Self Test" ) );
+    tabSetting->changeTab( tabSelfTest, tr2i18n( "Selftest" ) );
     textLabel1_2_4_2_2_5->setText( tr2i18n( "<font color=\"#00557f\"><b>TPM Certificate</b></font>" ) );
-    myReadCertificateText->setText( tr2i18n( "Read the Endorsement Key certificate of the TPM." ) );
+    myReadCertificateText->setText( tr2i18n( "Read the Endorsement Key certificate of the TPM" ) );
     myReadCertificate->setText( tr2i18n( "Read" ) );
     myCertificateText->setText( tr2i18n( "Reading the Endorsement Certificate is not supported by this TPM." ) );
     tabSetting->changeTab( TabPage, tr2i18n( "TPM Certificate" ) );
     textLabel6_2_2->setText( tr2i18n( "This section contains critical functions that may delete critical data or permanently deactivate features of the TPM." ) );
     textLabel9->setText( tr2i18n( "Note that this functions are provided WITHOUT ANY WARRANTY; use them at your own risk." ) );
-    tabAdvanced->changeTab( TabPage_2, tr2i18n( "Warning" ) );
+    tabAdvanced->changeTab( TabPage_2, tr2i18n( "W&arning" ) );
     textLabel1_2_4_2_7_2_2->setText( tr2i18n( "<font color=\"#00557f\"><b>Permanently Disable Maintenance</b></font>" ) );
     myTakeOwnerText_2_6_2_2->setText( tr2i18n( "Killing the Maintencance Feature permanently prevents anyone from creating a maintenance archive. This action allows TPM owners who do not want the maintenance feature to disable it." ) );
     myDisableMaintenanceWarnText->setText( tr2i18n( "This action, once taken, is permanent until a new TPM Owner is set." ) );
     myDisableMaintenanceText->setText( tr2i18n( "Disable Maintenance Feature" ) );
     myDisableMaintenance->setText( tr2i18n( "Disable" ) );
     myDisableMaintenanceInfoText->setText( tr2i18n( "Disabling the maintenance function is not supported by this TPM." ) );
-    tabAdvanced->changeTab( tabDisableMaintenance, tr2i18n( "Disable Maintenance" ) );
+    tabAdvanced->changeTab( tabDisableMaintenance, tr2i18n( "Disa&ble Maintenance" ) );
     textLabel1_2_4_2_7_2->setText( tr2i18n( "<font color=\"#00557f\"><b>Delete Endorsement Key</b></font>" ) );
     myTakeOwnerText_2_6_2->setText( tr2i18n( "Deleting the EK invalidates both the TPM certificate and the platform certificate resulting in the revocation of the trust in the platform. From a trust perspective, the platform associated with these specific credentials no longer exists." ) );
     myRevokeWarnText->setText( tr2i18n( "This is a non-reversible function. Also, along with the EK, the Owner is also deleted removing all non-migratable keys and owner-specified state." ) );
     textLabel7->setText( tr2i18n( "Delete Endorsement Key" ) );
     myDeleteEndorsement->setText( tr2i18n( "Delete" ) );
     myRevokeInfoText->setText( tr2i18n( "Deleting the Endorsement Key is not supported by this TPM." ) );
-    tabAdvanced->changeTab( tabRevokeTrust, tr2i18n( "Revoke Trust" ) );
+    tabAdvanced->changeTab( tabRevokeTrust, tr2i18n( "Revo&ke Trust" ) );
+    textLabel1_2_4_2_7_2_3->setText( tr2i18n( "<font color=\"#00557f\"><b>Update firmware</b></font>" ) );
+    myTakeOwnerText_2_6_2_3->setText( tr2i18n( "Updating firmware" ) );
+    myRevokeWarnText_2->setText( tr2i18n( "This is a non-reversible function. Also, along with the EK, the Owner is also deleted removing all non-migratable keys and owner-specified state." ) );
+    textLabel7_2->setText( tr2i18n( "Delete Endorsement Key" ) );
+    myDeleteEndorsement_2->setText( tr2i18n( "Delete" ) );
+    myRevokeInfoText_2->setText( tr2i18n( "Deleting the Endorsement Key is not supported by this TPM." ) );
     tabAdvanced->changeTab( tab, tr2i18n( "Update Firmware" ) );
-    myProgramLabel->setText( tr2i18n( "TPM Manager V" ) );
+    myProgramLabel->setText( tr2i18n( "TPM Manager V0.x" ) );
     textLabel5->setText( tr2i18n( "<center>\n"
 "(c) 2006 by<BR>\n"
-"Anoosheh Zaerin (zaerin@sirrix.com)<BR>\n"
 "Christian St&uuml;ble (stueble@acm.org)\n"
+"<BR>\n"
+"Anoosheh Zaerin (zaerin@sirrix.com)\n"
 "</center>\n"
 "\n"
-"<p align=\"center\">For more information, see <a href=\"http://tpmmanager.sf.net\">http://tpmmanager.sourceforge.net</a></p>\n"
+"<p align=\"center\">For more information, see <a href=\"http://sourceforge.net/projects/tpmmanager\">http://sourceforge.net/projects/tpmmanager</a></p>\n"
 "\n"
 "<p align=\"center\">This application is part of the PERSEUS security framework,\n"
 "see <a href=\"http://www.perseus-os.org\">http://www.perseus-os.org</a></p>" ) );
     myVersionLabel->changeTab( tab_2, tr2i18n( "Cont&act" ) );
     buttonHelp->setText( tr2i18n( "He&lp" ) );
     buttonHelp->setAccel( QKeySequence( tr2i18n( "Alt+L" ) ) );
-    buttonOk->setText( tr2i18n( "&OK" ) );
-    buttonOk->setAccel( QKeySequence( QString::null ) );
+    buttonOk->setText( tr2i18n( "&Quit" ) );
+    buttonOk->setAccel( QKeySequence( tr2i18n( "Alt+Q" ) ) );
 }
 
 void TPM_ManagerWidgetBase::TPM_Manager()

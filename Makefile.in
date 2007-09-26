@@ -314,7 +314,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.2/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.3/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $@ $(am__depfiles_maybe)
 
@@ -736,8 +736,11 @@ dist-hook:
 
 
 
+
+
+
 #>+ 2
-KDE_DIST=stamp-h.in tpmmanager.kdevelop.pcs subdirs Makefile.in tpmmanager.kdevses configure.files Makefile.cvs tpmmanager.kdevelop Doxyfile 
+KDE_DIST=stamp-h.in tpmmanager.kdevelop.pcs subdirs Makefile.in tpmmanager.kdevses configure.files Makefile.cvs tpmmanager.kdevelop Doxyfile tpmmanager-0.3.tar.gz 
 
 #>+ 2
 docs-am:
@@ -746,7 +749,7 @@ docs-am:
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.2/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.3/Makefile.in
 
 
 #>+ 21

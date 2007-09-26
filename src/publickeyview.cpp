@@ -3,7 +3,7 @@
 /****************************************************************************
 ** Form implementation generated from reading ui file './publickeyview.ui'
 **
-** Created: Do Okt 5 01:32:00 2006
+** Created: Thu Dec 21 16:07:57 2006
 **      by: The User Interface Compiler ($Id: qt/main.cpp   3.3.6   edited Aug 31 2005 $)
 **
 ** WARNING! All changes made in this file will be lost!

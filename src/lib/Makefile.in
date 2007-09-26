@@ -337,7 +337,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  src/lib/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.2/src/lib/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.3/src/lib/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 libLTLIBRARIES_INSTALL = $(INSTALL)
@@ -614,6 +614,9 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES
 
 
 
+
+
+
 #>+ 2
 KDE_DIST=Makefile.in 
 
@@ -624,7 +627,7 @@ docs-am:
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  src/lib/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.2/src/lib/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.3/src/lib/Makefile.in
 
 
 #>+ 21

@@ -192,6 +192,8 @@ void TPM_ManagerWidget::initPCRs()
 	ostringstream pcrStr;
 	vector<ByteString> pcrValues = myTPM->getPCRValues();
 
+	myPCRs->clear();
+
 	for( size_t i=0; i < pcrValues.size(); ++i)
 	{
 		pcrStr << "PCR[" << dec << setw( 2 ) << setfill( '0' ) << i << "] "; 
@@ -348,7 +350,7 @@ void TPM_ManagerWidget::initRevokeTrust()
  */
 void TPM_ManagerWidget::slotTakeOwnership()
 {
-	KPasswordDialog ownerDlg( KPasswordDialog::NewPassword, false, KDialogBase::Help );
+	KPasswordDialog ownerDlg( KPasswordDialog::NewPassword, false, 0 );
 
 	// Read the TPM owner password
 	ownerDlg.setCaption( "Take Ownership: Set Owner Password" );
@@ -359,7 +361,7 @@ void TPM_ManagerWidget::slotTakeOwnership()
 		return;
 
 	// Read the SRK password
-	KPasswordDialog srkDlg( KPasswordDialog::NewPassword, false, KDialogBase::Help );
+	KPasswordDialog srkDlg( KPasswordDialog::NewPassword, false, 0 );
 	
    srkDlg.setCaption( "Take Ownership: Set SRK Password" );
 	srkDlg.setPrompt( "Enter the SRK password. It is used to authenticate the usage of the Storage Root Key (SRK)." );
@@ -382,16 +384,16 @@ void TPM_ManagerWidget::slotTakeOwnership()
 
 void TPM_ManagerWidget::slotChangePassword()
 {
-	KPasswordDialog passDlg( KPasswordDialog::Password, false, KDialogBase::Help );
+	KPasswordDialog passDlg( KPasswordDialog::Password, false, 0 );
 
 	passDlg.setCaption( "Enter Ownership password" );
-	passDlg.setPrompt( "Enter owner password be able to set the new Password." );
+	passDlg.setPrompt( "Enter owner password to set the new Password." );
 	passDlg.exec();
 
 	if ( passDlg.result() != KPasswordDialog::Accepted )
 		return;
 
-	KPasswordDialog newPassDlg( KPasswordDialog::NewPassword, false, KDialogBase::Help );
+	KPasswordDialog newPassDlg( KPasswordDialog::NewPassword, false, 0 );
 	newPassDlg.setCaption( "Change Ownership passwsord" );
 	newPassDlg.setPrompt( "Enter new password and retype it to confirm." );
 	newPassDlg.exec();
@@ -413,7 +415,7 @@ void TPM_ManagerWidget::slotChangePassword()
 
 void TPM_ManagerWidget::slotClearOwnership()
 {
-	KPasswordDialog passDlg( KPasswordDialog::Password, false, KDialogBase::Help );
+	KPasswordDialog passDlg( KPasswordDialog::Password, false, 0 );
 
 	passDlg.setCaption( "Clear Ownership" );
 	passDlg.setPrompt( "Enter owner password to clear the TPM ownership. This will clear the TPM state and restore the factory defaults." );
@@ -442,7 +444,7 @@ void TPM_ManagerWidget::slotSelfTestFull()
 	QString result = myTPM->selfTestFull();
 	
 	if ( result = "0xffff" )
-		KMessageBox::information( this, "TPM full Selftest is succesfully done!", "TPM Selftest Result" );
+		KMessageBox::information( this, "TPM full selftest is successfully done!", "TPM selftest result" );
 	else
 		KMessageBox::error( this, "Error ocuured at TPM full Selftest. \nResult of the test: " + result,
 									"TPM Selftest Result");
@@ -506,7 +508,7 @@ void TPM_ManagerWidget::slotAdvancedTabWidgetChanged( QWidget* widget )
 
 void TPM_ManagerWidget::slotSetEnabledDisabled()
 {
-	KPasswordDialog passDlg( KPasswordDialog::Password, false, KDialogBase::Help );
+	KPasswordDialog passDlg( KPasswordDialog::Password, false, 0 );
 
 	if ( !myTPM->isDisabled() )
 	{	
@@ -519,10 +521,13 @@ void TPM_ManagerWidget::slotSetEnabledDisabled()
 	
 		if ( KMessageBox::warningYesNo(  this, "TPM resources will not be useable until the TPM is enabled again.\nDo you really want to disable the TPM?", "Warning: Disable the TPM" ) != KMessageBox::Yes)
 			return;
+		try{		
+			myTPM->setDisabled( passDlg.password() );
 		
-		myTPM->setDisabled( passDlg.password() );
-		
-		KMessageBox::information( this, "TPM successfully disabled.", "Information: Disable the TPM" );
+			KMessageBox::information( this, "TPM successfully disabled.", "Information: Disable the TPM" );
+		} catch ( TPMError &e ) {
+		KMessageBox::error( this, "Authentication failure. \n" + string( e.what() ) , "Error at disabling the TPM" );
+		}
 	}
 	else
 	{
@@ -533,15 +538,19 @@ void TPM_ManagerWidget::slotSetEnabledDisabled()
 		if ( passDlg.result() != KPasswordDialog::Accepted )
 			return;
 		
-		// TPM will be enabled, if an owner	exist and owner password is correct.
-		myTPM->setEnabled( passDlg.password() );
+		try{		
+			// TPM will be enabled, if an owner	exist and owner password is correct.
+			myTPM->setEnabled( passDlg.password() );
 		
-		KMessageBox::information( this, "TPM successfully enabled.", "Information: Enable the TPM" );
+			KMessageBox::information( this, "TPM successfully enabled.", "Information: Enable the TPM" );
+		} catch ( TPMError &e ) {
+		KMessageBox::error( this, "Authentication failure. \n" + string( e.what() ) , "Error at enabling the TPM" );
+		}
 	}
 	slotTPMSettingsTabWidgetChanged( tabOperationalModes );
 }
 
-void TPM_ManagerWidget::slotEnableAdvancedTabs( bool setTabsEnable )
+void TPM_ManagerWidget::slotEnableAdvancedTabs()
 {
 	///tabDisableMaintenance->setEnabled();
 }
@@ -552,7 +561,7 @@ void TPM_ManagerWidget::slotShowEndorsementKey()
 
 	if ( myTPM->isEndorsementKeyResticted() )
 	{
-		KPasswordDialog passDlg( KPasswordDialog::Password, false, KDialogBase::Help );
+		KPasswordDialog passDlg( KPasswordDialog::Password, false, 0 );
 		passDlg.setCaption( "Password Entry" );
 		passDlg.setPrompt( "Endorsement key is in restricted mode.  Please enter your owner password to read the public key. " );
 		passDlg.exec();
@@ -577,7 +586,7 @@ void TPM_ManagerWidget::slotSaveEndorsement()
 
 	if ( myTPM->isEndorsementKeyResticted() )
 	{
-		KPasswordDialog passDlg( KPasswordDialog::Password, false, KDialogBase::Help );
+		KPasswordDialog passDlg( KPasswordDialog::Password, false, 0 );
 		passDlg.setCaption( "Password Entry" );
 		passDlg.setPrompt( "Endorsement key is in restricted mode.  Please enter your owner password to access to public key. " );
 		passDlg.exec();
@@ -609,10 +618,10 @@ void TPM_ManagerWidget::slotRestrictEndorsement()
 {
 	string password = "";
 
-	KPasswordDialog passDlg( KPasswordDialog::Password, false, KDialogBase::Help );
+	KPasswordDialog passDlg( KPasswordDialog::Password, false, 0 );
 
 	passDlg.setCaption( "Restrict Endorsement Key" );
-	passDlg.setPrompt( "Enter owner password to restrict viewing public endorsement key informations without owner autorization. " );
+	passDlg.setPrompt( "Enter owner password to restrict viewing public endorsement key information without owner autorization. " );
 	passDlg.exec();
 
 	if ( passDlg.result() != KPasswordDialog::Accepted )
@@ -633,7 +642,7 @@ void TPM_ManagerWidget::slotRestrictEndorsement()
 
 void TPM_ManagerWidget::slotDisableMaintenance()
 {
-	KPasswordDialog passDlg( KPasswordDialog::Password, false, KDialogBase::Help );
+	KPasswordDialog passDlg( KPasswordDialog::Password, false, 0 );
 
 	passDlg.setCaption( "Kill Maintenance" );
 	passDlg.setPrompt( "Enter owner password to disable Meintanence archive." );

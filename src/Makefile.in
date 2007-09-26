@@ -274,7 +274,9 @@ xdg_menudir = @xdg_menudir@
 INCLUDES = $(all_includes)
 
 # these are the headers for your project
-noinst_HEADERS = PublicKeyView.hh
+noinst_HEADERS = PublicKeyView.hh \
+		tpmmanagerwidget.h
+
 
 # let automoc handle all of the meta source files (moc)
 #>- METASOURCES = AUTO
@@ -396,7 +398,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  src/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.2/src/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.3/src/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
@@ -812,6 +814,9 @@ messages: rc.cpp
 
 
 
+
+
+
 #>+ 3
 tpmmanagerwidget.moc: $(srcdir)/tpmmanagerwidget.h
 	$(MOC) $(srcdir)/tpmmanagerwidget.h -o tpmmanagerwidget.moc
@@ -824,7 +829,7 @@ clean-metasources:
 	-rm -f  tpmmanagerwidget.moc
 
 #>+ 2
-KDE_DIST=publickeyview.h tpmmanager Makefile.in tpmmanagerui.rc hi16-app-tpm_manager.png tpmmanager.lsm tpmmanagerwidget.ui tpmmanagerwidget.h tpmmanager.desktop hi32-app-tpm_manager.png tpmmanagerwidgetbase.ui publickeyview.ui tpmmanagerwidgetbase.h 
+KDE_DIST=publickeyview.h tpmmanager Makefile.in tpmmanagerui.rc tpmmanager.lsm hi16-app-tpm_manager.png tpmmanagerwidget.ui question.png hi32-app-tpm_manager.png tpmmanager.desktop tpmmanagerwidgetbase.ui publickeyview.ui tpmmanagerwidgetbase.h 
 
 #>+ 5
 clean-ui:
@@ -850,7 +855,7 @@ uninstall-kde-icons:
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  src/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.2/src/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin tpmmanager-0.3/src/Makefile.in
 
 
 #>+ 21

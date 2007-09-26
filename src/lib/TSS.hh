@@ -6,7 +6,6 @@
 #include <string>
 
 #include <trousers/tss.h>
-#include <trousers/trousers.h>
 #include <tss/tspi.h>
 #include <tss/tcpa_error.h>
 
