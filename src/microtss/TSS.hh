@@ -7,7 +7,7 @@
 
 #include <trousers/tss.h>
 #include <tss/tspi.h>
-#include <tss/tcpa_error.h>
+#include <tss/tpm_error.h>
 
 namespace microtss {
 /**

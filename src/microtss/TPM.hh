@@ -8,7 +8,7 @@
 #include <trousers/tss.h>
 #include <trousers/trousers.h>
 #include <tss/tspi.h>
-#include <tss/tcpa_error.h>
+#include <tss/tpm_error.h>
 
 #include <microtss/PublicKey.hh>
 
