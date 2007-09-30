@@ -2009,8 +2009,8 @@
           <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_N1bu8G87EdyyePF1EUWv8A" name="ReceiveOperationEvent2" operation="_jr4A4DUeEdy_govCeQ5L1A"/>
           <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_SfNWcW87EdyyePF1EUWv8A" name="SendOperationEvent3"/>
           <packagedElement xmi:type="uml:CreationEvent" xmi:id="_SfOkkG87EdyyePF1EUWv8A" name="CreationEvent2"/>
-          <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_Z1FX0G87EdyyePF1EUWv8A" name="SendOperationEvent4" operation="_Z1EJsG87EdyyePF1EUWv8A"/>
-          <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_Z1F-4G87EdyyePF1EUWv8A" name="ReceiveOperationEvent3" operation="_Z1EJsG87EdyyePF1EUWv8A"/>
+          <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_Z1FX0G87EdyyePF1EUWv8A" name="SendOperationEvent4"/>
+          <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_Z1F-4G87EdyyePF1EUWv8A" name="ReceiveOperationEvent3"/>
         </packagedElement>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_ptroEBy2EdmH6_M2UD5AWw" name="TPM Manager Component Specifications">
@@ -2166,13 +2166,13 @@
             </edges>
           </contents>
         </eAnnotations>
-        <packagedElement xmi:type="uml:Package" xmi:id="_k7gHoDUcEdy_govCeQ5L1A" name="MikroTSS">
+        <packagedElement xmi:type="uml:Package" xmi:id="_k7gHoDUcEdy_govCeQ5L1A" name="MicroTSS">
           <eAnnotations xmi:id="_k7gHoTUcEdy_govCeQ5L1A" source="uml2.diagrams" references="_k7gHojUcEdy_govCeQ5L1A">
             <contents xmi:type="notation:Diagram" xmi:id="_k7gHojUcEdy_govCeQ5L1A" type="Freeform" name="MikroTSS Usage Contracts">
               <children xmi:id="_k7gHozUcEdy_govCeQ5L1A" type="Text">
                 <children xmi:id="_k7gHpDUcEdy_govCeQ5L1A" type="DiagramName"/>
                 <children xmi:id="_k7gHpTUcEdy_govCeQ5L1A" type="Description"/>
-                <styles xmi:type="notation:ShapeStyle" xmi:id="_k7gHpjUcEdy_govCeQ5L1A" fontHeight="22" description="MikroTSS Usage Contracts"/>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_k7gHpjUcEdy_govCeQ5L1A" fontHeight="22" description="MicroTSS Usage Contracts"/>
                 <layoutConstraint xmi:type="notation:Bounds" xmi:id="_k7gHpzUcEdy_govCeQ5L1A" x="635" y="317" width="15265" height="1270"/>
               </children>
               <children xmi:id="_MQ7O0DUdEdy_govCeQ5L1A" element="_MQ3kcDUdEdy_govCeQ5L1A">
@@ -2207,7 +2207,7 @@
                   <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_NQ9vgzUdEdy_govCeQ5L1A"/>
                 </children>
                 <styles xmi:type="umlnotation:UMLClassifierStyle" xmi:id="_NQ76UTUdEdy_govCeQ5L1A" fontName="Sans" showStereotype="Label" useClassifierShape="true"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NQ76UjUdEdy_govCeQ5L1A" x="927" y="6179"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NQ76UjUdEdy_govCeQ5L1A" x="927" y="1854"/>
               </children>
               <children xmi:id="_O0f-0DUdEdy_govCeQ5L1A" element="_O0c7gDUdEdy_govCeQ5L1A">
                 <children xmi:id="_O0gl4DUdEdy_govCeQ5L1A" type="ImageCompartment">
@@ -2246,7 +2246,7 @@
                   <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_HgkwE24GEdyidbWJaZAN6g"/>
                 </children>
                 <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Hgi64W4GEdyidbWJaZAN6g" fontName="Sans" showStereotype="Label"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hgi64m4GEdyidbWJaZAN6g" x="927" y="2781"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Hgi64m4GEdyidbWJaZAN6g" x="927" y="7107"/>
               </children>
               <children xmi:id="_5XLM8G84EdyyePF1EUWv8A" element="_5WIEEG84EdyyePF1EUWv8A">
                 <children xmi:id="_5XVlAG84EdyyePF1EUWv8A" type="ImageCompartment">
@@ -2351,7 +2351,7 @@
                   <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_PglUFW85EdyyePF1EUWv8A"/>
                 </children>
                 <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Pgje4W85EdyyePF1EUWv8A" fontName="Sans" showStereotype="Label"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Pgje4m85EdyyePF1EUWv8A" x="18849" y="10815"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Pgje4m85EdyyePF1EUWv8A" x="19158" y="10815"/>
               </children>
               <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_k7gHtzUcEdy_govCeQ5L1A"/>
               <edges xmi:id="_9-XAwDUfEdy_govCeQ5L1A" element="_9-MosDUfEdy_govCeQ5L1A" source="_MQ7O0DUdEdy_govCeQ5L1A" target="_O0f-0DUdEdy_govCeQ5L1A">
@@ -2666,7 +2666,6 @@
             <ownedOperation xmi:id="_CxrbQDUfEdy_govCeQ5L1A" name="getPCRValues"/>
             <ownedOperation xmi:id="_A5lRMDUfEdy_govCeQ5L1A" name="getNumberOfPCR"/>
             <ownedOperation xmi:id="_-ntVMDUeEdy_govCeQ5L1A" name="hasMaintenance"/>
-            <ownedOperation xmi:id="_zAVCYDUeEdy_govCeQ5L1A" name="hasEndorsementKey"/>
             <ownedOperation xmi:id="_jr4A4DUeEdy_govCeQ5L1A" name="getState">
               <ownedParameter xmi:id="_-acSAG4FEdyidbWJaZAN6g" name="Parameter1" direction="return"/>
             </ownedOperation>
@@ -2705,6 +2704,7 @@
           <packagedElement xmi:type="uml:Association" xmi:id="_-pKRQDUfEdy_govCeQ5L1A" memberEnd="_-pLfYDUfEdy_govCeQ5L1A _-pMtgDUfEdy_govCeQ5L1A"/>
           <packagedElement xmi:type="uml:Usage" xmi:id="_U6JqEGXTEdyR0O62Lc3ryQ" supplier="_zJXsoGXREdyR0O62Lc3ryQ" client="_MQ3kcDUdEdy_govCeQ5L1A"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_HgdbUG4GEdyidbWJaZAN6g" name="EndorsementKey">
+            <ownedOperation xmi:id="_Rq-tQG90EdyHZ9e6mp3xJA" name="EndorsementKey"/>
             <ownedOperation xmi:id="_XcT3QDUfEdy_govCeQ5L1A" name="setRestricted"/>
             <ownedOperation xmi:id="_4Ow2IDUeEdy_govCeQ5L1A" name="isUserCreated"/>
             <ownedOperation xmi:id="_1QiKcDUeEdy_govCeQ5L1A" name="isRestricted"/>
@@ -2728,7 +2728,7 @@
             <ownedOperation xmi:id="_rT-asDUeEdy_govCeQ5L1A" name="isEnabled"/>
             <ownedOperation xmi:id="_sQjXsDUeEdy_govCeQ5L1A" name="isDisabled"/>
             <ownedOperation xmi:id="_yCObYDUeEdy_govCeQ5L1A" name="hasOwner"/>
-            <ownedOperation xmi:id="_Z1EJsG87EdyyePF1EUWv8A" name="hasEK"/>
+            <ownedOperation xmi:id="_zAVCYDUeEdy_govCeQ5L1A" name="hasEndorsementKey"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Association" xmi:id="_Kf8EsG85EdyyePF1EUWv8A" memberEnd="_Kf_vEG85EdyyePF1EUWv8A _KgHD0G85EdyyePF1EUWv8A">
             <ownedEnd xmi:id="_KgHD0G85EdyyePF1EUWv8A" name="" visibility="private" type="_MQ3kcDUdEdy_govCeQ5L1A" association="_Kf8EsG85EdyyePF1EUWv8A"/>
