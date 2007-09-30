@@ -75,6 +75,10 @@ class IsDeactivatedError : public TPMError {
 };
 
 /**
+ * @brief Abstraction of the TPM.
+ *
+ * Hides implementation details of specific TPM versions/revisions.
+ *
  * @note Implementation for TPM version 1.1b
  *
  * @todo Makes it sense to move all myContextHanle-related methods to TSS?

@@ -27,7 +27,9 @@ class TPMDriverNotFound : public std::runtime_error {
 };
 
 /**
- * 
+ * @brief Abstraction of the TSS interface.
+ *
+ * Encapsulates access to the underlying Trusted Software Stack (TSS) and TPM.
  */
 class TSS {
 	public:
