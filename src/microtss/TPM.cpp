@@ -51,21 +51,21 @@ TPM::~TPM()
 
 UINT32 TPM::readCapabilities( TSS_FLAG capArea, UINT32 subCap, BYTE *& data )
 {
-	UINT32 len = 0;
-	
-		/**
-		 * @brief					TSS Tspi function, provide the capabilities of the TPM.
-		 * @param hTPM				Handle of the TPM object
-		 * @param capArea	   		Flag indicating the attribute to query.
-		 * 							TSS_TPMCAP_VERSION: Returns the TSS_VERSION structure that 
-		 * 							identifies the version of the TPM.
-		 * @param ulSubCapLength		The length (in bytes) of the rgbSubCap parameter.
-		 * @param rgbSubCap		    Data indicating the attribute to query.
-		 * @param pulRespDataLength Receives the length (in bytes) of the prgbRespData parameter.
-		 * @param prgbRespData		Receives pointer to the actual data of the specified attribute.
-		 * @return					TSS_SUCCESS, TSS_E_INVALID_HANDLE, 
-		 * 							TSS_E_BAD_PARAMETER, TSS_E_INTERNAL_ERROR
-		 */
+   UINT32 len = 0;
+
+   /**
+    * @brief					TSS Tspi function, provide the capabilities of the TPM.
+    * @param hTPM				Handle of the TPM object
+    * @param capArea	   		Flag indicating the attribute to query.
+    * 							TSS_TPMCAP_VERSION: Returns the TSS_VERSION structure that 
+    * 							identifies the version of the TPM.
+    * @param ulSubCapLength		The length (in bytes) of the rgbSubCap parameter.
+    * @param rgbSubCap		    Data indicating the attribute to query.
+    * @param pulRespDataLength Receives the length (in bytes) of the prgbRespData parameter.
+    * @param prgbRespData		Receives pointer to the actual data of the specified attribute.
+    * @return					TSS_SUCCESS, TSS_E_INVALID_HANDLE, 
+    * 							TSS_E_BAD_PARAMETER, TSS_E_INTERNAL_ERROR
+    */
 	tssResultHandler( Tspi_TPM_GetCapability( myTpmHandle,
 										capArea,
 										sizeof(UINT32),
