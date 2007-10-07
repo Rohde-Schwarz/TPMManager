@@ -67,26 +67,22 @@ TPM_ManagerWidgetBase( parent,name,fl ),
 	// setCaption( QString("TPM Manager V") + QString(VERSION) );
    connect( buttonOk, SIGNAL( clicked() ), parent, SLOT( close() ) );
 
+   if ( TPM::driverAvailable() )
+      driverFound->setPixmap( myOkImage );
+   else
+      driverFound->setPixmap( myNokImage );
+
 	try {
       myTSS = new TSS;
 		myTPM = new TPM( myTSS->getContextHandle() );
-
-		if ( myTPM->driverAvailable() )
-			driverFound->setPixmap( myOkImage );
 
       tssFound->setPixmap( myOkImage );
 
 		if ( myTPM->isDisabled() && !myTPM->hasOwner() )
 		  KMessageBox::information( this, "The TPM is disabled and no owner is set. You have to enable the TPM in the BIOS to use the functions of the TPM, e.g., to take ownership.\n", "Information" );
 	}
-	catch ( TPMDriverNotFound &e ) {
-		cout << e.what() << endl;
-		driverFound->setPixmap( myNokImage );
-		tssFound->setPixmap( myUnknownImage );
-	}
 	catch ( TSSSystemNotFound &e ) {
-		// cout << e.what() << endl;
-		driverFound->setPixmap( myOkImage );
+		tssFound->setPixmap( myNokImage );
 	}
 
    downloadLink->setURL("http://sourceforge.net/projects/tpmmanager");

@@ -538,6 +538,8 @@ bool TPM::driverAvailable()
 	int tpmdriver = stat( "/dev/tpm", &Status);
 	int tpm0driver = stat( "/dev/tpm0", &Status);
 
+   cout << "stat = " << tpmdriver << ", " << tpm0driver << endl;
+
 	if (tpmdriver == 0 || tpm0driver == 0)
 		return true;
 

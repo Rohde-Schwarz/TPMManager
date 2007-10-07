@@ -167,7 +167,7 @@ class TPM
 		/// Disable  the functionality of creating a maintenance archive until a new owner is set.
 		void killMaintenance( std::string password );
 		/// Checks if the files /dev/tpm or /dev/tpm0 exist.
-		bool driverAvailable();
+		static bool driverAvailable();
 
 	protected:
 		/// Get the owner Password and set Secret
