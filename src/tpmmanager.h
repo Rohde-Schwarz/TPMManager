@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2007 by Anoosheh Zaerin   *
- *   zaerin@sirrix.com   *
+ *   Copyright (C) 2007 by Sirrix AG security technologies
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -30,7 +29,7 @@
 
 /**
  * @short Application Main Window
- * @author Anoosheh Zaerin <zaerin@sirrix.com>
+ * @author Anoosheh Zaerin <zaerin@sirrix.com> and Christian Stueble <stueble@sirrix.com>
  * @version 0.3
  */
 class tpmmanager : public KMainWindow
