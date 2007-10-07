@@ -460,7 +460,7 @@
                             <cstring>tabStatus</cstring>
                         </property>
                         <attribute name="title">
-                            <string>Status</string>
+                            <string>S&amp;tatus</string>
                         </attribute>
                         <vbox>
                             <property name="name">
@@ -904,7 +904,7 @@
                             <cstring>tabDetails</cstring>
                         </property>
                         <attribute name="title">
-                            <string>Details</string>
+                            <string>Deta&amp;ils</string>
                         </attribute>
                         <vbox>
                             <property name="name">
@@ -2748,7 +2748,7 @@
                             <cstring>tabCapabilities</cstring>
                         </property>
                         <attribute name="title">
-                            <string>C&amp;apabilities</string>
+                            <string>&amp;Capabilities</string>
                         </attribute>
                         <vbox>
                             <property name="name">
@@ -2988,10 +2988,10 @@
                                                                     </sizepolicy>
                                                                 </property>
                                                                 <property name="text">
-                                                                    <string>T&amp;ake</string>
+                                                                    <string>&amp;Take</string>
                                                                 </property>
                                                                 <property name="accel">
-                                                                    <string>Alt+A</string>
+                                                                    <string>Alt+T</string>
                                                                 </property>
                                                             </widget>
                                                             <widget class="QPushButton" row="1" column="1">
@@ -3029,7 +3029,7 @@
                                                                     </sizepolicy>
                                                                 </property>
                                                                 <property name="text">
-                                                                    <string>Clea&amp;r</string>
+                                                                    <string>&amp;Clear</string>
                                                                 </property>
                                                             </widget>
                                                         </grid>
@@ -3660,7 +3660,7 @@
                                                                     <bool>false</bool>
                                                                 </property>
                                                                 <property name="text">
-                                                                    <string>Disa&amp;ble</string>
+                                                                    <string>D&amp;isable</string>
                                                                 </property>
                                                             </widget>
                                                         </hbox>
@@ -4146,7 +4146,7 @@
                             <cstring>TabPage</cstring>
                         </property>
                         <attribute name="title">
-                            <string>TPM Ce&amp;rtificate</string>
+                            <string>&amp;TPM Certificate</string>
                         </attribute>
                         <vbox>
                             <property name="name">
@@ -4353,7 +4353,7 @@
                                                                     </sizepolicy>
                                                                 </property>
                                                                 <property name="text">
-                                                                    <string>Reading the Endorsement Certificate is not supported by this TPM.</string>
+                                                                    <string>Reading the Endorsement Certificate is not implemented yet.</string>
                                                                 </property>
                                                                 <property name="alignment">
                                                                     <set>WordBreak|AlignVCenter</set>
@@ -5837,7 +5837,7 @@
                                                 </property>
                                                 <property name="text">
                                                     <string>&lt;center&gt;
-(c) 2006 by&lt;BR&gt;
+(c) 2006 - 2007 by&lt;BR&gt;
 Christian St&amp;uuml;ble (stueble@sirrix.com)
 &lt;BR&gt;
 Anoosheh Zaerin (anoosheh.zaerin@rub.de)

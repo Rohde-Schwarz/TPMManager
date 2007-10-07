@@ -199,8 +199,6 @@ class TPM
 		void readState();
 		/// Read number of PCRs
 		void readNumberOfPCR();
-		/// Read Values of PCRs
-		void readPCRValues();
 		/// Read the number of 2048-bit RSA keys that can be loaded.
 		void readKeyLoadCount();
 		/// Read the number of available monotonic counters.
@@ -222,7 +220,6 @@ class TPM
 		UINT32		myNumberOfPCR;			/// Number of PCR registers
 		UINT32		myKeyLoadCount;		/// Number of 2048-bit RSA keys that can be loaded
 		UINT32		myCountersCount;		/// Number of available monotonic counters
-		std::vector<ByteString>  myPCRValues;
 
 		TSS_HCONTEXT myContextHandle;			/// Handle to TSS Context
 		TSS_HTPM     myTpmHandle;				/// Handle to TPM Object

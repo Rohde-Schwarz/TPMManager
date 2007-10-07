@@ -36,7 +36,6 @@ TPM::TPM( const TSS_HCONTEXT &contextHandle ) :
 	readNumberOfPCR();
 	readKeyLoadCount();
 	readCountersCount();
-	readPCRValues();
 	checkEndorsementKey();
 	userCreatedEndorsement();
 	readMaintenanceState();
@@ -300,19 +299,15 @@ UINT32 TPM::getCountersCount() const
 
 const vector<ByteString> TPM::getPCRValues() const
 {
-	return myPCRValues;	
-}
-
-void TPM::readPCRValues()
-{
 	if ( myState != EnabledActivatedNoOwner && myState != EnabledActivatedOwner )
-		return;
+		return (vector<ByteString>)NULL;
 
 	UINT32 pcrValLen;
 	BYTE*	  pcrVal;
 	ByteString temp;
+	std::vector<ByteString>  pcrValues;
 
-	myPCRValues.resize(myNumberOfPCR);
+	pcrValues.resize(myNumberOfPCR);
 
 	for(size_t i = 0; i<myNumberOfPCR; ++i)
 	{
@@ -322,9 +317,11 @@ void TPM::readPCRValues()
 		for (size_t j=0; j<pcrValLen; ++j) {
 			temp[j] = pcrVal[j];
 		}
-		myPCRValues[i] = temp;
+		pcrValues[i] = temp;
 		Tspi_Context_FreeMemory( myContextHandle, pcrVal );
 	}
+
+	return pcrValues;
 }
 
 void TPM::checkEndorsementKey()

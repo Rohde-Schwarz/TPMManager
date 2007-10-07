@@ -78,7 +78,7 @@ TPM_ManagerWidgetBase( parent,name,fl ),
 
 		if ( myTPM->isDisabled() && !myTPM->hasOwner() )
 		  KMessageBox::information( this, "The TPM is disabled and no owner is set. You have to enable the TPM in the BIOS to use the functions of the TPM, e.g., to take ownership.\n", "Information" );
-	} 
+	}
 	catch ( TPMDriverNotFound &e ) {
 		cout << e.what() << endl;
 		driverFound->setPixmap( myNokImage );
@@ -182,7 +182,6 @@ void TPM_ManagerWidget::initCapabilities()
 	if ( hasTPM() ) {
 		myCapabilities->setText(0, 0, "Number of PCRs");
 		myCapabilities->setText(0, 1, QString("%1").arg( myTPM->getNumberOfPCR()) );
-
 		myCapabilities->setText(1, 0, "Number of 2048-bit RSA keys that can be loaded");
 		//myCapabilities->setText(1, 1, QString("%1").arg( myTPM->getKeyLoadCount()) );
 	}
@@ -509,8 +508,8 @@ void TPM_ManagerWidget::slotInfoTabWidgetChanged( QWidget* widget )
 	else if ( widget == tabDetails )
 		initDetails();
 	else if ( widget == tabPCRs )
-		initPCRs();
-	
+			initPCRs();
+
 	initStatusGroup();
 }
 
