@@ -5962,12 +5962,6 @@ Anoosheh Zaerin (anoosheh.zaerin@rub.de)
         <slot>raiseWidget(int)</slot>
     </connection>
     <connection>
-        <sender>listBox</sender>
-        <signal>selected(QListBoxItem*)</signal>
-        <receiver>TPM_ManagerWidgetBase</receiver>
-        <slot>TPM_Manager()</slot>
-    </connection>
-    <connection>
         <sender>tabAdvanced</sender>
         <signal>currentChanged(QWidget*)</signal>
         <receiver>TPM_ManagerWidgetBase</receiver>
@@ -6075,6 +6069,12 @@ Anoosheh Zaerin (anoosheh.zaerin@rub.de)
         <receiver>TPM_ManagerWidgetBase</receiver>
         <slot>showHelp()</slot>
     </connection>
+    <connection>
+        <sender>widgetStack1</sender>
+        <signal>aboutToShow(QWidget*)</signal>
+        <receiver>TPM_ManagerWidgetBase</receiver>
+        <slot>slotTimer(QWidget*)</slot>
+    </connection>
 </connections>
 <slots>
     <slot>TPM_Manager()</slot>
@@ -6097,6 +6097,7 @@ Anoosheh Zaerin (anoosheh.zaerin@rub.de)
     <slot>slotContactLinkClicked() </slot>
     <slot>slotProcessUrl( const QString&amp; )</slot>
     <slot>showHelp()</slot>
+    <slot>slotTimer( QWidget* )</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>

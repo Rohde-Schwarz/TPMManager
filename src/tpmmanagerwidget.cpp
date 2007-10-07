@@ -61,16 +61,18 @@ TPM_ManagerWidgetBase( parent,name,fl ),
   myTPM( 0 ),
   myOkImage( *myEnabledLabel->pixmap() ),
   myUnknownImage( *myActivatedLabel->pixmap() ),
-  myNokImage( *myOwnerLabel->pixmap() )
+  myNokImage( *myOwnerLabel->pixmap() ),
+  myTimer( this )
 {
    myProgramLabel->setText( QString("TPM Manager V") + QString(VERSION) );
 	// setCaption( QString("TPM Manager V") + QString(VERSION) );
    connect( buttonOk, SIGNAL( clicked() ), parent, SLOT( close() ) );
+	connect( &myTimer, SIGNAL(timeout()), this, SLOT(slotUpdatePCRs()));
 
-   if ( TPM::driverAvailable() )
-      driverFound->setPixmap( myOkImage );
-   else
-      driverFound->setPixmap( myNokImage );
+	if ( TPM::driverAvailable() ) 
+ 	   driverFound->setPixmap( myOkImage ); 
+   else 
+      driverFound->setPixmap( myNokImage ); 
 
 	try {
       myTSS = new TSS;
@@ -206,24 +208,10 @@ void TPM_ManagerWidget::initPCRs()
 	if ( !hasTPM() )
 	  return;
 
-	ostringstream pcrStr;
-	vector<ByteString> pcrValues = myTPM->getPCRValues();
+	if ( !myTimer.isActive() )
+		myTimer.start(1000);
 
-	myPCRs->clear();
-
-	for( size_t i=0; i < pcrValues.size(); ++i)
-	{
-		pcrStr << "PCR[" << dec << setw( 2 ) << setfill( '0' ) << i << "] "; 
-		
-		for ( size_t j=0; j<pcrValues[i].size(); ++j) {
-			if ((j % 4) == 0)
-				pcrStr << " ";
-			pcrStr << hex << setw( 2 ) << setfill( '0' ) << (int) pcrValues[i][j];	
-		}
-
-		myPCRs->insertItem( pcrStr.str() );
-		pcrStr.str("");
-	}
+	slotUpdatePCRs();
 }
 
 void TPM_ManagerWidget::initOwnership()
@@ -702,6 +690,36 @@ void TPM_ManagerWidget::slotDisableMaintenance()
 void TPM_ManagerWidget::slotDeleteEndorsement()
 {
 
+}
+
+void TPM_ManagerWidget::slotUpdatePCRs()
+{
+	if ( tabPCRs->clipRegion().isEmpty() )
+	{
+			myTimer.stop();
+	}
+	else
+	{
+		ostringstream pcrStr;
+		vector<ByteString> pcrValues = myTPM->getPCRValues();
+	
+		myPCRs->clear();
+	
+		for( size_t i=0; i < pcrValues.size(); ++i)
+		{
+			pcrStr << "PCR[" << dec << setw( 2 ) << setfill( '0' ) << i << "] "; 
+			
+			for ( size_t j=0; j<pcrValues[i].size(); ++j) {
+				if ((j % 4) == 0)
+					pcrStr << " ";
+				pcrStr << hex << setw( 2 ) << setfill( '0' ) << (int) pcrValues[i][j];	
+			}
+	
+			myPCRs->insertItem( pcrStr.str() );
+			pcrStr.str("");
+		}
+
+	}
 }
 
 #include "tpmmanagerwidget.moc"
