@@ -955,7 +955,7 @@
                         </eAnnotations>
                         <children xmi:id="_lTTuAGXMEdyR0O62Lc3ryQ" type="Name"/>
                         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_lTOOcWXMEdyR0O62Lc3ryQ" fontName="Sans" showStereotype="Label"/>
-                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lTOOcmXMEdyR0O62Lc3ryQ" x="513" y="10055"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lTOOcmXMEdyR0O62Lc3ryQ" x="513" y="132" width="2917" height="12534"/>
                       </children>
                       <children xmi:id="_nibQ8GXMEdyR0O62Lc3ryQ" element="_niSHAGXMEdyR0O62Lc3ryQ">
                         <eAnnotations xmi:id="_nib4AGXMEdyR0O62Lc3ryQ" source="com.ibm.xtools.uml.ui.diagram.internal.styles">
