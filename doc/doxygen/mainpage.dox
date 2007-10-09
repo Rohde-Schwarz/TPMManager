@@ -6,7 +6,7 @@
  *
  * The TPM Manager consists of a GUI part, realized as an KDE application, and the 
  * MicroTSS library. Components of the MicroTSS library are included into their own
- * namespace @ref microtss.
+ * namespace @ref microtss, while GUI components are in namespace @ref gui.
  *
  * For more information see the TPM Manager homepage at 
  * http://projects.sirrix.com/trac/tpmmanager.
