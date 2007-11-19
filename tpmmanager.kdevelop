@@ -14,11 +14,11 @@
     </keywords>
     <ignoreparts/>
     <projectname>tpmmanager</projectname>
-    <projectdirectory>.</projectdirectory>
-    <absoluteprojectpath>false</absoluteprojectpath>
+    <projectdirectory>/home/anoosheh/tpmmanager/trunk</projectdirectory>
+    <absoluteprojectpath>true</absoluteprojectpath>
     <description/>
     <defaultencoding/>
-    <versioncontrol>kdevsubversion</versioncontrol>
+    <versioncontrol/>
   </general>
   <kdevcppsupport>
     <qt>
@@ -78,10 +78,10 @@
       <useconfiguration>debug</useconfiguration>
     </general>
     <run>
-      <mainprogram/>
+      <mainprogram>/home/anoosheh/tpmmanager/trunk/debug</mainprogram>
       <programargs/>
       <globaldebugarguments/>
-      <globalcwd/>
+      <globalcwd>/home/anoosheh/tpmmanager/trunk/debug</globalcwd>
       <useglobalprogram>false</useglobalprogram>
       <terminal>false</terminal>
       <autocompile>false</autocompile>
@@ -248,8 +248,8 @@
   <dist>
     <custom>false</custom>
     <bzip>false</bzip>
-    <archname/>
-    <appname>tpmmanager</appname>
+    <archname>tpmmanager-0.4</archname>
+    <appname>tpmmanager-0.4</appname>
     <version>0.4</version>
     <release/>
     <vendor/>
