@@ -38,6 +38,7 @@
 #include <qpixmap.h>
 #include <qtabwidget.h>
 #include <qstring.h>
+#include <qlayout.h>
 // 
 #include <kpassdlg.h>
 #include <kmessagebox.h>
@@ -84,6 +85,7 @@ TPM_ManagerWidgetBase( parent,name,fl ),
 		  KMessageBox::information( this, "The TPM is disabled and no owner is set. You have to enable the TPM in the BIOS to use the functions of the TPM, e.g., to take ownership.\n", "Information" );
 	}
 	catch ( TSSSystemNotFound &e ) {
+		cout <<  string( e.what() )<< endl;
 		tssFound->setPixmap( myNokImage );
 	}
 

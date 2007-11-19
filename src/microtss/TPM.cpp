@@ -150,8 +150,8 @@ void TPM::readState()
 	TSS_BOOL state;
 	/// @todo Use getState; Exception should contain result code.
 	result = Tspi_TPM_GetStatus(myTpmHandle,
-										TSS_TPMSTATUS_DISABLED,
-										&state);	
+				TSS_TPMSTATUS_DISABLED,
+				&state);	
 
 	if ( TSS_ERROR_LAYER( result ) == TSS_LAYER_TPM ) {
 		switch ( TSS_ERROR_CODE( result ) ) {
@@ -167,10 +167,10 @@ void TPM::readState()
 				myState = DisabledDeactivatedNoOwner;
 			} catch ( AuthenticationFailure &e ) {
 				myState = DisabledDeactivatedOwner;
-         } catch ( exception & e ) {
+         		} catch ( exception & e ) {
 				cerr << "Unknown exception" << e.what() << endl;
 				throw e;
-         }
+         		}
 		   break;
 		case TCPA_E_DEACTIVATED:
 			// Known states: Enabled, Deactivated. 
