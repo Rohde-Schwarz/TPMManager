@@ -849,6 +849,7 @@ messages: rc.cpp
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
 
+
 #>+ 3
 tpmmanagerwidget.moc: $(srcdir)/tpmmanagerwidget.h
 	$(MOC) $(srcdir)/tpmmanagerwidget.h -o tpmmanagerwidget.moc
@@ -882,14 +883,14 @@ docs-am:
 
 #>+ 10
 install-kde-icons:
-	$(mkinstalldirs) $(DESTDIR)$(kde_icondir)/hicolor/16x16/apps
-	$(INSTALL_DATA) $(srcdir)/hi16-app-tpmmanager.png $(DESTDIR)$(kde_icondir)/hicolor/16x16/apps/tpmmanager.png
 	$(mkinstalldirs) $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps
 	$(INSTALL_DATA) $(srcdir)/hi32-app-tpmmanager.png $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps/tpmmanager.png
+	$(mkinstalldirs) $(DESTDIR)$(kde_icondir)/hicolor/16x16/apps
+	$(INSTALL_DATA) $(srcdir)/hi16-app-tpmmanager.png $(DESTDIR)$(kde_icondir)/hicolor/16x16/apps/tpmmanager.png
 
 uninstall-kde-icons:
-	-rm -f $(DESTDIR)$(kde_icondir)/hicolor/16x16/apps/tpmmanager.png
 	-rm -f $(DESTDIR)$(kde_icondir)/hicolor/32x32/apps/tpmmanager.png
+	-rm -f $(DESTDIR)$(kde_icondir)/hicolor/16x16/apps/tpmmanager.png
 
 #>+ 15
 force-reedit:
