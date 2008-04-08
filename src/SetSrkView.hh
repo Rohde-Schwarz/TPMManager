@@ -2,7 +2,7 @@
 #define SETSRKVIEW_HH
 
 /**
-	@author Anoosheh Zaerin <zaerin@sirrix.com>
+	@author Anoosheh Zaerin <anoosheh.zaerin@rub.de>
 */
 
 #include <setsrkdialog.h>

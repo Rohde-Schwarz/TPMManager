@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2007 by Anoosheh Zaerin   *
- *   zaerin@sirrix.com   *
+ *   anoosheh.zaerin@rub.de   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -42,8 +42,8 @@ static KCmdLineOptions options[] =
 int main(int argc, char **argv)
 {
     KAboutData about("tpmmanager", I18N_NOOP( "TPM Manager" ), version, description,
-                     KAboutData::License_GPL, "(C) 2007 Anoosheh Zaerin", 0, 0, "zaerin@sirrix.com");
-    about.addAuthor( "Anoosheh Zaerin", 0, "zaerin@sirrix.com" );
+                     KAboutData::License_GPL, "(C) 2007 Anoosheh Zaerin", 0, 0, "anoosheh.zaerin@rub.de");
+    about.addAuthor( "Anoosheh Zaerin", 0, "anoosheh.zaerin@rub.de" );
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineArgs::addCmdLineOptions( options );
     KApplication app;

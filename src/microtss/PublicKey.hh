@@ -8,10 +8,6 @@
 /**
 */
 namespace microtss {
-
-/**
- * @brief Provides information about an TPM-internal key.
- */
 class PublicKey{
     friend std::ostream& operator<<( std::ostream &, const PublicKey & );
 

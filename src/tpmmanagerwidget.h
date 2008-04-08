@@ -26,7 +26,6 @@
 
 #include <microtss/TPM.hh>
 #include <microtss/TSS.hh>
-#include <qtimer.h>
 
 class TPM_ManagerWidget : public TPM_ManagerWidgetBase
 {
@@ -49,7 +48,7 @@ protected:
 	void initStatusGroup();
 	/// Initializes the Capability tab.
 	void initCapabilities();
-	/// Initialises the PCRs tab. Start the timer for 1000msec interval and call slotUpdatePCRs
+	/// Initialises the PCRs tab.
 	void initPCRs();
 	/// Initializes the Details tab.
 	void initDetails();
@@ -106,8 +105,6 @@ protected slots:
 	void slotDeleteEndorsement();
 	/// Process the Url and open the Konqueror Browser
 	void slotProcessUrl( const QString& url );
-	/// if tab PCRs active then update the PCR values, else stop timer
-	void slotUpdatePCRs();
 
 	/// @return TRUE is TSS was found.
 	inline bool hasTSS() const;
@@ -120,7 +117,6 @@ private:
 	QPixmap          myOkImage;
 	QPixmap          myUnknownImage;
 	QPixmap          myNokImage;
-	QTimer			  myTimer;
 };
 
 

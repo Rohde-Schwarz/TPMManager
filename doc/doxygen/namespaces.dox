@@ -1,9 +1,0 @@
-/**
- * @namespace microtss
- * @brief     Components of the MicroTSS library.
- */
-
-/**
- * @namespace gui
- * @brief     Components of the TPM Manager GUI.
- */

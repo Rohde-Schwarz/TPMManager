@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>370</width>
-            <height>279</height>
+            <width>374</width>
+            <height>340</height>
         </rect>
     </property>
     <property name="caption">
@@ -313,7 +313,7 @@
                                 <cstring>buttonOk</cstring>
                             </property>
                             <property name="text">
-                                <string>OK</string>
+                                <string>O&amp;K</string>
                             </property>
                         </widget>
                         <spacer>

@@ -7,7 +7,7 @@
 
 #include <trousers/tss.h>
 #include <tss/tspi.h>
-#include <tss/tcpa_error.h>
+#include <tss/tpm_error.h>
 
 namespace microtss {
 /**
@@ -27,9 +27,7 @@ class TPMDriverNotFound : public std::runtime_error {
 };
 
 /**
- * @brief Abstraction of the TSS interface.
- *
- * Encapsulates access to the underlying Trusted Software Stack (TSS) and TPM.
+ * 
  */
 class TSS {
 	public:

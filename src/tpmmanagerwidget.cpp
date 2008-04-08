@@ -27,6 +27,7 @@
 #include <iomanip>
 #include <vector>
 #include <stdlib.h>
+#include <sys/stat.h>
 
 #include <qlineedit.h>
 #include <qlistbox.h>
@@ -38,7 +39,6 @@
 #include <qpixmap.h>
 #include <qtabwidget.h>
 #include <qstring.h>
-#include <qlayout.h>
 // 
 #include <kpassdlg.h>
 #include <kmessagebox.h>
@@ -62,18 +62,22 @@ TPM_ManagerWidgetBase( parent,name,fl ),
   myTPM( 0 ),
   myOkImage( *myEnabledLabel->pixmap() ),
   myUnknownImage( *myActivatedLabel->pixmap() ),
-  myNokImage( *myOwnerLabel->pixmap() ),
-  myTimer( this )
+  myNokImage( *myOwnerLabel->pixmap() )
 {
    myProgramLabel->setText( QString("TPM Manager V") + QString(VERSION) );
 	// setCaption( QString("TPM Manager V") + QString(VERSION) );
    connect( buttonOk, SIGNAL( clicked() ), parent, SLOT( close() ) );
-	connect( &myTimer, SIGNAL(timeout()), this, SLOT(slotUpdatePCRs()));
 
-	if ( TPM::driverAvailable() ) 
- 	   driverFound->setPixmap( myOkImage ); 
-   else 
-      driverFound->setPixmap( myNokImage ); 
+  struct stat Status;
+  /*retrun 0 if the file is found.
+   *return -1 if the file is not found.
+   */
+   int tpmdriver = stat( "/dev/tpm", &Status);
+   int tpm0driver = stat( "/dev/tpm0", &Status);
+   if (tpmdriver == 0 || tpm0driver == 0)
+      driverFound->setPixmap( myOkImage );
+   else
+      driverFound->setPixmap( myNokImage );
 
 	try {
       myTSS = new TSS;
@@ -83,10 +87,14 @@ TPM_ManagerWidgetBase( parent,name,fl ),
 
 		if ( myTPM->isDisabled() && !myTPM->hasOwner() )
 		  KMessageBox::information( this, "The TPM is disabled and no owner is set. You have to enable the TPM in the BIOS to use the functions of the TPM, e.g., to take ownership.\n", "Information" );
+	} 
+	catch ( TPMDriverNotFound &e ) {
+		cout << e.what() << endl;
+		driverFound->setPixmap( myNokImage );
+		tssFound->setPixmap( myUnknownImage );
 	}
 	catch ( TSSSystemNotFound &e ) {
-		cout <<  string( e.what() )<< endl;
-		tssFound->setPixmap( myNokImage );
+		// cout << e.what() << endl;
 	}
 
    downloadLink->setURL("http://sourceforge.net/projects/tpmmanager");
@@ -182,8 +190,9 @@ void TPM_ManagerWidget::initCapabilities()
 	if ( hasTPM() ) {
 		myCapabilities->setText(0, 0, "Number of PCRs");
 		myCapabilities->setText(0, 1, QString("%1").arg( myTPM->getNumberOfPCR()) );
+
 		myCapabilities->setText(1, 0, "Number of 2048-bit RSA keys that can be loaded");
-		//myCapabilities->setText(1, 1, QString("%1").arg( myTPM->getKeyLoadCount()) );
+		myCapabilities->setText(1, 1, QString("%1").arg( myTPM->getKeyLoadCount()) );
 	}
 }
 
@@ -210,10 +219,24 @@ void TPM_ManagerWidget::initPCRs()
 	if ( !hasTPM() )
 	  return;
 
-	if ( !myTimer.isActive() )
-		myTimer.start(1000);
+	ostringstream pcrStr;
+	vector<ByteString> pcrValues = myTPM->getPCRValues();
 
-	slotUpdatePCRs();
+	myPCRs->clear();
+
+	for( size_t i=0; i < pcrValues.size(); ++i)
+	{
+		pcrStr << "PCR[" << dec << setw( 2 ) << setfill( '0' ) << i << "] "; 
+		
+		for ( size_t j=0; j<pcrValues[i].size(); ++j) {
+			if ((j % 4) == 0)
+				pcrStr << " ";
+			pcrStr << hex << setw( 2 ) << setfill( '0' ) << (int) pcrValues[i][j];	
+		}
+
+		myPCRs->insertItem( pcrStr.str() );
+		pcrStr.str("");
+	}
 }
 
 void TPM_ManagerWidget::initOwnership()
@@ -262,13 +285,15 @@ void TPM_ManagerWidget::initOperationalModes()
 	if ( myTPM->isEnabled() ) {
 		myDisable->setText( "Disable" );
 		myDisableLabel->setText( "Disable the TPM" );
+    myDeactivate->setEnabled( myTPM->isActivated() );
 	} 
    else {
 		myDisable->setText( "Enable" );
 		myDisableLabel->setText( "Enable the TPM" );
+    myDeactivate->setDisabled( myTPM->isActivated() );
    }
 
-	myDeactivate->setEnabled( myTPM->isActivated() );
+//	myDeactivate->setEnabled( myTPM->isActivated() );
 }
 
 void TPM_ManagerWidget::initIdentity()
@@ -494,8 +519,8 @@ void TPM_ManagerWidget::slotInfoTabWidgetChanged( QWidget* widget )
 	else if ( widget == tabDetails )
 		initDetails();
 	else if ( widget == tabPCRs )
-			initPCRs();
-
+		initPCRs();
+	
 	initStatusGroup();
 }
 
@@ -692,36 +717,6 @@ void TPM_ManagerWidget::slotDisableMaintenance()
 void TPM_ManagerWidget::slotDeleteEndorsement()
 {
 
-}
-
-void TPM_ManagerWidget::slotUpdatePCRs()
-{
-	if ( tabPCRs->clipRegion().isEmpty() )
-	{
-			myTimer.stop();
-	}
-	else
-	{
-		ostringstream pcrStr;
-		vector<ByteString> pcrValues = myTPM->getPCRValues();
-	
-		myPCRs->clear();
-	
-		for( size_t i=0; i < pcrValues.size(); ++i)
-		{
-			pcrStr << "PCR[" << dec << setw( 2 ) << setfill( '0' ) << i << "] "; 
-			
-			for ( size_t j=0; j<pcrValues[i].size(); ++j) {
-				if ((j % 4) == 0)
-					pcrStr << " ";
-				pcrStr << hex << setw( 2 ) << setfill( '0' ) << (int) pcrValues[i][j];	
-			}
-	
-			myPCRs->insertItem( pcrStr.str() );
-			pcrStr.str("");
-		}
-
-	}
 }
 
 #include "tpmmanagerwidget.moc"

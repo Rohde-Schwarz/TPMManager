@@ -1,9 +1,9 @@
 <?xml version = '1.0'?>
 <kdevelop>
   <general>
-    <author>Anoosheh Zaerin and Christian Stueble</author>
-    <email>zaerin@sirrix.com stueble@sirrix.com</email>
-    <version>0.4</version>
+    <author>Anoosheh Zaerin</author>
+    <email>zaerin@sirrix.com</email>
+    <version>0.5</version>
     <projectmanagement>KDevKDEAutoProject</projectmanagement>
     <primarylanguage>C++</primarylanguage>
     <keywords>
@@ -18,7 +18,7 @@
     <absoluteprojectpath>false</absoluteprojectpath>
     <description/>
     <defaultencoding/>
-    <versioncontrol>kdevsubversion</versioncontrol>
+    <versioncontrol/>
   </general>
   <kdevcppsupport>
     <qt>
@@ -78,10 +78,10 @@
       <useconfiguration>debug</useconfiguration>
     </general>
     <run>
-      <mainprogram/>
+      <mainprogram>/home/anoosheh/tpmmanager/debug</mainprogram>
       <programargs/>
       <globaldebugarguments/>
-      <globalcwd/>
+      <globalcwd>/home/anoosheh/tpmmanager/debug</globalcwd>
       <useglobalprogram>false</useglobalprogram>
       <terminal>false</terminal>
       <autocompile>false</autocompile>
@@ -150,7 +150,6 @@
     <tree>
       <hidepatterns>*.o,*.lo,CVS</hidepatterns>
       <hidenonprojectfiles>false</hidenonprojectfiles>
-      <showvcsfields>false</showvcsfields>
     </tree>
   </kdevfileview>
   <kdevdoctreeview>
@@ -230,7 +229,7 @@
     <EMAIL>zaerin@sirrix.com</EMAIL>
     <LICENSE>GPL</LICENSE>
     <LICENSEFILE>COPYING</LICENSEFILE>
-    <VERSION>0.4</VERSION>
+    <VERSION>0.5</VERSION>
     <YEAR>2007</YEAR>
     <dest>/home/anoosheh/tpmmanager</dest>
   </substmap>
@@ -245,28 +244,4 @@
     <customTagfilePath>/home/anoosheh/tpmmanager/tags</customTagfilePath>
     <activeTagsFiles/>
   </ctagspart>
-  <dist>
-    <custom>false</custom>
-    <bzip>false</bzip>
-    <archname/>
-    <appname>tpmmanager</appname>
-    <version>0.4</version>
-    <release/>
-    <vendor/>
-    <licence/>
-    <summary/>
-    <group/>
-    <packager/>
-    <description/>
-    <changelog/>
-    <devpackage>false</devpackage>
-    <docspackage>false</docspackage>
-    <appicon>false</appicon>
-    <arch>0</arch>
-    <genHTML>false</genHTML>
-    <useRPM>false</useRPM>
-    <ftpkde>false</ftpkde>
-    <appskde>false</appskde>
-    <url/>
-  </dist>
 </kdevelop>

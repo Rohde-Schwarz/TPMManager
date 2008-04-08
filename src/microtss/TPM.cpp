@@ -4,7 +4,6 @@
 #include <sstream>
 #include <iomanip>
 #include <tss/tss_error_basics.h>
-#include <sys/stat.h>
 
 using namespace std;
 using namespace microtss;
@@ -16,7 +15,8 @@ TPM::TPM( const TSS_HCONTEXT &contextHandle ) :
   myHasMaintenance( false ),
   myHasEndorsementKey( true ),
   myUserCreatedEndorsement( false ),
-  myEKRestricted( false )
+  myEKRestricted( false ),
+  myNumberOfPCR( 0 )
 {
 	/**
 	 * @brief					retrieves the TPM object of a context. Only one instance of this object exists 
@@ -31,15 +31,16 @@ TPM::TPM( const TSS_HCONTEXT &contextHandle ) :
 		 					"Error at get TPM object" );
  
 	readVersion();
+  readVersionVal();
 	readVendorName();
-	readState();
 	readNumberOfPCR();
 	readKeyLoadCount();
 	readCountersCount();
+  readState();
+  readPCRValues();
 	checkEndorsementKey();
 	userCreatedEndorsement();
-	readMaintenanceState();
-	driverAvailable();
+	//readMaintenanceState();
 };
 
 TPM::~TPM()
@@ -50,21 +51,21 @@ TPM::~TPM()
 
 UINT32 TPM::readCapabilities( TSS_FLAG capArea, UINT32 subCap, BYTE *& data )
 {
-   UINT32 len = 0;
-
-   /**
-    * @brief					TSS Tspi function, provide the capabilities of the TPM.
-    * @param hTPM				Handle of the TPM object
-    * @param capArea	   		Flag indicating the attribute to query.
-    * 							TSS_TPMCAP_VERSION: Returns the TSS_VERSION structure that 
-    * 							identifies the version of the TPM.
-    * @param ulSubCapLength		The length (in bytes) of the rgbSubCap parameter.
-    * @param rgbSubCap		    Data indicating the attribute to query.
-    * @param pulRespDataLength Receives the length (in bytes) of the prgbRespData parameter.
-    * @param prgbRespData		Receives pointer to the actual data of the specified attribute.
-    * @return					TSS_SUCCESS, TSS_E_INVALID_HANDLE, 
-    * 							TSS_E_BAD_PARAMETER, TSS_E_INTERNAL_ERROR
-    */
+	UINT32 len = 0;
+	
+		/**
+		 * @brief					TSS Tspi function, provide the capabilities of the TPM.
+		 * @param hTPM				Handle of the TPM object
+		 * @param capArea	   		Flag indicating the attribute to query.
+		 * 							TSS_TPMCAP_VERSION: Returns the TSS_VERSION structure that 
+		 * 							identifies the version of the TPM.
+		 * @param ulSubCapLength		The length (in bytes) of the rgbSubCap parameter.
+		 * @param rgbSubCap		    Data indicating the attribute to query.
+		 * @param pulRespDataLength Receives the length (in bytes) of the prgbRespData parameter.
+		 * @param prgbRespData		Receives pointer to the actual data of the specified attribute.
+		 * @return					TSS_SUCCESS, TSS_E_INVALID_HANDLE, 
+		 * 							TSS_E_BAD_PARAMETER, TSS_E_INTERNAL_ERROR
+		 */
 	tssResultHandler( Tspi_TPM_GetCapability( myTpmHandle,
 										capArea,
 										sizeof(UINT32),
@@ -131,6 +132,23 @@ void TPM::readVersion()
 	Tspi_Context_FreeMemory( myContextHandle, (BYTE*)version );
 }
 
+void TPM::readVersionVal()
+{
+	TPM_CAP_VERSION_INFO *versionInfo;
+	ostringstream sVersion;
+
+	readCapabilities( TSS_TPMCAP_VERSION_VAL, (BYTE*&) versionInfo );
+	sVersion << (unsigned int) versionInfo->version.major << "." << (unsigned int) versionInfo->version.minor;
+
+  myVersion = sVersion.str();
+
+  ostringstream sRevision( myRevision );
+  sRevision << (unsigned int) versionInfo->version.revMajor << "." << (unsigned int) versionInfo->version.revMinor << ends;
+  myRevision = sRevision.str();
+
+  Tspi_Context_FreeMemory( myContextHandle, (BYTE*)versionInfo );
+}
+
 void TPM::readVendorName()
 {
 	BYTE *name;
@@ -143,60 +161,39 @@ void TPM::readVendorName()
 
 void TPM::readState()
 {
-	TSS_RESULT result;
-	
-	setSecret( "" );
+   UINT32 pcrValLen;
+   BYTE* pcrVal;
+   try {
+         tssResultHandler( Tspi_TPM_PcrRead(myTpmHandle, 0, &pcrValLen, &pcrVal),
+                "Read PCR value!" );
+         myState = (TpmState)( myState | ENABLED_MASK ); 
+   } catch ( IsDisabledError & e ) {
+      /// is disabled
+      myState = (TpmState) ( myState & ~ENABLED_MASK ); 
+   }  catch ( IsDeactivatedError & e) {
+      /// is deactivated
+      myState = (TpmState) ( myState & ~ACTIVATED_MASK ); 
+   } catch ( exception & e ){
+   }
 
-	TSS_BOOL state;
-	/// @todo Use getState; Exception should contain result code.
-	result = Tspi_TPM_GetStatus(myTpmHandle,
-				TSS_TPMSTATUS_DISABLED,
-				&state);	
+   myState = (TpmState)( myState | ACTIVATED_MASK ); 
 
-	if ( TSS_ERROR_LAYER( result ) == TSS_LAYER_TPM ) {
-		switch ( TSS_ERROR_CODE( result ) ) {
-		case TCPA_E_DISABLED:
-			// Known states: Disabled
-         // --> Activation status unknown, set default to deactivated
-
-         // --> Check Owner using check disable
-			try {
-				setSecret( "" );
-				setStatusFlag( TSS_TPMSTATUS_OWNERSETDISABLE, true ); 
-			} catch ( NoSRKError &e ) {
-				myState = DisabledDeactivatedNoOwner;
-			} catch ( AuthenticationFailure &e ) {
-				myState = DisabledDeactivatedOwner;
-         		} catch ( exception & e ) {
-				cerr << "Unknown exception" << e.what() << endl;
-				throw e;
-         		}
-		   break;
-		case TCPA_E_DEACTIVATED:
-			// Known states: Enabled, Deactivated. 
-         // --> Check owner using dummy enable()
-         try {
-				setEnabled( "" );
-			} catch ( NoSRKError &e ) {
-				myState = EnabledDeactivatedNoOwner;
-			} catch ( AuthenticationFailure &e ) {
-				myState = EnabledDeactivatedOwner;
-         } catch ( exception & e ) {
-				cerr << "Unknown exception" << e.what() << endl;
-				throw e;
+   UINT32 len;
+   TSS_BOOL *owner;
+   len = readCapabilities(TSS_TPMCAP_PROPERTY, TSS_TPMCAP_PROP_OWNER, (BYTE*&) owner );
+   if ( len == 0 ) {
+      std::cerr << "Error at read Capabilities. " << endl; 
+   }
+   else if ( *owner == true ){
+         /// TPM has Owner
+         myState = (TpmState) ( myState | OWNER_MASK );  
          }
-		   break;
-		case TCPA_E_NOSRK:
-			myState = EnabledActivatedNoOwner;
-		   break;
-		case TCPA_E_AUTHFAIL:
-			myState = EnabledActivatedOwner;
-		   break;
-		default:
-			cerr << "Unknown Error" << std::endl;
-		}
-	}
-	// std::cout << Trspi_Error_String( result ) << std::endl;	
+        else{
+         /// TPM has no Owner
+         myState = (TpmState) ( myState & ~OWNER_MASK );  
+         }
+
+   Tspi_Context_FreeMemory( myContextHandle, (BYTE*&) owner );
 }
 
 void TPM::readMaintenanceState()
@@ -299,15 +296,18 @@ UINT32 TPM::getCountersCount() const
 
 const vector<ByteString> TPM::getPCRValues() const
 {
-	if ( myState != EnabledActivatedNoOwner && myState != EnabledActivatedOwner )
-		return (vector<ByteString>)NULL;
+	return myPCRValues;	
+}
 
-	UINT32 pcrValLen;
+void TPM::readPCRValues()
+{
+  if ( myState != EnabledActivatedNoOwner && myState != EnabledActivatedOwner )
+		return;
+  UINT32 pcrValLen;
 	BYTE*	  pcrVal;
 	ByteString temp;
-	std::vector<ByteString>  pcrValues;
 
-	pcrValues.resize(myNumberOfPCR);
+	myPCRValues.resize(myNumberOfPCR);
 
 	for(size_t i = 0; i<myNumberOfPCR; ++i)
 	{
@@ -317,11 +317,9 @@ const vector<ByteString> TPM::getPCRValues() const
 		for (size_t j=0; j<pcrValLen; ++j) {
 			temp[j] = pcrVal[j];
 		}
-		pcrValues[i] = temp;
+		myPCRValues[i] = temp;
 		Tspi_Context_FreeMemory( myContextHandle, pcrVal );
 	}
-
-	return pcrValues;
 }
 
 void TPM::checkEndorsementKey()
@@ -397,7 +395,7 @@ void TPM::changeOwnerPassword( const string &oldOwnerPwd, const string &newOwner
 		throw( IsDeactivatedError( "Change ownership failed!" ));
 
 	setSecret( oldOwnerPwd );
-	
+  cout << "set old password passed" << endl;
 	TSS_HPOLICY newPolicy;
 
 	tssResultHandler( Tspi_Context_CreateObject( myContextHandle, TSS_OBJECT_TYPE_POLICY, TSS_POLICY_USAGE, &newPolicy ),
@@ -526,22 +524,6 @@ void TPM::killMaintenance( string password )
 	if ( TSS_SUCCESS != result )
 		tssResultHandler( result, "Kill Maintenance Archive failed!" );
 	
-}
-
-bool TPM::driverAvailable()
-{
-	struct stat Status;
-	/*
-	*retrun 0 if the file is found.
-	*return -1 if the file is not found.
-	*/
-	int tpmdriver = stat( "/dev/tpm", &Status);
-	int tpm0driver = stat( "/dev/tpm0", &Status);
-
-	if (tpmdriver == 0 || tpm0driver == 0)
-		return true;
-
-	return false;
 }
 
 void TPM::tssResultHandler( TSS_RESULT result, const string &str ) const

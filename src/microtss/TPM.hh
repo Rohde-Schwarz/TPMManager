@@ -8,7 +8,7 @@
 #include <trousers/tss.h>
 #include <trousers/trousers.h>
 #include <tss/tspi.h>
-#include <tss/tcpa_error.h>
+#include <tss/tpm_error.h>
 
 #include <microtss/PublicKey.hh>
 
@@ -20,14 +20,14 @@ namespace microtss {
 typedef std::vector<BYTE> ByteString ;
 
 enum TpmState { 
-	DisabledDeactivatedNoOwner = 0,
-	DisabledDeactivatedOwner   = 1,
-	DisabledActivatedNoOwner   = 2,
-	DisabledActivatedOwner     = 3,
-	EnabledDeactivatedNoOwner  = 4,
-	EnabledDeactivatedOwner    = 5,
-	EnabledActivatedNoOwner    = 6,
-	EnabledActivatedOwner      = 7
+	DisabledDeactivatedNoOwner = 0, ///   000
+	DisabledDeactivatedOwner   = 1, ///   001
+	DisabledActivatedNoOwner   = 2, ///   010
+	DisabledActivatedOwner     = 3, ///   011
+	EnabledDeactivatedNoOwner  = 4, ///   100
+	EnabledDeactivatedOwner    = 5, ///   101
+	EnabledActivatedNoOwner    = 6, ///   110
+	EnabledActivatedOwner      = 7  ///   111
 };
 
 const unsigned int OWNER_MASK     = 1;
@@ -75,10 +75,6 @@ class IsDeactivatedError : public TPMError {
 };
 
 /**
- * @brief Abstraction of the TPM.
- *
- * Hides implementation details of specific TPM versions/revisions.
- *
  * @note Implementation for TPM version 1.1b
  *
  * @todo Makes it sense to move all myContextHanle-related methods to TSS?
@@ -166,9 +162,7 @@ class TPM
 		void restrictEK( std::string password );
 		/// Disable  the functionality of creating a maintenance archive until a new owner is set.
 		void killMaintenance( std::string password );
-		/// Checks if the files /dev/tpm or /dev/tpm0 exist.
-		static bool driverAvailable();
-
+	
 	protected:
 		/// Get the owner Password and set Secret
 		void setSecret( const std::string &password );
@@ -176,7 +170,8 @@ class TPM
 	private:
 		/// Read Capabilities and detect the Version of the TPM.
 		void readVersion();
-		
+		/// Read the correct Version of the TPM 1.2
+    void readVersionVal();
 		/// Read capabilities and detect the VendorID as String.
 		void readVendorName();
 		
@@ -199,6 +194,8 @@ class TPM
 		void readState();
 		/// Read number of PCRs
 		void readNumberOfPCR();
+		/// Read Values of PCRs
+		void readPCRValues();
 		/// Read the number of 2048-bit RSA keys that can be loaded.
 		void readKeyLoadCount();
 		/// Read the number of available monotonic counters.
@@ -220,6 +217,7 @@ class TPM
 		UINT32		myNumberOfPCR;			/// Number of PCR registers
 		UINT32		myKeyLoadCount;		/// Number of 2048-bit RSA keys that can be loaded
 		UINT32		myCountersCount;		/// Number of available monotonic counters
+		std::vector<ByteString>  myPCRValues;
 
 		TSS_HCONTEXT myContextHandle;			/// Handle to TSS Context
 		TSS_HTPM     myTpmHandle;				/// Handle to TPM Object
