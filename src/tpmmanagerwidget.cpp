@@ -192,7 +192,7 @@ void TPM_ManagerWidget::initCapabilities()
 		myCapabilities->setText(0, 1, QString("%1").arg( myTPM->getNumberOfPCR()) );
 
 		myCapabilities->setText(1, 0, "Number of 2048-bit RSA keys that can be loaded");
-		//myCapabilities->setText(1, 1, QString("%1").arg( myTPM->getKeyLoadCount()) );
+		myCapabilities->setText(1, 1, QString("%1").arg( myTPM->getKeyLoadCount()) );
 	}
 }
 

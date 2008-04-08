@@ -40,7 +40,7 @@ TPM::TPM( const TSS_HCONTEXT &contextHandle ) :
   readPCRValues();
 	checkEndorsementKey();
 	userCreatedEndorsement();
-	readMaintenanceState();
+	//readMaintenanceState();
 };
 
 TPM::~TPM()
@@ -199,7 +199,8 @@ void TPM::readState()
 void TPM::readMaintenanceState()
 {
 	try {
-	myHasMaintenance = getStatusFlag( TSS_TPMSTATUS_ALLOWMAINTENANCE );
+      std::cerr << "in readMaintenanceState" << std::endl;
+	   myHasMaintenance = getStatusFlag( TSS_TPMSTATUS_ALLOWMAINTENANCE );
 	} catch ( AuthenticationFailure &e )
 	{ 
 		myHasMaintenance = false; 
@@ -207,6 +208,7 @@ void TPM::readMaintenanceState()
 	{} catch ( NoSRKError &e )
 	{} catch ( exception &e )
 	{}
+
 }
 
 void TPM::readNumberOfPCR()
