@@ -1,0 +1,32 @@
+\makeatletter\@ifundefined{send}{\newcommand{\send}{\Longrightarrow\hspace{0.4%
+cm}}}{} \@ifundefined{xor}{\newcommand{\xor}{\oplus}}{}
+  \@ifundefined{random}{\newcommand{\random}{\ensuremath{\in_{\cal R}}}}{}
+  \@ifundefined{Z}{\newcommand{\Z}[1]{\ensuremath{{\mathbb{Z}_{#1}}}}}{}
+  \@ifundefined{mathbb}{\newcommand{\mathbb}[1]{\ensuremath{{\rm #1\!\!#1}}}}{}
+  \makeatother
+\begin{thebibliography}{1}
+
+\bibitem{BrCaCh2004}
+Ernie Brickell, Jan Camenisch, and Liqun Chen.
+\newblock Direct anonymous attestation.
+\newblock Rz 3540, IBM Research, March 2004.
+
+\bibitem{TSS_1.1}
+Trusted~Computing Group.
+\newblock {TCG} software stack specification.
+\newblock \url{http://trustedcomputinggroup.org}, August 2003.
+\newblock Version 1.1.
+
+\bibitem{TSS_1.2}
+Trusted~Computing Group.
+\newblock {TCG} software stack specification.
+\newblock \url{http://trustedcomputinggroup.org}, January 2006.
+\newblock Version 1.2.
+
+\bibitem{TPM_1.2.103}
+{T}rusted~{C}omputing {G}roup.
+\newblock {TPM} main specification.
+\newblock Main Specification Version 1.2 rev. 103, {T}rusted {C}omputing
+  {G}roup, July 2007.
+
+\end{thebibliography}

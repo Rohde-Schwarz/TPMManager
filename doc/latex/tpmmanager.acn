@@ -1,0 +1,54 @@
+\begin{theglossary}\glogroupA
+
+\gloitem {\glosslabel{acn:AIK}{\noexpand \acronymfont {AIK}}}\glosref {AttestationIdentityKey}\relax
+\glodelim 
+		\glsnumformat{50}\delimN \glsnumformat{57}\delimT \gloskip \glogroupD
+
+\gloitem {\glosslabel{acn:DAA}{\noexpand \acronymfont {DAA}}}\glosref {DirectAnonymousAttestation}\relax
+\glodelim 
+		\glsnumformat{57}\delimT \gloskip \glogroupE
+
+\gloitem {\glosslabel{acn:EK}{\noexpand \acronymfont {EK}}}\glosref {EndorsementKey}\relax
+\glodelim 
+		\glsnumformat{52}\delimT \gloskip \glogroupG
+
+\gloitem {\glosslabel{acn:GUI}{\noexpand \acronymfont {GUI}}}\glosref {GraphicalUserInterface}\relax
+\glodelim 
+		\glsnumformat{38}\delimT \gloskip \glogroupP
+
+\gloitem {\glosslabel{acn:PrivacyCA}{\noexpand \acronymfont {PrivacyCA}}}\glosref {PrivacyCertificationAuthority}\relax
+\glodelim 
+		\glsnumformat{57}\delimT \gloskip \glogroupS
+
+\gloitem {\glosslabel{acn:SRK}{\noexpand \acronymfont {SRK}}}\glosref {StorageRootKey}\relax
+\glodelim 
+		\glsnumformat{20}\delimT \gloskip \glogroupT
+
+\gloitem {\glosslabel{acn:TCG}{\noexpand \acronymfont {TCG}}}\glosref {TrustedComputingGroup}\relax
+\glodelim 
+		\glsnumformat{11}\delimN \glsnumformat{57}\delimT 
+
+\gloitem {\glosslabel{acn:TNC}{\noexpand \acronymfont {TNC}}}\glosref {TrustedNetworkConnect}\relax
+\glodelim 
+		\glsnumformat{58}\delimT 
+
+\gloitem {\glosslabel{acn:TPM}{\noexpand \acronymfont {TPM}}}\glosref {TrustedPlatformModule}\relax
+\glodelim 
+		\glsnumformat{11}\delimN \glsnumformat{57\delimN 58}\delimT 
+
+\gloitem {\glosslabel{acn:TSPI}{\noexpand \acronymfont {TSPI}}}\glosref {TSSServiceProviderInterface}\relax
+\glodelim 
+		\glsnumformat{40}\delimT 
+
+\gloitem {\glosslabel{acn:TSS}{\noexpand \acronymfont {TSS}}}\glosref {TCGSoftwareStack}\relax
+\glodelim 
+		\glsnumformat{35}\delimN \glsnumformat{58}\delimT 
+
+\gloitem {\glosslabel{acn:TTP}{\noexpand \acronymfont {TTP}}}\glosref {TrustedThirdParty}\relax
+\glodelim 
+		\glsnumformat{57}\delimT \gloskip \glogroupU
+
+\gloitem {\glosslabel{acn:UML}{\noexpand \acronymfont {UML}}}\glosref {UnifiedModelingLanguage}\relax
+\glodelim 
+		\glsnumformat{40}\delimT 
+\end{theglossary}

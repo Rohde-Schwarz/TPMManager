@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.5)
+The top-level auxiliary file: tpmmanager.aux
+The style file: plain.bst
+Database file #1: 0-string.bib
+Database file #2: local.bib
+Database file #3: security.bib
+Database file #4: standards.bib
+Database file #5: xref.bib
+You've used 4 entries,
+            2118 wiz_defined-function locations,
+            744 strings with 9548 characters,
+and the built_in function-call counts, 929 in all, are:
+= -- 91
+> -- 39
+< -- 1
++ -- 16
+- -- 12
+* -- 47
+:= -- 175
+add.period$ -- 14
+call.type$ -- 4
+change.case$ -- 19
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 31
+empty$ -- 75
+format.name$ -- 12
+if$ -- 188
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 0
+newline$ -- 26
+num.names$ -- 8
+pop$ -- 22
+preamble$ -- 2
+purify$ -- 14
+quote$ -- 0
+skip$ -- 23
+stack$ -- 0
+substring$ -- 20
+swap$ -- 3
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 16
+warning$ -- 0
+while$ -- 8
+width$ -- 5
+write$ -- 49

@@ -1,0 +1,85 @@
+\select@language {american}
+\contentsline {chapter}{\numberline {1}Introduction}{11}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation and Problem Description}{11}{section.1.1}
+\contentsline {section}{\numberline {1.2}Goals}{11}{section.1.2}
+\contentsline {chapter}{\numberline {2}Requirements Specification}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}Target Groups}{13}{section.2.1}
+\contentsline {section}{\numberline {2.2}Roles and Actors}{13}{section.2.2}
+\contentsline {section}{\numberline {2.3}Functional Requirements (Use Case Model)}{13}{section.2.3}
+\contentsline {section}{\numberline {2.4}Use case overview}{14}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Info}{16}{subsection.2.4.1}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 10/}\hspace {2.5ex}Info}{16}{usecasenr.10}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 20/}\hspace {2.5ex}Show TPM Capabilities}{17}{usecasenr.20}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 30/}\hspace {2.5ex}TPM Details}{18}{usecasenr.30}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 40/}\hspace {2.5ex}PCRs}{19}{usecasenr.40}
+\contentsline {subsection}{\numberline {2.4.2}Owner Settings}{20}{subsection.2.4.2}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 50/}\hspace {2.5ex}Take Ownership}{20}{usecasenr.50}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 60/}\hspace {2.5ex}Change Owner Password}{21}{usecasenr.60}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 70/}\hspace {2.5ex}Clear Ownership}{22}{usecasenr.70}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 80/}\hspace {2.5ex}Create Maintenance Archive}{24}{usecasenr.80}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 90/}\hspace {2.5ex}Load Maintenance Archive}{25}{usecasenr.90}
+\contentsline {subsection}{\numberline {2.4.3}TPM Settings}{26}{subsection.2.4.3}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 100/}\hspace {2.5ex}TPM Deactivation}{26}{usecasenr.100}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 110/}\hspace {2.5ex}Disable (Enable) the TPM}{27}{usecasenr.110}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 120/}\hspace {2.5ex}Create Endorsement Key}{28}{usecasenr.120}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 130/}\hspace {2.5ex}Read Public Endorsement Key}{28}{usecasenr.130}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 140/}\hspace {2.5ex}Restrict Public Endorsement Key}{28}{usecasenr.140}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 150/}\hspace {2.5ex}Read TPM Endorsementcertificate}{29}{usecasenr.150}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 160/}\hspace {2.5ex}Self test}{30}{usecasenr.160}
+\contentsline {subsection}{\numberline {2.4.4}Advanced}{31}{subsection.2.4.4}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 170/}\hspace {2.5ex}Enable Critical Functions}{31}{usecasenr.170}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 180/}\hspace {2.5ex}Disable Maintenance Feature}{32}{usecasenr.180}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 190/}\hspace {2.5ex}Revoke Trust}{33}{usecasenr.190}
+\contentsline {subsection}{\numberline {2.4.5}Misc.}{34}{subsection.2.4.5}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 200/}\hspace {2.5ex}New Password}{34}{usecasenr.200}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 210/}\hspace {2.5ex}Owner Authentication}{34}{usecasenr.210}
+\contentsline {subsubsection}{\unhbox \voidb@x \hbox {/UC 220/}\hspace {2.5ex}Warning Message}{34}{usecasenr.220}
+\contentsline {section}{\numberline {2.5}Supplementary Requirements}{35}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Preconditions}{35}{subsection.2.5.1}
+\contentsline {subsubsection}{/PR~10/\hspace {2.5ex}TSS}{35}{section*.3}
+\contentsline {subsubsection}{/PR~20/\hspace {2.5ex}Widget Library}{35}{section*.4}
+\contentsline {subsubsection}{/PR~30/\hspace {2.5ex}TPM-enabled BIOS}{35}{section*.5}
+\contentsline {subsection}{\numberline {2.5.2}Required Criteria}{35}{subsection.2.5.2}
+\contentsline {subsubsection}{/MR~10/\hspace {2.5ex}Linux support}{35}{section*.6}
+\contentsline {subsection}{\numberline {2.5.3}Desired Criteria}{35}{subsection.2.5.3}
+\contentsline {subsubsection}{/DR~10/\hspace {2.5ex}Turaya support}{35}{section*.7}
+\contentsline {subsection}{\numberline {2.5.4}Execution Environment}{35}{subsection.2.5.4}
+\contentsline {subsubsection}{\numberline {2.5.4.1}Software}{36}{subsubsection.2.5.4.1}
+\contentsline {subsubsection}{\numberline {2.5.4.2}Hardware}{36}{subsubsection.2.5.4.2}
+\contentsline {subsection}{\numberline {2.5.5}Development Environment}{36}{subsection.2.5.5}
+\contentsline {subsection}{\numberline {2.5.6}Software}{36}{subsection.2.5.6}
+\contentsline {subsection}{\numberline {2.5.7}Hardware}{36}{subsection.2.5.7}
+\contentsline {chapter}{\numberline {3}Software Architecture}{37}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{37}{section.3.1}
+\contentsline {section}{\numberline {3.2}Logical View}{37}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Overview}{38}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Architecturally Significant Design Packages}{38}{subsection.3.2.2}
+\contentsline {paragraph}{The GUI layer.}{38}{section*.8}
+\contentsline {paragraph}{The MicroTSS layer.}{40}{section*.9}
+\contentsline {section}{\numberline {3.3}Use Case Realization}{41}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Use Case Take Ownership}{41}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Use Case Enable/Disable}{42}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Use Case PCRs}{42}{subsection.3.3.3}
+\contentsline {chapter}{\numberline {4}User Manual}{43}{chapter.4}
+\contentsline {section}{\numberline {4.1}Requirements}{43}{section.4.1}
+\contentsline {section}{\numberline {4.2}Installation and Configuration}{43}{section.4.2}
+\contentsline {section}{\numberline {4.3}Usage}{44}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Overview}{44}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Info}{45}{subsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.2.1}Status tab}{45}{subsubsection.4.3.2.1}
+\contentsline {subsubsection}{\numberline {4.3.2.2}Details tab}{47}{subsubsection.4.3.2.2}
+\contentsline {subsubsection}{\numberline {4.3.2.3}Capabilities tab}{47}{subsubsection.4.3.2.3}
+\contentsline {subsubsection}{\numberline {4.3.2.4}PCRs tab}{47}{subsubsection.4.3.2.4}
+\contentsline {subsection}{\numberline {4.3.3}Owner Settings}{47}{subsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.3.1}Ownership tab}{47}{subsubsection.4.3.3.1}
+\contentsline {subsubsection}{\numberline {4.3.3.2}Backup tab}{50}{subsubsection.4.3.3.2}
+\contentsline {subsection}{\numberline {4.3.4}TPM Settings}{50}{subsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.4.1}Operational Modes tab}{50}{subsubsection.4.3.4.1}
+\contentsline {subsubsection}{\numberline {4.3.4.2}Identitiy tab}{52}{subsubsection.4.3.4.2}
+\contentsline {subsubsection}{\numberline {4.3.4.3}Selftest tab}{52}{subsubsection.4.3.4.3}
+\contentsline {subsubsection}{\numberline {4.3.4.4}TPM Certificate tab}{52}{subsubsection.4.3.4.4}
+\contentsline {subsection}{\numberline {4.3.5}Advanced}{52}{subsection.4.3.5}
+\contentsline {section}{\numberline {4.4}Open Issues}{52}{section.4.4}
+\contentsline {chapter}{Bibliography}{52}{section.4.4}
+\contentsline {chapter}{List of Acronyms}{55}{section*.11}
+\contentsline {chapter}{Glossary}{57}{section*.13}
