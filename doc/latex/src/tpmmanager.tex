@@ -62,7 +62,7 @@ Anoosheh Zaerin\\
               Ahmad-Reza Sadeghi \\
              \url{ahmad.sadeghi@trust.rub.de} \\
 
- Christian Stüble \\
+ Christian Stueble \\
              \url{stueble@sirrix.com}
 
 \end{table}
@@ -728,8 +728,7 @@ its package hierarchy and layers.
 
 
 As illustrated in \autoref{highleveldesign}, the design of the TPM Manager has two layers, the \GUI layer and the MicroTSS layer.
-While the GUI layer provides the user interface components, based on widgets of the KDE\footnote{http://www.kde.org/} and
-Qt\footnote{http://www.troll.no/} frameworks, the MicroTSS layer offers a simple, object-oriented interface to the functions
+While the GUI layer provides the user interface components, based on widgets of Qt\footnote{http://www.qtsoftware.com/} framework, the MicroTSS layer offers a simple, object-oriented interface to the functions
 of the underlying TPM.
 
 
@@ -745,7 +744,7 @@ environment, e.g., as a part of a security kernel.
 \paragraph{The GUI layer.}
 The GUI layer of the TPM Manager offers an interface to the user and uses
 the MicroTSS layer to access TPM functions. The logic of the user interface layer is realized by
-the Qt-based class, \lstinline'TPM_ManagerWidget'. Its base class, \lstinline'TPM_ManagerWidgetBase', is created by the
+the Qt-based class, \lstinline'TPM_Manager'. Its base class, \lstinline'TPM_ManagerBase', is created by the
 Qt Designer, Trolltech's tool for designing and building GUI's. The
 Qt Designer allows the addition of new functionality without much effort. \autoref{ownership} shows an
 example screenshot of the TPM Manager GUI in use.
@@ -822,17 +821,25 @@ Choosing ''Info'' option from the left menu and then choosing the ``PCRs'' tab t
 %                       Installation and Configuration
 % ------------------------------------------------------------------------
 \section{Requirements}
-Since the TPM Manager is based on some KDE widgets, corresponding header and library files of KDE and Qt should be in the library path. On some linux distributions you have to install the developer version of Qt to have the header files used by TPM Manager.
+Since the TPM Manager is based entirely on the Qt UI framework, corresponding header and library files Qt4 should be in the library path. On some linux distributions you have to install the developer version of Qt to have the header files used by TPM Manager.
 
 The required programs to install the TPM Manager are: 
 \begin{itemize}
-   \item Qt3
-   \item KDE
+   \item Qt4
    \item TrouSerS
 \end{itemize}
 
+The required packages for (k)ubuntu in detail are:
+\begin{itemize}
+   \item build-essential
+   \item libtspi-dev
+   \item libtsp1
+   \item trousers
+   \item qt4-dev-tools
+\end{itemize}
+
 To use the features of the TPM Manager you need a running TrouSerS daemon.
-The TPM Manager has been successfully compiled under KDE 3.5 and Qt3.
+The TPM Manager has been successfully compiled under KDE 4.2 and Qt version 4.4.3.
 
 
 \section{Installation and Configuration}
