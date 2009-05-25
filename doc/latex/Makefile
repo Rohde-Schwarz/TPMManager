@@ -7,7 +7,7 @@ PRIMTARGET  = tpmmanager
 # Path to templates of Sirrix AG. I suggest to set an absolut path using an
 # environment variable using 'export SIRRIXTEMPLATES=...'.
 ifndef SIRRIXTEMPLATES
-        SIRRIXTEMPLATES = /home/anoosheh/projects/templates
+        SIRRIXTEMPLATES = /Users/cordney/Desktop/Uni/Trust/tpmmanager/trunk/doc
 endif
 
 # site specific variables
