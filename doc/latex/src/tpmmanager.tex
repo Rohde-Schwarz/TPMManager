@@ -429,16 +429,18 @@ The use cases of this section are related to TPM Owner management and \SRK manag
 
 \begin{usecase}{TPM Deactivation}{deactivate}
 \ucdesc TPM can be switched from activated to temporarily deactivated mode
-\ucactors  Operator
+\ucactors  User %Operator
 \ucprecond TPM is activated
 \ucpostcond TPM is temporarely deactivated
 \ucnormal 
- \item Operator hits ''Deactivate'' button
- \item TPM Manager asks for operator authorization
+ \item User hits ''Deactivate'' button
+ %\item TPM Manager asks for operator authorization
  \item TPM Manager displays warning message
  \item TPM Manager displays dialog whether TPM was successfully deactivated or not
 \ucendflow
 \end{usecase}
+Note: On 1.2 TPMs, temporarily deactivating the TPM requires operator authorization. When trying to deactivate a TPM 1.2 without operator authorization, a ''bad physical presence'' exception is thrown.
+
 \clearpage
 
 \begin{usecase}{Disable (Enable) the TPM}{disable}
@@ -861,12 +863,14 @@ The TPM Manager has been successfully compiled under Qt version 4.4.3 and KDE 4.
 
 
 \section{Installation and Configuration}
-The TPM Manager is hosted on sourceforge at \url{http://sourceforge.net/projects/tpmmanager/}. The software is based on qmake; therefore, it can be configured and installed as described bellow.
+The TPM Manager is hosted on sourceforge at \url{http://sourceforge.net/projects/tpmmanager/}. The software is based on qmake; therefore, it can be configured and installed as described below. Note that on some systems, qmake points to an older version of Qt - Qt3. Check your version of Qt prior to compiling TPM Manager as described below.
 
 
  \begin{lstlisting}[caption=Configuring and compiling the TPM Manager:, frame=lines]
  # tar -xzf tpmmanager-0.6.tar.gz
  # cd tpmmanager-0.6
+ # qmake --version
+ # qmake // if qmake --version returns Qt version 3.x.x, use qmake-qt4 instead
  # make
  # make install
  \end{lstlisting}  
