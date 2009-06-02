@@ -1,22 +1,53 @@
-#include "TPM.hh"
+/***************************************************************************
+ *   Copyright (C) 2006-2009 Sirrix AG                                     *
+ *   Authors:                                                              *
+ *	 Anoosheh Zaerin <a.zaerin@sirrix.com>                                 *
+ *   René Korthaus <r.korthaus@sirrix.com>                                 *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
 
+/**
+* @file TPM.cpp
+*
+* @brief TPM Encapsulation Class Implementation File
+*
+**/
+
+#include "TPM.h"
 #include <iostream>
 #include <sstream>
 #include <iomanip>
-#include <tss/tss_error_basics.h>
+
 
 using namespace std;
 using namespace microtss;
 
 TPM::TPM( const TSS_HCONTEXT &contextHandle ) :
   myState( DisabledDeactivatedNoOwner ),
+  myNumberOfPCR( 0 ),	
   myCountersCount( 0 ),
   myContextHandle( contextHandle ),
+  myHasOwner( false ),
+  myIsDisabled( false ),
+  myIsDeactivated( false ),
   myHasMaintenance( false ),
   myHasEndorsementKey( true ),
   myUserCreatedEndorsement( false ),
-  myEKRestricted( false ),
-  myNumberOfPCR( 0 )
+  myEKRestricted( false )
 {
 	/**
 	 * @brief					retrieves the TPM object of a context. Only one instance of this object exists 
@@ -31,13 +62,13 @@ TPM::TPM( const TSS_HCONTEXT &contextHandle ) :
 		 					"Error at get TPM object" );
  
 	readVersion();
-  readVersionVal();
+  	readVersionVal();
 	readVendorName();
 	readNumberOfPCR();
 	readKeyLoadCount();
 	readCountersCount();
-  readState();
-  readPCRValues();
+  	readState();
+  	readPCRValues();
 	checkEndorsementKey();
 	userCreatedEndorsement();
 	//readMaintenanceState();
@@ -140,13 +171,13 @@ void TPM::readVersionVal()
 	readCapabilities( TSS_TPMCAP_VERSION_VAL, (BYTE*&) versionInfo );
 	sVersion << (unsigned int) versionInfo->version.major << "." << (unsigned int) versionInfo->version.minor;
 
-  myVersion = sVersion.str();
+  	myVersion = sVersion.str();
 
-  ostringstream sRevision( myRevision );
-  sRevision << (unsigned int) versionInfo->version.revMajor << "." << (unsigned int) versionInfo->version.revMinor << ends;
-  myRevision = sRevision.str();
+  	ostringstream sRevision( myRevision );
+  	sRevision << (unsigned int) versionInfo->version.revMajor << "." << (unsigned int) versionInfo->version.revMinor << ends;
+  	myRevision = sRevision.str();
 
-  Tspi_Context_FreeMemory( myContextHandle, (BYTE*)versionInfo );
+  	Tspi_Context_FreeMemory( myContextHandle, (BYTE*)versionInfo );
 }
 
 void TPM::readVendorName()
@@ -161,23 +192,25 @@ void TPM::readVendorName()
 
 void TPM::readState()
 {
-   UINT32 pcrValLen;
-   BYTE* pcrVal;
-   try {
-         tssResultHandler( Tspi_TPM_PcrRead(myTpmHandle, 0, &pcrValLen, &pcrVal),
-                "Read PCR value!" );
-         myState = (TpmState)( myState | ENABLED_MASK ); 
-   } catch ( IsDisabledError & e ) {
-      /// is disabled
-      myState = (TpmState) ( myState & ~ENABLED_MASK ); 
-   }  catch ( IsDeactivatedError & e) {
-      /// is deactivated
-      myState = (TpmState) ( myState & ~ACTIVATED_MASK ); 
-   } catch ( exception & e ){
-   }
+	/* As reading status flags requires owner authorization, we have to do a workaround here:
+		Try to read a Platform Configuration Register and check the return status of the command
+	*/
+	UINT32 pcrValLen;
+	BYTE* pcrVal;
+	try {
+		tssResultHandler( Tspi_TPM_PcrRead(myTpmHandle, 0, &pcrValLen, &pcrVal), "Read PCR value!" );
+		myIsDisabled = false;
+		myIsDeactivated = false;
+	} catch ( IsDisabledError & e ) {
+		/// is disabled
+		myIsDisabled = true;
+	} catch ( IsDeactivatedError & e) {
+ 		/// is deactivated
+ 		myIsDeactivated = true; 
+ 	} catch ( exception & e ) {
+	}
 
-   myState = (TpmState)( myState | ACTIVATED_MASK ); 
-
+	/* check if owner set */
    UINT32 len;
    TSS_BOOL *owner;
    len = readCapabilities(TSS_TPMCAP_PROPERTY, TSS_TPMCAP_PROP_OWNER, (BYTE*&) owner );
@@ -186,14 +219,15 @@ void TPM::readState()
    }
    else if ( *owner == true ){
          /// TPM has Owner
-         myState = (TpmState) ( myState | OWNER_MASK );  
+         myHasOwner = true;  
          }
         else{
          /// TPM has no Owner
-         myState = (TpmState) ( myState & ~OWNER_MASK );  
+         myHasOwner = false;  
          }
 
    Tspi_Context_FreeMemory( myContextHandle, (BYTE*&) owner );
+   
 }
 
 void TPM::readMaintenanceState()
@@ -264,7 +298,7 @@ const string TPM::getVendorName() const
 	return myVendor;
 }
 
-const TpmState TPM::getState() const
+TpmState TPM::getState() const
 {
 	return myState;
 }
@@ -301,8 +335,8 @@ const vector<ByteString> TPM::getPCRValues() const
 
 void TPM::readPCRValues()
 {
-  if ( myState != EnabledActivatedNoOwner && myState != EnabledActivatedOwner )
-		return;
+	if ( !(isEnabled() && isActivated() && !hasOwner()) && !(isEnabled() && isActivated() && hasOwner()) )
+		return;	
   UINT32 pcrValLen;
 	BYTE*	  pcrVal;
 	ByteString temp;
@@ -348,11 +382,14 @@ void TPM::takeOwnership( const std::string &ownerPwd, const std::string &srkPwd,
 {
 	BYTE wellKnownSecretValue[] = TSS_WELL_KNOWN_SECRET;
 
-	if ( hasOwner() )
-		return; // throw...
-
-	if ( isDisabled() )
-		return; // throw...
+	if ( hasOwner() ) {
+		throw HasOwnerError( "Error when trying to take ownership" );
+		return;
+	}
+	if ( isDisabled() ) {
+		throw IsDisabledError( "Error when trying to take ownership" );
+		return;
+	}
 
 	// Set owner password
 	TSS_HPOLICY tpmPolicy;
@@ -382,7 +419,7 @@ void TPM::takeOwnership( const std::string &ownerPwd, const std::string &srkPwd,
 	tssResultHandler( Tspi_TPM_TakeOwnership( myTpmHandle, srkHandle, 0 ), 
 							"Taking ownership failed!" );
 
-	myState = (TpmState) (myState | OWNER_MASK);
+	readState();
 }
 
 void TPM::changeOwnerPassword( const string &oldOwnerPwd, const string &newOwnerPwd )
@@ -395,7 +432,6 @@ void TPM::changeOwnerPassword( const string &oldOwnerPwd, const string &newOwner
 		throw( IsDeactivatedError( "Change ownership failed!" ));
 
 	setSecret( oldOwnerPwd );
-  cout << "set old password passed" << endl;
 	TSS_HPOLICY newPolicy;
 
 	tssResultHandler( Tspi_Context_CreateObject( myContextHandle, TSS_OBJECT_TYPE_POLICY, TSS_POLICY_USAGE, &newPolicy ),
@@ -422,74 +458,75 @@ void TPM::clearOwnership( const string &password )
 	
 	tssResultHandler( Tspi_TPM_ClearOwner( myTpmHandle, false ), "Clear ownership failed!" );
 	
-   myState = DisabledDeactivatedNoOwner;
-}
-
-/// @todo implementierung zu einer methode zusammenfassen
-///       und zwei inline-Methoden machen.
-void TPM::setEnabled( const string &password )
-{
-	if ( isEnabled() )
-		return;
-
-	setSecret( password );
-
-	setStatusFlag( TSS_TPMSTATUS_OWNERSETDISABLE, false ); // try ... catch
-	
 	readState();
-}
-
-void TPM::setDisabled( const string &password )
-{
-	if ( isDisabled() )
-		return;
-
-	setSecret( password );
-
-	setStatusFlag( TSS_TPMSTATUS_OWNERSETDISABLE, true ); 
-
-	myState = (TpmState) ( myState & ~ENABLED_MASK );
 }
 
 void TPM::setSecret( const string &password )
 {
 	TSS_HPOLICY policy;
-	if ( Tspi_GetPolicyObject(myTpmHandle, TSS_POLICY_USAGE, &policy) != TSS_SUCCESS )
-		std::cerr << "Get Policy failed!" << std::endl;
+	tssResultHandler( Tspi_GetPolicyObject(myTpmHandle, TSS_POLICY_USAGE, &policy), "Get Policy failed!" );
 
-	if ( Tspi_Policy_SetSecret( policy, TSS_SECRET_MODE_PLAIN, password.length(), (BYTE*)password.c_str() ) != TSS_SUCCESS )
-		std::cerr << "Set secret failed!" << std::endl;
+	tssResultHandler( Tspi_Policy_SetSecret( policy, TSS_SECRET_MODE_PLAIN, password.length(), (BYTE*)password.c_str() ), "Set secret failed!" );
 }
 
-const string TPM::selfTestFull() const
+bool TPM::selfTestFull() const
+{
+	TSS_RESULT result = Tspi_TPM_SelfTestFull( myTpmHandle );
+	if( result != TSS_SUCCESS ) {
+		tssResultHandler( result, "TPM Selftest failed" );
+		return false;
+	}
+	return true;
+}
+
+const string TPM::selfTestResult() const
 {
 	UINT32 testResultLen;
 	BYTE   *testResult;
 	ostringstream result;
-
-	if ( Tspi_TPM_SelfTestFull( myTpmHandle ) != TSS_SUCCESS )
-		std::cerr << "TPM selftest failed!" << std::endl;
-	else
-	{
-		Tspi_TPM_GetTestResult( myTpmHandle, &testResultLen,  &testResult );
-		
+	
+	TSS_RESULT res = Tspi_TPM_GetTestResult( myTpmHandle, &testResultLen,  &testResult );
+	if( res != TSS_SUCCESS ) {
+		tssResultHandler( res, "TPM Selftest Result failed" );
+		return "Tspi_TPM_GetTestResult failed!";
+	} else {
 		result << "0x";
-		for (size_t i=0; i < testResultLen; ++i )
-		  result << hex << (int) testResult[i];
+		for (size_t i=0; i < testResultLen; i++ )
+			result << hex << (int) testResult[i];
 		result << ends;
 	}
-
 	return result.str();
 }
 
-void TPM::setTempDeactivated()
+void TPM::setTempDeactivated( const std::string &password)
 {
-	if (Tspi_TPM_SetStatus( myTpmHandle, TSS_TPMSTATUS_SETTEMPDEACTIVATED, true ) != TSS_SUCCESS )
+	/* 	on 1.1b TPMs, deactivating requires no authorization
+		on 1.2 TPMs, temporarily deactivating the TPM requires operator authorization
+	*/
+	/*	Trousers offers a command Tcsip_SetTempDeactivated2 for 1.2 TPMs, but
+		lacks installing the required TCS library.
+		Thus, we keep with 1.1b implementation and throw the appropriate error message for 1.2 TPMs,
+		as compiling Trousers would be too much of a burden for a home user.
+	*/
+	
+	/* check if operator installed (only on 1.2 TPMs)
+	if( !getStatusFlag( TSS_TPMSTATUS_OPERATOR_INSTALLED ) )
+	{
+		cerr << "No Operator installed." << endl;
+		return;
+	}
+	*/
+
+	TSS_RESULT result = Tspi_TPM_SetStatus( myTpmHandle, TSS_TPMSTATUS_SETTEMPDEACTIVATED, true );	
+	
+	if( result != TSS_SUCCESS )
 	{
 		///throw exception
 		cerr << "Set TPM status to temporarily Deactivated failed!" << endl;
+		tssResultHandler( result, "Deactivating TPM temporarily failed!" );
+		return;
 	}
-	myState = (TpmState) (myState & ~ACTIVATED_MASK);
+	readState();
 }
 
 microtss::PublicKey TPM::getEndorsementPublicKey( const std::string &password )
@@ -538,7 +575,7 @@ void TPM::tssResultHandler( TSS_RESULT result, const string &str ) const
 		case TCPA_E_AUTHFAIL:
 			throw AuthenticationFailure( str );
          break;
-      case TCPA_E_NOSRK:
+      	case TCPA_E_NOSRK:
 			throw NoSRKError( str );
 			break;
 		case TCPA_E_DEACTIVATED:
@@ -549,6 +586,8 @@ void TPM::tssResultHandler( TSS_RESULT result, const string &str ) const
 			break;
       default:
 			cerr << "TPM::throwException: Unknown Exception(Error Code: " << Trspi_Error_Code( result ) << "- " << Trspi_Error_String( result ) << ") : " + str << endl;
+      		throw UnknownError( str );
+
          break;
 	}
 }
@@ -561,6 +600,14 @@ TPMError::TPMError( const std::string &str ) :
 
 AuthenticationFailure::AuthenticationFailure( const std::string &str ) :
   TPMError( "Wrong owner password. " + str )
+{}
+	
+HasOwnerError::HasOwnerError( const std::string &str ) :
+  TPMError( "TPM is already owned." + str )
+{}
+	
+NoOwnerError::NoOwnerError( const std::string &str ) :
+  TPMError( "TPM has no owner." + str )
 {}
 
 NoSRKError::NoSRKError( const std::string &str ) :
@@ -580,3 +627,11 @@ IsDeactivatedError::IsDeactivatedError( const std::string &str ) :
 {
 
 }
+
+UnknownError::UnknownError( const std::string &str ) :
+  TPMError( "Unknown Error - See error output. " + str ) 
+{
+
+}
+
+

@@ -1,0 +1,185 @@
+<ui version="4.0" >
+ <class>SetSRKDialog</class>
+ <widget class="QDialog" name="SetSRKDialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>509</width>
+    <height>255</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Set SRK Password</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>491</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout" >
+    <item>
+     <widget class="QLabel" name="label" >
+      <property name="text" >
+       <string>Choose a passphrase to protect the Storage Root Key (SRK). You can set it to a default value or choose your own SRK password.</string>
+      </property>
+      <property name="wordWrap" >
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_2" >
+      <property name="orientation" >
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0" >
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="radioButtonSrkDefault" >
+      <property name="text" >
+       <string>Set SRK password to &amp;WELL_KNOWN_PASSWORD</string>
+      </property>
+      <property name="checked" >
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="radioButtonSrkManually" >
+      <property name="text" >
+       <string>Set SRK password &amp;manually</string>
+      </property>
+      <property name="shortcut" >
+       <string>Alt+T</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer" >
+      <property name="orientation" >
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0" >
+       <size>
+        <width>20</width>
+        <height>78</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout" >
+      <item>
+       <spacer name="horizontalSpacer" >
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0" >
+         <size>
+          <width>358</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonOk" >
+        <property name="text" >
+         <string>&amp;OK</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonCancel" >
+        <property name="text" >
+         <string>&amp;Cancel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonOk</sender>
+   <signal>clicked()</signal>
+   <receiver>SetSRKDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>264</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>150</x>
+     <y>128</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>SetSRKDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>199</x>
+     <y>235</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>150</x>
+     <y>128</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButtonSrkDefault</sender>
+   <signal>clicked()</signal>
+   <receiver>SetSRKDialog</receiver>
+   <slot>slotSetSrk()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>150</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>150</x>
+     <y>128</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButtonSrkManually</sender>
+   <signal>clicked()</signal>
+   <receiver>SetSRKDialog</receiver>
+   <slot>slotSetSrk()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>150</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>150</x>
+     <y>128</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotSetSrk()</slot>
+ </slots>
+</ui>

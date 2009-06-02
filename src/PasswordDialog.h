@@ -20,36 +20,79 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-/**
-* @mainpage TPM Manager
-*
-* The TPM Manager is an open source software for managing Trusted Platform Modules (TPM)
-* developed by Sirrix AG in cooperation with Ruhr University Bochum. It features an easy to use graphical
-* user interface and can be used on every platform shipped with a TPM that is supported
-* by the Linux Kernel.
-* <br>
-*
-* @author Anoosheh Zaerin <a href="mailto:a.zaerin@sirrix.com">&lt;a.zaerin@sirrix.com&gt;</a>
-* @author Ren&eacute; Korthaus <a href="mailto:r.korthaus@sirrix.com">&lt;r.korthaus@sirrix.com&gt;</a>
-*
-* You can find more documentation for download on the project page. See <a href="https://projects.sirrix.com/trac/tpmmanager">https://projects.sirrix.com/trac/tpmmanager</a>.
-*/
+#ifndef PASSWORDDIALOG_H
+#define PASSWORDDIALOG_H
+
+#include <QDialog>
+#include "ui_PasswordDialog.h"
 
 /**
-* @file main.cpp
+* @file PasswordDialog.h
 *
-* @brief TPM Manager Main Application File
+* @brief Password Dialog Class Header File
 *
 **/
 
-#include <QApplication>
-#include "tpmmanager.h"
-/// Main application loop
-int main(int argc, char ** argv)
+/**
+* @class PasswordDialog
+*
+* @brief Implements a user dialog to enter a password (e.g. owner password)
+*
+* This class implements a user dialog to enter a password. The password is used to authenticate the user to the TPM (e.g. through owner password). The base class is automatically generated as "ui_PasswordDialog".
+*
+*/ 
+
+class PasswordDialog : public QDialog, public Ui::PasswordDialog
 {
-	QApplication app( argc, argv );
-	TPM_Manager win;
-	win.show(); 
-	app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
-	return app.exec();
-}
+Q_OBJECT
+public:
+	/**
+	* @brief Default constructor
+	*
+	* @param parent parent QWidget object
+	* @param f window flags
+	*
+	* @return New PasswordDialog instance
+	*
+	*/
+	PasswordDialog( QWidget * parent = 0, Qt::WFlags f = 0 );
+	
+	/**
+	* @brief Default destructor
+	*
+	*/
+	~PasswordDialog();	
+	
+	/**
+	* @brief Sets the descriptive text of the password to enter in the dialog
+	*
+	* @param desc descriptive text
+	*
+	*/
+	void setDescription(const QString & desc);
+	
+	/**
+	* @brief Sets the password dialog title
+	*
+	* @param prompt password dialog title
+	*
+	*/
+	void setPrompt(const QString & prompt);
+	
+	/**
+	* @brief Gets the password the user entered
+	*
+	* @return The new password
+	*
+	*/
+	QString password();
+	
+private slots:
+	/**
+	* @brief Slot called whenever text is edited in the password text field
+	*
+	* @param text the current text entered into the text field 
+	*/
+	void on_myPassword_textEdited(const QString & text);
+};
+#endif

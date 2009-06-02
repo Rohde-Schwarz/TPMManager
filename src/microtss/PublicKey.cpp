@@ -1,6 +1,8 @@
 /***************************************************************************
- *   Copyright (C) 2006 by Anoosheh Zaerin   *
- *   anoosheh.zaerin@rub.de   *
+ *   Copyright (C) 2006-2009 Sirrix AG                                     *
+ *   Authors:                                                              *
+ *	 Anoosheh Zaerin <a.zaerin@sirrix.com>                                 *
+ *   René Korthaus <r.korthaus@sirrix.com>                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,14 +20,22 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include "PublicKey.hh"
+/**
+* @file PublicKey.cpp
+*
+* @brief Public Key Class Implementation File
+*
+**/
+
+
+#include "PublicKey.h"
 #include <iomanip>
 #include <sstream>
 
 using namespace std;
 using namespace microtss;
 
-PublicKey::PublicKey( const TSS_HKEY	&endorsementKeyHandle ) :
+PublicKey::PublicKey( const TSS_HKEY &endorsementKeyHandle ) :
   keyHandle( endorsementKeyHandle )
 {
 }
@@ -73,23 +83,26 @@ const string PublicKey::getType()
 
 	string usage;
 	switch ( attributeType ) {
-		case TPM_KEY_SIGNING:
-			usage = "Signing";
+		case TSS_KEYUSAGE_BIND:
+			usage = "Binding";
 			break;	
-		case TPM_KEY_STORAGE:
-			usage = "Storage";
-			break;			
-		case TPM_KEY_IDENTITY:
+		case TSS_KEYUSAGE_IDENTITY:
 			usage = "Identity";
 			break;			
-		case TPM_KEY_AUTHCHANGE:
-			usage = "AuthChange";
-			break;			
-		case TPM_KEY_BIND:
-			usage = "Bind";
-			break;			
-		case TPM_KEY_LEGACY:
+		case TSS_KEYUSAGE_LEGACY:
 			usage = "Legacy";
+			break;			
+		case TSS_KEYUSAGE_SIGN:
+			usage = "Signing";
+			break;			
+		case TSS_KEYUSAGE_MIGRATE:
+			usage = "Migration";
+			break;			
+		case TSS_KEYUSAGE_STORAGE:
+			usage = "Storage";
+			break;
+		case TSS_KEYUSAGE_AUTHCHANGE:
+			usage = "AuthChange";
 			break;
 		default:
 			usage = "Endorsement Key";
@@ -113,23 +126,45 @@ const string PublicKey::getAlgorithm()
 	}
 	string algo;
 	switch (attributeAlgorithm) {
-	case TCPA_ALG_RSA:
+	case TSS_ALG_RSA:
 		algo = "RSA";
 		break;
-	case TCPA_ALG_DES:
+	case TSS_ALG_DES:
 		algo = "DES";
 		break;
-	case TCPA_ALG_3DES:
+	case TSS_ALG_3DES:
 		algo = "3DES";
 		break;
-	case TCPA_ALG_SHA:
+	case TSS_ALG_SHA:
 		algo = "SHA";
 		break;
-	case TCPA_ALG_HMAC:
+	/*
+	case TSS_ALG_SHA256:
+		algo = "SHA-256";
+		break;
+	*/
+	case TSS_ALG_HMAC:
 		algo = "HMAC";
 		break;
-	case TCPA_ALG_AES:
-		algo = "AES";
+	case TSS_ALG_AES:
+		algo = "AES-128 (Legacy)";
+		break;
+	/*
+	case TSS_ALG_AES128:
+		algo = "AES-128";
+		break;
+	*/
+	case TSS_ALG_AES192:
+		algo = "AES-192";
+		break;
+	case TSS_ALG_AES256:
+		algo = "AES-256";
+		break;
+	case TSS_ALG_MGF1:
+		algo = "XOR-MGF1";
+		break;
+	case TSS_ALG_XOR:
+		algo = "XOR (rolling nonces)";
 		break;
 	default:
 		algo = "Unknown";
@@ -154,15 +189,23 @@ const string PublicKey::getEncryptionScheme()
 	
 	string encscheme;
 	switch ( attributeScheme ) {
-	case TCPA_ES_NONE:
+	case TSS_ES_NONE:
 		encscheme = "None";
 		break;
-	case TCPA_ES_RSAESPKCSv15:
+	case TSS_ES_RSAESPKCSV15:
 		encscheme = "PKCS 15";
 		break;
-	case TCPA_ES_RSAESOAEP_SHA1_MGF1:
+	case TSS_ES_RSAESOAEP_SHA1_MGF1:
 		encscheme = "RSA OAEP SHA1 MGF1";
 		break;
+	/*
+	case TSS_ES_RSAESOIAP_SHA1_MGF1:
+		encscheme = "RSA OIAP SHA1 MGF1";
+		break;
+	case TSS_ES_RSAESOSAP_SHA1_MGF1:
+		encscheme = "RSA OSAP SHA1 MGF1";
+		break;
+	*/
 	default:
 		encscheme = "Unknown";
 	}
@@ -186,14 +229,14 @@ const string PublicKey::getSignatureScheme()
 	}
 	string sigscheme;
 	switch ( attributeScheme ) {
-	case TCPA_SS_NONE:
+	case TSS_SS_NONE:
 		sigscheme = "None";
 		break;
-	case TCPA_SS_RSASSAPKCS1v15_SHA1:
-		sigscheme = "RSA PKCS15 SHA1";
+	case TSS_SS_RSASSAPKCS1V15_SHA1:
+		sigscheme = "RSA PKCSv1.5 SHA1";
 		break;
-	case TCPA_SS_RSASSAPKCS1v15_DER:
-		sigscheme = "RSA PKCS15 DER";
+	case TSS_SS_RSASSAPKCS1V15_DER:
+		sigscheme = "RSA PKCSv1.5 DER";
 		break;
 	default:
 		sigscheme = "Unknown";
@@ -203,27 +246,48 @@ const string PublicKey::getSignatureScheme()
 
 const string PublicKey::getKeySize( string algorithm )
 {
+	if( algorithm == "RSA" )
+		return "Unknown Key Size";	
+	
 	TSS_RESULT result;
 	UINT32	  attributeSize;
+	string size;
 
-	if ( algorithm == "RSA") 
+	result = Tspi_GetAttribUint32( keyHandle, 
+										TSS_TSPATTRIB_KEY_INFO,
+										TSS_TSPATTRIB_KEYINFO_SIZE,
+										&attributeSize );
+	if ( result != TSS_SUCCESS )
 	{
-		result = Tspi_GetAttribUint32( keyHandle, 
-											TSS_TSPATTRIB_RSAKEY_INFO,
-											TSS_TSPATTRIB_KEYINFO_RSA_KEYSIZE,
-											&attributeSize );
-		if ( result != TSS_SUCCESS )
-		{
-			cerr << "Get Attribute Data. Error occured while trying to access to Endorsement Key Size info." << endl;
-			return "Error";
-		}
-		ostringstream ostr;
-		ostr << attributeSize;
-		return ostr.str();
+		cerr << "Get Attribute Data. Error occured while trying to access to Endorsement Key Size info." << endl;
+		return "Error";
 	}
-	else return "Unknown key Size";
+		
+	switch( attributeSize ) {
+		case TSS_KEY_SIZEVAL_512BIT:
+			size = "512 bit";
+			break;
+		case TSS_KEY_SIZEVAL_1024BIT:
+			size = "1024 bit";
+			break;
+		case TSS_KEY_SIZEVAL_2048BIT:
+			size = "2048 bit";
+			break;
+		case TSS_KEY_SIZEVAL_4096BIT:
+			size = "4096 bit";
+			break;
+		case TSS_KEY_SIZEVAL_8192BIT:
+			size = "8192 bit";
+			break;
+		case TSS_KEY_SIZEVAL_16384BIT:
+			size = "16384 bit";
+			break;
+		default:
+			size = "Unknown";
+	}
+	
+	return size;
 }
-
 ostream&  microtss::operator << ( ostream &ostr, const microtss::PublicKey &pk )
 {
 	TSS_RESULT result;

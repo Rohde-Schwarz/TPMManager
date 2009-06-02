@@ -21,35 +21,63 @@
  ***************************************************************************/
 
 /**
-* @mainpage TPM Manager
+* @file NewPasswordDialog.cpp
 *
-* The TPM Manager is an open source software for managing Trusted Platform Modules (TPM)
-* developed by Sirrix AG in cooperation with Ruhr University Bochum. It features an easy to use graphical
-* user interface and can be used on every platform shipped with a TPM that is supported
-* by the Linux Kernel.
-* <br>
-*
-* @author Anoosheh Zaerin <a href="mailto:a.zaerin@sirrix.com">&lt;a.zaerin@sirrix.com&gt;</a>
-* @author Ren&eacute; Korthaus <a href="mailto:r.korthaus@sirrix.com">&lt;r.korthaus@sirrix.com&gt;</a>
-*
-* You can find more documentation for download on the project page. See <a href="https://projects.sirrix.com/trac/tpmmanager">https://projects.sirrix.com/trac/tpmmanager</a>.
-*/
-
-/**
-* @file main.cpp
-*
-* @brief TPM Manager Main Application File
+* @brief New Password Dialog Class Implementation File
 *
 **/
 
-#include <QApplication>
-#include "tpmmanager.h"
-/// Main application loop
-int main(int argc, char ** argv)
+#include "NewPasswordDialog.h"
+
+NewPasswordDialog::NewPasswordDialog( QWidget * parent, Qt::WFlags f) 
+	: QDialog(parent, f)
 {
-	QApplication app( argc, argv );
-	TPM_Manager win;
-	win.show(); 
-	app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
-	return app.exec();
+	setupUi(this);
+	setDescription("Please enter new password.");
+	// set up password field
+	myNewPassword->clear();	
+	myNewPassword->setEchoMode(QLineEdit::Password);
+	myConfirmPassword->clear();	
+	myConfirmPassword->setEchoMode(QLineEdit::Password);
+	// initially disable OK button
+	okButton->setEnabled( false );
+	QMetaObject::connectSlotsByName( this );
+}
+//
+
+void NewPasswordDialog::setDescription(const QString & desc)
+{
+	myDescription->setText(desc);
+}
+
+void NewPasswordDialog::setPrompt(const QString & prompt)
+{
+	setWindowTitle(prompt);
+}
+
+QString NewPasswordDialog::password()
+{
+	return myNewPassword->text();
+}
+
+void NewPasswordDialog::on_myNewPassword_textEdited(const QString & text)
+{
+	if( text.length() > 0 && ( text.compare( myConfirmPassword->text() ) == 0 ) ) {
+		okButton->setEnabled( true );
+	} else {
+		okButton->setEnabled( false );
+	}
+}
+
+void NewPasswordDialog::on_myConfirmPassword_textEdited(const QString & text)
+{
+	if( text.length() > 0 && ( text.compare( myNewPassword->text() ) == 0 ) ) {
+		okButton->setEnabled( true );
+	} else {
+		okButton->setEnabled( false );
+	}
+}
+
+NewPasswordDialog::~NewPasswordDialog()
+{
 }

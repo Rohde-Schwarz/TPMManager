@@ -1,6 +1,8 @@
 /***************************************************************************
- *   Copyright (C) 2006 by Anoosheh Zaerin   *
- *   anoosheh.zaerin@rub.de   *
+ *   Copyright (C) 2006-2009 Sirrix AG                                     *
+ *   Authors:                                                              *
+ *	 Anoosheh Zaerin <a.zaerin@sirrix.com>                                 *
+ *   René Korthaus <r.korthaus@sirrix.com>                                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,23 +19,42 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "PublicKeyView.hh"
-#include <qlabel.h>
 
+/**
+* @file PublicKeyView.cpp
+*
+* @brief Public Key Dialog Class Implementation File
+*
+**/
+
+#include "PublicKeyView.h"
+#include <QLabel>
+#include <QString>
 #include <string>
 
 using namespace std;
 using namespace microtss;
 
-PublicKeyView::PublicKeyView( PublicKey &pk )
+PublicKeyView::PublicKeyView( QWidget * parent, Qt::WFlags f) 
+	: QDialog(parent, f)
 {
-	myVersion->setText( pk.getVersion() );
-	myType->setText( pk.getType() );
+	setupUi(this);
+}
+
+void PublicKeyView::setPublicKey( PublicKey &pk )
+{
+	myVersion->setText( QString::fromStdString( pk.getVersion() ) );
+	myType->setText( QString::fromStdString( pk.getType() ) );
 
 	string algo = pk.getAlgorithm();
 
-	myAlgorithm->setText( algo );
-	myKeySize->setText( pk.getKeySize( algo ) );
-	myEncScheme->setText( pk.getEncryptionScheme() );
-	mySigScheme->setText( pk.getSignatureScheme() );
+	myAlgorithm->setText( QString::fromStdString( algo ) );
+	myKeySize->setText( QString::fromStdString( pk.getKeySize( algo ) ) );
+	myEncScheme->setText( QString::fromStdString( pk.getEncryptionScheme() ) );
+	mySigScheme->setText( QString::fromStdString( pk.getSignatureScheme() ) );
 }
+PublicKeyView::~PublicKeyView()
+{
+}
+//
+

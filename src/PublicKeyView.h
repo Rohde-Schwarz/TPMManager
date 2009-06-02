@@ -20,36 +20,61 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-/**
-* @mainpage TPM Manager
-*
-* The TPM Manager is an open source software for managing Trusted Platform Modules (TPM)
-* developed by Sirrix AG in cooperation with Ruhr University Bochum. It features an easy to use graphical
-* user interface and can be used on every platform shipped with a TPM that is supported
-* by the Linux Kernel.
-* <br>
-*
-* @author Anoosheh Zaerin <a href="mailto:a.zaerin@sirrix.com">&lt;a.zaerin@sirrix.com&gt;</a>
-* @author Ren&eacute; Korthaus <a href="mailto:r.korthaus@sirrix.com">&lt;r.korthaus@sirrix.com&gt;</a>
-*
-* You can find more documentation for download on the project page. See <a href="https://projects.sirrix.com/trac/tpmmanager">https://projects.sirrix.com/trac/tpmmanager</a>.
-*/
+#ifndef PUBLICKEYVIEW_H
+#define PUBLICKEYVIEW_H
+//
+#include <QDialog>
+#include "ui_publickeyview.h"
+#include <microtss/PublicKey.h>
 
 /**
-* @file main.cpp
+* @file PublicKeyView.h
 *
-* @brief TPM Manager Main Application File
+* @brief Public Key Dialog Class Header File
 *
 **/
 
-#include <QApplication>
-#include "tpmmanager.h"
-/// Main application loop
-int main(int argc, char ** argv)
+/**
+* @class PublicKeyView
+*
+* @brief Implements a user dialog to view details of a public key (e.g. Endorsement Key)
+*
+* This class implements a user dialog to view details of a public key. The base class is automatically generated as "ui_publickeyview".
+*
+*/
+
+class PublicKeyView : public QDialog, public Ui::PublicKeyView
 {
-	QApplication app( argc, argv );
-	TPM_Manager win;
-	win.show(); 
-	app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
-	return app.exec();
-}
+Q_OBJECT
+public:
+	/**
+	* @brief Default constructor
+	*
+	* @param parent parent QWidget object
+	* @param f window flags
+	*
+	* @return New PublicKeyView instance
+	*
+	*/
+	PublicKeyView( QWidget * parent = 0, Qt::WFlags f = 0);
+	
+	/**
+	* @brief Default destructor
+	*
+	*/
+	~PublicKeyView();	
+	
+	/**
+	* @brief Sets up the public key view dialog
+	*
+	* @param pk the public key object to view details of
+	*/
+	void setPublicKey( microtss::PublicKey &pk );
+private slots:
+};
+#endif
+
+
+
+
+

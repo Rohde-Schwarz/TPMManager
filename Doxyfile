@@ -3,8 +3,8 @@
 #---------------------------------------------------------------------------
 # Project related configuration options
 #---------------------------------------------------------------------------
-PROJECT_NAME           = tpmmanager
-PROJECT_NUMBER         = 0.4
+PROJECT_NAME           = TPM Manager
+PROJECT_NUMBER         = 0.6
 OUTPUT_DIRECTORY       = 
 CREATE_SUBDIRS         = NO
 OUTPUT_LANGUAGE        = English
@@ -25,7 +25,7 @@ ABBREVIATE_BRIEF       = "The $name class" \
 ALWAYS_DETAILED_SEC    = NO
 INLINE_INHERITED_MEMB  = NO
 FULL_PATH_NAMES        = YES
-STRIP_FROM_PATH        = /home/stueble/
+STRIP_FROM_PATH        = /home/cordney/
 STRIP_FROM_INC_PATH    = 
 SHORT_NAMES            = NO
 JAVADOC_AUTOBRIEF      = NO
@@ -82,7 +82,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = /home/stueble/Projekte/tpmmanager-0.4
+INPUT                  = /home/cordney/Desktop/Work/TPMManager/tpmmanager/changes/tpmmanager-qt4
 FILE_PATTERNS          = *.c \
                          *.cc \
                          *.cxx \

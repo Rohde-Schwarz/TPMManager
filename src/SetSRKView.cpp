@@ -21,35 +21,38 @@
  ***************************************************************************/
 
 /**
-* @mainpage TPM Manager
+* @file SetSRKView.cpp
 *
-* The TPM Manager is an open source software for managing Trusted Platform Modules (TPM)
-* developed by Sirrix AG in cooperation with Ruhr University Bochum. It features an easy to use graphical
-* user interface and can be used on every platform shipped with a TPM that is supported
-* by the Linux Kernel.
-* <br>
-*
-* @author Anoosheh Zaerin <a href="mailto:a.zaerin@sirrix.com">&lt;a.zaerin@sirrix.com&gt;</a>
-* @author Ren&eacute; Korthaus <a href="mailto:r.korthaus@sirrix.com">&lt;r.korthaus@sirrix.com&gt;</a>
-*
-* You can find more documentation for download on the project page. See <a href="https://projects.sirrix.com/trac/tpmmanager">https://projects.sirrix.com/trac/tpmmanager</a>.
-*/
-
-/**
-* @file main.cpp
-*
-* @brief TPM Manager Main Application File
+* @brief SRK Password Choose Dialog Class Implementation File
 *
 **/
 
-#include <QApplication>
-#include "tpmmanager.h"
-/// Main application loop
-int main(int argc, char ** argv)
+#include "SetSRKView.h"
+#include <iostream>
+#include <QString>
+#include <QMessageBox>
+
+using namespace std;
+
+SetSRKView::SetSRKView( QWidget * parent, Qt::WFlags f) 
+	: QDialog(parent, f),
+	myManuallySRKRadioButton(false),
+	myDefaultSRKRadioButton(false)
 {
-	QApplication app( argc, argv );
-	TPM_Manager win;
-	win.show(); 
-	app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
-	return app.exec();
+	setupUi(this);
 }
+
+void SetSRKView::slotSetSrk()
+{
+	if ( radioButtonSrkManually->isChecked() )
+		myManuallySRKRadioButton = true;
+	if ( radioButtonSrkDefault->isChecked() )
+		myDefaultSRKRadioButton = true;
+	if ( !myDefaultSRKRadioButton && !myManuallySRKRadioButton )
+		 QMessageBox::critical( this, "Error: No radio button chosen " ," Choose an option to set SRK. " );
+}
+
+SetSRKView::~SetSRKView()
+{
+}
+

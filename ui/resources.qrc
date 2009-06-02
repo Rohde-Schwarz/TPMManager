@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="images" >
+    <file>images/hi32-app-tpmmanager.png</file>
+    <file>images/hi16-app-tpmmanager.png</file>
+    <file>images/ok.png</file>
+    <file>images/messagebox_warning.png</file>
+    <file>images/messagebox_info.png</file>
+    <file>images/nok.png</file>
+    <file>images/unk.png</file>
+  </qresource>
+</RCC>
