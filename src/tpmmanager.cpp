@@ -58,7 +58,7 @@
 
 #include "tpmmanager.h"
 
-#define VERSION "0.6"
+#define VERSION "0.7"
 //
 using namespace std;
 using namespace microtss;
