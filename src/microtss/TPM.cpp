@@ -362,13 +362,14 @@ void TPM::checkEndorsementKey()
 
 	TSS_RESULT result = Tspi_TPM_GetPubEndorsementKey( myTpmHandle, FALSE, NULL, &myEndorsementPublicKeyHandle );
 	// If Endorsement key could be read, then set myHasEndorsement key  true.
-	if ( result == TSS_SUCCESS )
+	if ( result == TSS_SUCCESS ) {
 		myHasEndorsementKey = true;
-	else if ( result == TCPA_E_DISABLED_CMD )
-		{
+		myEKRestricted = false;
+		
+	} else if ( result == TCPA_E_DISABLED_CMD ) {
 			myHasEndorsementKey = true;
 			myEKRestricted = true;
-		}
+	}
 }
 
 void TPM::userCreatedEndorsement()
@@ -419,7 +420,12 @@ void TPM::takeOwnership( const std::string &ownerPwd, const std::string &srkPwd,
 	tssResultHandler( Tspi_TPM_TakeOwnership( myTpmHandle, srkHandle, 0 ), 
 							"Taking ownership failed!" );
 
+	/* update TPM status */
 	readState();
+	/* update EK (restricted) status */
+	/* note: when performing takeOwnership, some TPMs restrict the EK to the TPM Owner automatically */
+	/* thus, we have to check the status again */
+	checkEndorsementKey();
 }
 
 void TPM::changeOwnerPassword( const string &oldOwnerPwd, const string &newOwnerPwd )
@@ -458,7 +464,12 @@ void TPM::clearOwnership( const string &password )
 	
 	tssResultHandler( Tspi_TPM_ClearOwner( myTpmHandle, false ), "Clear ownership failed!" );
 	
+	/* update TPM status */
 	readState();
+	/* update EK (restricted) status */
+	/* note: when performing TPM_Clear, some TPMs may free the EK from TPM Owner automatically */
+	/* thus, we have to check the status again */
+	checkEndorsementKey();
 }
 
 void TPM::setSecret( const string &password )

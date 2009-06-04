@@ -245,10 +245,7 @@ const string PublicKey::getSignatureScheme()
 }
 
 const string PublicKey::getKeySize( string algorithm )
-{
-	if( algorithm == "RSA" )
-		return "Unknown Key Size";	
-	
+{	
 	TSS_RESULT result;
 	UINT32	  attributeSize;
 	string size;

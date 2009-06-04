@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>TPM_ManagerBase</class>
- <widget class="QDialog" name="TPM_ManagerBase" >
-  <property name="geometry" >
+ <widget class="QDialog" name="TPM_ManagerBase">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,149 +10,149 @@
     <height>555</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>TPM Manager</string>
   </property>
-  <property name="windowIcon" >
-   <iconset resource="resources.qrc" >
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
     <normaloff>:/images/images/hi32-app-tpmmanager.png</normaloff>:/images/images/hi32-app-tpmmanager.png</iconset>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_11" >
+  <layout class="QVBoxLayout" name="verticalLayout_11">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2" >
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_10" >
+      <layout class="QVBoxLayout" name="verticalLayout_10">
        <item>
-        <widget class="QListWidget" name="listBox" >
-         <property name="enabled" >
+        <widget class="QListWidget" name="listBox">
+         <property name="enabled">
           <bool>true</bool>
          </property>
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Expanding" hsizetype="Preferred" >
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="alternatingRowColors" >
+         <property name="alternatingRowColors">
           <bool>false</bool>
          </property>
-         <property name="resizeMode" >
+         <property name="resizeMode">
           <enum>QListView::Adjust</enum>
          </property>
-         <property name="currentRow" >
+         <property name="currentRow">
           <number>0</number>
          </property>
          <item>
-          <property name="text" >
+          <property name="text">
            <string>Info</string>
           </property>
          </item>
          <item>
-          <property name="text" >
+          <property name="text">
            <string>Owner Settings</string>
           </property>
          </item>
          <item>
-          <property name="text" >
+          <property name="text">
            <string>TPM Settings</string>
           </property>
          </item>
          <item>
-          <property name="text" >
+          <property name="text">
            <string>Advanced</string>
           </property>
          </item>
          <item>
-          <property name="text" >
+          <property name="text">
            <string>About</string>
           </property>
          </item>
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="statusView" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+        <widget class="QGroupBox" name="statusView">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="title" >
+         <property name="title">
           <string>TPM Status</string>
          </property>
-         <property name="flat" >
+         <property name="flat">
           <bool>false</bool>
          </property>
-         <property name="checkable" >
+         <property name="checkable">
           <bool>false</bool>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3" >
+         <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout" >
+           <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout" >
+             <layout class="QVBoxLayout" name="verticalLayout">
               <item>
-               <widget class="QLabel" name="myEnabledLabel" >
-                <property name="sizePolicy" >
-                 <sizepolicy vsizetype="Preferred" hsizetype="Fixed" >
+               <widget class="QLabel" name="myEnabledLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="text" >
+                <property name="text">
                  <string/>
                 </property>
-                <property name="pixmap" >
-                 <pixmap resource="resources.qrc" >:/images/images/ok.png</pixmap>
+                <property name="pixmap">
+                 <pixmap resource="resources.qrc">:/images/images/ok.png</pixmap>
                 </property>
-                <property name="scaledContents" >
+                <property name="scaledContents">
                  <bool>false</bool>
                 </property>
-                <property name="alignment" >
+                <property name="alignment">
                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="myActivatedLabel" >
-                <property name="sizePolicy" >
-                 <sizepolicy vsizetype="Preferred" hsizetype="Fixed" >
+               <widget class="QLabel" name="myActivatedLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="text" >
+                <property name="text">
                  <string/>
                 </property>
-                <property name="pixmap" >
-                 <pixmap resource="resources.qrc" >:/images/images/nok.png</pixmap>
+                <property name="pixmap">
+                 <pixmap resource="resources.qrc">:/images/images/nok.png</pixmap>
                 </property>
-                <property name="scaledContents" >
+                <property name="scaledContents">
                  <bool>false</bool>
                 </property>
-                <property name="alignment" >
+                <property name="alignment">
                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="myOwnerLabel" >
-                <property name="sizePolicy" >
-                 <sizepolicy vsizetype="Preferred" hsizetype="Fixed" >
+               <widget class="QLabel" name="myOwnerLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="text" >
+                <property name="text">
                  <string/>
                 </property>
-                <property name="pixmap" >
-                 <pixmap resource="resources.qrc" >:/images/images/unk.png</pixmap>
+                <property name="pixmap">
+                 <pixmap resource="resources.qrc">:/images/images/unk.png</pixmap>
                 </property>
-                <property name="scaledContents" >
+                <property name="scaledContents">
                  <bool>false</bool>
                 </property>
-                <property name="alignment" >
+                <property name="alignment">
                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
                </widget>
@@ -159,39 +160,39 @@
              </layout>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_2" >
+             <layout class="QVBoxLayout" name="verticalLayout_2">
               <item>
-               <widget class="QLabel" name="myEnabledLabel_2" >
-                <property name="sizePolicy" >
-                 <sizepolicy vsizetype="Preferred" hsizetype="MinimumExpanding" >
+               <widget class="QLabel" name="myEnabledLabel_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="text" >
+                <property name="text">
                  <string>  enabled</string>
                 </property>
-                <property name="alignment" >
+                <property name="alignment">
                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="myActivatedLabel_2" >
-                <property name="text" >
+               <widget class="QLabel" name="myActivatedLabel_2">
+                <property name="text">
                  <string>  activated</string>
                 </property>
-                <property name="alignment" >
+                <property name="alignment">
                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="myOwnerLabel_2" >
-                <property name="text" >
+               <widget class="QLabel" name="myOwnerLabel_2">
+                <property name="text">
                  <string>  owner set</string>
                 </property>
-                <property name="alignment" >
+                <property name="alignment">
                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
                </widget>
@@ -206,61 +207,61 @@
       </layout>
      </item>
      <item>
-      <widget class="QStackedWidget" name="stackedView" >
-       <property name="enabled" >
+      <widget class="QStackedWidget" name="stackedView">
+       <property name="enabled">
         <bool>true</bool>
        </property>
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>1</horstretch>
          <verstretch>1</verstretch>
         </sizepolicy>
        </property>
-       <property name="currentIndex" >
+       <property name="currentIndex">
         <number>0</number>
        </property>
-       <widget class="QWidget" name="page_9" >
-        <layout class="QVBoxLayout" name="verticalLayout_9" >
+       <widget class="QWidget" name="page_9">
+        <layout class="QVBoxLayout" name="verticalLayout_9">
          <item>
-          <widget class="QTabWidget" name="tabInfo" >
-           <property name="enabled" >
+          <widget class="QTabWidget" name="tabInfo">
+           <property name="enabled">
             <bool>true</bool>
            </property>
-           <property name="sizePolicy" >
-            <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>1</horstretch>
              <verstretch>1</verstretch>
             </sizepolicy>
            </property>
-           <property name="minimumSize" >
+           <property name="minimumSize">
             <size>
              <width>603</width>
              <height>0</height>
             </size>
            </property>
-           <property name="acceptDrops" >
+           <property name="acceptDrops">
             <bool>false</bool>
            </property>
-           <property name="whatsThis" >
-            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
-           <property name="currentIndex" >
+           <property name="currentIndex">
             <number>0</number>
            </property>
-           <widget class="QWidget" name="tab1_24" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab1_24">
+            <attribute name="title">
              <string>S&amp;tatus</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout" >
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_17" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout">
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_17">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>564</width>
                  <height>13</height>
@@ -268,12 +269,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" >
-              <spacer name="horizontalSpacer_16" >
-               <property name="orientation" >
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_16">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>13</width>
                  <height>25</height>
@@ -281,48 +282,48 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_20" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_20">
                <item>
-                <widget class="QLabel" name="label_172" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_172">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">TPM/TSS Status&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;TPM/TSS Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_11" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_11">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <layout class="QVBoxLayout" name="_18" >
-                 <property name="spacing" >
+                <layout class="QVBoxLayout" name="_18">
+                 <property name="spacing">
                   <number>10</number>
                  </property>
-                 <property name="sizeConstraint" >
+                 <property name="sizeConstraint">
                   <enum>QLayout::SetDefaultConstraint</enum>
                  </property>
                  <item>
-                  <layout class="QHBoxLayout" name="_19" >
+                  <layout class="QHBoxLayout" name="_19">
                    <item>
-                    <widget class="QLabel" name="label_246" >
-                     <property name="text" >
+                    <widget class="QLabel" name="label_246">
+                     <property name="text">
                       <string>TPM enabled</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="tpmEnabled" >
-                     <property name="text" >
+                    <widget class="QLabel" name="tpmEnabled">
+                     <property name="text">
                       <string>--</string>
                      </property>
                     </widget>
@@ -330,20 +331,20 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="_20" >
+                  <layout class="QHBoxLayout" name="_20">
                    <item>
-                    <widget class="QLabel" name="label_247" >
-                     <property name="text" >
+                    <widget class="QLabel" name="label_247">
+                     <property name="text">
                       <string>TPM activated</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="tpmActivated" >
-                     <property name="text" >
+                    <widget class="QLabel" name="tpmActivated">
+                     <property name="text">
                       <string>--</string>
                      </property>
                     </widget>
@@ -351,20 +352,20 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="_21" >
+                  <layout class="QHBoxLayout" name="_21">
                    <item>
-                    <widget class="QLabel" name="label_248" >
-                     <property name="text" >
+                    <widget class="QLabel" name="label_248">
+                     <property name="text">
                       <string>TPM Owner set</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="ownerSet" >
-                     <property name="text" >
+                    <widget class="QLabel" name="ownerSet">
+                     <property name="text">
                       <string>--</string>
                      </property>
                     </widget>
@@ -372,20 +373,20 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="_22" >
+                  <layout class="QHBoxLayout" name="_22">
                    <item>
-                    <widget class="QLabel" name="label_251" >
-                     <property name="text" >
+                    <widget class="QLabel" name="label_251">
+                     <property name="text">
                       <string>Endorsement Key available</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="myEndorsementAvailable" >
-                     <property name="text" >
+                    <widget class="QLabel" name="myEndorsementAvailable">
+                     <property name="text">
                       <string>--</string>
                      </property>
                     </widget>
@@ -393,20 +394,20 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="_23" >
+                  <layout class="QHBoxLayout" name="_23">
                    <item>
-                    <widget class="QLabel" name="label_252" >
-                     <property name="text" >
+                    <widget class="QLabel" name="label_252">
+                     <property name="text">
                       <string>TPM driver found</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="driverFound" >
-                     <property name="text" >
+                    <widget class="QLabel" name="driverFound">
+                     <property name="text">
                       <string>--</string>
                      </property>
                     </widget>
@@ -414,20 +415,20 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="_24" >
+                  <layout class="QHBoxLayout" name="_24">
                    <item>
-                    <widget class="QLabel" name="label_258" >
-                     <property name="text" >
+                    <widget class="QLabel" name="label_258">
+                     <property name="text">
                       <string>TSS system found</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="tssFound" >
-                     <property name="text" >
+                    <widget class="QLabel" name="tssFound">
+                     <property name="text">
                       <string>--</string>
                      </property>
                     </widget>
@@ -437,11 +438,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_25" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_25">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>17</width>
                    <height>178</height>
@@ -453,17 +454,17 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="tab2_20" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab2_20">
+            <attribute name="title">
              <string>Deta&amp;ils</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_2" >
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_13" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout_2">
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_13">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>559</width>
                  <height>13</height>
@@ -471,12 +472,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" >
-              <spacer name="horizontalSpacer_17" >
-               <property name="orientation" >
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_17">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>18</width>
                  <height>25</height>
@@ -484,33 +485,33 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_21" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_21">
                <item>
-                <widget class="QLabel" name="label_269" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_269">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">TPM Details&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;TPM Details&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_12" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_12">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_22" >
+                <layout class="QHBoxLayout" name="horizontalLayout_22">
                  <item>
-                  <spacer name="horizontalSpacer_39" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_39">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>118</width>
                      <height>20</height>
@@ -519,57 +520,57 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <layout class="QGridLayout" name="_25" >
-                   <item row="0" column="0" >
-                    <widget class="QLabel" name="label_270" >
-                     <property name="text" >
+                  <layout class="QGridLayout" name="_25">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_270">
+                     <property name="text">
                       <string>Vendor:</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="1" >
-                    <widget class="QLineEdit" name="tpmVendor" >
-                     <property name="enabled" >
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="tpmVendor">
+                     <property name="enabled">
                       <bool>true</bool>
                      </property>
-                     <property name="readOnly" >
+                     <property name="readOnly">
                       <bool>true</bool>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="0" >
-                    <widget class="QLabel" name="label_276" >
-                     <property name="text" >
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_276">
+                     <property name="text">
                       <string>Version:</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="1" >
-                    <widget class="QLineEdit" name="tpmVersion" >
-                     <property name="readOnly" >
+                   <item row="1" column="1">
+                    <widget class="QLineEdit" name="tpmVersion">
+                     <property name="readOnly">
                       <bool>true</bool>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="0" >
-                    <widget class="QLabel" name="label_284" >
-                     <property name="text" >
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_284">
+                     <property name="text">
                       <string>Firmware:</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="1" >
-                    <widget class="QLineEdit" name="tpmFirmware" >
-                     <property name="readOnly" >
+                   <item row="2" column="1">
+                    <widget class="QLineEdit" name="tpmFirmware">
+                     <property name="readOnly">
                       <bool>true</bool>
                      </property>
                     </widget>
@@ -577,11 +578,11 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_40" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_40">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>178</width>
                      <height>20</height>
@@ -592,11 +593,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_26" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_26">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>28</height>
@@ -605,30 +606,30 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <widget class="QLabel" name="label_285" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_285">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">TSS Details&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;TSS Details&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_13" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_13">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_23" >
+                <layout class="QHBoxLayout" name="horizontalLayout_23">
                  <item>
-                  <spacer name="horizontalSpacer_41" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_41">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>98</width>
                      <height>20</height>
@@ -637,37 +638,37 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <layout class="QGridLayout" name="_26" >
-                   <item row="0" column="0" >
-                    <widget class="QLabel" name="label_286" >
-                     <property name="text" >
+                  <layout class="QGridLayout" name="_26">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_286">
+                     <property name="text">
                       <string>TSS Vendor:</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="1" >
-                    <widget class="QLineEdit" name="tssVendor" >
-                     <property name="readOnly" >
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="tssVendor">
+                     <property name="readOnly">
                       <bool>true</bool>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="0" >
-                    <widget class="QLabel" name="label_287" >
-                     <property name="text" >
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_287">
+                     <property name="text">
                       <string>TSS Version:</string>
                      </property>
-                     <property name="alignment" >
+                     <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="1" >
-                    <widget class="QLineEdit" name="tssVersion" >
-                     <property name="readOnly" >
+                   <item row="1" column="1">
+                    <widget class="QLineEdit" name="tssVersion">
+                     <property name="readOnly">
                       <bool>true</bool>
                      </property>
                     </widget>
@@ -675,11 +676,11 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_42" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_42">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>178</width>
                      <height>20</height>
@@ -690,11 +691,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_27" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_27">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>118</height>
@@ -706,20 +707,20 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="tab3_16" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab3_16">
+            <attribute name="title">
              <string>&amp;Capabilities</string>
             </attribute>
-            <layout class="QVBoxLayout" name="verticalLayout_17" >
+            <layout class="QVBoxLayout" name="verticalLayout_17">
              <item>
-              <widget class="QTableWidget" name="myCapabilities" >
-               <property name="sizePolicy" >
-                <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+              <widget class="QTableWidget" name="myCapabilities">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>1</horstretch>
                  <verstretch>1</verstretch>
                 </sizepolicy>
                </property>
-               <property name="minimumSize" >
+               <property name="minimumSize">
                 <size>
                  <width>581</width>
                  <height>0</height>
@@ -727,12 +728,12 @@ p, li { white-space: pre-wrap; }
                </property>
                <row/>
                <column>
-                <property name="text" >
+                <property name="text">
                  <string>Description</string>
                 </property>
                </column>
                <column>
-                <property name="text" >
+                <property name="text">
                  <string>Value</string>
                 </property>
                </column>
@@ -740,23 +741,23 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="tab4_16" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab4_16">
+            <attribute name="title">
              <string>PC&amp;Rs</string>
             </attribute>
-            <layout class="QVBoxLayout" name="verticalLayout_18" >
+            <layout class="QVBoxLayout" name="verticalLayout_18">
              <item>
-              <widget class="QListWidget" name="myPCRs" >
-               <property name="font" >
+              <widget class="QListWidget" name="myPCRs">
+               <property name="font">
                 <font>
                  <family>Monospace</family>
                 </font>
                </property>
-               <property name="whatsThis" >
-                <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+               <property name="whatsThis">
+                <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
@@ -766,39 +767,39 @@ p, li { white-space: pre-wrap; }
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="page_10" >
-        <layout class="QVBoxLayout" name="verticalLayout_5" >
+       <widget class="QWidget" name="page_10">
+        <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
-          <widget class="QTabWidget" name="tabOwner" >
-           <property name="sizePolicy" >
-            <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+          <widget class="QTabWidget" name="tabOwner">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>1</horstretch>
              <verstretch>1</verstretch>
             </sizepolicy>
            </property>
-           <property name="acceptDrops" >
+           <property name="acceptDrops">
             <bool>false</bool>
            </property>
-           <property name="whatsThis" >
-            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
-           <property name="currentIndex" >
+           <property name="currentIndex">
             <number>0</number>
            </property>
-           <widget class="QWidget" name="tab1_25" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab1_25">
+            <attribute name="title">
              <string>Ow&amp;nership</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_3" >
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_20" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout_3">
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_20">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>559</width>
                  <height>18</height>
@@ -806,12 +807,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" >
-              <spacer name="horizontalSpacer_19" >
-               <property name="orientation" >
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_19">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>18</width>
                  <height>25</height>
@@ -819,38 +820,38 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_22" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_22">
                <item>
-                <widget class="QLabel" name="label_288" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_288">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">Owner Management&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;Owner Management&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_2" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_2">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_289" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_289">
+                 <property name="text">
                   <string>A TPM Owner is required to manage the TPM. Allowed operations depend on the TPM status.</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="verticalSpacer" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>128</height>
@@ -859,20 +860,20 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_24" >
+                <layout class="QHBoxLayout" name="horizontalLayout_24">
                  <item>
-                  <widget class="QLabel" name="myTakeOwnerText" >
-                   <property name="text" >
+                  <widget class="QLabel" name="myTakeOwnerText">
+                   <property name="text">
                     <string>Take Ownership</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>40</width>
                      <height>20</height>
@@ -881,14 +882,14 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="myTakeOwnership" >
-                   <property name="minimumSize" >
+                  <widget class="QPushButton" name="myTakeOwnership">
+                   <property name="minimumSize">
                     <size>
                      <width>80</width>
                      <height>0</height>
                     </size>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>&amp;Take</string>
                    </property>
                   </widget>
@@ -896,20 +897,20 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_25" >
+                <layout class="QHBoxLayout" name="horizontalLayout_25">
                  <item>
-                  <widget class="QLabel" name="myChangePassText" >
-                   <property name="text" >
+                  <widget class="QLabel" name="myChangePassText">
+                   <property name="text">
                     <string>Change Owner Password</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_2" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_2">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>40</width>
                      <height>20</height>
@@ -918,14 +919,14 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="myChangePassword" >
-                   <property name="minimumSize" >
+                  <widget class="QPushButton" name="myChangePassword">
+                   <property name="minimumSize">
                     <size>
                      <width>80</width>
                      <height>0</height>
                     </size>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>Chan&amp;ge</string>
                    </property>
                   </widget>
@@ -933,20 +934,20 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_26" >
+                <layout class="QHBoxLayout" name="horizontalLayout_26">
                  <item>
-                  <widget class="QLabel" name="myClearOwnerText" >
-                   <property name="text" >
+                  <widget class="QLabel" name="myClearOwnerText">
+                   <property name="text">
                     <string>Clear Ownership and return to factory defaults</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_3" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_3">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>40</width>
                      <height>20</height>
@@ -955,14 +956,14 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="myClearOwnership" >
-                   <property name="minimumSize" >
+                  <widget class="QPushButton" name="myClearOwnership">
+                   <property name="minimumSize">
                     <size>
                      <width>80</width>
                      <height>0</height>
                     </size>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>&amp;Clear</string>
                    </property>
                   </widget>
@@ -970,11 +971,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_2" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_2">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>98</height>
@@ -986,17 +987,17 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="tab2_21" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab2_21">
+            <attribute name="title">
              <string>Bac&amp;kup</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_4" >
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_28" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout_4">
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_28">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>559</width>
                  <height>18</height>
@@ -1004,12 +1005,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" >
-              <spacer name="horizontalSpacer_37" >
-               <property name="orientation" >
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_37">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>18</width>
                  <height>25</height>
@@ -1017,41 +1018,41 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_4" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_4">
                <item>
-                <widget class="QLabel" name="label_290" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_290">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">Maintenance&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;Maintenance&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line" >
-                 <property name="orientation" >
+                <widget class="Line" name="line">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_291" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_291">
+                 <property name="text">
                   <string>Creating a maintenance archive enables migration of all data held in the protected storage of the TPM. In case of a TPM failure, the archive can be loaded into another TPM with support of the TPM manufacturer.</string>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="verticalSpacer_3" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_3">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>563</width>
                    <height>77</height>
@@ -1060,22 +1061,22 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QVBoxLayout" name="verticalLayout_24" >
+                <layout class="QVBoxLayout" name="verticalLayout_24">
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_27" >
+                  <layout class="QHBoxLayout" name="horizontalLayout_27">
                    <item>
-                    <widget class="QLabel" name="myCreateMaintenanceText" >
-                     <property name="text" >
+                    <widget class="QLabel" name="myCreateMaintenanceText">
+                     <property name="text">
                       <string>Create Maintenance Archive</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_4" >
-                     <property name="orientation" >
+                    <spacer name="horizontalSpacer_4">
+                     <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
-                     <property name="sizeHint" stdset="0" >
+                     <property name="sizeHint" stdset="0">
                       <size>
                        <width>108</width>
                        <height>20</height>
@@ -1084,14 +1085,14 @@ p, li { white-space: pre-wrap; }
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="myCreateMaintenance" >
-                     <property name="minimumSize" >
+                    <widget class="QPushButton" name="myCreateMaintenance">
+                     <property name="minimumSize">
                       <size>
                        <width>70</width>
                        <height>0</height>
                       </size>
                      </property>
-                     <property name="text" >
+                     <property name="text">
                       <string>&amp;Create</string>
                      </property>
                     </widget>
@@ -1099,20 +1100,20 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_28" >
+                  <layout class="QHBoxLayout" name="horizontalLayout_28">
                    <item>
-                    <widget class="QLabel" name="myLoadMaintenanceText" >
-                     <property name="text" >
+                    <widget class="QLabel" name="myLoadMaintenanceText">
+                     <property name="text">
                       <string>Load Maintenance Archive</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_5" >
-                     <property name="orientation" >
+                    <spacer name="horizontalSpacer_5">
+                     <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
-                     <property name="sizeHint" stdset="0" >
+                     <property name="sizeHint" stdset="0">
                       <size>
                        <width>108</width>
                        <height>20</height>
@@ -1121,14 +1122,14 @@ p, li { white-space: pre-wrap; }
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="myLoadMaintenance" >
-                     <property name="minimumSize" >
+                    <widget class="QPushButton" name="myLoadMaintenance">
+                     <property name="minimumSize">
                       <size>
                        <width>70</width>
                        <height>0</height>
                       </size>
                      </property>
-                     <property name="text" >
+                     <property name="text">
                       <string>Lo&amp;ad</string>
                      </property>
                     </widget>
@@ -1138,11 +1139,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_4" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_4">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>563</width>
                    <height>108</height>
@@ -1151,38 +1152,38 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_3" >
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
                  <item>
-                  <widget class="QLabel" name="myMaintenanceInfoIcon" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="myMaintenanceInfoIcon">
+                   <property name="enabled">
                     <bool>true</bool>
                    </property>
-                   <property name="sizePolicy" >
-                    <sizepolicy vsizetype="Preferred" hsizetype="Fixed" >
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string/>
                    </property>
-                   <property name="pixmap" >
-                    <pixmap resource="resources.qrc" >:/images/images/messagebox_info.png</pixmap>
+                   <property name="pixmap">
+                    <pixmap resource="resources.qrc">:/images/images/messagebox_info.png</pixmap>
                    </property>
-                   <property name="scaledContents" >
+                   <property name="scaledContents">
                     <bool>false</bool>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="myMaintenanceInfoText" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="myMaintenanceInfoText">
+                   <property name="enabled">
                     <bool>true</bool>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>Maintenance feature is not supported by this TPM.</string>
                    </property>
-                   <property name="alignment" >
+                   <property name="alignment">
                     <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
@@ -1190,11 +1191,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_11" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_11">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>28</height>
@@ -1210,39 +1211,39 @@ p, li { white-space: pre-wrap; }
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="Seite_13" >
-        <layout class="QVBoxLayout" name="verticalLayout_6" >
+       <widget class="QWidget" name="Seite_13">
+        <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
-          <widget class="QTabWidget" name="tabSetting" >
-           <property name="sizePolicy" >
-            <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+          <widget class="QTabWidget" name="tabSetting">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>1</horstretch>
              <verstretch>1</verstretch>
             </sizepolicy>
            </property>
-           <property name="acceptDrops" >
+           <property name="acceptDrops">
             <bool>false</bool>
            </property>
-           <property name="whatsThis" >
-            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
-           <property name="currentIndex" >
+           <property name="currentIndex">
             <number>0</number>
            </property>
-           <widget class="QWidget" name="tab1_26" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab1_26">
+            <attribute name="title">
              <string>Operatio&amp;nal Modes</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_5" >
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_29" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout_5">
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_29">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>559</width>
                  <height>18</height>
@@ -1250,12 +1251,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" >
-              <spacer name="horizontalSpacer_38" >
-               <property name="orientation" >
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_38">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>18</width>
                  <height>25</height>
@@ -1263,50 +1264,50 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_25" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_25">
                <item>
-                <widget class="QLabel" name="label_292" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_292">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">Temporary Deactivation&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;Temporary Deactivation&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_14" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_14">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_293" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_293">
+                 <property name="text">
                   <string>A temporarily deactivated TPM is unable to execute commands that use resources until the next reboot. No authorization is required.</string>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_30" >
+                <layout class="QHBoxLayout" name="horizontalLayout_30">
                  <item>
-                  <widget class="QLabel" name="myDeactivateLabel" >
-                   <property name="text" >
+                  <widget class="QLabel" name="myDeactivateLabel">
+                   <property name="text">
                     <string>Temporarily deactivate the TPM</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_6" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_6">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>218</width>
                      <height>20</height>
@@ -1315,8 +1316,8 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="myDeactivate" >
-                   <property name="text" >
+                  <widget class="QPushButton" name="myDeactivate">
+                   <property name="text">
                     <string>Deacti&amp;vate</string>
                    </property>
                   </widget>
@@ -1324,11 +1325,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_5" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_5">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>48</height>
@@ -1337,47 +1338,47 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <widget class="QLabel" name="label_295" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_295">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">Permanently Enable/Disable&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;Permanently Enable/Disable&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_15" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_15">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_296" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_296">
+                 <property name="text">
                   <string>A disabled TPM is not able to execute commands that use TPM resources until it is enabled again. Requires Owner authorization.</string>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_31" >
+                <layout class="QHBoxLayout" name="horizontalLayout_31">
                  <item>
-                  <widget class="QLabel" name="myDisableLabel" >
-                   <property name="text" >
+                  <widget class="QLabel" name="myDisableLabel">
+                   <property name="text">
                     <string>Disable the TPM</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_7" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_7">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>318</width>
                      <height>20</height>
@@ -1386,8 +1387,8 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="myDisable" >
-                   <property name="text" >
+                  <widget class="QPushButton" name="myDisable">
+                   <property name="text">
                     <string>&amp;Disable</string>
                    </property>
                   </widget>
@@ -1395,11 +1396,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_6" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_6">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>118</height>
@@ -1411,17 +1412,17 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="tab2_22" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab2_22">
+            <attribute name="title">
              <string>Identit&amp;y</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_6" >
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_30" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout_6">
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_30">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>559</width>
                  <height>18</height>
@@ -1429,12 +1430,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" >
-              <spacer name="horizontalSpacer_43" >
-               <property name="orientation" >
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_43">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>18</width>
                  <height>32</height>
@@ -1442,41 +1443,41 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_26" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_26">
                <item>
-                <widget class="QLabel" name="label_297" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_297">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">Endorsement Key (EK)&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;Endorsement Key (EK)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_16" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_16">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_298" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_298">
+                 <property name="text">
                   <string>The EK identifies the TPM and is used to establish the TPM Owner and Attestation Identity Keys (AIK).</string>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="verticalSpacer_7" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_7">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>13</height>
@@ -1485,22 +1486,22 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QVBoxLayout" name="verticalLayout_27" >
+                <layout class="QVBoxLayout" name="verticalLayout_27">
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_32" >
+                  <layout class="QHBoxLayout" name="horizontalLayout_32">
                    <item>
-                    <widget class="QLabel" name="label_299" >
-                     <property name="text" >
+                    <widget class="QLabel" name="label_299">
+                     <property name="text">
                       <string>Create EK</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_8" >
-                     <property name="orientation" >
+                    <spacer name="horizontalSpacer_8">
+                     <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
-                     <property name="sizeHint" stdset="0" >
+                     <property name="sizeHint" stdset="0">
                       <size>
                        <width>278</width>
                        <height>20</height>
@@ -1509,14 +1510,14 @@ p, li { white-space: pre-wrap; }
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="myCreateEndorsement" >
-                     <property name="minimumSize" >
+                    <widget class="QPushButton" name="myCreateEndorsement">
+                     <property name="minimumSize">
                       <size>
                        <width>80</width>
                        <height>0</height>
                       </size>
                      </property>
-                     <property name="text" >
+                     <property name="text">
                       <string>&amp;Create</string>
                      </property>
                     </widget>
@@ -1524,20 +1525,20 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_33" >
+                  <layout class="QHBoxLayout" name="horizontalLayout_33">
                    <item>
-                    <widget class="QLabel" name="label_300" >
-                     <property name="text" >
+                    <widget class="QLabel" name="label_300">
+                     <property name="text">
                       <string>Show Endorsement Key Info</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_9" >
-                     <property name="orientation" >
+                    <spacer name="horizontalSpacer_9">
+                     <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
-                     <property name="sizeHint" stdset="0" >
+                     <property name="sizeHint" stdset="0">
                       <size>
                        <width>168</width>
                        <height>20</height>
@@ -1546,14 +1547,14 @@ p, li { white-space: pre-wrap; }
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="myShowEndorsement" >
-                     <property name="minimumSize" >
+                    <widget class="QPushButton" name="myShowEndorsement">
+                     <property name="minimumSize">
                       <size>
                        <width>80</width>
                        <height>0</height>
                       </size>
                      </property>
-                     <property name="text" >
+                     <property name="text">
                       <string>S&amp;how</string>
                      </property>
                     </widget>
@@ -1561,20 +1562,20 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_34" >
+                  <layout class="QHBoxLayout" name="horizontalLayout_34">
                    <item>
-                    <widget class="QLabel" name="label_301" >
-                     <property name="text" >
-                      <string>Store Endorsement Key</string>
+                    <widget class="QLabel" name="label_301">
+                     <property name="text">
+                      <string>Store Public Endorsement Key</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_10" >
-                     <property name="orientation" >
+                    <spacer name="horizontalSpacer_10">
+                     <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
-                     <property name="sizeHint" stdset="0" >
+                     <property name="sizeHint" stdset="0">
                       <size>
                        <width>198</width>
                        <height>20</height>
@@ -1583,14 +1584,14 @@ p, li { white-space: pre-wrap; }
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="mySaveEndorsement" >
-                     <property name="minimumSize" >
+                    <widget class="QPushButton" name="mySaveEndorsement">
+                     <property name="minimumSize">
                       <size>
                        <width>80</width>
                        <height>0</height>
                       </size>
                      </property>
-                     <property name="text" >
+                     <property name="text">
                       <string>S&amp;ave</string>
                      </property>
                     </widget>
@@ -1598,20 +1599,20 @@ p, li { white-space: pre-wrap; }
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_35" >
+                  <layout class="QHBoxLayout" name="horizontalLayout_35">
                    <item>
-                    <widget class="QLabel" name="label_302" >
-                     <property name="text" >
+                    <widget class="QLabel" name="label_302">
+                     <property name="text">
                       <string>Disable reading of the EK without owner authorization</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_11" >
-                     <property name="orientation" >
+                    <spacer name="horizontalSpacer_11">
+                     <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
-                     <property name="sizeHint" stdset="0" >
+                     <property name="sizeHint" stdset="0">
                       <size>
                        <width>18</width>
                        <height>20</height>
@@ -1620,14 +1621,14 @@ p, li { white-space: pre-wrap; }
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="myRestrictEndorsement" >
-                     <property name="minimumSize" >
+                    <widget class="QPushButton" name="myRestrictEndorsement">
+                     <property name="minimumSize">
                       <size>
                        <width>80</width>
                        <height>0</height>
                       </size>
                      </property>
-                     <property name="text" >
+                     <property name="text">
                       <string>&amp;Restrict</string>
                      </property>
                     </widget>
@@ -1637,11 +1638,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_8" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_8">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>118</height>
@@ -1653,17 +1654,17 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="tab3_17" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab3_17">
+            <attribute name="title">
              <string>&amp;Selftest</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_7" >
-             <item row="0" column="0" >
-              <spacer name="horizontalSpacer_44" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout_7">
+             <item row="0" column="0">
+              <spacer name="horizontalSpacer_44">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>18</width>
                  <height>25</height>
@@ -1671,12 +1672,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_31" >
-               <property name="orientation" >
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_31">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>559</width>
                  <height>25</height>
@@ -1684,41 +1685,41 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_28" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_28">
                <item>
-                <widget class="QLabel" name="label_303" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_303">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">Full Selftest&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;Full Selftest&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_3" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_3">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_304" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_304">
+                 <property name="text">
                   <string>The full selftest performs a selftest of each internal TPM function and provides an accurate assessment of the TPM's ability to perform all operations.</string>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="verticalSpacer_9" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_9">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>28</height>
@@ -1727,20 +1728,20 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_36" >
+                <layout class="QHBoxLayout" name="horizontalLayout_36">
                  <item>
-                  <widget class="QLabel" name="label_305" >
-                   <property name="text" >
+                  <widget class="QLabel" name="label_305">
+                   <property name="text">
                     <string>Execute full selftest</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_12" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_12">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>258</width>
                      <height>20</height>
@@ -1749,8 +1750,8 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="mySelfTest" >
-                   <property name="text" >
+                  <widget class="QPushButton" name="mySelfTest">
+                   <property name="text">
                     <string>&amp;Run</string>
                    </property>
                   </widget>
@@ -1758,11 +1759,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="horizontalSpacer_13" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_13">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>18</width>
                    <height>20</height>
@@ -1771,11 +1772,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="horizontalSpacer_14" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_14">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>28</width>
                    <height>20</height>
@@ -1784,11 +1785,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="verticalSpacer_10" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_10">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>268</height>
@@ -1800,17 +1801,17 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="tab4_17" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab4_17">
+            <attribute name="title">
              <string>&amp;TPM Certificate</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_8" >
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_32" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout_8">
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_32">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>559</width>
                  <height>18</height>
@@ -1818,12 +1819,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" >
-              <spacer name="horizontalSpacer_45" >
-               <property name="orientation" >
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_45">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>18</width>
                  <height>25</height>
@@ -1831,31 +1832,31 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_16" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_16">
                <item>
-                <widget class="QLabel" name="label_306" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_306">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">TPM Certificate&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;TPM Certificate&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_17" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_17">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="horizontalSpacer_18" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_18">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>563</width>
                    <height>17</height>
@@ -1864,23 +1865,23 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_37" >
+                <layout class="QHBoxLayout" name="horizontalLayout_37">
                  <item>
-                  <widget class="QLabel" name="myReadCertificateText" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="myReadCertificateText">
+                   <property name="enabled">
                     <bool>false</bool>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>Read the Endorsement Key certificate of the TPM</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_15" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_15">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>18</width>
                      <height>20</height>
@@ -1889,11 +1890,11 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="myReadCertificate" >
-                   <property name="enabled" >
+                  <widget class="QPushButton" name="myReadCertificate">
+                   <property name="enabled">
                     <bool>false</bool>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>&amp;Read</string>
                    </property>
                   </widget>
@@ -1901,11 +1902,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_12" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_12">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>563</width>
                    <height>207</height>
@@ -1914,35 +1915,35 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_7" >
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
                  <item>
-                  <widget class="QLabel" name="myReadCertificateInfoIcon" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="myReadCertificateInfoIcon">
+                   <property name="enabled">
                     <bool>true</bool>
                    </property>
-                   <property name="sizePolicy" >
-                    <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string/>
                    </property>
-                   <property name="pixmap" >
-                    <pixmap resource="resources.qrc" >:/images/images/messagebox_info.png</pixmap>
+                   <property name="pixmap">
+                    <pixmap resource="resources.qrc">:/images/images/messagebox_info.png</pixmap>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="myReadCertificateInfoText" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="myReadCertificateInfoText">
+                   <property name="enabled">
                     <bool>true</bool>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>Reading the Endorsement Key certificate is not supported by this TPM.</string>
                    </property>
-                   <property name="alignment" >
+                   <property name="alignment">
                     <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
@@ -1957,39 +1958,39 @@ p, li { white-space: pre-wrap; }
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="Seite_14" >
-        <layout class="QVBoxLayout" name="verticalLayout_12" >
+       <widget class="QWidget" name="Seite_14">
+        <layout class="QVBoxLayout" name="verticalLayout_12">
          <item>
-          <widget class="QTabWidget" name="tabAdvanced" >
-           <property name="sizePolicy" >
-            <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+          <widget class="QTabWidget" name="tabAdvanced">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>1</horstretch>
              <verstretch>1</verstretch>
             </sizepolicy>
            </property>
-           <property name="acceptDrops" >
+           <property name="acceptDrops">
             <bool>false</bool>
            </property>
-           <property name="whatsThis" >
-            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
-           <property name="currentIndex" >
+           <property name="currentIndex">
             <number>0</number>
            </property>
-           <widget class="QWidget" name="tab1_27" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab1_27">
+            <attribute name="title">
              <string>&amp;Warning</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_12" >
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_36" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout_12">
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_36">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>580</width>
                  <height>18</height>
@@ -1997,12 +1998,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" >
-              <spacer name="horizontalSpacer_50" >
-               <property name="orientation" >
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_50">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>18</width>
                  <height>20</height>
@@ -2010,14 +2011,14 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_7" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_7">
                <item>
-                <spacer name="verticalSpacer_14" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_14">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>582</width>
                    <height>148</height>
@@ -2026,32 +2027,32 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_5" >
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
                  <item>
-                  <widget class="QLabel" name="label" >
-                   <property name="sizePolicy" >
-                    <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+                  <widget class="QLabel" name="label">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string/>
                    </property>
-                   <property name="pixmap" >
-                    <pixmap resource="resources.qrc" >:/images/images/messagebox_warning.png</pixmap>
+                   <property name="pixmap">
+                    <pixmap resource="resources.qrc">:/images/images/messagebox_warning.png</pixmap>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="label_307" >
-                   <property name="text" >
+                  <widget class="QLabel" name="label_307">
+                   <property name="text">
                     <string>This section contains critical functions that may delete critical data or permanently deactivate features of the TPM.</string>
                    </property>
-                   <property name="alignment" >
+                   <property name="alignment">
                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                    </property>
-                   <property name="wordWrap" >
+                   <property name="wordWrap">
                     <bool>true</bool>
                    </property>
                   </widget>
@@ -2059,11 +2060,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="horizontalSpacer_20" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_20">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>582</width>
                    <height>17</height>
@@ -2072,11 +2073,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="horizontalSpacer_21" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_21">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>582</width>
                    <height>17</height>
@@ -2085,11 +2086,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="verticalSpacer_16" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_16">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>582</width>
                    <height>13</height>
@@ -2098,24 +2099,24 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <widget class="QLabel" name="label_308" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_308">
+                 <property name="text">
                   <string>Note that these functions are provided WITHOUT ANY WARRANTY. Use them at your own risk!</string>
                  </property>
-                 <property name="alignment" >
+                 <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="horizontalSpacer_23" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_23">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>582</width>
                    <height>17</height>
@@ -2124,11 +2125,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="horizontalSpacer_22" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_22">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>582</width>
                    <height>17</height>
@@ -2137,11 +2138,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="verticalSpacer_15" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_15">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>582</width>
                    <height>108</height>
@@ -2153,24 +2154,24 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="tab2_23" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab2_23">
+            <attribute name="title">
              <string>D&amp;isable Maintenance</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_9" >
-             <item row="0" column="0" >
-              <widget class="QLabel" name="myDisableMaintenanceWarnIcon_5" >
-               <property name="text" >
+            <layout class="QFormLayout" name="formLayout_9">
+             <item row="0" column="0">
+              <widget class="QLabel" name="myDisableMaintenanceWarnIcon_5">
+               <property name="text">
                 <string/>
                </property>
               </widget>
              </item>
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_33" >
-               <property name="orientation" >
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_33">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>559</width>
                  <height>13</height>
@@ -2178,12 +2179,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" >
-              <spacer name="horizontalSpacer_47" >
-               <property name="orientation" >
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_47">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>18</width>
                  <height>25</height>
@@ -2191,48 +2192,48 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_14" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_14">
                <item>
-                <widget class="QLabel" name="label_309" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_309">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">Permanently Disable Maintenance&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;Permanently Disable Maintenance&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_18" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_18">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_310" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_310">
+                 <property name="text">
                   <string>Killing the Maintenance Feature permanently prevents anyone from creating a maintenance archive. This action allows TPM owners who do not want the maintenance feature to disable it.</string>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_311" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_311">
+                 <property name="text">
                   <string>This action, once taken, is permanent until a new TPM Owner is set.</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="horizontalSpacer_26" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_26">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>98</width>
                    <height>20</height>
@@ -2241,11 +2242,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="horizontalSpacer_25" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_25">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>28</width>
                    <height>20</height>
@@ -2254,20 +2255,20 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_39" >
+                <layout class="QHBoxLayout" name="horizontalLayout_39">
                  <item>
-                  <widget class="QLabel" name="myDisableMaintenanceText" >
-                   <property name="text" >
+                  <widget class="QLabel" name="myDisableMaintenanceText">
+                   <property name="text">
                     <string>Disable Maintenance Feature</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_24" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_24">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>188</width>
                      <height>20</height>
@@ -2276,8 +2277,8 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="myDisableMaintenance" >
-                   <property name="text" >
+                  <widget class="QPushButton" name="myDisableMaintenance">
+                   <property name="text">
                     <string>&amp;Disable</string>
                    </property>
                   </widget>
@@ -2285,11 +2286,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="horizontalSpacer_46" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_46">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>40</width>
                    <height>20</height>
@@ -2298,11 +2299,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="verticalSpacer_18" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_18">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>208</height>
@@ -2311,41 +2312,41 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_4" >
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
                  <item>
-                  <widget class="QLabel" name="myDisableMaintenanceInfoIcon" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="myDisableMaintenanceInfoIcon">
+                   <property name="enabled">
                     <bool>true</bool>
                    </property>
-                   <property name="sizePolicy" >
-                    <sizepolicy vsizetype="Preferred" hsizetype="Fixed" >
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string/>
                    </property>
-                   <property name="pixmap" >
-                    <pixmap resource="resources.qrc" >:/images/images/messagebox_info.png</pixmap>
+                   <property name="pixmap">
+                    <pixmap resource="resources.qrc">:/images/images/messagebox_info.png</pixmap>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="myDisableMaintenanceInfoText" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="myDisableMaintenanceInfoText">
+                   <property name="enabled">
                     <bool>true</bool>
                    </property>
-                   <property name="sizePolicy" >
-                    <sizepolicy vsizetype="Preferred" hsizetype="Maximum" >
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>Disabling the maintenance function is not supported by this TPM.</string>
                    </property>
-                   <property name="alignment" >
+                   <property name="alignment">
                     <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
@@ -2356,17 +2357,17 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="tab3_18" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab3_18">
+            <attribute name="title">
              <string>Revo&amp;ke Trust</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_11" >
-             <item row="0" column="1" >
-              <spacer name="horizontalSpacer_51" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout_11">
+             <item row="0" column="1">
+              <spacer name="horizontalSpacer_51">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>549</width>
                  <height>20</height>
@@ -2374,12 +2375,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="0" >
-              <spacer name="horizontalSpacer_48" >
-               <property name="orientation" >
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_48">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>28</width>
                  <height>25</height>
@@ -2387,41 +2388,41 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_15" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_15">
                <item>
-                <widget class="QLabel" name="label_313" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_313">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">Delete Endorsement Key&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;Delete Endorsement Key&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_19" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_19">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_314" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_314">
+                 <property name="text">
                   <string>Deleting the EK invalidates both the TPM certificate and the platform certificate resulting in the revocation of trust in the platform. From a trust perspective, the platform associated with these specific credentials no longer exists.</string>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="verticalSpacer_19" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_19">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>546</width>
                    <height>13</height>
@@ -2430,11 +2431,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="horizontalSpacer_28" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_28">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>88</width>
                    <height>20</height>
@@ -2443,21 +2444,21 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <widget class="QLabel" name="label_312" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_312">
+                 <property name="text">
                   <string>This is a non-reversible function.  Also, along with the EK, the Owner is also deleted removing all non-migratable keys and owner-specific state.</string>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="horizontalSpacer_27" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_27">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>58</width>
                    <height>20</height>
@@ -2466,23 +2467,23 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_41" >
+                <layout class="QHBoxLayout" name="horizontalLayout_41">
                  <item>
-                  <widget class="QLabel" name="myDeleteEndorsementText" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="myDeleteEndorsementText">
+                   <property name="enabled">
                     <bool>false</bool>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>Delete Endorsement Key</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_29" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_29">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>198</width>
                      <height>20</height>
@@ -2491,11 +2492,11 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="myDeleteEndorsement" >
-                   <property name="enabled" >
+                  <widget class="QPushButton" name="myDeleteEndorsement">
+                   <property name="enabled">
                     <bool>false</bool>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>Dele&amp;te</string>
                    </property>
                   </widget>
@@ -2503,11 +2504,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="verticalSpacer_21" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_21">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>158</height>
@@ -2516,11 +2517,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="horizontalSpacer_31" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_31">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>118</width>
                    <height>20</height>
@@ -2529,35 +2530,35 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_6" >
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
                  <item>
-                  <widget class="QLabel" name="myDeleteEndorsementInfoIcon" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="myDeleteEndorsementInfoIcon">
+                   <property name="enabled">
                     <bool>true</bool>
                    </property>
-                   <property name="sizePolicy" >
-                    <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string/>
                    </property>
-                   <property name="pixmap" >
-                    <pixmap resource="resources.qrc" >:/images/images/messagebox_info.png</pixmap>
+                   <property name="pixmap">
+                    <pixmap resource="resources.qrc">:/images/images/messagebox_info.png</pixmap>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="myDeleteEndorsementInfoText" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="myDeleteEndorsementInfoText">
+                   <property name="enabled">
                     <bool>true</bool>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>Deleting the Endorsement Key is not supported by this TPM.</string>
                    </property>
-                   <property name="alignment" >
+                   <property name="alignment">
                     <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
@@ -2565,11 +2566,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="horizontalSpacer_30" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_30">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>88</width>
                    <height>20</height>
@@ -2581,17 +2582,17 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="tab4_18" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab4_18">
+            <attribute name="title">
              <string>&amp;Update Firmware</string>
             </attribute>
-            <layout class="QFormLayout" name="formLayout_10" >
-             <item row="0" column="0" >
-              <spacer name="horizontalSpacer_49" >
-               <property name="orientation" >
+            <layout class="QFormLayout" name="formLayout_10">
+             <item row="0" column="0">
+              <spacer name="horizontalSpacer_49">
+               <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>18</width>
                  <height>25</height>
@@ -2599,12 +2600,12 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="0" column="1" >
-              <spacer name="verticalSpacer_35" >
-               <property name="orientation" >
+             <item row="0" column="1">
+              <spacer name="verticalSpacer_35">
+               <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0" >
+               <property name="sizeHint" stdset="0">
                 <size>
                  <width>559</width>
                  <height>25</height>
@@ -2612,38 +2613,38 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="1" >
-              <layout class="QVBoxLayout" name="verticalLayout_33" >
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="verticalLayout_33">
                <item>
-                <widget class="QLabel" name="label_316" >
-                 <property name="text" >
-                  <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                <widget class="QLabel" name="label_316">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600; color:#5f9ea0;">Update Firmware&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#5f9ea0;&quot;&gt;Update Firmware&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="Line" name="line_20" >
-                 <property name="orientation" >
+                <widget class="Line" name="line_20">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_317" >
-                 <property name="text" >
+                <widget class="QLabel" name="label_317">
+                 <property name="text">
                   <string>You can load a new version of TPM software onto your TPM using this tool.</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="verticalSpacer_22" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_22">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>28</height>
@@ -2652,23 +2653,23 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_42" >
+                <layout class="QHBoxLayout" name="horizontalLayout_42">
                  <item>
-                  <widget class="QLabel" name="label_318" >
-                   <property name="enabled" >
+                  <widget class="QLabel" name="label_318">
+                   <property name="enabled">
                     <bool>false</bool>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>Update Firmware</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <spacer name="horizontalSpacer_32" >
-                   <property name="orientation" >
+                  <spacer name="horizontalSpacer_32">
+                   <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeHint" stdset="0" >
+                   <property name="sizeHint" stdset="0">
                     <size>
                      <width>208</width>
                      <height>20</height>
@@ -2677,11 +2678,11 @@ p, li { white-space: pre-wrap; }
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="myUpdate" >
-                   <property name="enabled" >
+                  <widget class="QPushButton" name="myUpdate">
+                   <property name="enabled">
                     <bool>false</bool>
                    </property>
-                   <property name="text" >
+                   <property name="text">
                     <string>Upda&amp;te</string>
                    </property>
                   </widget>
@@ -2689,11 +2690,11 @@ p, li { white-space: pre-wrap; }
                 </layout>
                </item>
                <item>
-                <spacer name="horizontalSpacer_33" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_33">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>40</width>
                    <height>20</height>
@@ -2702,11 +2703,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="horizontalSpacer_34" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_34">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>68</width>
                    <height>20</height>
@@ -2715,11 +2716,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="verticalSpacer_23" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_23">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>68</height>
@@ -2728,21 +2729,21 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <widget class="QLabel" name="myUpdateInfoText" >
-                 <property name="text" >
+                <widget class="QLabel" name="myUpdateInfoText">
+                 <property name="text">
                   <string>This feature is not implemented yet.</string>
                  </property>
-                 <property name="alignment" >
+                 <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="horizontalSpacer_36" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_36">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>218</width>
                    <height>20</height>
@@ -2751,11 +2752,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="horizontalSpacer_35" >
-                 <property name="orientation" >
+                <spacer name="horizontalSpacer_35">
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>138</width>
                    <height>20</height>
@@ -2764,11 +2765,11 @@ p, li { white-space: pre-wrap; }
                 </spacer>
                </item>
                <item>
-                <spacer name="verticalSpacer_24" >
-                 <property name="orientation" >
+                <spacer name="verticalSpacer_24">
+                 <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
-                 <property name="sizeHint" stdset="0" >
+                 <property name="sizeHint" stdset="0">
                   <size>
                    <width>20</width>
                    <height>178</height>
@@ -2784,113 +2785,113 @@ p, li { white-space: pre-wrap; }
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="Seite_15" >
-        <layout class="QVBoxLayout" name="verticalLayout_13" >
+       <widget class="QWidget" name="Seite_15">
+        <layout class="QVBoxLayout" name="verticalLayout_13">
          <item>
-          <widget class="QTabWidget" name="tabAbout" >
-           <property name="sizePolicy" >
-            <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+          <widget class="QTabWidget" name="tabAbout">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>1</horstretch>
              <verstretch>1</verstretch>
             </sizepolicy>
            </property>
-           <property name="acceptDrops" >
+           <property name="acceptDrops">
             <bool>false</bool>
            </property>
-           <property name="whatsThis" >
-            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
-           <property name="currentIndex" >
+           <property name="currentIndex">
             <number>0</number>
            </property>
-           <widget class="QWidget" name="tab1_28" >
-            <attribute name="title" >
+           <widget class="QWidget" name="tab1_28">
+            <attribute name="title">
              <string>&amp;Contact</string>
             </attribute>
-            <layout class="QVBoxLayout" name="verticalLayout_8" >
+            <layout class="QVBoxLayout" name="verticalLayout_8">
              <item>
-              <layout class="QVBoxLayout" name="verticalLayout_34" >
+              <layout class="QVBoxLayout" name="verticalLayout_34">
                <item>
-                <widget class="QLabel" name="myProgramLabel" >
-                 <property name="enabled" >
+                <widget class="QLabel" name="myProgramLabel">
+                 <property name="enabled">
                   <bool>true</bool>
                  </property>
-                 <property name="font" >
+                 <property name="font">
                   <font>
                    <pointsize>9</pointsize>
                   </font>
                  </property>
-                 <property name="text" >
+                 <property name="text">
                   <string>TPM Manager V XX</string>
                  </property>
-                 <property name="alignment" >
+                 <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="textLabel5_5" >
-                 <property name="font" >
+                <widget class="QLabel" name="textLabel5_5">
+                 <property name="font">
                   <font>
                    <pointsize>9</pointsize>
                   </font>
                  </property>
-                 <property name="text" >
+                 <property name="text">
                   <string>(c) 2007 - 2009 by
 Christian Stüble (stueble@sirrix.com) 
 Anoosheh Zaerin (a.zaerin@sirrix.com) 
 René Korthaus (r.korthaus@sirrix.com)
 For more information, see </string>
                  </property>
-                 <property name="alignment" >
+                 <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="downloadLink" >
-                 <property name="text" >
-                  <string>&lt;A HREF="https://projects.sirrix.com/trac/tpmmanager">https://projects.sirrix.com/trac/tpmmanager&lt;/a></string>
+                <widget class="QLabel" name="downloadLink">
+                 <property name="text">
+                  <string>&lt;A HREF=&quot;https://projects.sirrix.com/trac/tpmmanager&quot;&gt;https://projects.sirrix.com/trac/tpmmanager&lt;/a&gt;</string>
                  </property>
-                 <property name="alignment" >
+                 <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="textLabel1_8" >
-                 <property name="font" >
+                <widget class="QLabel" name="textLabel1_8">
+                 <property name="font">
                   <font>
                    <pointsize>9</pointsize>
                   </font>
                  </property>
-                 <property name="text" >
-                  <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+                 <property name="text">
+                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p align="center" style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">This application is part of the TURAYA security framework, see&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This application is part of the TURAYA security framework, see&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
-                 <property name="wordWrap" >
+                 <property name="wordWrap">
                   <bool>false</bool>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="perseusLink" >
-                 <property name="text" >
-                  <string>&lt;a href="http://www.turaya.org">http://www.turaya.org&lt;/a></string>
+                <widget class="QLabel" name="perseusLink">
+                 <property name="text">
+                  <string>&lt;a href=&quot;http://www.turaya.org&quot;&gt;http://www.turaya.org&lt;/a&gt;</string>
                  </property>
-                 <property name="alignment" >
+                 <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
@@ -2908,13 +2909,13 @@ p, li { white-space: pre-wrap; }
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="_27" >
+    <layout class="QHBoxLayout" name="_27">
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>721</width>
          <height>20</height>
@@ -2923,8 +2924,8 @@ p, li { white-space: pre-wrap; }
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="buttonOk" >
-       <property name="text" >
+      <widget class="QPushButton" name="buttonOk">
+       <property name="text">
         <string>&amp;Quit</string>
        </property>
       </widget>
@@ -2934,7 +2935,7 @@ p, li { white-space: pre-wrap; }
   </layout>
  </widget>
  <resources>
-  <include location="resources.qrc" />
+  <include location="resources.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -2943,11 +2944,11 @@ p, li { white-space: pre-wrap; }
    <receiver>TPM_ManagerBase</receiver>
    <slot>accept()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>788</x>
      <y>534</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>413</x>
      <y>279</y>
     </hint>

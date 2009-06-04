@@ -411,6 +411,9 @@ void TPM_Manager::on_myTakeOwnership_clicked()
 	bool wellKnownSecret = false;
 	string srkPassword;
 	SetSRKView srkradiodialog;
+	
+	/* temporarily disable Take button */
+	myTakeOwnership->setEnabled( false );
 
 	NewPasswordDialog ownerDlg( this );
 
@@ -418,11 +421,15 @@ void TPM_Manager::on_myTakeOwnership_clicked()
 	ownerDlg.setPrompt( "Enter New Owner Password" );
 	ownerDlg.setDescription( "Enter the new TPM owner password. The owner has the right to perform special operations on the TPM." );
 	
-	if ( ownerDlg.exec() == QDialog::Rejected )
+	if ( ownerDlg.exec() == QDialog::Rejected ) {
+		myTakeOwnership->setEnabled( true );		
 		return; // the user cancelled
+	}
 	
-	if( srkradiodialog.exec() == QDialog::Rejected )
+	if( srkradiodialog.exec() == QDialog::Rejected ) {
+		myTakeOwnership->setEnabled( true );
 		return;
+	}
 		
 	if ( srkradiodialog.setManually() == true )
 	{
@@ -432,8 +439,10 @@ void TPM_Manager::on_myTakeOwnership_clicked()
 		srkDlg.setPrompt( "Enter New SRK Password" );
 		srkDlg.setDescription( "Enter the new Storage Root Key (SRK) password. It is used authenticate usage of the SRK." );
 	
-		if ( srkDlg.exec() == QDialog::Rejected )
+		if ( srkDlg.exec() == QDialog::Rejected ) {
+			myTakeOwnership->setEnabled( false );
 			return; // the user cancelled
+		}
 			
 		srkPassword = ( srkDlg.password() ).toStdString();
 	}		
@@ -441,6 +450,8 @@ void TPM_Manager::on_myTakeOwnership_clicked()
 		wellKnownSecret = true;
 
 	try {
+		QMessageBox::information( this, "Taking Ownership" , "Taking TPM Ownership. This can take a while, please be patient." );
+		
 		myTPM->takeOwnership( ( ownerDlg.password()).toStdString(), srkPassword, wellKnownSecret );
 	
 		QMessageBox::information( this, "Taking Ownership" , "TPM owner successfully created."  );
@@ -449,6 +460,9 @@ void TPM_Manager::on_myTakeOwnership_clicked()
 	{
 		QMessageBox::critical( this, "Error: Taking Ownership" , "Sorry. Could not Take Ownership in deactivated mode due to TSS bug. " );
 	}
+	
+	/* finally re-enable to Take button (may get disabled by initOwnership() again afterwards) */
+	myTakeOwnership->setEnabled( true );	
 	// update GUI
 	initStatus();
 	initStatusGroup();
