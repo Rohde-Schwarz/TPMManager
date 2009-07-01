@@ -1,0 +1,811 @@
+% % -----------------------------------------------------------
+%                          Glossary
+% -----------------------------------------------------------
+\newcommand{\role}[1]{\ensuremath{\mathcal{#1\xspace}\xspace}\xspace}
+
+\glosentry
+    {AccessPermission}
+    {Access Permission}
+    {The right to access (read and/or write) data in a particular domain.}
+
+\abbr{ACE}
+    {Advanced Cryptography Engine}
+
+\abbr{AES}
+    {Advanced Encryption Standard}
+
+\glosentry
+    {Attestation}
+    {Attestation}
+    {When referring to the attestation of \Compartment~A, it is meant that the
+configuration of a \Compartment~A and its \TCB are proven to be rooted in a
+hardware \RTM. It is stated that ``B attests \Compartment~A'' if a party~B
+obtains attestation of a \Compartment~A. Attestation can be defined as a
+\TrustedChannel (see \Channel) over which no data is being sent. Note that
+attestation only makes sense if the challenger can verify the cryptographic
+proof (e.g. a signature). This requires the challenger to either be located on a
+remote trusted platform or that its integrity can be checked locally by means of
+\Sealing.}
+
+\glosentry[AIK]
+    {AttestationIdentityKey}
+    {Attestation Identity Key}
+    {A non-migratable key (\NMK) that is created locally by a \TPM and provides pseudonymity or
+anonymity of \TPM-secured platforms. The public portion of an \AIK is certified
+by a \PrivacyCA stating that this signature key is truly under the control of a
+secure \TPM. In order to negotiate the problem of linked transactions to a certain platform, version 1.2 of the \TCG specification defines a cryptographic protocol called \DAA that eliminates
+the need for a \PrivacyCA.}
+
+\abbr{API}
+    {Application Programming Interface}
+
+\glosentry
+    {AttestationKernel}
+    {Attestation Kernel}
+    {A low-level operating system kernel that mainly provides attestation as its
+public interface.}
+
+\glosentry
+    {AuthorizationData}
+    {Authorization Data}
+    {Data that is solely used for authentication purposes (e.g. a password).}
+
+\glosentry
+    {Behavior}
+    {Behavior}
+    {The behavior of a \Machine is defined by its configuration and the
+configuration of all other machines that are part of the \TCB of that machine.
+For example, the behavior of an application depends upon the implementation of
+the application itself and the implementation of the underlying \OperatingSystem
+and hardware.}
+
+\glosentry
+    {Binding}
+    {Binding}
+    {Encryption of data with the public portion of a TPM-protected binding key. 
+The private key is stored inside the TPM. Binding can be executed without
+the need for a TPM, only for unbinding, the according TPM and the unbind-key 
+has to be available.}
+
+\glosentry[BIOS]
+    {BasicinputOutputSystem}
+    {Basic Input Output System}
+    {The code on a PC platform that initializes memory and hardware devices.}
+
+\abbr{CBC}
+    {Cipher Block Chaining}
+
+\abbr{CPU}
+    {Central Processing Unit}
+
+\glosentry[CA]
+    {CertificateAuthority}
+    {Certificate Authority}
+    {A \TrustedThirdParty that certifies particular statements.}
+
+\glosentry[CFB]
+    {CipherFeedback}
+    {Cipher Feedback}
+    {A mode of encryption of symmetric ciphers to form stream ciphers.}
+
+\newacronym[CIA]
+    {\role{CI}}
+    {Certificate Issuer}
+    {sort=CI}
+
+\glosentry[CMK]
+    {CertifiedMigratableKey}
+    {Certified Migratable Key}
+    {Introduced in version 1.2 of the \TCG specification, this type of
+encryption key allows for more flexibility in the handling of keys. The decision
+to migrate a key, and the migration itself, is delegated to two trusted entities
+chosen by the owner of the \TPM upon creation of the \CMK using a certificate of
+that trusted entity.}
+
+\glosentry
+    {Channel}
+    {Channel}
+    {A means of communication between compartments. Our security model
+distinguishes between secure, trusted and plain channels. A plain channel does
+not provide any security over the data communicated. A \SecureChannel ensures
+the confidentiality and integrity of the communicated data as well as the
+authenticity of the channel end point. A \TrustedChannel is a \SecureChannel
+that extends the verification of authenticity by also validating the
+configuration of the channel end point.}
+
+\abbr{CC}
+    {Common Criteria}
+\abbr{CCRA}
+    {Common Criteria Recognition Agreement}
+\abbr{ST}
+    {Security Target}
+\abbr{TSF}
+    {TOE Security Functionality}
+\abbr{SFR}
+    {Security Functional Requirement}
+
+
+\glosentry
+    {Compartment}
+    {Compartment}
+    {A software component that runs in logical, or even physical, isolation from
+other software components.}
+
+\glosentry
+    {Configuration}
+    {Configuration}
+    {An unambiguous description of the behavior of a \Compartment, which is
+based on the its instruction set, internal state and the configuration of the
+underlying platform; may also include a certificate (e.g. to allow verification
+by an attestor).}
+
+\glosentry
+    {Container}
+    {Container}
+    {Any object, for example a file, used to store information; see also
+\SecureContainer.}
+
+\glosentry[CRTM]
+    {CoreRootOfTrustForMeasurement}
+    {Core Root of Trust for Measurement}
+    {A PC component specified by the \TCG that measures the \BIOS before
+executing it.}
+
+\glosentry[CHS]
+    {CylinderHeadSector}
+    {Cylinder Head Sector}	
+    {An early means of giving addresses to each physical block of data on a
+hard disk drive.}
+
+\abbr{CRC}
+    {Cyclic Redundancy Check}
+
+\abbr{COTS}
+    {Commercial off-the-shelf}
+
+\glosentry[DAA]
+    {DirectAnonymousAttestation}
+    {Direct Anonymous Attestation}
+    {A cryptographic protocol developed in the context of the \TCG specification
+\cite{BrCaCh2004} to avoid third parties link
+transactions to a certain platform; eliminates the need for a \PrivacyCA by
+using a zero-knowledge protocol.}
+
+\abbr{DAC}
+    {Discretionary Access Control}
+
+\abbr{DES}
+    {Data Encryption Standard}
+
+\glosentry[DIR]
+    {DataIntegrityRegister}
+    {Data Integrity Register}	
+    {}
+
+\abbr{DMA}
+    {Direct Memory Access}
+
+\glosentry
+    {Domain}
+    {Domain}
+    {A set of compartments that are granted an equal level of trust.}
+
+\glosentry[D-RTM]
+    {DRTM}
+    {Dynamic Root of Trust for Measurement }
+    {The \drtm is an \RTM, supported by Intel's TXT or AMD's Presidio hardware extension. Dynamic loadable code, running in isolated environments of the CPU, is used as root for a chain of trust. Thus, virtual machines get their own RTM. In case of D-RTM, the PCRs 17 - 22 are used.}
+
+
+\newacronym[drtm]{D-RTM}{\DRTM}{name=D-RTM}
+
+\glosentry[DSAP]
+    {DelegationSpecificAuthorizationProtocol}
+    {Delegation Specific Authorization Protocol}
+    {The DSAP session is to provide delegated authorization information. Supports the delegation of owner or entity authorization.}
+
+\abbr{EAL}
+    {Evaluation Assurance Level}
+
+\glosentry[EAP]
+    {ExtensibleAuthenticationProtocol}
+    {Extensible Authentication Protocol}
+    {EAP is an authentication framework for e.g., 802.1x.}
+
+\abbr{ECB}
+    {Electronic Code Book}
+
+\glosentry[EFS]
+    {EncryptingFileSystem}
+    {Encrypting File System}
+    {Microsoft's Encrypting File System as used within Windows on NTFS file systems.}
+
+
+\glosentry[EK]
+    {EndorsementKey}
+    {Endorsement Key}
+    {An asymmetric 2048-Bit RSA-Encryption key, which is unique for every TPM. 
+    The EK resides inside the TPM permanently and can be used to authenticate a \TPM and its platform.}
+
+\glosentry
+    {FileSystem}
+    {File System}
+    {In computing, a file system is a method for storing and organizing computer files and the data they contain to make it easy to find and access them.}
+
+\glosentry[FiST]
+    {FileSystemTranslator}
+    {File System Translator}
+    {FiST aims at stacking virtual file systems on top of existing ones. Examples are unionfs, cryptfs, gzipfs a.s.o.
+     See \url{http://www.filesystems.org}}
+
+\glosentry[FUSE]
+    {FileSystemInUserSpace}
+    {File System in User Space}
+    {With FUSE it is possible to implement a fully functional filesystem in a userspace program. See \url{http://fuse.sourceforge.net/}}
+
+
+\glosentry[GPL]
+    {GNUGeneralPublicLicense}
+    {GNU General Public License}
+    {The most widely used license for Free Software.}
+
+\glosentry[GNU]
+    {GNUIsNotUnix}
+    {GNU's Not Unix}
+    {The GNU Project was launched in 1984 to develop a complete Unix-like
+operating system which is free software: the GNU system. Variants of the GNU
+operating system, which use the kernel called Linux, are now widely used; though
+these systems are often referred to as ``Linux'', they are more accurately
+called GNU/Linux systems. GNU is a recursive acronym for ``GNU's Not
+Unix''; it is pronounced guh-noo, approximately like canoe. For more
+information, see \url{http://www.gnu.org/}.}
+	
+\glosentry[GRUB]
+    {GRandUnifiedBootloader}
+    {GRand Unified Bootloader}
+    {A boot loader package from the \GNU Project implementing the Multiboot
+Specification, which allows users to have several different operating systems on
+their computer at once.}
+
+\glosentry[GUI]
+    {GraphicalUserInterface}
+    {Graphical User Interface}
+    {A type of user interface allowing people to interact with a computer or
+computer-controlled device employing graphical icons, visual indicators or
+special graphical elements called "widgets" as well as text, labels or text
+navigation to represent the information and actions available to a user.}
+
+\abbr{HASK}
+    {High Assurance Security Kernel}
+
+\glosentry
+    {Hibernation}
+    {Hibernation}
+    {Hibernation, also called suspend-to-disk, stores a snapshot of the
+     operating system state to a persistent storage device.}
+
+\glosentry
+    {Hypervisor}
+    {Hypervisor}
+    {See \VirtualMachineMonitor.}
+
+\abbr{IDL}
+    {Interface Definition Language}
+
+\glosentry
+    {Image}
+    {Image}
+    {An exact replica of the contents of a storage device, such as a hard disk,
+stored on a second storage device, such as a network server.}
+
+\glosentry[IMA]
+    {IntegrityMeasurementArchitecture}
+    {Integrity Measurement Architecture}
+    {An architecture from IBM that generates verifiable representative
+information about the software stack running on a GNU Linux operating system, which can be
+used by remote parties to determine the integrity of the execution environment.}
+
+\abbr{IPC}
+    {Inter-Process Communication}
+
+\abbr{IV}
+    {Initialization Vector}
+
+\glosentry
+    {L4Linux}
+    {L4Linux}
+    {A port of the Linux kernel to the L4 microkernel API that is a
+(para-)virtualized Linux running in user mode atop a hypervisor.}
+
+\glosentry[LDAP]
+    {LightweightDirectoryAccessProtocol}
+    {Lightweight Directory Access Protocol}
+    {An application protocol for querying and modifying directory services
+running over TCP/IP that can be used for remote user authentication.}
+
+\glosentry
+    {Linux}
+    {Linux}
+    {A term used to identify the Linux kernel, if not explicitly defined
+otherwise. To identify an entire operating system including the Linux kernel,
+the term ``GNU/Linux operating system'' is used.}
+
+\abbr{LAN}
+    {Local Area Network}
+
+\glosentry[LBA]
+    {LogicalBlockAddressing}
+    {Logical Block Addressing}
+    {A common scheme used to specify the location of blocks of data resident on
+computer storage devices, which are generally secondary storage systems such as
+hard disks.}
+
+\glosentry[LUFS]
+    {LinuxUserlandFileSystem}
+    {Linux Userland Filesystem}
+    {The Linux userland filesystem is a file system for Linux, that allows - comparable to \FUSE - the moving of file system drivers from kernel space into user space.}
+
+\glosentry[LVM]
+    {LogicalVolumeManagement}
+    {Logical Volume Management}
+    {In computer storage, logical volume management or LVM is a method of allocating space on mass storage devices that is more flexible than conventional partitioning schemes. In particular, a volume manager can concatenate, stripe together or otherwise combine partitions into larger virtual ones that can be resized or moved, possibly while it is being used.}
+
+\glosentry[LUKS]
+    {LinuxUnifiedKeySetup}
+    {Linux Unified Key Setup}
+    {Linux Unified Key Setup is a disk encryption extension for Linux cryptsetup resp. dm-setup. LUKS has been written by Clemens Fr\"uhwirth and aims to provide an anti-forensic, two level, and iterated key setup scheme.}
+
+\abbr{HMAC}
+    {Hashed Message Authentication Codes}
+
+\glosentry[MAC]
+    {MandatoryAccessControl}
+    {Mandatory Access Control}
+    {Refers to a means of access control in computer security that is defined by
+the Trusted Computer System Evaluation Criteria (often referred to as "The Orange Book by the Department of Defense") as "a means of restricting
+access to objects based on the sensitivity (as represented by a label) of the
+information contained in the objects and the formal authorization (i.e.
+clearance) of subjects to access information of such sensitivity".}
+
+\abbr{MBR}
+    {Master Boot Record}
+
+\glosentry
+    {MK}
+    {Migratable Key}
+    {Cryptographic encryption keys used by a \TPM that are only trusted by the
+party that generates them (e.g. the user of a platform); offers no guarantee to
+a third party that such a key has indeed been generated on a \TPM.}
+
+\glosentry[MA]
+    {MigrationAuthority}
+    {Migration Authority}
+    {Handles the migration of a \CMK; see also \MSA.}
+
+\glosentry[MSA]
+    {MigrationSelectionAuthority}
+    {Migration Selection Authority}
+    {Party that controls the migration of a \CMK; see also \MA.}
+
+\abbr{MLS}
+    {Multi-Level Security}
+
+\glosentry[NMI]
+    {Non-MaskableInterrupt}
+    {Non-Maskable Interrupt}
+    {A computer processor interrupt that can not be ignored by standard
+interrupt-masking techniques in the system.}
+
+\glosentry
+    {NMK}
+    {Non-Migratable Key}
+    {Contrary to a migratable key, a non-migratable encryption key is guaranteed
+to reside in a TPM. A \TPM can create a certificate stating
+that a key is a Non-Migratable Key.}
+
+\glosentry[OIAP]
+    {ObjectIndependentAuthorizationProtocol}
+    {Object Independent Authorization Protocol}
+    {Establishes an authorized clear-text session between the TPM and an external entity. 
+The OIAP supports multiple authorization sessions for arbitrary entities.}
+
+\glosentry[OSAP]
+    {ObjectSpecificAuthorizationProtocol}
+    {Object Specific Authorization Protocol}
+    {OSAP is very similar to \OIAP in concept and design. The OSAP supports an authentication session for a single entity and enables the confidential transmission of new authorization information.  
+OSAP is particularly useful for updating sensitive information associated with \TPM managed objects.}
+
+\glosentry[OSLO]
+    {OpenSecureLOader}
+    {Open Secure LOader}
+    {A secure boot loader developed by TU Dresden that uses AMD's SKINIT
+instructions.}
+
+\glosentry
+    {OperatingSystem}
+    {Operating System}
+    {The software responsible for controlling the allocation and usage of
+hardware resources such as memory, \CPU time, disk space and peripheral devices.
+It is furthermore the foundation upon which applications, such as word
+processing and spreadsheet programs, are built.}
+
+\abbr{OS}
+    {OperatingSystem}
+
+\glosentry
+    {Platform}
+    {Platform}
+    {The \TCB and underlying hardware.}
+
+\glosentry[PCR]
+    {PlatformConfigurationRegister}
+    {Platform Configuration Register}
+    {The registers of a \TPM that store the configuration of the software
+components.}
+
+\glosentry
+    {PORTSEC}
+    {802.1x}
+    {An IEEE standard for port-based Network Access Control that is part of
+the IEEE 802 (802.1) group of protocols. It provides authentication to devices
+attached to a LAN port, establishing a point-to-point connection or preventing
+access from that port if authentication fails.}
+
+\glosentry[PBA]
+    {PreBootAuthentication}
+    {Pre-Boot Authentication}
+    {A user authentication system that is invoked directly after activation 
+     of a computing platform, i.e., the user is authenticated \emph{before} 
+     the operating system is bootstrapped.}
+
+
+\abbr{PP}
+    {Protection Profile}
+
+\glosentry[PrivacyCA]
+    {PrivacyCertificationAuthority}
+    {Privacy Certification Authority}
+    {A \TTP stating that an \AIK is really under control of a \TPM.}
+
+\glosentry
+    {Program}
+    {Program}
+    {A binary representation (file) of an executable compartment.}
+
+\glosentry
+    {Property}
+    {Property}
+    {A property describes a configuration without revealing the configuration in
+detail. In the machine model, a property $\Prop_i$ of a machine $\M$ is a
+certain aspect of that machine. By stating that a machine $\M$ has a property
+$\Prop_i$, it is meant that the machine fulfills a certain $\Requirements_\Prop$
+requirement. A set of properties is denoted with \PropSet, and an encoding/value
+of a property (e.g. an integer) is denoted with $\ps$. A $\ps$ may also be
+called a property.}
+
+\abbr{PKI}
+    {Public Key Infrastructure}
+
+\abbr{RAM}
+    {Random Access Memory}
+
+\glosentry
+    {RAMDISK}
+    {Ramdisk}
+    {A software abstraction that treats a segment of random access memory (RAM)
+as secondary storage, a role typically filled by hard drives.}
+
+\glosentry
+    {RemoteAttestation}
+    {Remote Attestation}
+    {A cryptoprahic protocol defined by the \TCG specification where a \TPM signes the
+     current \PCR values using an \AIK.}
+
+\glosentry[RADIUS]
+    {RemoteAuthenticationDialInUserService}
+    {Remote Authentication Dial In User Service}
+    {An authentication, authorization and accounting protocol for controlling
+access to network resources.}
+
+\glosentry[RAID]
+    {RedundantArrayOfInexpensiveDrives}
+    {Redundant Array of Inexpensive Drives}
+    {A technology that employs the simultaneous use of two or more hard disk drives to achieve greater levels of performance, reliability, and/or larger data volume sizes.}
+
+\abbr{ROM}
+    {Read-only Memory}
+
+\abbr{RNG}
+    {Random Number Generator}
+
+\glosentry[RTM]
+    {RootOfTrustForMeasurement}
+    {Root of Trust for Measurement}
+    {The Root of Trust for Measurement (known as \CRTM on PC platforms) creates the integrity measurement base of a platform. The RTM is the first element in the chain of trust, mostly proceeding with bootloader and kernel, leading to the operating system and applications. On startup, the code of the RTM, which is part of the BIOS, is executed and generates measurement values covering the components of the boot process.}
+
+\glosentry[RTR]
+    {RootOfTrustForReporting}
+    {Root of Trust for Reporting}
+    {A component that can be trusted to report reliable information about the
+platform.}
+
+\glosentry[RTS]
+    {RootOfTrustForStorage}
+    {Root of Trust for Storage}
+    {A component that can be trusted to store reliable information about the
+platform.}
+
+\glosentry
+    {Sealing}
+    {Sealing}
+    {Encryption of data with the public portion of a TPM-protected storage key. 
+Additional it is possible to bind the data to a set of platform metrics, i.e.
+the platform can only unseal the data if it is in the defined state.
+Sealing and Unsealing can only be executed on the platform providing the TPM.}
+
+\glosentry
+    {SecureBoot}
+    {Secure Boot}
+    {Security property in a bootstrap architecture that only bootstraps a
+pre-defined configuration of software components. If the software has been
+modified, the bootstrap process is interrupted.}
+
+\glosentry
+    {SecureChannel}
+    {Secure Channel}
+    {A communication channel providing integrity, confidentiality and
+authenticity.}
+
+\glosentry
+    {SecureContainer}
+    {Secure Container}
+    {A \Container providing certain security properties, such as integrity,
+confidentiality and freshness.}
+
+\glosentry[SHA]
+    {SecureHashAlgorithm}
+    {Secure Hash Algorithm}
+    {A secure hashing algorithm consisting of five cryptographic hash functions
+designed by the National Security Agency (NSA) and published by the NIST as a
+U.S. Federal Information Processing Standard.}
+
+\glosentry[SSH]
+    {SecureShell}
+    {Secure Shell}
+    {A network protocol that allows data to be exchanged over a Secure Channel
+between two computers. Encryption provides confidentiality and integrity of
+data. SSH uses public key cryptography to authenticate the remote computer.}
+
+\abbr{SVMM}
+    {Secure Virtual Machine Monitor}
+
+\glosentry
+    {SecurityKernel}
+    {Security Kernel}
+    {A security-oriented kernel that includes all software components of the
+Trusted Computing Base (\TCB).}
+
+\glosentry
+    {SecurityPolicy}
+    {Security Policy}
+    {}
+
+\glosentry
+    {SoftwareSuspend}
+    {Software Suspend}
+    {A \Hibernation feature implemented by a software component such as an operating system.}
+
+\glosentry[SLOC]
+    {SourceLinesOfCode}
+    {Source Lines Of Code}
+    {A software metric used to measure the size of a software program by
+counting the number of lines of text written in the source code of the program.}
+
+\glosentry[S-RTM]
+    {SRTM}
+    {Static Root of Trust for Measurement }
+    {The \srtm is the static \RTM. It stores measurements in PCRs 0 - 15 and 23.}
+
+\newacronym[srtm]{S-RTM}{\SRTM}{name=S-RTM}
+
+\glosentry[SRK]
+    {StorageRootKey}
+    {Storage Root Key}
+    {An asymmetric 2048-Bit RSA key stored inside the TPM, which is used to encrypt TPM-internal data.
+    The SRK is created by taking ownership of the TPM and resides permanently until the owner is cleared.
+    }
+
+\glosentry
+    {Task}
+    {Task}
+    {A \Compartment used in the context of operating systems and microkernels.}
+
+\glosentry[TBB]
+    {TrustedBuildingBlock}
+    {Trusted Building Block}
+    {The \TBB is the combination of the \RTM, the \TPM (in detail: \RTR, \RTR), the connection 
+     of the CRTM to the motherboard and the connection of the TPM to the motherboard.}
+
+\glosentry[TOD]
+    {TargetOfDevelopment}
+    {Target Of Development}
+    {The product or system subject to development.}
+
+\glosentry[TOE]
+    {TargetOfEvaluation}
+    {Target Of Evaluation}
+    {The product or system subject to evaluation.}
+
+\glosentry[TDDL]
+    {TCGDeviceDriverLibrary}
+    {TCG Device Driver Library}
+    {Library of the TPM device driver.}
+
+\glosentry[TDDLI]
+    {TCGDeviceDriverLibraryInterface}
+    {TCG Device Driver Library Interface}
+    {Interface of the \TDDL.}
+
+\glosentry[TDD]
+    {TPMDeviceDriver}
+    {TPM Device Driver}
+    {A software module in the operating system required for communication
+with a \TPM hardware chip.}
+
+\glosentry[TLB]
+    {TranslationLookasideBuffer}
+    {Translation Lookaside Buffer}
+    {A \TLBlong is a CPU cache that is used by memory management hardware to improve the speed of virtual address translation.
+     A TLB has a fixed number of slots containing page table entries, which map virtual addresses onto physical addresses.}
+
+\glosentry[TLS]
+    {TransportLayerSecurity}
+    {Transport Layer Security}
+    {A cryptographic protocol providing secure communication on a network for
+such tasks as web browsing, instant messaging and other forms of data transfer.}
+
+\glosentry
+    {TrustedBoot}
+    {Trusted Boot}
+    {Security property in a bootstrap architecture used according to the
+bootstrap model of the \TCG (i.e. all software components involved in the
+bootstrap process are measured before execution such that remote parties can
+verify them).}
+
+\glosentry
+    {TrustedChannel}
+    {Trusted Channel}
+    {A communication channel that provides integrity, confidentiality,
+authenticity and information about the behavior of its end points.}
+
+\glosentry[TC]
+    {TrustedComputing}
+    {Trusted Computing}
+    {Components and mechanisms that are compatible with, or defined by, the
+specifications of the \TCG.}
+
+\glosentry[TCB]
+    {TrustedComputingBase}
+    {Trusted Computing Base}
+    {The set of compartments that can violate a designated \SecurityPolicy.}
+
+\glosentry[TCG]
+    {TrustedComputingGroup}
+    {Trusted Computing Group}
+    {An industry consortium defining several specifications required to build a trusted computing platform, incl. the \TPM specification, the \TSS specification and the \TNC specification.}
+
+\glosentry[TCPA]
+    {TrustedComputingPlatformAlliance}
+    {Trusted Computing Platform Alliance}
+    {The former name of the \TCG.}
+
+\glosentry[TPM]
+    {TrustedPlatformModule}
+    {Trusted Platform Module}
+    {A hardware device, protected against manipulation and designated for opt-in usage, providing protected capabilities and shielded locations. The TPM is a passive component and contains engines for random number generation, calculation of hash values and RSA key generation. A TPM generates and stores keys, signs or binds data to the platform and measures the platform's current state.}
+
+\glosentry[TCS]
+    {TSSCoreService}
+    {TSS Core Service}
+    {The \TCS coordinates TPM access of multiple \TSP~s.}
+
+\glosentry[TCSI]
+    {TSSCoreServiceInterface}
+    {TSS Core Service Interface}
+    {The interface of the \TCSlong.}
+
+\glosentry[TIS]
+    {TPMInterfaceSpecification}
+    {TPM Interface Specification}
+    {Specification of the hardware interface for TPMs of version 1.2.}
+
+\glosentry[TNC]
+    {TrustedNetworkConnect}
+    {Trusted Network Connect}
+    {The TNC architecture focuses on interoperability of network access control
+solutions and on the use of trusted computing as basis for enhancing
+security of those solutions. Integrity measurements are used as evidence of the
+security posture of the endpoint so access control solutions can evaluate the
+endpoint's suitability for being given access to the network.}
+
+\glosentry
+    {TrustedGRUB}
+    {TrustedGRUB}
+    {An extension of \GRUB applying security mechanisms offered by a \TPM; uses
+the \RTM functions offered by the \TCG specifications to continue the
+chain-of-trust started by the \CRTM and the \TCG-extended \BIOS.}
+
+\glosentry[TSS]
+    {TCGSoftwareStack}
+    {TCG Software Stack}
+    {The software stack specified by the \TCG that is responsible for
+accessing and using the \TPM.}
+
+\glosentry[TTP]
+    {TrustedThirdParty}
+    {Trusted Third Party}
+    {A party that has to be trusted by all other participants of a protocol.}
+
+\glosentry[TSP]
+    {TSSServiceProvider}
+    {TSS Service Provider}
+    {A service dedicated to every application using \TSS services in
+order to communicate with the \TSS stack.}
+
+\glosentry[TSPI]
+    {TSSServiceProviderInterface}
+    {TSS Service Provider Interface}
+    {The interface of the TSP.}
+
+\glosentry
+    {TURAYA}
+    {Turaya}
+    {An open source security framework with Trusted Computing support.}
+
+\glosentry[TVD]
+    {TrustedVirtualDomain}
+    {Trusted Virtual Domain}
+    {A security domain including several (virtual) client platforms where each client
+     is authenticated using Trusted Computing technology.}
+
+\glosentry[UML]
+    {UnifiedModelingLanguage}
+    {Unified Modeling Language}
+    {A standardized specification language for the modeling of objects in the
+context of software engineering; includes a graphical notation used to create an
+abstract model of a system, referred to as a UML model.}
+
+\abbr{UAD}
+    {User Authentication Dialog}
+
+\abbr{VPN}
+    {Virtual Private Network}
+
+\glosentry[VM]
+    {VirtualMachine}
+    {Virtual Machine}
+    {A \VM is a software implementation of a machine or a computer that behaves like a physical machine from the operating systems
+     perspective. Virtual Machines need the presence of a software layer (\VMM) in order to access the multiplexed physical hardware. Also see \Compartment. }
+
+\glosentry[VMM]
+    {VirtualMachineMonitor}
+    {Virtual Machine Monitor}
+    {The virtual machine monitor (also called \Hypervisor) generates and manages virtual machines (\VM). Hardware ressources are shared to allow execution of multiple operating systems on one host.}
+
+\glosentry
+    {Volume}
+    {Volume}
+    {\mse{Add Volume definition here...}}
+
+\glosentry
+    {XFNN}
+    {X.509}
+    {An ITU-T standard for public key infrastructure (PKI). X.509 specifies,
+amongst other things, standard formats for public key certificates and a
+certification path validation algorithm.}
+
+\glosentry
+    {XSUP}
+    {Xsupplicant}
+    {A program that allows a workstation to authenticate with a \RADIUS server
+using \SECPORT and \EAP. It can be used for computers to carry out a strong
+authentication before joining the network.}
