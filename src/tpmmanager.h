@@ -25,6 +25,7 @@
 
 #include <QDialog>
 #include <QResource>
+#include <QTimer>
 #include "ui_tpmmanagerbase.h"
 
 #include <microtss/TPM.h>
@@ -122,6 +123,8 @@ protected:
 	void initRevokeTrust();
 
 protected slots:
+	/// Show PCRs, called from Timer repeatedly
+	void slotUpdatePCRs();
 	/// Take Ownership
 	void on_myTakeOwnership_clicked();
 	/// Change password
@@ -178,6 +181,7 @@ private:
 	QPixmap          myOkImage;
 	QPixmap          myUnknownImage;
 	QPixmap          myNokImage;
+	QTimer		 myTimer;
 };
 
 bool TPM_Manager::hasTSS() const {

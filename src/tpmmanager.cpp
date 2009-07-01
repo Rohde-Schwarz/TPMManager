@@ -69,7 +69,8 @@ TPM_Manager::TPM_Manager( QWidget * parent, Qt::WFlags f)
   	myTPM( 0 ),
   	myOkImage ( ":images/images/ok.png" ),
   	myUnknownImage( ":images/images/unk.png" ),
-  	myNokImage( ":images/images/nok.png" )
+  	myNokImage( ":images/images/nok.png" ),
+	myTimer()
 {
 	setupUi(this);
 	
@@ -116,6 +117,9 @@ TPM_Manager::TPM_Manager( QWidget * parent, Qt::WFlags f)
 	// Init status & first view
 	initStatusGroup();
 	initStatus();
+	// let the PCRs update every second..
+	connect( &myTimer, SIGNAL( timeout() ), this, SLOT( slotUpdatePCRs() ) );
+	myTimer.start( 1000 );
 }
 
 TPM_Manager::~TPM_Manager()
@@ -394,6 +398,11 @@ void TPM_Manager::initRevokeTrust()
 		myRevokeInfoIcon->show();
 		myRevokeInfoText->show();
 	}*/
+}
+
+void TPM_Manager::slotUpdatePCRs()
+{
+	initPCRs();
 }
 
 void TPM_Manager::slotProcessURL( const QString& url )
