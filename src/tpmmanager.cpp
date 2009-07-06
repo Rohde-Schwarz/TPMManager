@@ -198,8 +198,6 @@ void TPM_Manager::initCapabilities()
 	/// set Capabilities
 	myCapabilities->clear(); // clear table
 	myCapabilities->setRowCount( 2 );
-	myCapabilities->insertRow( 0 );
-	myCapabilities->insertRow( 1 );
 
 	if ( hasTPM() ) {
 		QTableWidgetItem * item1 = new QTableWidgetItem( "Number of PCRs" );
