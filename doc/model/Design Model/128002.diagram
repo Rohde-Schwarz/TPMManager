@@ -1,0 +1,21 @@
+format 66
+
+packagecanvas 128002 
+  package_ref 128002 // MicroTSS
+    xyzwh 274 206 2000 254 147
+end
+packagecanvas 128130 
+  package_ref 128130 // GUI
+    xyzwh 274.5 20 2005 251 149
+end
+packagecanvas 128258 
+  package_ref 128258 // TPM
+    xyzwh 274 389.5 2000 256 153
+end
+simplerelationcanvas 128386 simplerelation_ref 128002
+  from ref 128130 z 2006 stereotype "<<use>>" xyz 402.5 180.5 3000 to ref 128002
+end
+simplerelationcanvas 128514 simplerelation_ref 128130
+  from ref 128002 z 2001 stereotype "<<use>>" xyz 404 365 3000 to ref 128258
+end
+end
