@@ -129,6 +129,8 @@ protected slots:
 	void on_myTakeOwnership_clicked();
 	/// Change password
 	void on_myChangePassword_clicked();
+	/// Change SRK password
+	void on_myChangeSRKPassword_clicked();
 	/// Clear Ownership
 	void on_myClearOwnership_clicked();
 	/// Perform TPM Selftest

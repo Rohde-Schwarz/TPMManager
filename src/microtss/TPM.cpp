@@ -451,6 +451,41 @@ void TPM::changeOwnerPassword( const string &oldOwnerPwd, const string &newOwner
 	                  "Change owner password failed!" );
 }
 
+void TPM::changeSRKPassword( const string &ownerPwd, const string &newSRKPwd, bool wellknownsecret )
+{
+	if ( !hasOwner() )
+		throw( NoSRKError( "Change SRK password failed!" ) );
+	else if ( isDisabled()  )
+		throw( IsDisabledError( "Change SRK password failed!" ));
+	else if ( isDeactivated() )
+		throw( IsDeactivatedError( "Change SRK password failed!" ));
+	
+	/* From the spec: "To change the SRK authorization: the ObjectToChange is the SRK Object handle and */
+	/* the parentObject handle is the TPM Object handle. */
+
+	BYTE wellKnownSecretValue[] = TSS_WELL_KNOWN_SECRET;
+	// Get SRK handle and set new SRK password
+	TSS_HKEY srkHandle;
+	TSS_HPOLICY srkPolicy;
+	TSS_UUID SRK_UUID = TSS_UUID_SRK;
+	
+	tssResultHandler( Tspi_Context_LoadKeyByUUID( myContextHandle, TSS_PS_TYPE_SYSTEM, SRK_UUID, &srkHandle ), "changeSRKPassword: Context_LoadKeyByUUID( SRK )" );
+
+	tssResultHandler( Tspi_Context_CreateObject( myContextHandle, TSS_OBJECT_TYPE_POLICY, TSS_POLICY_USAGE, &srkPolicy ),
+				         "changeSRKPassword: Context_CreateObject" );
+	
+	if( wellknownsecret )
+		tssResultHandler( Tspi_Policy_SetSecret( srkPolicy, TSS_SECRET_MODE_SHA1, 20, wellKnownSecretValue ), "changeSRKPassword: Setting owner policy failed!" );
+	else
+		tssResultHandler( Tspi_Policy_SetSecret( srkPolicy, TSS_SECRET_MODE_PLAIN, newSRKPwd.length(), (BYTE *)newSRKPwd.c_str() ), "changeSRKPassword: Setting owner policy failed!" );
+	
+	
+	setSecret( ownerPwd );
+	tssResultHandler( Tspi_ChangeAuth( srkHandle, myTpmHandle, srkPolicy ),
+	                  "Change SRK: Changing auth failed!" );
+	
+}
+
 void TPM::clearOwnership( const string &password )
 {
 	if ( !hasOwner() )
@@ -509,7 +544,7 @@ const string TPM::selfTestResult() const
 	return result.str();
 }
 
-void TPM::setTempDeactivated( const std::string &password)
+void TPM::setTempDeactivated()
 {
 	/* 	on 1.1b TPMs, deactivating requires no authorization
 		on 1.2 TPMs, temporarily deactivating the TPM requires operator authorization

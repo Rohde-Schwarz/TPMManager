@@ -58,7 +58,7 @@
 
 #include "tpmmanager.h"
 
-#define VERSION "0.7"
+#define VERSION "0.8"
 //
 using namespace std;
 using namespace microtss;
@@ -509,6 +509,55 @@ void TPM_Manager::on_myChangePassword_clicked()
 	initOwnership();
 }
 
+void TPM_Manager::on_myChangeSRKPassword_clicked()
+{
+	bool wellKnownSecret = false;
+	string srkPassword;
+	SetSRKView srkradiodialog;
+	PasswordDialog ownerDlg( this );
+
+	ownerDlg.setPrompt( "Enter Owner Password" );
+	ownerDlg.setDescription( "Enter the owner password to change SRK authorization." );
+
+	if ( ownerDlg.exec() == QDialog::Rejected )
+		return; // user cancelled
+	
+	if( srkradiodialog.exec() == QDialog::Rejected ) {
+		myTakeOwnership->setEnabled( true );
+		return;
+	}
+		
+	if ( srkradiodialog.setManually() == true )
+	{
+		// Read the new SRK password
+		NewPasswordDialog newSRKDlg( this );
+		
+		newSRKDlg.setPrompt( "Enter New SRK Password" );
+		newSRKDlg.setDescription( "Enter the new SRK password and retype it to confirm." );
+	
+		if ( newSRKDlg.exec() == QDialog::Rejected )
+			return; // the user cancelled
+			
+		srkPassword = ( newSRKDlg.password() ).toStdString();
+	}		
+	else
+		wellKnownSecret = true;
+
+	try {
+		myTPM->changeSRKPassword( ownerDlg.password().toStdString(), srkPassword, wellKnownSecret );
+		QMessageBox::information( this, "Changing SRK Password" , "SRK password successfully changed." );
+
+	} catch( AuthenticationFailure &e ) {
+		string err = "Authentication failure while changing SRK password: \n" + string( e.what() );
+		QMessageBox::critical( this, "TPM Error", QString::fromStdString( err ));
+	} catch ( TPMError &e ) {
+		string err = "Unknown error while changing SRK password: \n" + string( e.what() );
+		QMessageBox::critical( this, "TPM Error", QString::fromStdString( err ));
+	}	
+	// update GUI
+	initOwnership();
+}
+
 void TPM_Manager::on_myClearOwnership_clicked()
 {
 	PasswordDialog passDlg( this );
@@ -573,7 +622,7 @@ void TPM_Manager::on_myDeactivate_clicked()
 		
 	try {
 		// myTPM->setTempDeactivated( ( passDlg.password() ).toStdString() );
-		myTPM->setTempDeactivated( "" );
+		myTPM->setTempDeactivated();
 		
 		QMessageBox::information( this, "TPM deactivated" , "The TPM is deactivated now!" );
 	} catch ( TPMError &e ) {

@@ -250,6 +250,19 @@ class TPM
 		*/
 		void changeOwnerPassword( const std::string &oldOwnerPwd, const std::string &newOwnerPwd );
 		
+		/**
+		* @brief Change SRK password
+		* @param ownerPwd	current TPM Owner password
+		* @param newSRKPwd	new SRK password
+		* @param wellknownsecret indicating whether the new SRK secret should be the WELL_KNOWN_SECRET (20bytes zero) or not
+		*
+		* @throws NoSRKError If TPM has no owner
+		* @throws IsDisabledError If TPM is disabled
+		* @throws IsDeactivatedError If TPM is deactivated
+		* @throws UnknownError If an unknown error occured
+		*/
+		void changeSRKPassword( const std::string &ownerPwd, const std::string &newSRKPwd, bool wellknownsecret );
+		
 		/** 
 		* @brief Clear TPM Ownership
 		* @param  password Owner password
@@ -283,14 +296,13 @@ class TPM
 		
 		/**
 		* @brief Set TPM to temporarily deactivated
-		* @param password	TPM Owner password
 		*
 		* @throws AuthenticationFailure	If authentication fails
 		* @throws IsDeactivatedError	If TPM is deactivated
 		* @throws IsDisabledError		If TPM is disabled
 		* @throws UnknownError			If an unknown error occured
 		*/
-		void setTempDeactivated( const std::string &password );
+		void setTempDeactivated();
 		
 		/**
 		* @brief Get the public part of TPM Endorsement Key
