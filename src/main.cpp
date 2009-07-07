@@ -44,12 +44,17 @@
 
 #include <QApplication>
 #include "tpmmanager.h"
+#include <string.h>
 /// Main application loop
 int main(int argc, char ** argv)
 {
 	QApplication app( argc, argv );
 	TPM_Manager win;
-	win.show(); 
+	/* fullscreen mode */
+	if( argc > 1 && argv++ && ( strcmp(*argv, "-fs") == 0 || strcmp(*argv, "-fullscreen") == 0 ) )
+		win.showMaximized();
+	else	
+		win.show(); 
 	app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
 	return app.exec();
 }
