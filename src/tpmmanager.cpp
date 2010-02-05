@@ -58,7 +58,7 @@
 
 #include "tpmmanager.h"
 
-#define VERSION "0.8"
+#define VERSION "0.8.1"
 //
 using namespace std;
 using namespace microtss;
@@ -269,10 +269,12 @@ void TPM_Manager::initOwnership()
 	myTakeOwnership->setEnabled( myTPM->isEnabled() && !myTPM->hasOwner() );
 	
 	myChangePassword->setEnabled( myTPM->isEnabled() && myTPM->isActivated() && myTPM->hasOwner() );
+        myChangeSRKPassword->setEnabled( myTPM->isEnabled() && myTPM->isActivated() && myTPM->hasOwner() );
 	myClearOwnership->setEnabled( myChangePassword->isEnabled() );
 	
 	myTakeOwnerText->setEnabled( myTakeOwnership->isEnabled() );
 	myChangePassText->setEnabled( myChangePassword->isEnabled() );
+        myChangeSRKPassText->setEnabled( myChangeSRKPassword->isEnabled() );
 	myClearOwnerText->setEnabled( myClearOwnership->isEnabled() );
 }
 
@@ -466,7 +468,12 @@ void TPM_Manager::on_myTakeOwnership_clicked()
 	} catch ( IsDeactivatedError &e )
 	{
 		QMessageBox::critical( this, "Error: Taking Ownership" , "Sorry. Could not Take Ownership in deactivated mode due to TSS bug. " );
-	}
+        } catch ( UnknownError &e )
+        {
+            QMessageBox::critical( this, "Error: Taking Ownership" , QString( "Could not Take Ownership for the following reason: " ).append( QString::fromStdString( e.what() ) ) );
+        }
+
+
 	
 	/* finally re-enable to Take button (may get disabled by initOwnership() again afterwards) */
 	myTakeOwnership->setEnabled( true );	

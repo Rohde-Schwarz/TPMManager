@@ -44,12 +44,17 @@ SetSRKView::SetSRKView( QWidget * parent, Qt::WFlags f)
 
 void SetSRKView::slotSetSrk()
 {
-	if ( radioButtonSrkManually->isChecked() )
-		myManuallySRKRadioButton = true;
-	if ( radioButtonSrkDefault->isChecked() )
-		myDefaultSRKRadioButton = true;
-	if ( !myDefaultSRKRadioButton && !myManuallySRKRadioButton )
-		 QMessageBox::critical( this, "Error: No radio button chosen " ," Choose an option to set SRK. " );
+    if ( radioButtonSrkManually->isChecked() ) {
+        myManuallySRKRadioButton = true;
+        myDefaultSRKRadioButton = false;
+    }
+    if ( radioButtonSrkDefault->isChecked() ) {
+        myDefaultSRKRadioButton = true;
+        myManuallySRKRadioButton = false;
+    }
+
+    if ( !myDefaultSRKRadioButton && !myManuallySRKRadioButton )
+        QMessageBox::critical( this, "Error: No radio button chosen " ," Choose an option to set SRK. " );
 }
 
 SetSRKView::~SetSRKView()
