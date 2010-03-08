@@ -21,55 +21,43 @@
  ***************************************************************************/
 
 /**
-* @file PasswordDialog.cpp
+* @file SetSRKView.cpp
 *
-* @brief Password Dialog Class Implementation File
+* @brief SRK Password Choose Dialog Class Implementation File
 *
 **/
 
-#include "PasswordDialog.h"
+#include "SetSRKView.hxx"
 #include <iostream>
+#include <QString>
+#include <QMessageBox>
 
 using namespace std;
 
-PasswordDialog::PasswordDialog( QWidget * parent, Qt::WFlags f) 
-	: QDialog(parent, f)
+SetSRKView::SetSRKView( QWidget * parent, Qt::WFlags f) 
+	: QDialog(parent, f),
+	myManuallySRKRadioButton(false),
+	myDefaultSRKRadioButton(false)
 {
 	setupUi(this);
-	// set up description
-	setDescription("Please enter password.");
-	// set up password field
-	myPassword->clear();	
-	myPassword->setEchoMode(QLineEdit::Password);
-	// initially disable OK button
-	okButton->setEnabled( false );
-	QMetaObject::connectSlotsByName( this );
 }
 
-void PasswordDialog::setDescription(const QString & desc)
+void SetSRKView::slotSetSrk()
 {
-	myDescription->setText(desc);
+    if ( radioButtonSrkManually->isChecked() ) {
+        myManuallySRKRadioButton = true;
+        myDefaultSRKRadioButton = false;
+    }
+    if ( radioButtonSrkDefault->isChecked() ) {
+        myDefaultSRKRadioButton = true;
+        myManuallySRKRadioButton = false;
+    }
+
+    if ( !myDefaultSRKRadioButton && !myManuallySRKRadioButton )
+        QMessageBox::critical( this, "Error: No radio button chosen " ," Choose an option to set SRK. " );
 }
 
-void PasswordDialog::setPrompt(const QString & prompt)
+SetSRKView::~SetSRKView()
 {
-	setWindowTitle(prompt);
 }
 
-QString PasswordDialog::password()
-{
-	return myPassword->text();
-}
-
-void PasswordDialog::on_myPassword_textEdited(const QString & text)
-{
-	if( text.length() > 0 ) {
-		okButton->setEnabled( true );
-	} else {
-		okButton->setEnabled( false );
-	}
-}
-
-PasswordDialog::~PasswordDialog()
-{
-}

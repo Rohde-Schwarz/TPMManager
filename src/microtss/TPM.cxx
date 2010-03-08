@@ -21,13 +21,13 @@
  ***************************************************************************/
 
 /**
-* @file TPM.cpp
+* @file TPM.cxx
 *
 * @brief TPM Encapsulation Class Implementation File
 *
 **/
 
-#include "TPM.h"
+#include "TPM.hxx"
 #include <iostream>
 #include <sstream>
 #include <iomanip>

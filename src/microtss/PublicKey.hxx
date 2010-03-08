@@ -20,61 +20,102 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef PUBLICKEYVIEW_H
-#define PUBLICKEYVIEW_H
-//
-#include <QDialog>
-#include "ui_publickeyview.h"
-#include <microtss/PublicKey.h>
+#ifndef MICROPUBLICKEY_HH
+#define MICROPUBLICKEY_HH
+
+#include <string>
+#include <iostream>
+#include <trousers/tss.h>
 
 /**
-* @file PublicKeyView.h
+* @file PublicKey.hxx
 *
-* @brief Public Key Dialog Class Header File
+* @brief Public Key Class Header File
 *
 **/
 
-/**
-* @class PublicKeyView
-*
-* @brief Implements a user dialog to view details of a public key (e.g. Endorsement Key)
-*
-* This class implements a user dialog to view details of a public key. The base class is automatically generated as "ui_publickeyview".
-*
-*/
+namespace microtss {
 
-class PublicKeyView : public QDialog, public Ui::PublicKeyView
-{
-Q_OBJECT
+/**
+* @class PublicKey
+*
+* @brief Encapsulates a Public Key object
+*
+* This class implements a Public Key object. It is used with the TPM's Endorsement Key.
+*
+*/ 
+
+class PublicKey{
+    friend std::ostream& operator<<( std::ostream &, const PublicKey & );
+
 public:
 	/**
 	* @brief Default constructor
 	*
-	* @param parent parent QWidget object
-	* @param f window flags
-	*
-	* @return New PublicKeyView instance
+	* @param endorsementKeyHandle Handle of the Endorsement Key
 	*
 	*/
-	PublicKeyView( QWidget * parent = 0, Qt::WFlags f = 0);
-	
+    PublicKey( const TSS_HKEY	&endorsementKeyHandle );
+
 	/**
 	* @brief Default destructor
 	*
 	*/
-	~PublicKeyView();	
+    ~PublicKey();
+
+	/**
+	* @brief Get the version number of the public key
+	*
+	* @return version number of public key
+	*
+	*/
+	const std::string getVersion();
 	
 	/**
-	* @brief Sets up the public key view dialog
+	* @brief Get the type of public key
 	*
-	* @param pk the public key object to view details of
+	* @return type of public key
+	*
 	*/
-	void setPublicKey( microtss::PublicKey &pk );
-private slots:
+	const std::string getType();
+	
+	/**
+	* @brief Get the algorithm of public key
+	*
+	* @return algorithm of public key
+	*
+	*/
+	const std::string getAlgorithm();
+	
+	/**
+	* @brief Get the encryption scheme of public key
+	*
+	* @return encryption scheme of public key (if any)
+	*
+	*/
+	const std::string getEncryptionScheme();
+	
+	/**
+	* @brief Get the signature scheme of public key
+	*
+	* @return signature scheme of public key (if any)
+	*
+	*/
+	const std::string getSignatureScheme();
+	
+	/**
+	* @brief Get the key size of public key
+	*
+	* @return key size of public key (in bits)
+	*
+	*/
+	const std::string getKeySize( std::string algorithm );
+
+	 
+protected:
+	 TSS_HKEY keyHandle;
 };
+
+std::ostream& operator<<( std::ostream &ostr, const PublicKey &pk );
+} // namespace microtss
 #endif
-
-
-
-
-

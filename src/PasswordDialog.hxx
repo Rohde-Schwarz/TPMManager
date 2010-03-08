@@ -20,44 +20,79 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#ifndef PASSWORDDIALOG_H
+#define PASSWORDDIALOG_H
+
+#include <QDialog>
+#include "ui_PasswordDialog.h"
+
 /**
-* @file SetSRKView.cpp
+* @file PasswordDialog.hxx
 *
-* @brief SRK Password Choose Dialog Class Implementation File
+* @brief Password Dialog Class Header File
 *
 **/
 
-#include "SetSRKView.h"
-#include <iostream>
-#include <QString>
-#include <QMessageBox>
+/**
+* @class PasswordDialog
+*
+* @brief Implements a user dialog to enter a password (e.g. owner password)
+*
+* This class implements a user dialog to enter a password. The password is used to authenticate the user to the TPM (e.g. through owner password). The base class is automatically generated as "ui_PasswordDialog".
+*
+*/ 
 
-using namespace std;
-
-SetSRKView::SetSRKView( QWidget * parent, Qt::WFlags f) 
-	: QDialog(parent, f),
-	myManuallySRKRadioButton(false),
-	myDefaultSRKRadioButton(false)
+class PasswordDialog : public QDialog, public Ui::PasswordDialog
 {
-	setupUi(this);
-}
-
-void SetSRKView::slotSetSrk()
-{
-    if ( radioButtonSrkManually->isChecked() ) {
-        myManuallySRKRadioButton = true;
-        myDefaultSRKRadioButton = false;
-    }
-    if ( radioButtonSrkDefault->isChecked() ) {
-        myDefaultSRKRadioButton = true;
-        myManuallySRKRadioButton = false;
-    }
-
-    if ( !myDefaultSRKRadioButton && !myManuallySRKRadioButton )
-        QMessageBox::critical( this, "Error: No radio button chosen " ," Choose an option to set SRK. " );
-}
-
-SetSRKView::~SetSRKView()
-{
-}
-
+Q_OBJECT
+public:
+	/**
+	* @brief Default constructor
+	*
+	* @param parent parent QWidget object
+	* @param f window flags
+	*
+	* @return New PasswordDialog instance
+	*
+	*/
+	PasswordDialog( QWidget * parent = 0, Qt::WFlags f = 0 );
+	
+	/**
+	* @brief Default destructor
+	*
+	*/
+	~PasswordDialog();	
+	
+	/**
+	* @brief Sets the descriptive text of the password to enter in the dialog
+	*
+	* @param desc descriptive text
+	*
+	*/
+	void setDescription(const QString & desc);
+	
+	/**
+	* @brief Sets the password dialog title
+	*
+	* @param prompt password dialog title
+	*
+	*/
+	void setPrompt(const QString & prompt);
+	
+	/**
+	* @brief Gets the password the user entered
+	*
+	* @return The new password
+	*
+	*/
+	QString password();
+	
+private slots:
+	/**
+	* @brief Slot called whenever text is edited in the password text field
+	*
+	* @param text the current text entered into the text field 
+	*/
+	void on_myPassword_textEdited(const QString & text);
+};
+#endif

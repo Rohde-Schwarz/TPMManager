@@ -21,40 +21,40 @@
  ***************************************************************************/
 
 /**
-* @file PublicKeyView.cpp
+* @mainpage TPM Manager
 *
-* @brief Public Key Dialog Class Implementation File
+* The TPM Manager is an open source software for managing Trusted Platform Modules (TPM)
+* developed by Sirrix AG in cooperation with Ruhr University Bochum. It features an easy to use graphical
+* user interface and can be used on every platform shipped with a TPM that is supported
+* by the Linux Kernel.
+* <br>
+*
+* @author Anoosheh Zaerin <a href="mailto:a.zaerin@sirrix.com">&lt;a.zaerin@sirrix.com&gt;</a>
+* @author Ren&eacute; Korthaus <a href="mailto:r.korthaus@sirrix.com">&lt;r.korthaus@sirrix.com&gt;</a>
+*
+* You can find more documentation for download on the project page. See <a href="https://projects.sirrix.com/trac/tpmmanager">https://projects.sirrix.com/trac/tpmmanager</a>.
+*/
+
+/**
+* @file Main.cxx
+*
+* @brief TPM Manager Main Application File
 *
 **/
 
-#include "PublicKeyView.h"
-#include <QLabel>
-#include <QString>
-#include <string>
-
-using namespace std;
-using namespace microtss;
-
-PublicKeyView::PublicKeyView( QWidget * parent, Qt::WFlags f) 
-	: QDialog(parent, f)
+#include <QApplication>
+#include "TPMManager.hxx"
+#include <string.h>
+/// Main application loop
+int main(int argc, char ** argv)
 {
-	setupUi(this);
+	QApplication app( argc, argv );
+	TPM_Manager win;
+	/* fullscreen mode */
+	if( argc > 1 && argv++ && ( strcmp(*argv, "-fs") == 0 || strcmp(*argv, "-fullscreen") == 0 ) )
+		win.showMaximized();
+	else	
+		win.show(); 
+	app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
+	return app.exec();
 }
-
-void PublicKeyView::setPublicKey( PublicKey &pk )
-{
-	myVersion->setText( QString::fromStdString( pk.getVersion() ) );
-	myType->setText( QString::fromStdString( pk.getType() ) );
-
-	string algo = pk.getAlgorithm();
-
-	myAlgorithm->setText( QString::fromStdString( algo ) );
-	myKeySize->setText( QString::fromStdString( pk.getKeySize( algo ) ) );
-	myEncScheme->setText( QString::fromStdString( pk.getEncryptionScheme() ) );
-	mySigScheme->setText( QString::fromStdString( pk.getSignatureScheme() ) );
-}
-PublicKeyView::~PublicKeyView()
-{
-}
-//
-

@@ -20,41 +20,79 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-/**
-* @mainpage TPM Manager
-*
-* The TPM Manager is an open source software for managing Trusted Platform Modules (TPM)
-* developed by Sirrix AG in cooperation with Ruhr University Bochum. It features an easy to use graphical
-* user interface and can be used on every platform shipped with a TPM that is supported
-* by the Linux Kernel.
-* <br>
-*
-* @author Anoosheh Zaerin <a href="mailto:a.zaerin@sirrix.com">&lt;a.zaerin@sirrix.com&gt;</a>
-* @author Ren&eacute; Korthaus <a href="mailto:r.korthaus@sirrix.com">&lt;r.korthaus@sirrix.com&gt;</a>
-*
-* You can find more documentation for download on the project page. See <a href="https://projects.sirrix.com/trac/tpmmanager">https://projects.sirrix.com/trac/tpmmanager</a>.
-*/
+#ifndef SETSRKVIEW_H
+#define SETSRKVIEW_H
+//
+#include <QDialog>
+#include "ui_SetSRKDialog.h"
+#include <QRadioButton>
 
 /**
-* @file main.cpp
+* @file SetSRKView.hxx
 *
-* @brief TPM Manager Main Application File
+* @brief SRK Password Choose Dialog Class Header File
 *
 **/
 
-#include <QApplication>
-#include "tpmmanager.h"
-#include <string.h>
-/// Main application loop
-int main(int argc, char ** argv)
+/**
+* @class SetSRKView
+*
+* @brief Implements a user dialog to choose a Storage Root Key (SRK) secret.
+*
+* This class implements a user dialog to choose a SRK secret. The base class is automatically generated as "ui_setsrkdialog.h".
+*
+*/
+
+class SetSRKView : public QDialog, public Ui::SetSRKDialog
 {
-	QApplication app( argc, argv );
-	TPM_Manager win;
-	/* fullscreen mode */
-	if( argc > 1 && argv++ && ( strcmp(*argv, "-fs") == 0 || strcmp(*argv, "-fullscreen") == 0 ) )
-		win.showMaximized();
-	else	
-		win.show(); 
-	app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
-	return app.exec();
+Q_OBJECT
+public:
+	/**
+	* @brief Default constructor
+	*
+	* @param parent parent QWidget object
+	* @param f window flags
+	*
+	* @return New SetSRKView instance
+	*
+	*/
+	SetSRKView( QWidget * parent = 0, Qt::WFlags f = 0 );
+	
+	/**
+	* @brief Default destructor
+	*
+	*/
+	~SetSRKView();
+	
+	/**
+	* @brief Get user's choice on SRK secret
+	*
+	* @return whether user chose to set SRK secret manually or not
+	*/
+	inline bool setManually();
+
+protected slots:
+	/**
+	* @brief Slot called whenever user accepts dialog (OK)
+	*
+	*/
+	void slotSetSrk();	
+	
+private:
+	bool myManuallySRKRadioButton;	
+	bool myDefaultSRKRadioButton;
+};
+
+bool SetSRKView::setManually(){
+	if ( myManuallySRKRadioButton )
+		return true;
+	else 
+		return false;
 }
+
+#endif
+
+
+
+
+

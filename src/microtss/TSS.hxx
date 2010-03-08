@@ -32,7 +32,7 @@
 #include <tss/tpm_error.h>
 
 /**
-* @file TSS.h
+* @file TSS.hxx
 *
 * @brief TCG Software Stack Class Header File
 *

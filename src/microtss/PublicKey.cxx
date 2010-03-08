@@ -21,14 +21,14 @@
  ***************************************************************************/
 
 /**
-* @file PublicKey.cpp
+* @file PublicKey.cxx
 *
 * @brief Public Key Class Implementation File
 *
 **/
 
 
-#include "PublicKey.h"
+#include "PublicKey.hxx"
 #include <iomanip>
 #include <sstream>
 

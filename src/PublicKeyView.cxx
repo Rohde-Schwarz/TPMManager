@@ -20,79 +20,41 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef SETSRKVIEW_H
-#define SETSRKVIEW_H
-//
-#include <QDialog>
-#include "ui_setsrkdialog.h"
-#include <QRadioButton>
-
 /**
-* @file SetSRKView.h
+* @file PublicKeyView.cxx
 *
-* @brief SRK Password Choose Dialog Class Header File
+* @brief Public Key Dialog Class Implementation File
 *
 **/
 
-/**
-* @class SetSRKView
-*
-* @brief Implements a user dialog to choose a Storage Root Key (SRK) secret.
-*
-* This class implements a user dialog to choose a SRK secret. The base class is automatically generated as "ui_setsrkdialog.h".
-*
-*/
+#include "PublicKeyView.hxx"
+#include <QLabel>
+#include <QString>
+#include <string>
 
-class SetSRKView : public QDialog, public Ui::SetSRKDialog
+using namespace std;
+using namespace microtss;
+
+PublicKeyView::PublicKeyView( QWidget * parent, Qt::WFlags f) 
+	: QDialog(parent, f)
 {
-Q_OBJECT
-public:
-	/**
-	* @brief Default constructor
-	*
-	* @param parent parent QWidget object
-	* @param f window flags
-	*
-	* @return New SetSRKView instance
-	*
-	*/
-	SetSRKView( QWidget * parent = 0, Qt::WFlags f = 0 );
-	
-	/**
-	* @brief Default destructor
-	*
-	*/
-	~SetSRKView();
-	
-	/**
-	* @brief Get user's choice on SRK secret
-	*
-	* @return whether user chose to set SRK secret manually or not
-	*/
-	inline bool setManually();
-
-protected slots:
-	/**
-	* @brief Slot called whenever user accepts dialog (OK)
-	*
-	*/
-	void slotSetSrk();	
-	
-private:
-	bool myManuallySRKRadioButton;	
-	bool myDefaultSRKRadioButton;
-};
-
-bool SetSRKView::setManually(){
-	if ( myManuallySRKRadioButton )
-		return true;
-	else 
-		return false;
+	setupUi(this);
 }
 
-#endif
+void PublicKeyView::setPublicKey( PublicKey &pk )
+{
+	myVersion->setText( QString::fromStdString( pk.getVersion() ) );
+	myType->setText( QString::fromStdString( pk.getType() ) );
 
+	string algo = pk.getAlgorithm();
 
-
-
+	myAlgorithm->setText( QString::fromStdString( algo ) );
+	myKeySize->setText( QString::fromStdString( pk.getKeySize( algo ) ) );
+	myEncScheme->setText( QString::fromStdString( pk.getEncryptionScheme() ) );
+	mySigScheme->setText( QString::fromStdString( pk.getSignatureScheme() ) );
+}
+PublicKeyView::~PublicKeyView()
+{
+}
+//
 

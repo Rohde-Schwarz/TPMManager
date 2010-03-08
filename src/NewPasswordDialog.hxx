@@ -20,102 +20,86 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef MICROPUBLICKEY_HH
-#define MICROPUBLICKEY_HH
+#ifndef NEWPASSWORDDIALOG_H
+#define NEWPASSWORDDIALOG_H
 
-#include <string>
-#include <iostream>
-#include <trousers/tss.h>
+#include <QDialog>
+#include "ui_NewPasswordDialog.h"
 
 /**
-* @file PublicKey.h
+* @file NewPasswordDialog.hxx
 *
-* @brief Public Key Class Header File
+* @brief New Password Dialog Class Header File
 *
 **/
 
-namespace microtss {
-
 /**
-* @class PublicKey
+* @class NewPasswordDialog
 *
-* @brief Encapsulates a Public Key object
+* @brief Implements a user dialog to choose a new password (e.g. owner password)
 *
-* This class implements a Public Key object. It is used with the TPM's Endorsement Key.
+* This class implements a user dialog to choose a new password. The base class is automatically generated as "ui_NewPasswordDialog".
 *
 */ 
 
-class PublicKey{
-    friend std::ostream& operator<<( std::ostream &, const PublicKey & );
-
+class NewPasswordDialog : public QDialog, public Ui::NewPasswordDialog
+{
+Q_OBJECT
 public:
 	/**
 	* @brief Default constructor
 	*
-	* @param endorsementKeyHandle Handle of the Endorsement Key
+	* @param parent parent QWidget object
+	* @param f window flags
+	*
+	* @return New NewPasswordDialog instance
 	*
 	*/
-    PublicKey( const TSS_HKEY	&endorsementKeyHandle );
-
+	NewPasswordDialog( QWidget * parent = 0, Qt::WFlags f = 0 );
+	
 	/**
 	* @brief Default destructor
 	*
 	*/
-    ~PublicKey();
-
-	/**
-	* @brief Get the version number of the public key
-	*
-	* @return version number of public key
-	*
-	*/
-	const std::string getVersion();
+	~NewPasswordDialog();	
 	
 	/**
-	* @brief Get the type of public key
+	* @brief Sets the descriptive text of the password to choose in the dialog
 	*
-	* @return type of public key
+	* @param desc descriptive text
 	*
 	*/
-	const std::string getType();
+	void setDescription(const QString & desc);
 	
 	/**
-	* @brief Get the algorithm of public key
+	* @brief Sets the password dialog title
 	*
-	* @return algorithm of public key
+	* @param prompt password dialog title
 	*
 	*/
-	const std::string getAlgorithm();
+	void setPrompt(const QString & prompt);
 	
 	/**
-	* @brief Get the encryption scheme of public key
+	* @brief Gets the password the user entered
 	*
-	* @return encryption scheme of public key (if any)
+	* @return The new password
 	*
 	*/
-	const std::string getEncryptionScheme();
+	QString password();
+	
+private slots:
+	/**
+	* @brief Slot called whenever text is edited in the new password field
+	*
+	* @param text the current text entered into the text field 
+	*/
+	void on_myNewPassword_textEdited(const QString & text);
 	
 	/**
-	* @brief Get the signature scheme of public key
+	* @brief Slot called whenever text is edited in the confirm new password field
 	*
-	* @return signature scheme of public key (if any)
-	*
+	* @param text the current text entered into the text field 
 	*/
-	const std::string getSignatureScheme();
-	
-	/**
-	* @brief Get the key size of public key
-	*
-	* @return key size of public key (in bits)
-	*
-	*/
-	const std::string getKeySize( std::string algorithm );
-
-	 
-protected:
-	 TSS_HKEY keyHandle;
+	void on_myConfirmPassword_textEdited(const QString & text);
 };
-
-std::ostream& operator<<( std::ostream &ostr, const PublicKey &pk );
-} // namespace microtss
 #endif

@@ -21,13 +21,13 @@
  ***************************************************************************/
 
 /**
-* @file TSS.cpp
+* @file TSS.cxx
 *
 * @brief TCG Software Stack Class Implementation File
 *
 **/ 
 
-#include "TSS.h"
+#include "TSS.hxx"
 #include <sys/stat.h>
 #include <iostream>
 #include <sstream>

@@ -21,14 +21,12 @@
  ***************************************************************************/
 
 /**
-* @file tpmmanager.cpp
+* @file TPMManager.cxx
 *
 * @brief TPM Manager Controller Class Implementation File
 *
 **/
 
-#include <microtss/TSS.h>
-#include <SetSRKView.h>
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -51,12 +49,14 @@
 #include <QDesktopServices>
 #include <QUrl>
 // 
-#include <microtss/PublicKey.h>
-#include <PublicKeyView.h>
-#include <PasswordDialog.h>
-#include <NewPasswordDialog.h>
+#include <microtss/TSS.hxx>
+#include <microtss/PublicKey.hxx>
+#include <SetSRKView.hxx>
+#include <PublicKeyView.hxx>
+#include <PasswordDialog.hxx>
+#include <NewPasswordDialog.hxx>
 
-#include "tpmmanager.h"
+#include "TPMManager.hxx"
 
 #define VERSION "0.8.1"
 //
@@ -112,6 +112,8 @@ TPM_Manager::TPM_Manager( QWidget * parent, Qt::WFlags f)
     } catch ( TSSSystemNotFound &e ) {
         QMessageBox::critical( this, "No TSS Found", "A TCG Software Stack (TSS) could not be found. When using TrouSerS, make sure the TrouSerS daemon (tcsd) is running.\nTPM Manager will quit." );
         exit(1);
+    } catch ( ... ) {
+        QMessageBox::critical( this, "Unknown Error", "An unknown error occured during initialization." );
     }
 	
     // Init status & first view
@@ -466,12 +468,12 @@ void TPM_Manager::on_myTakeOwnership_clicked()
 		QMessageBox::information( this, "Taking Ownership" , "TPM owner successfully created."  );
 	
         } catch ( IsDeactivatedError &e ) {
-            QMessageBox::critical( this, "Error: Taking Ownership" , "Sorry. Could not Take Ownership in deactivated mode due to TSS bug. " );
+            QMessageBox::critical( this, "Taking Ownership Failed" , "Sorry. Could not Take Ownership in deactivated mode due to TSS bug. " );
         } catch ( UnknownError &e ) {
-            QMessageBox::critical( this, "Error: Taking Ownership" , QString( "Could not Take Ownership for the following reason: " ).append( QString::fromStdString( e.what() ) ) );
+            QMessageBox::critical( this, "Taking Ownership Failed" , QString( "Could not Take Ownership for the following reason: " ).append( QString::fromStdString( e.what() ) ) );
+        } catch ( ... ) {
+            QMessageBox::critical( this, "Unknown Error", "An unknown error occured during Taking Ownership." );
         }
-
-
 	
 	/* finally re-enable to Take button (may get disabled by initOwnership() again afterwards) */
 	myTakeOwnership->setEnabled( true );	
@@ -503,11 +505,13 @@ void TPM_Manager::on_myChangePassword_clicked()
 
 		QMessageBox::information( this, "Changing TPM Owner Password" , "TPM owner password successfully changed." );
 
-	} catch( TPMError &e )
-	{
+        } catch( TPMError &e ) {
 		string err = "Error while changing owner password.\n" + string( e.what() );
 		QMessageBox::critical( this, "TPM Error", QString::fromStdString( err ));
-	}
+        } catch ( ... ) {
+            QMessageBox::critical( this, "Unknown Error", "An unknown error occured when trying to change TPM Owner password." );
+        }
+
 	// update GUI
 	initOwnership();
 }
@@ -556,7 +560,9 @@ void TPM_Manager::on_myChangeSRKPassword_clicked()
 	} catch ( TPMError &e ) {
 		string err = "Unknown error while changing SRK password: \n" + string( e.what() );
 		QMessageBox::critical( this, "TPM Error", QString::fromStdString( err ));
-	}	
+        } catch ( ... ) {
+            QMessageBox::critical( this, "Unknown Error", "An unknown error occured when trying to change SRK password." );
+        }
 	// update GUI
 	initOwnership();
 }
@@ -582,7 +588,9 @@ void TPM_Manager::on_myClearOwnership_clicked()
 	} catch ( TPMError &e ) {
 		string err = "Error while clearing ownership. \n" + string( e.what() );
 		QMessageBox::critical( this, "Error: Clear Ownership", QString::fromStdString( err ) );
-	}
+        } catch ( ... ) {
+            QMessageBox::critical( this, "Unknown Error", "An unknown error occured when trying to clear TPM Ownership." );
+        }
 	// update GUI
 	initStatus();
 	initStatusGroup();
@@ -631,8 +639,9 @@ void TPM_Manager::on_myDeactivate_clicked()
 	} catch ( TPMError &e ) {
 		string err = "Error while deactivating TPM. \n" + string( e.what() );
 		QMessageBox::critical( this, "Error: Deactivate TPM", QString::fromStdString( err ) );
-	}
-	
+        } catch ( ... ) {
+            QMessageBox::critical( this, "Unknown Error", "An unknown error occured when trying to deactivate TPM." );
+        }
 	
 	// refresh TPM status view & options
 	initStatusGroup();
@@ -761,9 +770,11 @@ void TPM_Manager::on_myDisable_clicked()
 		
 			QMessageBox::information( this, "Disabling the TPM", "TPM successfully disabled." );
 		} catch ( TPMError &e ) {
-		string err = "Authentication failure. \n" + string( e.what() );
-		QMessageBox::critical( this, "Error when disabling the TPM" , QString::fromStdString( err ) );
-		}
+                    string err = "Authentication failure. \n" + string( e.what() );
+                    QMessageBox::critical( this, "Error when disabling the TPM" , QString::fromStdString( err ) );
+                } catch ( ... ) {
+                    QMessageBox::critical( this, "Unknown Error", "An unknown error occured when trying to disable TPM." );
+                }
 	}
 	else
 	{
@@ -781,7 +792,9 @@ void TPM_Manager::on_myDisable_clicked()
 		} catch ( TPMError &e ) {
 			string err = "Authentication failure. \n" + string( e.what() );
 			QMessageBox::critical( this, "Error when enabling the TPM", QString::fromStdString( err ) );
-		}
+                } catch ( ... ) {
+                    QMessageBox::critical( this, "Unknown Error", "An unknown error occured when trying to enable TPM." );
+                }
 	}
 	// refresh TPM status view & options
 	initStatusGroup();
@@ -817,7 +830,9 @@ void TPM_Manager::on_myShowEndorsement_clicked()
 	} catch ( TPMError &e ) {
 		string err = "Authentication failure. \n" + string( e.what() );
 		QMessageBox::critical( this, "Error when trying to get Endorsement Key" , QString::fromStdString( err ) );
-	}
+        } catch ( ... ) {
+            QMessageBox::critical( this, "Unknown Error", "An unknown error occured when trying to retrieve TPM Endorsement Key." );
+        }
 }
 
 void TPM_Manager::on_mySaveEndorsement_clicked()
@@ -847,8 +862,10 @@ void TPM_Manager::on_mySaveEndorsement_clicked()
 		fs.close();
 	} catch ( TPMError &e ) {
 		string err = "Authentication failure. \n" + string( e.what() );
-		QMessageBox::critical( this, "Error when trying to save Endorsement Key", QString::fromStdString( err ) );
-	}
+                QMessageBox::critical( this, "Error when trying to store TPM Endorsement Key", QString::fromStdString( err ) );
+        } catch ( ... ) {
+            QMessageBox::critical( this, "Unknown Error", "An unknown error occured when trying to store TPM Endorsement Key." );
+        }
 
 }
 
@@ -858,7 +875,7 @@ void TPM_Manager::on_myRestrictEndorsement_clicked()
 
 	PasswordDialog passDlg( this );
 	passDlg.setPrompt( "Enter Owner Password" );
-	passDlg.setDescription( "Enter owner password to restrict viewing public endorsement key information without owner authorization. " );
+        passDlg.setDescription( "Enter owner password to restrict viewing public TPM Endorsement Key information without owner authorization. " );
 
 	if ( passDlg.exec() == QDialog::Rejected )
 		return; // user cancelled
@@ -872,7 +889,9 @@ void TPM_Manager::on_myRestrictEndorsement_clicked()
 	} catch ( TPMError &e ) {
 		string err =  "Error: Restrict Endorsement Key. \n" + string( e.what() );
 		QMessageBox::critical( this, "Error at restrict Endorsement Key", QString::fromStdString( err ) );
-	}
+        } catch ( ... ) {
+            QMessageBox::critical( this, "Unknown Error", "An unknown error occured when trying to restrict access to TPM Endorsement Key." );
+        }
 
 	initIdentity();
 }
@@ -897,7 +916,9 @@ void TPM_Manager::on_myDisableMaintenance_clicked()
 	} catch ( TPMError &e ) {
 		string err = "Error while disabling Maintenance Archive. \n" + string( e.what() );
 		QMessageBox::critical( this,  "Error: Disable Maintenance Archive" , QString::fromStdString( err ) );
-	}
+        } catch ( ... ) {
+            QMessageBox::critical( this, "Unknown Error", "An unknown error occured when trying to disable TPM Maintenance archive." );
+        }
 }
 
 void TPM_Manager::on_myDeleteEndorsement_clicked()

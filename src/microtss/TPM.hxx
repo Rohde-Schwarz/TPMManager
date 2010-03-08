@@ -32,13 +32,13 @@
 #include <tss/tspi.h>
 #include <tss/tpm_error.h>
 
-#include <microtss/PublicKey.h>
+#include <microtss/PublicKey.hxx>
 
 #define TSS_ERROR_LAYER(x)      (x & 0x3000)
 #define TSS_ERROR_CODE(x)       (x & 0xFFF)
 
 /**
-* @file TPM.h
+* @file TPM.hxx
 *
 * @brief TPM Encapsulation Class Header File
 *

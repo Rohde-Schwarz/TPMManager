@@ -20,79 +20,64 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef PASSWORDDIALOG_H
-#define PASSWORDDIALOG_H
-
-#include <QDialog>
-#include "ui_PasswordDialog.h"
-
 /**
-* @file PasswordDialog.h
+* @file NewPasswordDialog.cxx
 *
-* @brief Password Dialog Class Header File
+* @brief New Password Dialog Class Implementation File
 *
 **/
 
-/**
-* @class PasswordDialog
-*
-* @brief Implements a user dialog to enter a password (e.g. owner password)
-*
-* This class implements a user dialog to enter a password. The password is used to authenticate the user to the TPM (e.g. through owner password). The base class is automatically generated as "ui_PasswordDialog".
-*
-*/ 
+#include "NewPasswordDialog.hxx"
 
-class PasswordDialog : public QDialog, public Ui::PasswordDialog
+NewPasswordDialog::NewPasswordDialog( QWidget * parent, Qt::WFlags f) 
+	: QDialog(parent, f)
 {
-Q_OBJECT
-public:
-	/**
-	* @brief Default constructor
-	*
-	* @param parent parent QWidget object
-	* @param f window flags
-	*
-	* @return New PasswordDialog instance
-	*
-	*/
-	PasswordDialog( QWidget * parent = 0, Qt::WFlags f = 0 );
-	
-	/**
-	* @brief Default destructor
-	*
-	*/
-	~PasswordDialog();	
-	
-	/**
-	* @brief Sets the descriptive text of the password to enter in the dialog
-	*
-	* @param desc descriptive text
-	*
-	*/
-	void setDescription(const QString & desc);
-	
-	/**
-	* @brief Sets the password dialog title
-	*
-	* @param prompt password dialog title
-	*
-	*/
-	void setPrompt(const QString & prompt);
-	
-	/**
-	* @brief Gets the password the user entered
-	*
-	* @return The new password
-	*
-	*/
-	QString password();
-	
-private slots:
-	/**
-	* @brief Slot called whenever text is edited in the password text field
-	*
-	* @param text the current text entered into the text field 
-	*/
-	void on_myPassword_textEdited(const QString & text);
-};
-#endif
+	setupUi(this);
+	setDescription("Please enter new password.");
+	// set up password field
+	myNewPassword->clear();	
+	myNewPassword->setEchoMode(QLineEdit::Password);
+	myConfirmPassword->clear();	
+	myConfirmPassword->setEchoMode(QLineEdit::Password);
+	// initially disable OK button
+	okButton->setEnabled( false );
+	QMetaObject::connectSlotsByName( this );
+}
+//
+
+void NewPasswordDialog::setDescription(const QString & desc)
+{
+	myDescription->setText(desc);
+}
+
+void NewPasswordDialog::setPrompt(const QString & prompt)
+{
+	setWindowTitle(prompt);
+}
+
+QString NewPasswordDialog::password()
+{
+	return myNewPassword->text();
+}
+
+void NewPasswordDialog::on_myNewPassword_textEdited(const QString & text)
+{
+	if( text.length() > 0 && ( text.compare( myConfirmPassword->text() ) == 0 ) ) {
+		okButton->setEnabled( true );
+	} else {
+		okButton->setEnabled( false );
+	}
+}
+
+void NewPasswordDialog::on_myConfirmPassword_textEdited(const QString & text)
+{
+	if( text.length() > 0 && ( text.compare( myNewPassword->text() ) == 0 ) ) {
+		okButton->setEnabled( true );
+	} else {
+		okButton->setEnabled( false );
+	}
+}
+
+NewPasswordDialog::~NewPasswordDialog()
+{
+}

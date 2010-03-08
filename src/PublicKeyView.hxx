@@ -20,29 +20,30 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifndef NEWPASSWORDDIALOG_H
-#define NEWPASSWORDDIALOG_H
-
+#ifndef PUBLICKEYVIEW_H
+#define PUBLICKEYVIEW_H
+//
 #include <QDialog>
-#include "ui_NewPasswordDialog.h"
+#include "ui_PublicKeyView.h"
+#include <microtss/PublicKey.hxx>
 
 /**
-* @file NewPasswordDialog.h
+* @file PublicKeyView.hxx
 *
-* @brief New Password Dialog Class Header File
+* @brief Public Key Dialog Class Header File
 *
 **/
 
 /**
-* @class NewPasswordDialog
+* @class PublicKeyView
 *
-* @brief Implements a user dialog to choose a new password (e.g. owner password)
+* @brief Implements a user dialog to view details of a public key (e.g. Endorsement Key)
 *
-* This class implements a user dialog to choose a new password. The base class is automatically generated as "ui_NewPasswordDialog".
+* This class implements a user dialog to view details of a public key. The base class is automatically generated as "ui_publickeyview".
 *
-*/ 
+*/
 
-class NewPasswordDialog : public QDialog, public Ui::NewPasswordDialog
+class PublicKeyView : public QDialog, public Ui::PublicKeyView
 {
 Q_OBJECT
 public:
@@ -52,54 +53,28 @@ public:
 	* @param parent parent QWidget object
 	* @param f window flags
 	*
-	* @return New NewPasswordDialog instance
+	* @return New PublicKeyView instance
 	*
 	*/
-	NewPasswordDialog( QWidget * parent = 0, Qt::WFlags f = 0 );
+	PublicKeyView( QWidget * parent = 0, Qt::WFlags f = 0);
 	
 	/**
 	* @brief Default destructor
 	*
 	*/
-	~NewPasswordDialog();	
+	~PublicKeyView();	
 	
 	/**
-	* @brief Sets the descriptive text of the password to choose in the dialog
+	* @brief Sets up the public key view dialog
 	*
-	* @param desc descriptive text
-	*
+	* @param pk the public key object to view details of
 	*/
-	void setDescription(const QString & desc);
-	
-	/**
-	* @brief Sets the password dialog title
-	*
-	* @param prompt password dialog title
-	*
-	*/
-	void setPrompt(const QString & prompt);
-	
-	/**
-	* @brief Gets the password the user entered
-	*
-	* @return The new password
-	*
-	*/
-	QString password();
-	
+	void setPublicKey( microtss::PublicKey &pk );
 private slots:
-	/**
-	* @brief Slot called whenever text is edited in the new password field
-	*
-	* @param text the current text entered into the text field 
-	*/
-	void on_myNewPassword_textEdited(const QString & text);
-	
-	/**
-	* @brief Slot called whenever text is edited in the confirm new password field
-	*
-	* @param text the current text entered into the text field 
-	*/
-	void on_myConfirmPassword_textEdited(const QString & text);
 };
 #endif
+
+
+
+
+

@@ -21,63 +21,55 @@
  ***************************************************************************/
 
 /**
-* @file NewPasswordDialog.cpp
+* @file PasswordDialog.cxx
 *
-* @brief New Password Dialog Class Implementation File
+* @brief Password Dialog Class Implementation File
 *
 **/
 
-#include "NewPasswordDialog.h"
+#include "PasswordDialog.hxx"
+#include <iostream>
 
-NewPasswordDialog::NewPasswordDialog( QWidget * parent, Qt::WFlags f) 
+using namespace std;
+
+PasswordDialog::PasswordDialog( QWidget * parent, Qt::WFlags f) 
 	: QDialog(parent, f)
 {
 	setupUi(this);
-	setDescription("Please enter new password.");
+	// set up description
+	setDescription("Please enter password.");
 	// set up password field
-	myNewPassword->clear();	
-	myNewPassword->setEchoMode(QLineEdit::Password);
-	myConfirmPassword->clear();	
-	myConfirmPassword->setEchoMode(QLineEdit::Password);
+	myPassword->clear();	
+	myPassword->setEchoMode(QLineEdit::Password);
 	// initially disable OK button
 	okButton->setEnabled( false );
 	QMetaObject::connectSlotsByName( this );
 }
-//
 
-void NewPasswordDialog::setDescription(const QString & desc)
+void PasswordDialog::setDescription(const QString & desc)
 {
 	myDescription->setText(desc);
 }
 
-void NewPasswordDialog::setPrompt(const QString & prompt)
+void PasswordDialog::setPrompt(const QString & prompt)
 {
 	setWindowTitle(prompt);
 }
 
-QString NewPasswordDialog::password()
+QString PasswordDialog::password()
 {
-	return myNewPassword->text();
+	return myPassword->text();
 }
 
-void NewPasswordDialog::on_myNewPassword_textEdited(const QString & text)
+void PasswordDialog::on_myPassword_textEdited(const QString & text)
 {
-	if( text.length() > 0 && ( text.compare( myConfirmPassword->text() ) == 0 ) ) {
+	if( text.length() > 0 ) {
 		okButton->setEnabled( true );
 	} else {
 		okButton->setEnabled( false );
 	}
 }
 
-void NewPasswordDialog::on_myConfirmPassword_textEdited(const QString & text)
-{
-	if( text.length() > 0 && ( text.compare( myNewPassword->text() ) == 0 ) ) {
-		okButton->setEnabled( true );
-	} else {
-		okButton->setEnabled( false );
-	}
-}
-
-NewPasswordDialog::~NewPasswordDialog()
+PasswordDialog::~PasswordDialog()
 {
 }

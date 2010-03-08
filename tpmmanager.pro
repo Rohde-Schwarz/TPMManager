@@ -7,31 +7,31 @@ DEPENDPATH += . microtss src
 DESTDIR = bin
 FORMS = ui/NewPasswordDialog.ui \
  ui/PasswordDialog.ui \
- ui/publickeyview.ui \
- ui/setsrkdialog.ui \
- ui/tpmmanagerbase.ui
-HEADERS = src/NewPasswordDialog.h \
- src/PublicKeyView.h \
- src/SetSRKView.h \
- src/microtss/PublicKey.h \
- src/microtss/TPM.h \
- src/microtss/TSS.h \
- src/tpmmanager.h \
- src/PasswordDialog.h
+ ui/PublicKeyView.ui \
+ ui/SetSRKDialog.ui \
+ ui/TPMManagerBase.ui
+HEADERS = src/NewPasswordDialog.hxx \
+ src/PublicKeyView.hxx \
+ src/SetSRKView.hxx \
+ src/microtss/PublicKey.hxx \
+ src/microtss/TPM.hxx \
+ src/microtss/TSS.hxx \
+ src/TPMManager.hxx \
+ src/PasswordDialog.hxx
 INCLUDEPATH += . microtss src
 LIBS += -ltspi
 MOC_DIR = build
 OBJECTS_DIR = build
 QT = core gui
-SOURCES = src/NewPasswordDialog.cpp \
- src/PublicKeyView.cpp \
- src/SetSRKView.cpp \
- src/main.cpp \
- src/microtss/PublicKey.cpp \
- src/microtss/TPM.cpp \
- src/microtss/TSS.cpp \
- src/tpmmanager.cpp \
- src/PasswordDialog.cpp
+SOURCES = src/NewPasswordDialog.cxx \
+ src/PublicKeyView.cxx \
+ src/SetSRKView.cxx \
+ src/Main.cxx \
+ src/microtss/PublicKey.cxx \
+ src/microtss/TPM.cxx \
+ src/microtss/TSS.cxx \
+ src/TPMManager.cxx \
+ src/PasswordDialog.cxx
 RESOURCES += ui/resources.qrc
 TEMPLATE = app
 UI_DIR = build

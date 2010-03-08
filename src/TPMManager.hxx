@@ -26,13 +26,13 @@
 #include <QDialog>
 #include <QResource>
 #include <QTimer>
-#include "ui_tpmmanagerbase.h"
+#include "ui_TPMManagerBase.h"
 
-#include <microtss/TPM.h>
-#include <microtss/TSS.h>
+#include <microtss/TPM.hxx>
+#include <microtss/TSS.hxx>
 
 /**
-* @file tpmmanager.h
+* @file TPMManager.hxx
 *
 * @brief TPM Manager Controller Class Header File
 *
