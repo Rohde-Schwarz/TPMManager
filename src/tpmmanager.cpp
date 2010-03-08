@@ -72,54 +72,54 @@ TPM_Manager::TPM_Manager( QWidget * parent, Qt::WFlags f)
   	myNokImage( ":images/images/nok.png" ),
 	myTimer()
 {
-	setupUi(this);
+    setupUi(this);
 	
-	myProgramLabel->setText( QString::fromAscii("TPM Manager V") + QString::fromAscii(VERSION) );
+    myProgramLabel->setText( QString::fromAscii("TPM Manager V") + QString::fromAscii(VERSION) );
     connect( buttonOk, SIGNAL( clicked() ), this, SLOT( close() ) );
    
-   // connect our custom slots manually
-   connect ( downloadLink, SIGNAL( linkActivated(const QString&) ), this, SLOT( slotProcessURL(const QString& ) ) );
-   connect ( perseusLink, SIGNAL( linkActivated(const QString&) ), this, SLOT( slotProcessURL(const QString& ) ) );
-   // we can connect all on_(QWidgetName)_(SIGNAL)(Arguments) slots automagically with one function call (req. Qt 4.4)
-   QMetaObject::connectSlotsByName( parent );
+    // connect our custom slots manually
+    connect ( downloadLink, SIGNAL( linkActivated(const QString&) ), this, SLOT( slotProcessURL(const QString& ) ) );
+    connect ( perseusLink, SIGNAL( linkActivated(const QString&) ), this, SLOT( slotProcessURL(const QString& ) ) );
+    // we can connect all on_(QWidgetName)_(SIGNAL)(Arguments) slots automagically with one function call (req. Qt 4.4)
+    QMetaObject::connectSlotsByName( parent );
    
-  struct stat Status;
-  /*return 0 if the file is found.
-   *return -1 if the file is not found.
-   */
-   int tpmdriver = stat( "/dev/tpm", &Status);
-   int tpm0driver = stat( "/dev/tpm0", &Status);
-   if (tpmdriver == 0 || tpm0driver == 0)
-      driverFound->setPixmap( myOkImage );
-   else
-      driverFound->setPixmap( myNokImage );
+    struct stat Status;
+    /*return 0 if the file is found.
+     *return -1 if the file is not found.
+     */
+    int tpmdriver = stat( "/dev/tpm", &Status);
+    int tpm0driver = stat( "/dev/tpm0", &Status);
+    if (tpmdriver == 0 || tpm0driver == 0)
+        driverFound->setPixmap( myOkImage );
+    else
+        driverFound->setPixmap( myNokImage );
 
-	try {
-      myTSS = new TSS;
-		myTPM = new TPM( myTSS->getContextHandle() );
+    try {
+        myTSS = new TSS;
+        myTPM = new TPM( myTSS->getContextHandle() );
 
-      tssFound->setPixmap( myOkImage );
+        tssFound->setPixmap( myOkImage );
 
-		if ( myTPM->isDisabled() && !myTPM->hasOwner() )
-		  QMessageBox::information( this, "TPM Not Functional", "The TPM is disabled and no owner is set. You have to enable the TPM in the BIOS to use the functions of the TPM, e.g., to take ownership.\n" );
-	} 
-	catch ( TPMDriverNotFound &e ) {
-		cout << e.what() << endl;
-		driverFound->setPixmap( myNokImage );
-		tssFound->setPixmap( myUnknownImage );
-	}
-	catch ( TSSSystemNotFound &e ) {
-		cout << e.what() << endl;
-		QMessageBox::information( this, "Error: No TSS found", "A TCG Software Stack (TSS) could not be found. When using TrouSerS, make sure the TrouSerS daemon (tcsd) is running.\nMost functionality will be disabled." );
-		listBox->setEnabled(false);
-	}
+        if ( myTPM->isDisabled() && !myTPM->hasOwner() ) {
+            QMessageBox::critical( this, "TPM Not Functional", "The TPM is disabled and no TPM Owner is set. You have to enable the TPM in the BIOS to use the functions of the TPM, e.g., to take ownership.\n" );
+        }
+
+    } catch ( TPMDriverNotFound &e ) {
+        QMessageBox::critical( this, "No TPM Driver Found", "A TPM device driver could not be found.\nTPM Manager will quit." );
+        driverFound->setPixmap( myNokImage );
+        tssFound->setPixmap( myUnknownImage );
+        exit(1);
+    } catch ( TSSSystemNotFound &e ) {
+        QMessageBox::critical( this, "No TSS Found", "A TCG Software Stack (TSS) could not be found. When using TrouSerS, make sure the TrouSerS daemon (tcsd) is running.\nTPM Manager will quit." );
+        exit(1);
+    }
 	
-	// Init status & first view
-	initStatusGroup();
-	initStatus();
-	// let the PCRs update every second..
-	connect( &myTimer, SIGNAL( timeout() ), this, SLOT( slotUpdatePCRs() ) );
-	myTimer.start( 1000 );
+    // Init status & first view
+    initStatusGroup();
+    initStatus();
+    // let the PCRs update every second..
+    connect( &myTimer, SIGNAL( timeout() ), this, SLOT( slotUpdatePCRs() ) );
+    myTimer.start( 1000 );
 }
 
 TPM_Manager::~TPM_Manager()
@@ -465,11 +465,9 @@ void TPM_Manager::on_myTakeOwnership_clicked()
 	
 		QMessageBox::information( this, "Taking Ownership" , "TPM owner successfully created."  );
 	
-	} catch ( IsDeactivatedError &e )
-	{
-		QMessageBox::critical( this, "Error: Taking Ownership" , "Sorry. Could not Take Ownership in deactivated mode due to TSS bug. " );
-        } catch ( UnknownError &e )
-        {
+        } catch ( IsDeactivatedError &e ) {
+            QMessageBox::critical( this, "Error: Taking Ownership" , "Sorry. Could not Take Ownership in deactivated mode due to TSS bug. " );
+        } catch ( UnknownError &e ) {
             QMessageBox::critical( this, "Error: Taking Ownership" , QString( "Could not Take Ownership for the following reason: " ).append( QString::fromStdString( e.what() ) ) );
         }
 
@@ -786,7 +784,6 @@ void TPM_Manager::on_myDisable_clicked()
 		}
 	}
 	// refresh TPM status view & options
-	cout << "TPM_Manager::onMyDisable_clicked(): Refreshing status views." << endl;
 	initStatusGroup();
 	initStatus();
 	initOperationalModes();
