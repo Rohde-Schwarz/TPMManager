@@ -74,7 +74,7 @@ TPM_Manager::TPM_Manager( QWidget * parent, Qt::WFlags f)
 {
     setupUi(this);
 	
-    myProgramLabel->setText( QString::fromAscii("TPM Manager V") + QString::fromAscii(VERSION) );
+    myProgramLabel->setText( QString::fromAscii("TPM Manager v") + QString::fromAscii(VERSION) );
     connect( buttonOk, SIGNAL( clicked() ), this, SLOT( close() ) );
    
     // connect our custom slots manually
