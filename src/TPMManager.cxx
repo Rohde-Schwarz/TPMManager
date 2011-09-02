@@ -409,7 +409,7 @@ void TPM_Manager::slotUpdatePCRs()
 
 void TPM_Manager::slotProcessURL( const QString& url )
 {
-	QUrl myURL = QUrl::QUrl(url, QUrl::StrictMode);
+	QUrl myURL(url, QUrl::StrictMode);
 	if ( !( QDesktopServices::openUrl(myURL) ) )
 		QMessageBox::critical( this, "Error: Opening a URL", "Could not open your favourite browser. " );
 }
