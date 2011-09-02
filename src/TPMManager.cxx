@@ -74,7 +74,7 @@ TPM_Manager::TPM_Manager( QWidget * parent, Qt::WFlags f)
 {
     setupUi(this);
 	
-    myProgramLabel->setText( QString::fromAscii("TPM Manager V") + QString::fromAscii(VERSION) );
+    myProgramLabel->setText( QString::fromAscii("TPM Manager v") + QString::fromAscii(VERSION) );
     connect( buttonOk, SIGNAL( clicked() ), this, SLOT( close() ) );
    
     // connect our custom slots manually
@@ -409,7 +409,7 @@ void TPM_Manager::slotUpdatePCRs()
 
 void TPM_Manager::slotProcessURL( const QString& url )
 {
-	QUrl myURL = QUrl::QUrl(url, QUrl::StrictMode);
+	QUrl myURL(url, QUrl::StrictMode);
 	if ( !( QDesktopServices::openUrl(myURL) ) )
 		QMessageBox::critical( this, "Error: Opening a URL", "Could not open your favourite browser. " );
 }
