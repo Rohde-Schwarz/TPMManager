@@ -1,7 +1,32 @@
 # TPM Manager
 
 The goal of this project is to provide a TPM management software with an easy-to-use graphical user interface.
-The TPM Manager will be developed under Linux, but later releases should be usable with all operating systems providing a TSS API.
+The TPM Manager targets Linux, but later releases should be usable with all operating systems providing a TSS API.
+
+## Features
+
+* TPM State
+ * Show TPM state
+ * Show TPM & TSS vendor info
+ * Show TPM capabilities
+ * Show Platform Configuration Registers (PCRs)
+* TPM Owner Settings
+ * Take ownership
+ * Change owner password
+ * Change Storage Root Key (SRK) password
+ * Factory reset
+ * Create maintenance backup*
+* TPM Settings
+ * Temporarily deactivate
+ * Permanently disable
+ * Manage Endorsement Key (EK)
+ * Perform TPM selftest
+ * Show Endorsement Key (EK)
+* Advanced Settings
+ * Disable maintenance feature*
+ * Delete Endorsement Key (EK)*
+
+* Requires support by TPM
 
 ![Screenshot](http://i.imgur.com/OwXH1Ye.png)
 
