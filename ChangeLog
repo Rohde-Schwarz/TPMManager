@@ -1,0 +1,5 @@
+v0.8.1
+
+* Handle empty selection in SRK password dialog correctly
+* Disable SRK password change while TPM unowned
+* Catch unknown TPM errors 
