@@ -24,7 +24,7 @@ sudo apt-get install build-essential libtspi-dev libqt4-dev
 To use the features of the TPM Manager you need a running TrouSerS daemon.
 The TPM Manager has been successfully compiled under Qt version 4.8.1. 
 
-## Installation and Configuration
+## Building
 
 This package is built using Qt's qmake. qmake automatically generates a makefile from the Qt project file.
 
@@ -33,20 +33,18 @@ qmake-qt4
 make
 ```
 
-## Usage
+## Installation
 
 Make will create the TPM Manager application binary in the bin/ subdirectory.
 You can start TPM Manager right from the /bin subdirectory or
 you can run `install` to install TPM Manager in default binary path of your system.
-To start TPM Manager, type tpmmanager on terminal or simply double-click the application icon in your file manager.
 
 ```bash
-bin/tpmmanager
+# install to /usr/local/bin
+sudo install bin/tpmmanager /usr/local/bin
 ```
 
-```bash
-install bin/tpmmanager /path/to/install/directory // e.g., "install bin/tpmmanager /usr/local/bin"
-tpmmanager
-```
+## Usage
 
+To start TPM Manager, type `tpmmanager` on your terminal or simply double-click the application icon in your file manager.
 You may also add TPM Manager to your Application starter menu, e.g., in Gnome or KDE.
