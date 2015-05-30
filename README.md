@@ -20,6 +20,11 @@ Install the following packages on a Debian-based Linux, e.g., Ubuntu Linux:
 ```bash
 sudo apt-get install build-essential libtspi-dev libqt4-dev
 ```
+For a Fedora based Linux install the following packages:
+
+```bash
+sudo yum install make automake gcc gcc-c++ qt-devel trousers-devel
+```
 
 To use the features of the TPM Manager you need a running TrouSerS daemon.
 The TPM Manager has been successfully compiled under Qt version 4.8.1. 
