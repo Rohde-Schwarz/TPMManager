@@ -15,7 +15,7 @@ The TPM Manager targets Linux, but later releases should be usable with all oper
  * Change owner password
  * Change Storage Root Key (SRK) password
  * Factory reset
- * Create maintenance backup*
+ * Create maintenance backup (*)
 * TPM Settings
  * Temporarily deactivate
  * Permanently disable
@@ -23,10 +23,10 @@ The TPM Manager targets Linux, but later releases should be usable with all oper
  * Perform TPM selftest
  * Show Endorsement Key (EK)
 * Advanced Settings
- * Disable maintenance feature*
- * Delete Endorsement Key (EK)*
+ * Disable maintenance feature (*)
+ * Delete Endorsement Key (EK) (*)
 
-* Requires support by TPM
+(*) Requires support by TPM
 
 ![Screenshot](http://i.imgur.com/OwXH1Ye.png)
 
