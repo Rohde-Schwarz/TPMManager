@@ -22,7 +22,7 @@ INCLUDEPATH += . microtss src
 LIBS += -ltspi
 MOC_DIR = build
 OBJECTS_DIR = build
-QT = core gui
+QT += core gui widgets
 SOURCES = src/NewPasswordDialog.cxx \
  src/PublicKeyView.cxx \
  src/SetSRKView.cxx \
