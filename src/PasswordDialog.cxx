@@ -32,7 +32,7 @@
 
 using namespace std;
 
-PasswordDialog::PasswordDialog( QWidget * parent, Qt::WFlags f) 
+PasswordDialog::PasswordDialog( QWidget * parent, Qt::WindowFlags f) 
 	: QDialog(parent, f)
 {
 	setupUi(this);

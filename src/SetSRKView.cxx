@@ -34,7 +34,7 @@
 
 using namespace std;
 
-SetSRKView::SetSRKView( QWidget * parent, Qt::WFlags f) 
+SetSRKView::SetSRKView( QWidget * parent, Qt::WindowFlags f) 
 	: QDialog(parent, f),
 	myManuallySRKRadioButton(false),
 	myDefaultSRKRadioButton(false)
