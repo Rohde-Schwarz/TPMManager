@@ -37,7 +37,7 @@ On some linux distributions you have to install the developer version of Qt to h
 
 Requirements to build the TPM Manager: 
 
-* Qt5 (>= 5.15.3) (http://qt.io)
+* Qt5 (Builds under 5.15.3) (http://qt.io)
 * TrouSerS (http://trousers.sourceforge.net/)
 
 Install the following packages on a Debian-based Linux, e.g., Ubuntu Linux:
