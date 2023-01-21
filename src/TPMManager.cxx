@@ -63,7 +63,7 @@
 using namespace std;
 using namespace microtss;
 
-TPM_Manager::TPM_Manager( QWidget * parent, Qt::WFlags f) 
+TPM_Manager::TPM_Manager( QWidget * parent, Qt::WindowFlags f) 
 	: QDialog(parent, f), 
 	myTSS( 0 ),
   	myTPM( 0 ),
@@ -74,7 +74,7 @@ TPM_Manager::TPM_Manager( QWidget * parent, Qt::WFlags f)
 {
     setupUi(this);
 	
-    myProgramLabel->setText( QString::fromAscii("TPM Manager v") + QString::fromAscii(VERSION) );
+    myProgramLabel->setText( QString::fromLatin1("TPM Manager v") + QString::fromLatin1(VERSION) );
     connect( buttonOk, SIGNAL( clicked() ), this, SLOT( close() ) );
    
     // connect our custom slots manually

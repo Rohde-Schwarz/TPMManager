@@ -59,7 +59,7 @@ public:
 	* @return New TPM_Manager instance
 	*
 	*/
-	TPM_Manager( QWidget * parent = 0, Qt::WFlags f = 0 );
+	TPM_Manager( QWidget * parent = 0, Qt::WindowFlags f = 0 );
 	
 	/**
 	* @brief Default destructor

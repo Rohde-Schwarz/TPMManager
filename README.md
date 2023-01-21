@@ -37,7 +37,7 @@ On some linux distributions you have to install the developer version of Qt to h
 
 Requirements to build the TPM Manager: 
 
-* Qt4 (>= 4.4) (http://qt.io)
+* Qt5 (Builds under 5.15.3) (http://qt.io)
 * TrouSerS (http://trousers.sourceforge.net/)
 
 Install the following packages on a Debian-based Linux, e.g., Ubuntu Linux:
@@ -59,7 +59,7 @@ The TPM Manager has been successfully compiled under Qt version 4.8.1.
 This package is built using Qt's qmake. qmake automatically generates a makefile from the Qt project file.
 
 ```bash
-qmake-qt4
+qmake-qt5
 make
 ```
 

@@ -29,7 +29,7 @@
 
 #include "NewPasswordDialog.hxx"
 
-NewPasswordDialog::NewPasswordDialog( QWidget * parent, Qt::WFlags f) 
+NewPasswordDialog::NewPasswordDialog( QWidget * parent, Qt::WindowFlags f) 
 	: QDialog(parent, f)
 {
 	setupUi(this);

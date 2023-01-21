@@ -35,7 +35,7 @@
 using namespace std;
 using namespace microtss;
 
-PublicKeyView::PublicKeyView( QWidget * parent, Qt::WFlags f) 
+PublicKeyView::PublicKeyView( QWidget * parent, Qt::WindowFlags f) 
 	: QDialog(parent, f)
 {
 	setupUi(this);
