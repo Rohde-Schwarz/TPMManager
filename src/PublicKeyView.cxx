@@ -49,7 +49,7 @@ void PublicKeyView::setPublicKey( PublicKey &pk )
 	string algo = pk.getAlgorithm();
 
 	myAlgorithm->setText( QString::fromStdString( algo ) );
-	myKeySize->setText( QString::fromStdString( pk.getKeySize( algo ) ) );
+	myKeySize->setText( QString::fromStdString( pk.getKeySize() ) );
 	myEncScheme->setText( QString::fromStdString( pk.getEncryptionScheme() ) );
 	mySigScheme->setText( QString::fromStdString( pk.getSignatureScheme() ) );
 }

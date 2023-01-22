@@ -56,7 +56,7 @@ public:
 	* @return New SetSRKView instance
 	*
 	*/
-	SetSRKView( QWidget * parent = 0, Qt::WindowFlags f = 0 );
+	SetSRKView( QWidget * parent = 0, Qt::WindowFlags f = QFlag( 0 ) );
 	
 	/**
 	* @brief Default destructor

@@ -58,7 +58,7 @@
 
 #include "TPMManager.hxx"
 
-#define VERSION "0.8.1"
+#define VERSION "0.9.0"
 //
 using namespace std;
 using namespace microtss;
@@ -79,7 +79,6 @@ TPM_Manager::TPM_Manager( QWidget * parent, Qt::WindowFlags f)
    
     // connect our custom slots manually
     connect ( downloadLink, SIGNAL( linkActivated(const QString&) ), this, SLOT( slotProcessURL(const QString& ) ) );
-    connect ( perseusLink, SIGNAL( linkActivated(const QString&) ), this, SLOT( slotProcessURL(const QString& ) ) );
     // we can connect all on_(QWidgetName)_(SIGNAL)(Arguments) slots automagically with one function call (req. Qt 4.4)
     QMetaObject::connectSlotsByName( parent );
    

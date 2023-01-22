@@ -55,7 +55,7 @@ public:
 	* @param endorsementKeyHandle Handle of the Endorsement Key
 	*
 	*/
-    PublicKey( const TSS_HKEY	&endorsementKeyHandle );
+    PublicKey( const TSS_HKEY &endorsementKeyHandle );
 
 	/**
 	* @brief Default destructor
@@ -109,7 +109,7 @@ public:
 	* @return key size of public key (in bits)
 	*
 	*/
-	const std::string getKeySize( std::string algorithm );
+	const std::string getKeySize();
 
 	 
 protected:

@@ -56,7 +56,7 @@ public:
 	* @return New PublicKeyView instance
 	*
 	*/
-	PublicKeyView( QWidget * parent = 0, Qt::WindowFlags f = 0);
+	PublicKeyView( QWidget * parent = 0, Qt::WindowFlags f = QFlag( 0 ) );
 	
 	/**
 	* @brief Default destructor
