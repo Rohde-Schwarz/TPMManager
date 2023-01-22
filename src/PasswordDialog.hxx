@@ -55,7 +55,7 @@ public:
 	* @return New PasswordDialog instance
 	*
 	*/
-	PasswordDialog( QWidget * parent = 0, Qt::WindowFlags f = 0 );
+	PasswordDialog( QWidget * parent = 0, Qt::WindowFlags f = QFlag( 0 ) );
 	
 	/**
 	* @brief Default destructor

@@ -32,8 +32,8 @@ The TPM Manager targets Linux, but later releases should be usable with all oper
 
 ## Requirements
 
-Since the TPM Manager is based entirely on the Qt UI framework, corresponding header and library ﬁles Qt4 should be in the library path.
-On some linux distributions you have to install the developer version of Qt to have the header files used by TPM Manager.
+Since the TPM Manager is based entirely on the Qt UI framework, corresponding Qt header and library ﬁles should be in the library path.
+On some Linux distributions you have to install the developer version of Qt to have the header files used by TPM Manager.
 
 Requirements to build the TPM Manager: 
 
@@ -43,23 +43,22 @@ Requirements to build the TPM Manager:
 Install the following packages on a Debian-based Linux, e.g., Ubuntu Linux:
 
 ```bash
-sudo apt-get install build-essential libtspi-dev libqt4-dev
+sudo apt-get install build-essential libtspi-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
 ```
 For a Fedora based Linux install the following packages:
 
 ```bash
-sudo yum install make automake gcc gcc-c++ qt-devel trousers-devel
+sudo dnf install make automake gcc gcc-c++ qt5-qtbase-devel trousers-devel
 ```
 
 To use the features of the TPM Manager you need a running TrouSerS daemon.
-The TPM Manager has been successfully compiled under Qt version 4.8.1. 
 
 ## Building
 
 This package is built using Qt's qmake. qmake automatically generates a makefile from the Qt project file.
 
 ```bash
-qmake-qt5
+qmake-qt5 (or simply: qmake)
 make
 ```
 

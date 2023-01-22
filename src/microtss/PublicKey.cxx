@@ -244,7 +244,7 @@ const string PublicKey::getSignatureScheme()
 	return sigscheme;
 }
 
-const string PublicKey::getKeySize( string algorithm )
+const string PublicKey::getKeySize()
 {	
 	TSS_RESULT result;
 	UINT32	  attributeSize;
