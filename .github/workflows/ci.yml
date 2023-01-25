@@ -1,0 +1,15 @@
+name: ci
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: apt-get install build-essential libtspi-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Run qmake
+        run: qmake
+      - name: Build
+        run: make
